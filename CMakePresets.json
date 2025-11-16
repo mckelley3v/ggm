@@ -1,0 +1,206 @@
+﻿{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "system-base",
+      "hidden": true,
+      "binaryDir": "${sourceDir}/!build/${presetName}",
+      "installDir": "${sourceDir}/!install/${presetName}"
+    },
+    {
+      "name": "x64-base",
+      "hidden": true,
+      "architecture": {
+        "value": "x64",
+        "strategy": "external"
+      }
+    },
+    {
+      "name": "windows-base",
+      "inherits": "system-base",
+      "hidden": true,
+      "generator": "Ninja",
+      "environment": {
+        "GGM_WINDOWS_CXX_FLAGS": "/DWIN32_LEAN_AND_MEAN /DNOMINMAX"
+      },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      }
+    },
+    {
+      "name": "linux-base",
+      "inherits": "system-base",
+      "hidden": true,
+      "generator": "Ninja",
+      "environment": {
+        "GGM_LINUX_CXX_FLAGS": ""
+      },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Linux"
+      }
+    },
+    {
+      "name": "macos-base",
+      "inherits": "system-base",
+      "hidden": true,
+      "generator": "Ninja",
+      "environment": {
+        "GGM_MACOS_CXX_FLAGS": ""
+      },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Darwin"
+      }
+    },
+    {
+      "name": "msvc-base",
+      "hidden": true,
+      "environment": {
+        "GGM_WARNING_FLAGS": "/W4 /WX",
+        "GGM_MSVC_CXX_FLAGS": "/permissive- /EHsc /MP /Zc:inline /Zc:preprocessor /fp:precise /FC /diagnostics:caret /D_CRT_SECURE_NO_WARNINGS"
+      },
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "cl.exe",
+        "CMAKE_CXX_COMPILER": "cl.exe",
+        "CMAKE_MSVC_DEBUG_INFORMATION_FORMAT": "$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>"
+      }
+    },
+    {
+      "name": "clang_cl-base",
+      "hidden": true,
+      "environment": {
+        "GGM_WARNING_FLAGS": "-Wall -Wextra -Werror -Wpedantic -Wunused-variable",
+        "GGM_CLANG_CXX_FLAGS": "/EHsc /D_CRT_SECURE_NO_WARNINGS"
+      },
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "clang-cl.exe",
+        "CMAKE_CXX_COMPILER": "clang-cl.exe"
+      }
+    },
+    {
+      "name": "clang-base",
+      "hidden": true,
+      "environment": {
+        "GGM_WARNING_FLAGS": "-Wall -Wextra -Werror -Wpedantic -Wunused-variable",
+        "GGM_CLANG_CXX_FLAGS": ""
+      },
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "clang",
+        "CMAKE_CXX_COMPILER": "clang++"
+      }
+    },
+    {
+      "name": "msvc-x64-debug",
+      "displayName": "msvc-x64-debug",
+      "inherits": [ "windows-base", "msvc-base", "x64-base" ],
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_FLAGS": "$env{GGM_WINDOWS_CXX_FLAGS} $env{GGM_MSVC_CXX_FLAGS} /Od"
+      }
+    },
+    {
+      "name": "msvc-x64-develop",
+      "displayName": "msvc-x64-develop",
+      "inherits": [ "windows-base", "msvc-base", "x64-base" ],
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+        "CMAKE_CXX_FLAGS": "$env{GGM_WINDOWS_CXX_FLAGS} $env{GGM_MSVC_CXX_FLAGS} /O2 /DNDEBUG"
+      }
+    },
+    {
+      "name": "msvc-x64-release",
+      "displayName": "msvc-x64-release",
+      "inherits": [ "windows-base", "msvc-base", "x64-base" ],
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_CXX_FLAGS": "$env{GGM_WINDOWS_CXX_FLAGS} $env{GGM_MSVC_CXX_FLAGS} /O2 /GL /DNDEBUG"
+      }
+    },
+    {
+      "name": "clang_cl-x64-debug",
+      "displayName": "clang_cl-x64-debug",
+      "inherits": [ "windows-base", "clang_cl-base", "x64-base" ],
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_FLAGS": "$env{GGM_WINDOWS_CXX_FLAGS} $env{GGM_CLANG_CXX_FLAGS} /Od"
+      }
+    },
+    {
+      "name": "clang_cl-x64-develop",
+      "displayName": "clang_cl-x64-develop",
+      "inherits": [ "windows-base", "clang_cl-base", "x64-base" ],
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+        "CMAKE_CXX_FLAGS": "$env{GGM_WINDOWS_CXX_FLAGS} $env{GGM_CLANG_CXX_FLAGS} /O2 /DNDEBUG"
+      }
+    },
+    {
+      "name": "clang_cl-x64-release",
+      "displayName": "clang_cl-x64-release",
+      "inherits": [ "windows-base", "clang_cl-base", "x64-base" ],
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_CXX_FLAGS": "$env{GGM_WINDOWS_CXX_FLAGS} $env{GGM_CLANG_CXX_FLAGS} /O2 /GL /DNDEBUG"
+      }
+    },
+    {
+      "name": "clang-linux-debug",
+      "displayName": "clang-linux-debug",
+      "inherits": [ "linux-base", "clang-base" ],
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_FLAGS": "$env{GGM_LINUX_CXX_FLAGS} $env{GGM_CLANG_CXX_FLAGS} -O0 -g"
+      }
+    },
+    {
+      "name": "clang-linux-develop",
+      "displayName": "clang-linux-develop",
+      "inherits": [ "linux-base", "clang-base" ],
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+        "CMAKE_CXX_FLAGS": "$env{GGM_LINUX_CXX_FLAGS} $env{GGM_CLANG_CXX_FLAGS} -O2 -DNDEBUG"
+      }
+    },
+    {
+      "name": "clang-linux-release",
+      "displayName": "clang-linux-release",
+      "inherits": [ "linux-base", "clang-base" ],
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_CXX_FLAGS": "$env{GGM_LINUX_CXX_FLAGS} $env{GGM_CLANG_CXX_FLAGS} -O3 -DNDEBUG"
+      }
+    },
+    {
+      "name": "clang-macos-debug",
+      "displayName": "clang-macos-debug",
+      "inherits": [ "macos-base", "clang-base" ],
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_FLAGS": "$env{GGM_MACOS_CXX_FLAGS} $env{GGM_CLANG_CXX_FLAGS} -O0 -g"
+      }
+    },
+    {
+      "name": "clang-macos-develop",
+      "displayName": "clang-macos-develop",
+      "inherits": [ "macos-base", "clang-base" ],
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+        "CMAKE_CXX_FLAGS": "$env{GGM_MACOS_CXX_FLAGS} $env{GGM_CLANG_CXX_FLAGS} -O2 -DNDEBUG"
+      }
+    },
+    {
+      "name": "clang-macos-release",
+      "displayName": "clang-macos-release",
+      "inherits": [ "macos-base", "clang-base" ],
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_CXX_FLAGS": "$env{GGM_MACOS_CXX_FLAGS} $env{GGM_CLANG_CXX_FLAGS} -O3 -DNDEBUG"
+      }
+    }
+  ]
+}
