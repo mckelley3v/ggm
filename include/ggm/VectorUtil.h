@@ -43,17 +43,17 @@
 ///
 /// Syntax            | Description
 /// ------            | -----------
-/// s = v.X;          | get vector's X element
-/// s = v.Y;          | get vector's Y element
-/// s = v.Z;          | get vector's Z element
-/// s = v.W;          | get vector's W element
+/// s = v.x;          | get vector's x element
+/// s = v.y;          | get vector's y element
+/// s = v.z;          | get vector's z element
+/// s = v.w;          | get vector's w element
 /// s = v[i];         | get vector's i(th) element via index
 /// itr = begin(v);   | begin iterator
 /// itr = end(v);     | end iterator
 /// for (s : v) {...} | range-based for loop
 ///
 /// functions:
-/// --------------------
+/// ----------
 ///
 /// Syntax                      | Description
 /// ------                      | -----------
@@ -87,7 +87,7 @@
 /// u = trunc(v);               | element-wise trunc
 ///
 /// comparisons:
-/// -----------------------
+/// ------------
 ///
 /// Syntax                         | Description
 /// ------                         | -----------
@@ -314,7 +314,7 @@ namespace ggm
                                     T const &           rhs) noexcept;
 
     /// @relates Vector2D
-    /// @brief element-wise multiplication
+    /// element-wise multiplication
     template <typename T>
     constexpr Vector2D<T> operator*(Vector2D<T> const & lhs,
                                     Vector2D<T> const & rhs) noexcept;
@@ -332,7 +332,7 @@ namespace ggm
                                     T const &           rhs) noexcept;
 
     /// @relates Vector3D
-    /// @brief element-wise multiplication
+    /// element-wise multiplication
     template <typename T>
     constexpr Vector3D<T> operator*(Vector3D<T> const & lhs,
                                     Vector3D<T> const & rhs) noexcept;
@@ -350,7 +350,7 @@ namespace ggm
                                     T const &           rhs) noexcept;
 
     /// @relates Vector4D
-    /// @brief element-wise multiplication
+    /// element-wise multiplication
     template <typename T>
     constexpr Vector4D<T> operator*(Vector4D<T> const & lhs,
                                     Vector4D<T> const & rhs) noexcept;
@@ -363,7 +363,7 @@ namespace ggm
     constexpr Vector2D<T> operator/(Vector2D<T> const & lhs,
                                     T const &           rhs) noexcept;
 
-    /// @brief element-wise division
+    /// element-wise division
     /// @relates Vector2D
     template <typename T>
     constexpr Vector2D<T> operator/(Vector2D<T> const & lhs,
@@ -375,7 +375,7 @@ namespace ggm
     constexpr Vector3D<T> operator/(Vector3D<T> const & lhs,
                                     T const &           rhs) noexcept;
 
-    /// @brief element-wise division
+    /// element-wise division
     /// @relates Vector3D
     template <typename T>
     constexpr Vector3D<T> operator/(Vector3D<T> const & lhs,
@@ -387,11 +387,51 @@ namespace ggm
     constexpr Vector4D<T> operator/(Vector4D<T> const & lhs,
                                     T const &           rhs) noexcept;
 
-    /// @brief element-wise division
+    /// element-wise division
     /// @relates Vector4D
     template <typename T>
     constexpr Vector4D<T> operator/(Vector4D<T> const & lhs,
                                     Vector4D<T> const & rhs) noexcept;
+
+    // =============================================================================
+
+    /// vector equality
+    /// @relates Vector2D
+    template <typename T>
+    constexpr bool operator==(Vector2D<T> const & lhs,
+                              Vector2D<T> const & rhs) noexcept;
+
+    /// vector equality
+    /// @relates Vector3D
+    template <typename T>
+    constexpr bool operator==(Vector3D<T> const & lhs,
+                              Vector3D<T> const & rhs) noexcept;
+
+    /// vector equality
+    /// @relates Vector4D
+    template <typename T>
+    constexpr bool operator==(Vector4D<T> const & lhs,
+                              Vector4D<T> const & rhs) noexcept;
+
+    // =============================================================================
+
+    /// vector inequality
+    /// @relates Vector2D
+    template <typename T>
+    constexpr bool operator!=(Vector2D<T> const & lhs,
+                              Vector2D<T> const & rhs) noexcept;
+
+    /// vector inequality
+    /// @relates Vector3D
+    template <typename T>
+    constexpr bool operator!=(Vector3D<T> const & lhs,
+                              Vector3D<T> const & rhs) noexcept;
+
+    /// vector inequality
+    /// @relates Vector4D
+    template <typename T>
+    constexpr bool operator!=(Vector4D<T> const & lhs,
+                              Vector4D<T> const & rhs) noexcept;
 
     // =============================================================================
     // element access:
@@ -1238,8 +1278,8 @@ template <typename T>
 constexpr ggm::Vector2D<T> & ggm::operator+=(Vector2D<T> &       lhs,
                                              Vector2D<T> const & rhs) noexcept
 {
-    lhs.X += rhs.X;
-    lhs.Y += rhs.Y;
+    lhs.x += rhs.x;
+    lhs.y += rhs.y;
     return lhs;
 }
 
@@ -1249,9 +1289,9 @@ template <typename T>
 constexpr ggm::Vector3D<T> & ggm::operator+=(Vector3D<T> &       lhs,
                                              Vector3D<T> const & rhs) noexcept
 {
-    lhs.X += rhs.X;
-    lhs.Y += rhs.Y;
-    lhs.Z += rhs.Z;
+    lhs.x += rhs.x;
+    lhs.y += rhs.y;
+    lhs.z += rhs.z;
     return lhs;
 }
 
@@ -1261,10 +1301,10 @@ template <typename T>
 constexpr ggm::Vector4D<T> & ggm::operator+=(Vector4D<T> &       lhs,
                                              Vector4D<T> const & rhs) noexcept
 {
-    lhs.X += rhs.X;
-    lhs.Y += rhs.Y;
-    lhs.Z += rhs.Z;
-    lhs.W += rhs.W;
+    lhs.x += rhs.x;
+    lhs.y += rhs.y;
+    lhs.z += rhs.z;
+    lhs.w += rhs.w;
     return lhs;
 }
 
@@ -1274,8 +1314,8 @@ template <typename T>
 constexpr ggm::Vector2D<T> & ggm::operator-=(Vector2D<T> &       lhs,
                                              Vector2D<T> const & rhs) noexcept
 {
-    lhs.X -= rhs.X;
-    lhs.Y -= rhs.Y;
+    lhs.x -= rhs.x;
+    lhs.y -= rhs.y;
     return lhs;
 }
 
@@ -1285,9 +1325,9 @@ template <typename T>
 constexpr ggm::Vector3D<T> & ggm::operator-=(Vector3D<T> &       lhs,
                                              Vector3D<T> const & rhs) noexcept
 {
-    lhs.X -= rhs.X;
-    lhs.Y -= rhs.Y;
-    lhs.Z -= rhs.Z;
+    lhs.x -= rhs.x;
+    lhs.y -= rhs.y;
+    lhs.z -= rhs.z;
     return lhs;
 }
 
@@ -1297,10 +1337,10 @@ template <typename T>
 constexpr ggm::Vector4D<T> & ggm::operator-=(Vector4D<T> &       lhs,
                                              Vector4D<T> const & rhs) noexcept
 {
-    lhs.X -= rhs.X;
-    lhs.Y -= rhs.Y;
-    lhs.Z -= rhs.Z;
-    lhs.W -= rhs.W;
+    lhs.x -= rhs.x;
+    lhs.y -= rhs.y;
+    lhs.z -= rhs.z;
+    lhs.w -= rhs.w;
     return lhs;
 }
 
@@ -1310,8 +1350,8 @@ template <typename T>
 constexpr ggm::Vector2D<T> & ggm::operator*=(Vector2D<T> & lhs,
                                              T const &     rhs) noexcept
 {
-    lhs.X *= rhs;
-    lhs.Y *= rhs;
+    lhs.x *= rhs;
+    lhs.y *= rhs;
     return lhs;
 }
 
@@ -1321,8 +1361,8 @@ template <typename T>
 constexpr ggm::Vector2D<T> & ggm::operator*=(Vector2D<T> &       lhs,
                                              Vector2D<T> const & rhs) noexcept
 {
-    lhs.X *= rhs.X;
-    lhs.Y *= rhs.Y;
+    lhs.x *= rhs.x;
+    lhs.y *= rhs.y;
     return lhs;
 }
 
@@ -1332,9 +1372,9 @@ template <typename T>
 constexpr ggm::Vector3D<T> & ggm::operator*=(Vector3D<T> & lhs,
                                              T const &     rhs) noexcept
 {
-    lhs.X *= rhs;
-    lhs.Y *= rhs;
-    lhs.Z *= rhs;
+    lhs.x *= rhs;
+    lhs.y *= rhs;
+    lhs.z *= rhs;
     return lhs;
 }
 
@@ -1344,9 +1384,9 @@ template <typename T>
 constexpr ggm::Vector3D<T> & ggm::operator*=(Vector3D<T> &       lhs,
                                              Vector3D<T> const & rhs) noexcept
 {
-    lhs.X *= rhs.X;
-    lhs.Y *= rhs.Y;
-    lhs.Z *= rhs.Z;
+    lhs.x *= rhs.x;
+    lhs.y *= rhs.y;
+    lhs.z *= rhs.z;
     return lhs;
 }
 
@@ -1356,10 +1396,10 @@ template <typename T>
 constexpr ggm::Vector4D<T> & ggm::operator*=(Vector4D<T> & lhs,
                                              T const &     rhs) noexcept
 {
-    lhs.X *= rhs;
-    lhs.Y *= rhs;
-    lhs.Z *= rhs;
-    lhs.W *= rhs;
+    lhs.x *= rhs;
+    lhs.y *= rhs;
+    lhs.z *= rhs;
+    lhs.w *= rhs;
     return lhs;
 }
 
@@ -1369,10 +1409,10 @@ template <typename T>
 constexpr ggm::Vector4D<T> & ggm::operator*=(Vector4D<T> &       lhs,
                                              Vector4D<T> const & rhs) noexcept
 {
-    lhs.X *= rhs.X;
-    lhs.Y *= rhs.Y;
-    lhs.Z *= rhs.Z;
-    lhs.W *= rhs.W;
+    lhs.x *= rhs.x;
+    lhs.y *= rhs.y;
+    lhs.z *= rhs.z;
+    lhs.w *= rhs.w;
     return lhs;
 }
 
@@ -1382,8 +1422,8 @@ template <typename T>
 constexpr ggm::Vector2D<T> & ggm::operator/=(Vector2D<T> & lhs,
                                              T const &     rhs) noexcept
 {
-    lhs.X /= rhs;
-    lhs.Y /= rhs;
+    lhs.x /= rhs;
+    lhs.y /= rhs;
     return lhs;
 }
 
@@ -1393,8 +1433,8 @@ template <typename T>
 constexpr ggm::Vector2D<T> & ggm::operator/=(Vector2D<T> &       lhs,
                                              Vector2D<T> const & rhs) noexcept
 {
-    lhs.X /= rhs.X;
-    lhs.Y /= rhs.Y;
+    lhs.x /= rhs.x;
+    lhs.y /= rhs.y;
     return lhs;
 }
 
@@ -1404,9 +1444,9 @@ template <typename T>
 constexpr ggm::Vector3D<T> & ggm::operator/=(Vector3D<T> & lhs,
                                              T const &     rhs) noexcept
 {
-    lhs.X /= rhs;
-    lhs.Y /= rhs;
-    lhs.Z /= rhs;
+    lhs.x /= rhs;
+    lhs.y /= rhs;
+    lhs.z /= rhs;
     return lhs;
 }
 
@@ -1416,9 +1456,9 @@ template <typename T>
 constexpr ggm::Vector3D<T> & ggm::operator/=(Vector3D<T> &       lhs,
                                              Vector3D<T> const & rhs) noexcept
 {
-    lhs.X /= rhs.X;
-    lhs.Y /= rhs.Y;
-    lhs.Z /= rhs.Z;
+    lhs.x /= rhs.x;
+    lhs.y /= rhs.y;
+    lhs.z /= rhs.z;
     return lhs;
 }
 
@@ -1428,10 +1468,10 @@ template <typename T>
 constexpr ggm::Vector4D<T> & ggm::operator/=(Vector4D<T> & lhs,
                                              T const &     rhs) noexcept
 {
-    lhs.X /= rhs.X;
-    lhs.Y /= rhs.Y;
-    lhs.Z /= rhs.Z;
-    lhs.W /= rhs.W;
+    lhs.x /= rhs.x;
+    lhs.y /= rhs.y;
+    lhs.z /= rhs.z;
+    lhs.w /= rhs.w;
     return lhs;
 }
 
@@ -1441,10 +1481,10 @@ template <typename T>
 constexpr ggm::Vector4D<T> & ggm::operator/=(Vector4D<T> &       lhs,
                                              Vector4D<T> const & rhs) noexcept
 {
-    lhs.X /= rhs.X;
-    lhs.Y /= rhs.Y;
-    lhs.Z /= rhs.Z;
-    lhs.W /= rhs.W;
+    lhs.x /= rhs.x;
+    lhs.y /= rhs.y;
+    lhs.z /= rhs.z;
+    lhs.w /= rhs.w;
     return lhs;
 }
 
@@ -1454,8 +1494,8 @@ template <typename T>
 constexpr ggm::Vector2D<T> ggm::operator+(Vector2D<T> const & value) noexcept
 {
     return Vector2D<T>{
-        +value.X,
-        +value.Y,
+        +value.x,
+        +value.y,
     };
 }
 
@@ -1465,9 +1505,9 @@ template <typename T>
 constexpr ggm::Vector3D<T> ggm::operator+(Vector3D<T> const & value) noexcept
 {
     return Vector2D<T>{
-        +value.X,
-        +value.Y,
-        +value.Z,
+        +value.x,
+        +value.y,
+        +value.z,
     };
 }
 
@@ -1477,10 +1517,10 @@ template <typename T>
 constexpr ggm::Vector4D<T> ggm::operator+(Vector4D<T> const & value) noexcept
 {
     return Vector2D<T>{
-        +value.X,
-        +value.Y,
-        +value.Z,
-        +value.W,
+        +value.x,
+        +value.y,
+        +value.z,
+        +value.w,
     };
 }
 
@@ -1490,8 +1530,8 @@ template <typename T>
 constexpr ggm::Vector2D<T> ggm::operator-(Vector2D<T> const & value) noexcept
 {
     return Vector2D<T>{
-        -value.X,
-        -value.Y,
+        -value.x,
+        -value.y,
     };
 }
 
@@ -1501,9 +1541,9 @@ template <typename T>
 constexpr ggm::Vector3D<T> ggm::operator-(Vector3D<T> const & value) noexcept
 {
     return Vector2D<T>{
-        -value.X,
-        -value.Y,
-        -value.Z,
+        -value.x,
+        -value.y,
+        -value.z,
     };
 }
 
@@ -1513,10 +1553,10 @@ template <typename T>
 constexpr ggm::Vector4D<T> ggm::operator-(Vector4D<T> const & value) noexcept
 {
     return Vector2D<T>{
-        -value.X,
-        -value.Y,
-        -value.Z,
-        -value.W,
+        -value.x,
+        -value.y,
+        -value.z,
+        -value.w,
     };
 }
 
@@ -1527,8 +1567,8 @@ constexpr ggm::Vector2D<T> ggm::operator+(Vector2D<T> const & lhs,
                                           Vector2D<T> const & rhs) noexcept
 {
     return Vector2D<T>{
-        lhs.X + rhs.X,
-        lhs.Y + rhs.Y,
+        lhs.x + rhs.x,
+        lhs.y + rhs.y,
     };
 }
 
@@ -1539,9 +1579,9 @@ constexpr ggm::Vector3D<T> ggm::operator+(Vector3D<T> const & lhs,
                                           Vector3D<T> const & rhs) noexcept
 {
     return Vector2D<T>{
-        lhs.X + rhs.X,
-        lhs.Y + rhs.Y,
-        lhs.Z + rhs.Z,
+        lhs.x + rhs.x,
+        lhs.y + rhs.y,
+        lhs.z + rhs.z,
     };
 }
 
@@ -1552,10 +1592,10 @@ constexpr ggm::Vector4D<T> ggm::operator+(Vector4D<T> const & lhs,
                                           Vector4D<T> const & rhs) noexcept
 {
     return Vector2D<T>{
-        lhs.X + rhs.X,
-        lhs.Y + rhs.Y,
-        lhs.Z + rhs.Z,
-        lhs.W + rhs.W,
+        lhs.x + rhs.x,
+        lhs.y + rhs.y,
+        lhs.z + rhs.z,
+        lhs.w + rhs.w,
     };
 }
 
@@ -1566,8 +1606,8 @@ constexpr ggm::Vector2D<T> ggm::operator-(Vector2D<T> const & lhs,
                                           Vector2D<T> const & rhs) noexcept
 {
     return Vector2D<T>{
-        lhs.X - rhs.X,
-        lhs.Y - rhs.Y,
+        lhs.x - rhs.x,
+        lhs.y - rhs.y,
     };
 }
 
@@ -1578,9 +1618,9 @@ constexpr ggm::Vector3D<T> ggm::operator-(Vector3D<T> const & lhs,
                                           Vector3D<T> const & rhs) noexcept
 {
     return Vector2D<T>{
-        lhs.X - rhs.X,
-        lhs.Y - rhs.Y,
-        lhs.Z - rhs.Z,
+        lhs.x - rhs.x,
+        lhs.y - rhs.y,
+        lhs.z - rhs.z,
     };
 }
 
@@ -1591,10 +1631,10 @@ constexpr ggm::Vector4D<T> ggm::operator-(Vector4D<T> const & lhs,
                                           Vector4D<T> const & rhs) noexcept
 {
     return Vector2D<T>{
-        lhs.X - rhs.X,
-        lhs.Y - rhs.Y,
-        lhs.Z - rhs.Z,
-        lhs.W - rhs.W,
+        lhs.x - rhs.x,
+        lhs.y - rhs.y,
+        lhs.z - rhs.z,
+        lhs.w - rhs.w,
     };
 }
 
@@ -1605,8 +1645,8 @@ constexpr ggm::Vector2D<T> ggm::operator*(T const &           lhs,
                                           Vector2D<T> const & rhs) noexcept
 {
     return Vector2D<T>{
-        lhs * rhs.X,
-        lhs * rhs.Y,
+        lhs * rhs.x,
+        lhs * rhs.y,
     };
 }
 
@@ -1617,8 +1657,8 @@ constexpr ggm::Vector2D<T> ggm::operator*(Vector2D<T> const & lhs,
                                           T const &           rhs) noexcept
 {
     return Vector2D<T>{
-        lhs.X * rhs,
-        lhs.Y * rhs,
+        lhs.x * rhs,
+        lhs.y * rhs,
     };
 }
 
@@ -1629,8 +1669,8 @@ constexpr ggm::Vector2D<T> ggm::operator*(Vector2D<T> const & lhs,
                                           Vector2D<T> const & rhs) noexcept
 {
     return Vector2D<T>{
-        lhs.X * rhs.X,
-        lhs.Y * rhs.Y,
+        lhs.x * rhs.x,
+        lhs.y * rhs.y,
     };
 }
 
@@ -1641,9 +1681,9 @@ constexpr ggm::Vector3D<T> ggm::operator*(T const &           lhs,
                                           Vector3D<T> const & rhs) noexcept
 {
     return Vector2D<T>{
-        lhs * rhs.X,
-        lhs * rhs.Y,
-        lhs * rhs.Z,
+        lhs * rhs.x,
+        lhs * rhs.y,
+        lhs * rhs.z,
     };
 }
 
@@ -1654,9 +1694,9 @@ constexpr ggm::Vector3D<T> ggm::operator*(Vector3D<T> const & lhs,
                                           T const &           rhs) noexcept
 {
     return Vector2D<T>{
-        lhs.X * rhs,
-        lhs.Y * rhs,
-        lhs.Z * rhs,
+        lhs.x * rhs,
+        lhs.y * rhs,
+        lhs.z * rhs,
     };
 }
 
@@ -1667,9 +1707,9 @@ constexpr ggm::Vector3D<T> ggm::operator*(Vector3D<T> const & lhs,
                                           Vector3D<T> const & rhs) noexcept
 {
     return Vector2D<T>{
-        lhs.X * rhs.X,
-        lhs.Y * rhs.Y,
-        lhs.Z * rhs.Z,
+        lhs.x * rhs.x,
+        lhs.y * rhs.y,
+        lhs.z * rhs.z,
     };
 }
 
@@ -1680,10 +1720,10 @@ constexpr ggm::Vector4D<T> ggm::operator*(T const &           lhs,
                                           Vector4D<T> const & rhs) noexcept
 {
     return Vector2D<T>{
-        lhs * rhs.X,
-        lhs * rhs.Y,
-        lhs * rhs.Z,
-        lhs * rhs.W,
+        lhs * rhs.x,
+        lhs * rhs.y,
+        lhs * rhs.z,
+        lhs * rhs.w,
     };
 }
 
@@ -1694,10 +1734,10 @@ constexpr ggm::Vector4D<T> ggm::operator*(Vector4D<T> const & lhs,
                                           T const &           rhs) noexcept
 {
     return Vector2D<T>{
-        lhs.X * rhs,
-        lhs.Y * rhs,
-        lhs.Z * rhs,
-        lhs.W * rhs,
+        lhs.x * rhs,
+        lhs.y * rhs,
+        lhs.z * rhs,
+        lhs.w * rhs,
     };
 }
 
@@ -1708,10 +1748,10 @@ constexpr ggm::Vector4D<T> ggm::operator*(Vector4D<T> const & lhs,
                                           Vector4D<T> const & rhs) noexcept
 {
     return Vector2D<T>{
-        lhs.X * rhs.X,
-        lhs.Y * rhs.Y,
-        lhs.Z * rhs.Z,
-        lhs.W * rhs.W,
+        lhs.x * rhs.x,
+        lhs.y * rhs.y,
+        lhs.z * rhs.z,
+        lhs.w * rhs.w,
     };
 }
 
@@ -1722,8 +1762,8 @@ constexpr ggm::Vector2D<T> ggm::operator/(Vector2D<T> const & lhs,
                                           T const &           rhs) noexcept
 {
     return Vector2D<T>{
-        lhs.X / rhs,
-        lhs.Y / rhs,
+        lhs.x / rhs,
+        lhs.y / rhs,
     };
 }
 
@@ -1734,8 +1774,8 @@ constexpr ggm::Vector2D<T> ggm::operator/(Vector2D<T> const & lhs,
                                           Vector2D<T> const & rhs) noexcept
 {
     return Vector2D<T>{
-        lhs.X / rhs.X,
-        lhs.Y / rhs.Y,
+        lhs.x / rhs.x,
+        lhs.y / rhs.y,
     };
 }
 
@@ -1746,9 +1786,9 @@ constexpr ggm::Vector3D<T> ggm::operator/(Vector3D<T> const & lhs,
                                           T const &           rhs) noexcept
 {
     return Vector2D<T>{
-        lhs.X / rhs,
-        lhs.Y / rhs,
-        lhs.Z / rhs,
+        lhs.x / rhs,
+        lhs.y / rhs,
+        lhs.z / rhs,
     };
 }
 
@@ -1759,9 +1799,9 @@ constexpr ggm::Vector3D<T> ggm::operator/(Vector3D<T> const & lhs,
                                           Vector3D<T> const & rhs) noexcept
 {
     return Vector2D<T>{
-        lhs.X / rhs.X,
-        lhs.Y / rhs.Y,
-        lhs.Z / rhs.Z,
+        lhs.x / rhs.x,
+        lhs.y / rhs.y,
+        lhs.z / rhs.z,
     };
 }
 
@@ -1772,10 +1812,10 @@ constexpr ggm::Vector4D<T> ggm::operator/(Vector4D<T> const & lhs,
                                           T const &           rhs) noexcept
 {
     return Vector2D<T>{
-        lhs.X / rhs,
-        lhs.Y / rhs,
-        lhs.Z / rhs,
-        lhs.W / rhs,
+        lhs.x / rhs,
+        lhs.y / rhs,
+        lhs.z / rhs,
+        lhs.w / rhs,
     };
 }
 
@@ -1786,11 +1826,77 @@ constexpr ggm::Vector4D<T> ggm::operator/(Vector4D<T> const & lhs,
                                           Vector4D<T> const & rhs) noexcept
 {
     return Vector2D<T>{
-        lhs.X / rhs.X,
-        lhs.Y / rhs.Y,
-        lhs.Z / rhs.Z,
-        lhs.W / rhs.W,
+        lhs.x / rhs.x,
+        lhs.y / rhs.y,
+        lhs.z / rhs.z,
+        lhs.w / rhs.w,
     };
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr bool ggm::operator==(Vector2D<T> const & lhs,
+                               Vector2D<T> const & rhs) noexcept
+{
+    return (lhs.x == rhs.x) &&
+           (lhs.y == rhs.y);
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr bool ggm::operator==(Vector3D<T> const & lhs,
+                               Vector3D<T> const & rhs) noexcept
+{
+    return (lhs.x == rhs.x) &&
+           (lhs.y == rhs.y) &&
+           (lhs.z == rhs.z);
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr bool ggm::operator==(Vector4D<T> const & lhs,
+                               Vector4D<T> const & rhs) noexcept
+{
+    return (lhs.x == rhs.x) &&
+           (lhs.y == rhs.y) &&
+           (lhs.z == rhs.z) &&
+           (lhs.w == rhs.w);
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr bool ggm::operator!=(Vector2D<T> const & lhs,
+                               Vector2D<T> const & rhs) noexcept
+{
+    return (lhs.x != rhs.x) ||
+           (lhs.y != rhs.y);
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr bool ggm::operator!=(Vector3D<T> const & lhs,
+                               Vector3D<T> const & rhs) noexcept
+{
+    return (lhs.x != rhs.x) ||
+           (lhs.y != rhs.y) ||
+           (lhs.z != rhs.z);
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr bool ggm::operator!=(Vector4D<T> const & lhs,
+                               Vector4D<T> const & rhs) noexcept
+{
+    return (lhs.x != rhs.x) ||
+           (lhs.y != rhs.y) ||
+           (lhs.z != rhs.z) ||
+           (lhs.w != rhs.w);
 }
 
 // =============================================================================
@@ -1804,13 +1910,13 @@ constexpr T * ggm::begin(Vector2D<T> & value) noexcept
     static_assert(sizeof(Vector2D<T>) == sizeof(T[2]),
                   "Implementing begin(Vector2D) by interpreting as array requires Vector2D to have the same sizeof as T[2]");
 
-    static_assert(offsetof(Vector2D<T>, X) == 0 * sizeof(T),
-                  "Implementing begin(Vector2D) by interpreting as array requires offsetof X to match array layout");
+    static_assert(offsetof(Vector2D<T>, x) == 0 * sizeof(T),
+                  "Implementing begin(Vector2D) by interpreting as array requires offsetof x to match array layout");
 
-    static_assert(offsetof(Vector2D<T>, Y) == 1 * sizeof(T),
-                  "Implementing begin(Vector2D) by interpreting as array requires offsetof Y to match array layout");
+    static_assert(offsetof(Vector2D<T>, y) == 1 * sizeof(T),
+                  "Implementing begin(Vector2D) by interpreting as array requires offsetof y to match array layout");
 
-    return &value.X;
+    return &value.x;
 }
 
 // -----------------------------------------------------------------------------
@@ -1824,13 +1930,13 @@ constexpr T const * ggm::begin(Vector2D<T> const & value) noexcept
     static_assert(sizeof(Vector2D<T>) == sizeof(T[2]),
                   "Implementing begin(Vector2D) by interpreting as array requires Vector2D to have the same sizeof as T[2]");
 
-    static_assert(offsetof(Vector2D<T>, X) == 0 * sizeof(T),
-                  "Implementing begin(Vector2D) by interpreting as array requires offsetof X to match array layout");
+    static_assert(offsetof(Vector2D<T>, x) == 0 * sizeof(T),
+                  "Implementing begin(Vector2D) by interpreting as array requires offsetof x to match array layout");
 
-    static_assert(offsetof(Vector2D<T>, Y) == 1 * sizeof(T),
-                  "Implementing begin(Vector2D) by interpreting as array requires offsetof Y to match array layout");
+    static_assert(offsetof(Vector2D<T>, y) == 1 * sizeof(T),
+                  "Implementing begin(Vector2D) by interpreting as array requires offsetof y to match array layout");
 
-    return &value.X;
+    return &value.x;
 }
 
 // -----------------------------------------------------------------------------
@@ -1844,16 +1950,16 @@ constexpr T * ggm::begin(Vector3D<T> & value) noexcept
     static_assert(sizeof(Vector3D<T>) == sizeof(T[3]),
                   "Implementing begin(Vector3D) by interpreting as array requires Vector3D to have the same sizeof as T[3]");
 
-    static_assert(offsetof(Vector3D<T>, X) == 0 * sizeof(T),
-                  "Implementing begin(Vector3D) by interpreting as array requires offsetof X to match array layout");
+    static_assert(offsetof(Vector3D<T>, x) == 0 * sizeof(T),
+                  "Implementing begin(Vector3D) by interpreting as array requires offsetof x to match array layout");
 
-    static_assert(offsetof(Vector3D<T>, Y) == 1 * sizeof(T),
-                  "Implementing begin(Vector3D) by interpreting as array requires offsetof Y to match array layout");
+    static_assert(offsetof(Vector3D<T>, y) == 1 * sizeof(T),
+                  "Implementing begin(Vector3D) by interpreting as array requires offsetof y to match array layout");
 
-    static_assert(offsetof(Vector3D<T>, Z) == 2 * sizeof(T),
-                  "Implementing begin(Vector3D) by interpreting as array requires offsetof Z to match array layout");
+    static_assert(offsetof(Vector3D<T>, z) == 2 * sizeof(T),
+                  "Implementing begin(Vector3D) by interpreting as array requires offsetof z to match array layout");
 
-    return &value.X;
+    return &value.x;
 }
 
 // -----------------------------------------------------------------------------
@@ -1867,16 +1973,16 @@ constexpr T const * ggm::begin(Vector3D<T> const & value) noexcept
     static_assert(sizeof(Vector3D<T>) == sizeof(T[3]),
                   "Implementing begin(Vector3D) by interpreting as array requires Vector3D to have the same sizeof as T[3]");
 
-    static_assert(offsetof(Vector3D<T>, X) == 0 * sizeof(T),
-                  "Implementing begin(Vector3D) by interpreting as array requires offsetof X to match array layout");
+    static_assert(offsetof(Vector3D<T>, x) == 0 * sizeof(T),
+                  "Implementing begin(Vector3D) by interpreting as array requires offsetof x to match array layout");
 
-    static_assert(offsetof(Vector3D<T>, Y) == 1 * sizeof(T),
-                  "Implementing begin(Vector3D) by interpreting as array requires offsetof Y to match array layout");
+    static_assert(offsetof(Vector3D<T>, y) == 1 * sizeof(T),
+                  "Implementing begin(Vector3D) by interpreting as array requires offsetof y to match array layout");
 
-    static_assert(offsetof(Vector3D<T>, Z) == 2 * sizeof(T),
-                  "Implementing begin(Vector3D) by interpreting as array requires offsetof Z to match array layout");
+    static_assert(offsetof(Vector3D<T>, z) == 2 * sizeof(T),
+                  "Implementing begin(Vector3D) by interpreting as array requires offsetof z to match array layout");
 
-    return &value.X;
+    return &value.x;
 }
 
 // -----------------------------------------------------------------------------
@@ -1890,19 +1996,19 @@ constexpr T * ggm::begin(Vector4D<T> & value) noexcept
     static_assert(sizeof(Vector4D<T>) == sizeof(T[4]),
                   "Implementing begin(Vector4D) by interpreting as array requires Vector4D to have the same sizeof as T[3]");
 
-    static_assert(offsetof(Vector4D<T>, X) == 0 * sizeof(T),
-                  "Implementing begin(Vector3D) by interpreting as array requires offsetof X to match array layout");
+    static_assert(offsetof(Vector4D<T>, x) == 0 * sizeof(T),
+                  "Implementing begin(Vector3D) by interpreting as array requires offsetof x to match array layout");
 
-    static_assert(offsetof(Vector4D<T>, Y) == 1 * sizeof(T),
-                  "Implementing begin(Vector3D) by interpreting as array requires offsetof Y to match array layout");
+    static_assert(offsetof(Vector4D<T>, y) == 1 * sizeof(T),
+                  "Implementing begin(Vector3D) by interpreting as array requires offsetof y to match array layout");
 
-    static_assert(offsetof(Vector4D<T>, Z) == 2 * sizeof(T),
-                  "Implementing begin(Vector3D) by interpreting as array requires offsetof Z to match array layout");
+    static_assert(offsetof(Vector4D<T>, z) == 2 * sizeof(T),
+                  "Implementing begin(Vector3D) by interpreting as array requires offsetof z to match array layout");
 
-    static_assert(offsetof(Vector4D<T>, W) == 3 * sizeof(T),
-                  "Implementing begin(Vector4D) by interpreting as array requires offsetof W to match array layout");
+    static_assert(offsetof(Vector4D<T>, w) == 3 * sizeof(T),
+                  "Implementing begin(Vector4D) by interpreting as array requires offsetof w to match array layout");
 
-    return &value.X;
+    return &value.x;
 }
 
 // -----------------------------------------------------------------------------
@@ -1919,19 +2025,19 @@ constexpr T const * ggm::begin(Vector4D<T> const & value) noexcept
     static_assert(sizeof(Vector4D<T>) == sizeof(T[4]),
                   "Implementing begin(Vector4D) by interpreting as array requires Vector4D to have the same sizeof as T[3]");
 
-    static_assert(offsetof(Vector4D<T>, X) == 0 * sizeof(T),
-                  "Implementing begin(Vector3D) by interpreting as array requires offsetof X to match array layout");
+    static_assert(offsetof(Vector4D<T>, x) == 0 * sizeof(T),
+                  "Implementing begin(Vector3D) by interpreting as array requires offsetof x to match array layout");
 
-    static_assert(offsetof(Vector4D<T>, Y) == 1 * sizeof(T),
-                  "Implementing begin(Vector3D) by interpreting as array requires offsetof Y to match array layout");
+    static_assert(offsetof(Vector4D<T>, y) == 1 * sizeof(T),
+                  "Implementing begin(Vector3D) by interpreting as array requires offsetof y to match array layout");
 
-    static_assert(offsetof(Vector4D<T>, Z) == 2 * sizeof(T),
-                  "Implementing begin(Vector3D) by interpreting as array requires offsetof Z to match array layout");
+    static_assert(offsetof(Vector4D<T>, z) == 2 * sizeof(T),
+                  "Implementing begin(Vector3D) by interpreting as array requires offsetof z to match array layout");
 
-    static_assert(offsetof(Vector4D<T>, W) == 3 * sizeof(T),
-                  "Implementing begin(Vector4D) by interpreting as array requires offsetof W to match array layout");
+    static_assert(offsetof(Vector4D<T>, w) == 3 * sizeof(T),
+                  "Implementing begin(Vector4D) by interpreting as array requires offsetof w to match array layout");
 
-    return &value.X;
+    return &value.x;
 }
 
 // =============================================================================
@@ -1947,15 +2053,15 @@ constexpr T * ggm::end(Vector2D<T> & value) noexcept
     static_assert(sizeof(Vector2D<T>) == sizeof(T[2]),
                   "Implementing end(Vector2D) by interpreting as array requires Vector2D to have the same sizeof as T[2]");
 
-    static_assert(offsetof(Vector2D<T>, X) == 0 * sizeof(T),
-                  "Implementing end(Vector2D) by interpreting as array requires offsetof X to match array layout");
+    static_assert(offsetof(Vector2D<T>, x) == 0 * sizeof(T),
+                  "Implementing end(Vector2D) by interpreting as array requires offsetof x to match array layout");
 
-    static_assert(offsetof(Vector2D<T>, Y) == 1 * sizeof(T),
-                  "Implementing end(Vector2D) by interpreting as array requires offsetof Y to match array layout");
+    static_assert(offsetof(Vector2D<T>, y) == 1 * sizeof(T),
+                  "Implementing end(Vector2D) by interpreting as array requires offsetof y to match array layout");
 
     typedef VectorTraits<Vector2D<T>> VectorTraits;
 
-    return &value.X + VectorTraits::Size;
+    return &value.x + VectorTraits::Size;
 }
 
 // -----------------------------------------------------------------------------
@@ -1971,15 +2077,15 @@ constexpr T const * ggm::end(Vector2D<T> const & value) noexcept
     static_assert(sizeof(Vector2D<T>) == sizeof(T[2]),
                   "Implementing end(Vector2D) by interpreting as array requires Vector2D to have the same sizeof as T[2]");
 
-    static_assert(offsetof(Vector2D<T>, X) == 0 * sizeof(T),
-                  "Implementing end(Vector2D) by interpreting as array requires offsetof X to match array layout");
+    static_assert(offsetof(Vector2D<T>, x) == 0 * sizeof(T),
+                  "Implementing end(Vector2D) by interpreting as array requires offsetof x to match array layout");
 
-    static_assert(offsetof(Vector2D<T>, Y) == 1 * sizeof(T),
-                  "Implementing end(Vector2D) by interpreting as array requires offsetof Y to match array layout");
+    static_assert(offsetof(Vector2D<T>, y) == 1 * sizeof(T),
+                  "Implementing end(Vector2D) by interpreting as array requires offsetof y to match array layout");
 
     typedef VectorTraits<Vector2D<T>> VectorTraits;
 
-    return &value.X + VectorTraits::Size;
+    return &value.x + VectorTraits::Size;
 }
 
 // -----------------------------------------------------------------------------
@@ -1995,18 +2101,18 @@ constexpr T * ggm::end(Vector3D<T> & value) noexcept
     static_assert(sizeof(Vector3D<T>) == sizeof(T[3]),
                   "Implementing end(Vector3D) by interpreting as array requires Vector3D to have the same sizeof as T[3]");
 
-    static_assert(offsetof(Vector3D<T>, X) == 0 * sizeof(T),
-                  "Implementing end(Vector3D) by interpreting as array requires offsetof X to match array layout");
+    static_assert(offsetof(Vector3D<T>, x) == 0 * sizeof(T),
+                  "Implementing end(Vector3D) by interpreting as array requires offsetof x to match array layout");
 
-    static_assert(offsetof(Vector3D<T>, Y) == 1 * sizeof(T),
-                  "Implementing end(Vector3D) by interpreting as array requires offsetof Y to match array layout");
+    static_assert(offsetof(Vector3D<T>, y) == 1 * sizeof(T),
+                  "Implementing end(Vector3D) by interpreting as array requires offsetof y to match array layout");
 
-    static_assert(offsetof(Vector3D<T>, Z) == 2 * sizeof(T),
-                  "Implementing end(Vector3D) by interpreting as array requires offsetof Z to match array layout");
+    static_assert(offsetof(Vector3D<T>, z) == 2 * sizeof(T),
+                  "Implementing end(Vector3D) by interpreting as array requires offsetof z to match array layout");
 
     typedef VectorTraits<Vector3D<T>> VectorTraits;
 
-    return &value.X + VectorTraits::Size;
+    return &value.x + VectorTraits::Size;
 }
 
 // -----------------------------------------------------------------------------
@@ -2022,18 +2128,18 @@ constexpr T const * ggm::end(Vector3D<T> const & value) noexcept
     static_assert(sizeof(Vector3D<T>) == sizeof(T[3]),
                   "Implementing end(Vector3D) by interpreting as array requires Vector3D to have the same sizeof as T[3]");
 
-    static_assert(offsetof(Vector3D<T>, X) == 0 * sizeof(T),
-                  "Implementing end(Vector3D) by interpreting as array requires offsetof X to match array layout");
+    static_assert(offsetof(Vector3D<T>, x) == 0 * sizeof(T),
+                  "Implementing end(Vector3D) by interpreting as array requires offsetof x to match array layout");
 
-    static_assert(offsetof(Vector3D<T>, Y) == 1 * sizeof(T),
-                  "Implementing end(Vector3D) by interpreting as array requires offsetof Y to match array layout");
+    static_assert(offsetof(Vector3D<T>, y) == 1 * sizeof(T),
+                  "Implementing end(Vector3D) by interpreting as array requires offsetof y to match array layout");
 
-    static_assert(offsetof(Vector3D<T>, Z) == 2 * sizeof(T),
-                  "Implementing end(Vector3D) by interpreting as array requires offsetof Z to match array layout");
+    static_assert(offsetof(Vector3D<T>, z) == 2 * sizeof(T),
+                  "Implementing end(Vector3D) by interpreting as array requires offsetof z to match array layout");
 
     typedef VectorTraits<Vector3D<T>> VectorTraits;
 
-    return &value.X + VectorTraits::Size;
+    return &value.x + VectorTraits::Size;
 }
 
 // -----------------------------------------------------------------------------
@@ -2049,21 +2155,21 @@ constexpr T * ggm::end(Vector4D<T> & value) noexcept
     static_assert(sizeof(Vector4D<T>) == sizeof(T[4]),
                   "Implementing end(Vector4D) by interpreting as array requires Vector4D to have the same sizeof as T[3]");
 
-    static_assert(offsetof(Vector4D<T>, X) == 0 * sizeof(T),
-                  "Implementing end(Vector4D) by interpreting as array requires offsetof X to match array layout");
+    static_assert(offsetof(Vector4D<T>, x) == 0 * sizeof(T),
+                  "Implementing end(Vector4D) by interpreting as array requires offsetof x to match array layout");
 
-    static_assert(offsetof(Vector4D<T>, Y) == 1 * sizeof(T),
-                  "Implementing end(Vector4D) by interpreting as array requires offsetof Y to match array layout");
+    static_assert(offsetof(Vector4D<T>, y) == 1 * sizeof(T),
+                  "Implementing end(Vector4D) by interpreting as array requires offsetof y to match array layout");
 
-    static_assert(offsetof(Vector4D<T>, Z) == 2 * sizeof(T),
-                  "Implementing end(Vector4D) by interpreting as array requires offsetof Z to match array layout");
+    static_assert(offsetof(Vector4D<T>, z) == 2 * sizeof(T),
+                  "Implementing end(Vector4D) by interpreting as array requires offsetof z to match array layout");
 
-    static_assert(offsetof(Vector4D<T>, W) == 3 * sizeof(T),
-                  "Implementing end(Vector4D) by interpreting as array requires offsetof W to match array layout");
+    static_assert(offsetof(Vector4D<T>, w) == 3 * sizeof(T),
+                  "Implementing end(Vector4D) by interpreting as array requires offsetof w to match array layout");
 
     typedef VectorTraits<Vector4D<T>> VectorTraits;
 
-    return &value.X + VectorTraits::Size;
+    return &value.x + VectorTraits::Size;
 }
 
 // -----------------------------------------------------------------------------
@@ -2082,21 +2188,21 @@ constexpr T const * ggm::end(Vector4D<T> const & value) noexcept
     static_assert(sizeof(Vector4D<T>) == sizeof(T[4]),
                   "Implementing end(Vector4D) by interpreting as array requires Vector4D to have the same sizeof as T[3]");
 
-    static_assert(offsetof(Vector4D<T>, X) == 0 * sizeof(T),
-                  "Implementing end(Vector4D) by interpreting as array requires offsetof X to match array layout");
+    static_assert(offsetof(Vector4D<T>, x) == 0 * sizeof(T),
+                  "Implementing end(Vector4D) by interpreting as array requires offsetof x to match array layout");
 
-    static_assert(offsetof(Vector4D<T>, Y) == 1 * sizeof(T),
-                  "Implementing end(Vector4D) by interpreting as array requires offsetof Y to match array layout");
+    static_assert(offsetof(Vector4D<T>, y) == 1 * sizeof(T),
+                  "Implementing end(Vector4D) by interpreting as array requires offsetof y to match array layout");
 
-    static_assert(offsetof(Vector4D<T>, Z) == 2 * sizeof(T),
-                  "Implementing end(Vector4D) by interpreting as array requires offsetof Z to match array layout");
+    static_assert(offsetof(Vector4D<T>, z) == 2 * sizeof(T),
+                  "Implementing end(Vector4D) by interpreting as array requires offsetof z to match array layout");
 
-    static_assert(offsetof(Vector4D<T>, W) == 3 * sizeof(T),
-                  "Implementing end(Vector4D) by interpreting as array requires offsetof W to match array layout");
+    static_assert(offsetof(Vector4D<T>, w) == 3 * sizeof(T),
+                  "Implementing end(Vector4D) by interpreting as array requires offsetof w to match array layout");
 
     typedef VectorTraits<Vector4D<T>> VectorTraits;
 
-    return &value.X + VectorTraits::Size;
+    return &value.x + VectorTraits::Size;
 }
 
 // =============================================================================
@@ -2105,8 +2211,8 @@ template <typename T>
 constexpr ggm::Vector2D<T> ggm::abs(Vector2D<T> const & value) noexcept
 {
     return Vector2D<T>{
-        abs(value.X),
-        abs(value.Y),
+        abs(value.x),
+        abs(value.y),
     };
 }
 
@@ -2116,9 +2222,9 @@ template <typename T>
 constexpr ggm::Vector3D<T> ggm::abs(Vector3D<T> const & value) noexcept
 {
     return Vector3D<T>{
-        abs(value.X),
-        abs(value.Y),
-        abs(value.Z),
+        abs(value.x),
+        abs(value.y),
+        abs(value.z),
     };
 }
 
@@ -2128,10 +2234,10 @@ template <typename T>
 constexpr ggm::Vector4D<T> ggm::abs(Vector4D<T> const & value) noexcept
 {
     return Vector4D<T>{
-        abs(value.X),
-        abs(value.Y),
-        abs(value.Z),
-        abs(value.W),
+        abs(value.x),
+        abs(value.y),
+        abs(value.z),
+        abs(value.w),
     };
 }
 
@@ -2141,8 +2247,8 @@ template <typename T>
 constexpr ggm::Vector2D<T> ggm::ceil(Vector2D<T> const & value) noexcept
 {
     return Vector2D<T>{
-        ceil(value.X),
-        ceil(value.Y),
+        ceil(value.x),
+        ceil(value.y),
     };
 }
 
@@ -2152,9 +2258,9 @@ template <typename T>
 constexpr ggm::Vector3D<T> ggm::ceil(Vector3D<T> const & value) noexcept
 {
     return Vector3D<T>{
-        ceil(value.X),
-        ceil(value.Y),
-        ceil(value.Z),
+        ceil(value.x),
+        ceil(value.y),
+        ceil(value.z),
     };
 }
 
@@ -2164,10 +2270,10 @@ template <typename T>
 constexpr ggm::Vector4D<T> ggm::ceil(Vector4D<T> const & value) noexcept
 {
     return Vector4D<T>{
-        ceil(value.X),
-        ceil(value.Y),
-        ceil(value.Z),
-        ceil(value.W),
+        ceil(value.x),
+        ceil(value.y),
+        ceil(value.z),
+        ceil(value.w),
     };
 }
 
@@ -2179,8 +2285,8 @@ constexpr ggm::Vector2D<T> ggm::clamp(Vector2D<T> const & value,
                                       Vector2D<T> const & maxValue) noexcept
 {
     return Vector2D<T>{
-        clamp(value.X, minValue.X, maxValue.X),
-        clamp(value.Y, minValue.Y, maxValue.Y),
+        clamp(value.x, minValue.x, maxValue.x),
+        clamp(value.y, minValue.y, maxValue.y),
     };
 }
 
@@ -2192,9 +2298,9 @@ constexpr ggm::Vector3D<T> ggm::clamp(Vector3D<T> const & value,
                                       Vector3D<T> const & maxValue) noexcept
 {
     return Vector3D<T>{
-        clamp(value.X, minValue.X, maxValue.X),
-        clamp(value.Y, minValue.Y, maxValue.Y),
-        clamp(value.Z, minValue.Z, maxValue.Z),
+        clamp(value.x, minValue.x, maxValue.x),
+        clamp(value.y, minValue.y, maxValue.y),
+        clamp(value.z, minValue.z, maxValue.z),
     };
 }
 
@@ -2206,10 +2312,10 @@ constexpr ggm::Vector4D<T> ggm::clamp(Vector4D<T> const & value,
                                       Vector4D<T> const & maxValue) noexcept
 {
     return Vector4D<T>{
-        clamp(value.X, minValue.X, maxValue.X),
-        clamp(value.Y, minValue.Y, maxValue.Y),
-        clamp(value.Z, minValue.Z, maxValue.Z),
-        clamp(value.W, minValue.W, maxValue.W),
+        clamp(value.x, minValue.x, maxValue.x),
+        clamp(value.y, minValue.y, maxValue.y),
+        clamp(value.z, minValue.z, maxValue.z),
+        clamp(value.w, minValue.w, maxValue.w),
     };
 }
 
@@ -2220,9 +2326,9 @@ constexpr ggm::Vector3D<T> ggm::cross(Vector3D<T> const & lhs,
                                       Vector3D<T> const & rhs) noexcept
 {
     return Vector3D<T>{
-        lhs.Y * rhs.Z - lhs.Z * rhs.Y,
-        lhs.Z * rhs.X - lhs.X * rhs.Z,
-        lhs.X * rhs.Y - lhs.Y * rhs.X,
+        lhs.y * rhs.z - lhs.z * rhs.y,
+        lhs.z * rhs.x - lhs.x * rhs.z,
+        lhs.x * rhs.y - lhs.y * rhs.x,
     };
 }
 
@@ -2292,8 +2398,8 @@ template <typename T>
 constexpr T ggm::dot(Vector2D<T> const & lhs,
                      Vector2D<T> const & rhs) noexcept
 {
-    return lhs.X * rhs.X +
-           lhs.Y * rhs.Y;
+    return lhs.x * rhs.x +
+           lhs.y * rhs.y;
 }
 
 // -----------------------------------------------------------------------------
@@ -2302,9 +2408,9 @@ template <typename T>
 constexpr T ggm::dot(Vector3D<T> const & lhs,
                      Vector3D<T> const & rhs) noexcept
 {
-    return lhs.X * rhs.X +
-           lhs.Y * rhs.Y +
-           lhs.Z * rhs.Z;
+    return lhs.x * rhs.x +
+           lhs.y * rhs.y +
+           lhs.z * rhs.z;
 }
 
 // -----------------------------------------------------------------------------
@@ -2313,10 +2419,10 @@ template <typename T>
 constexpr T ggm::dot(Vector4D<T> const & lhs,
                      Vector4D<T> const & rhs) noexcept
 {
-    return lhs.X * rhs.X +
-           lhs.Y * rhs.Y +
-           lhs.Z * rhs.Z +
-           lhs.W * rhs.W;
+    return lhs.x * rhs.x +
+           lhs.y * rhs.y +
+           lhs.z * rhs.z +
+           lhs.w * rhs.w;
 }
 
 // =============================================================================
@@ -2355,8 +2461,8 @@ template <typename T>
 constexpr ggm::Vector2D<T> ggm::floor(Vector2D<T> const & value) noexcept
 {
     return Vector2D<T>{
-        floor(value.X),
-        floor(value.Y),
+        floor(value.x),
+        floor(value.y),
     };
 }
 
@@ -2366,9 +2472,9 @@ template <typename T>
 constexpr ggm::Vector3D<T> ggm::floor(Vector3D<T> const & value) noexcept
 {
     return Vector3D<T>{
-        floor(value.X),
-        floor(value.Y),
-        floor(value.Z),
+        floor(value.x),
+        floor(value.y),
+        floor(value.z),
     };
 }
 
@@ -2378,10 +2484,10 @@ template <typename T>
 constexpr ggm::Vector4D<T> ggm::floor(Vector4D<T> const & value) noexcept
 {
     return Vector4D<T>{
-        floor(value.X),
-        floor(value.Y),
-        floor(value.Z),
-        floor(value.W),
+        floor(value.x),
+        floor(value.y),
+        floor(value.z),
+        floor(value.w),
     };
 }
 
@@ -2391,8 +2497,8 @@ template <typename T>
 constexpr ggm::Vector2D<T> ggm::fract(Vector2D<T> const & value) noexcept
 {
     return Vector2D<T>{
-        fract(value.X),
-        fract(value.Y),
+        fract(value.x),
+        fract(value.y),
     };
 }
 
@@ -2402,9 +2508,9 @@ template <typename T>
 constexpr ggm::Vector3D<T> ggm::fract(Vector3D<T> const & value) noexcept
 {
     return Vector3D<T>{
-        fract(value.X),
-        fract(value.Y),
-        fract(value.Z),
+        fract(value.x),
+        fract(value.y),
+        fract(value.z),
     };
 }
 
@@ -2414,10 +2520,10 @@ template <typename T>
 constexpr ggm::Vector4D<T> ggm::fract(Vector4D<T> const & value) noexcept
 {
     return Vector4D<T>{
-        fract(value.X),
-        fract(value.Y),
-        fract(value.Z),
-        fract(value.W),
+        fract(value.x),
+        fract(value.y),
+        fract(value.z),
+        fract(value.w),
     };
 }
 
@@ -2429,8 +2535,8 @@ constexpr ggm::Vector2D<T> ggm::inverse_lerp(Vector2D<T> const & value0,
                                              Vector2D<T> const & value) noexcept
 {
     return Vector2D<T>{
-        inverse_lerp(value0.X, value1.X, value.X),
-        inverse_lerp(value0.Y, value1.Y, value.Y),
+        inverse_lerp(value0.x, value1.x, value.x),
+        inverse_lerp(value0.y, value1.y, value.y),
     };
 }
 
@@ -2442,9 +2548,9 @@ constexpr ggm::Vector3D<T> ggm::inverse_lerp(Vector3D<T> const & value0,
                                              Vector3D<T> const & value) noexcept
 {
     return Vector3D<T>{
-        inverse_lerp(value0.X, value1.X, value.X),
-        inverse_lerp(value0.Y, value1.Y, value.Y),
-        inverse_lerp(value0.Z, value1.Z, value.Z),
+        inverse_lerp(value0.x, value1.x, value.x),
+        inverse_lerp(value0.y, value1.y, value.y),
+        inverse_lerp(value0.z, value1.z, value.z),
     };
 }
 
@@ -2456,10 +2562,10 @@ constexpr ggm::Vector4D<T> ggm::inverse_lerp(Vector4D<T> const & value0,
                                              Vector4D<T> const & value) noexcept
 {
     return Vector4D<T>{
-        inverse_lerp(value0.X, value1.X, value.X),
-        inverse_lerp(value0.Y, value1.Y, value.Y),
-        inverse_lerp(value0.Z, value1.Z, value.Z),
-        inverse_lerp(value0.W, value1.W, value.W),
+        inverse_lerp(value0.x, value1.x, value.x),
+        inverse_lerp(value0.y, value1.y, value.y),
+        inverse_lerp(value0.z, value1.z, value.z),
+        inverse_lerp(value0.w, value1.w, value.w),
     };
 }
 
@@ -2552,8 +2658,8 @@ constexpr ggm::Vector2D<T> ggm::lerp(Vector2D<T> const & value0,
                                      T const &           t) noexcept
 {
     return Vector2D<T>{
-        lerp(value0.X, value1.X, t),
-        lerp(value0.Y, value1.Y, t),
+        lerp(value0.x, value1.x, t),
+        lerp(value0.y, value1.y, t),
     };
 }
 
@@ -2565,8 +2671,8 @@ constexpr ggm::Vector2D<T> ggm::lerp(Vector2D<T> const & value0,
                                      Vector2D<T> const & t) noexcept
 {
     return Vector2D<T>{
-        lerp(value0.X, value1.X, t.X),
-        lerp(value0.Y, value1.Y, t.Y),
+        lerp(value0.x, value1.x, t.x),
+        lerp(value0.y, value1.y, t.y),
     };
 }
 
@@ -2578,9 +2684,9 @@ constexpr ggm::Vector3D<T> ggm::lerp(Vector3D<T> const & value0,
                                      T const &           t) noexcept
 {
     return Vector3D<T>{
-        lerp(value0.X, value1.X, t),
-        lerp(value0.Y, value1.Y, t),
-        lerp(value0.Z, value1.Z, t),
+        lerp(value0.x, value1.x, t),
+        lerp(value0.y, value1.y, t),
+        lerp(value0.z, value1.z, t),
     };
 }
 
@@ -2592,9 +2698,9 @@ constexpr ggm::Vector3D<T> ggm::lerp(Vector3D<T> const & value0,
                                      Vector3D<T> const & t) noexcept
 {
     return Vector3D<T>{
-        lerp(value0.X, value1.X, t.X),
-        lerp(value0.Y, value1.Y, t.Y),
-        lerp(value0.Z, value1.Z, t.Z),
+        lerp(value0.x, value1.x, t.x),
+        lerp(value0.y, value1.y, t.y),
+        lerp(value0.z, value1.z, t.z),
     };
 }
 
@@ -2606,10 +2712,10 @@ constexpr ggm::Vector4D<T> ggm::lerp(Vector4D<T> const & value0,
                                      T const &           t) noexcept
 {
     return Vector4D<T>{
-        lerp(value0.X, value1.X, t),
-        lerp(value0.Y, value1.Y, t),
-        lerp(value0.Z, value1.Z, t),
-        lerp(value0.W, value1.W, t),
+        lerp(value0.x, value1.x, t),
+        lerp(value0.y, value1.y, t),
+        lerp(value0.z, value1.z, t),
+        lerp(value0.w, value1.w, t),
     };
 }
 
@@ -2621,10 +2727,10 @@ constexpr ggm::Vector4D<T> ggm::lerp(Vector4D<T> const & value0,
                                      Vector4D<T> const & t) noexcept
 {
     return Vector4D<T>{
-        lerp(value0.X, value1.X, t.X),
-        lerp(value0.Y, value1.Y, t.Y),
-        lerp(value0.Z, value1.Z, t.Z),
-        lerp(value0.W, value1.W, t.W),
+        lerp(value0.x, value1.x, t.x),
+        lerp(value0.y, value1.y, t.y),
+        lerp(value0.z, value1.z, t.z),
+        lerp(value0.w, value1.w, t.w),
     };
 }
 
@@ -2636,8 +2742,8 @@ constexpr ggm::Vector2D<T> ggm::linear_step(Vector2D<T> const & edge0,
                                             Vector2D<T> const & value) noexcept
 {
     return Vector2D<T>{
-        linear_step(edge0.X, edge1.X, value.X),
-        linear_step(edge0.Y, edge1.Y, value.Y),
+        linear_step(edge0.x, edge1.x, value.x),
+        linear_step(edge0.y, edge1.y, value.y),
     };
 }
 
@@ -2649,9 +2755,9 @@ constexpr ggm::Vector3D<T> ggm::linear_step(Vector3D<T> const & edge0,
                                             Vector3D<T> const & value) noexcept
 {
     return Vector3D<T>{
-        linear_step(edge0.X, edge1.X, value.X),
-        linear_step(edge0.Y, edge1.Y, value.Y),
-        linear_step(edge0.Z, edge1.Z, value.Z),
+        linear_step(edge0.x, edge1.x, value.x),
+        linear_step(edge0.y, edge1.y, value.y),
+        linear_step(edge0.z, edge1.z, value.z),
     };
 }
 
@@ -2663,10 +2769,10 @@ constexpr ggm::Vector4D<T> ggm::linear_step(Vector4D<T> const & edge0,
                                             Vector4D<T> const & value) noexcept
 {
     return Vector4D<T>{
-        linear_step(edge0.X, edge1.X, value.X),
-        linear_step(edge0.Y, edge1.Y, value.Y),
-        linear_step(edge0.Z, edge1.Z, value.Z),
-        linear_step(edge0.W, edge1.W, value.W),
+        linear_step(edge0.x, edge1.x, value.x),
+        linear_step(edge0.y, edge1.y, value.y),
+        linear_step(edge0.z, edge1.z, value.z),
+        linear_step(edge0.w, edge1.w, value.w),
     };
 }
 
@@ -2675,8 +2781,8 @@ constexpr ggm::Vector4D<T> ggm::linear_step(Vector4D<T> const & edge0,
 template <typename T>
 constexpr T & ggm::max_element(Vector2D<T> & value) noexcept
 {
-    return max_of(value.X,
-                  value.Y);
+    return max_of(value.x,
+                  value.y);
 }
 
 // -----------------------------------------------------------------------------
@@ -2684,8 +2790,8 @@ constexpr T & ggm::max_element(Vector2D<T> & value) noexcept
 template <typename T>
 constexpr T ggm::max_element(Vector2D<T> const & value) noexcept
 {
-    return max_of(value.X,
-                  value.Y);
+    return max_of(value.x,
+                  value.y);
 }
 
 // -----------------------------------------------------------------------------
@@ -2693,9 +2799,9 @@ constexpr T ggm::max_element(Vector2D<T> const & value) noexcept
 template <typename T>
 constexpr T & ggm::max_element(Vector3D<T> & value) noexcept
 {
-    return max_of(value.X,
-                  value.Y,
-                  value.Z);
+    return max_of(value.x,
+                  value.y,
+                  value.z);
 }
 
 // -----------------------------------------------------------------------------
@@ -2703,9 +2809,9 @@ constexpr T & ggm::max_element(Vector3D<T> & value) noexcept
 template <typename T>
 constexpr T ggm::max_element(Vector3D<T> const & value) noexcept
 {
-    return max_of(value.X,
-                  value.Y,
-                  value.Z);
+    return max_of(value.x,
+                  value.y,
+                  value.z);
 }
 
 // -----------------------------------------------------------------------------
@@ -2713,10 +2819,10 @@ constexpr T ggm::max_element(Vector3D<T> const & value) noexcept
 template <typename T>
 constexpr T & ggm::max_element(Vector4D<T> & value) noexcept
 {
-    return max_of(value.X,
-                  value.Y,
-                  value.Z,
-                  value.W);
+    return max_of(value.x,
+                  value.y,
+                  value.z,
+                  value.w);
 }
 
 // -----------------------------------------------------------------------------
@@ -2724,10 +2830,10 @@ constexpr T & ggm::max_element(Vector4D<T> & value) noexcept
 template <typename T>
 constexpr T ggm::max_element(Vector4D<T> const & value) noexcept
 {
-    return max_of(value.X,
-                  value.Y,
-                  value.Z,
-                  value.W);
+    return max_of(value.x,
+                  value.y,
+                  value.z,
+                  value.w);
 }
 
 // =============================================================================
@@ -2735,8 +2841,8 @@ constexpr T ggm::max_element(Vector4D<T> const & value) noexcept
 template <typename T>
 constexpr T & ggm::min_element(Vector2D<T> & value) noexcept
 {
-    return min_of(value.X,
-                  value.Y);
+    return min_of(value.x,
+                  value.y);
 }
 
 // -----------------------------------------------------------------------------
@@ -2744,8 +2850,8 @@ constexpr T & ggm::min_element(Vector2D<T> & value) noexcept
 template <typename T>
 constexpr T ggm::min_element(Vector2D<T> const & value) noexcept
 {
-    return min_of(value.X,
-                  value.Y);
+    return min_of(value.x,
+                  value.y);
 }
 
 // -----------------------------------------------------------------------------
@@ -2753,9 +2859,9 @@ constexpr T ggm::min_element(Vector2D<T> const & value) noexcept
 template <typename T>
 constexpr T & ggm::min_element(Vector3D<T> & value) noexcept
 {
-    return min_of(value.X,
-                  value.Y,
-                  value.Z);
+    return min_of(value.x,
+                  value.y,
+                  value.z);
 }
 
 // -----------------------------------------------------------------------------
@@ -2763,9 +2869,9 @@ constexpr T & ggm::min_element(Vector3D<T> & value) noexcept
 template <typename T>
 constexpr T ggm::min_element(Vector3D<T> const & value) noexcept
 {
-    return min_of(value.X,
-                  value.Y,
-                  value.Z);
+    return min_of(value.x,
+                  value.y,
+                  value.z);
 }
 
 // -----------------------------------------------------------------------------
@@ -2773,10 +2879,10 @@ constexpr T ggm::min_element(Vector3D<T> const & value) noexcept
 template <typename T>
 constexpr T & ggm::min_element(Vector4D<T> & value) noexcept
 {
-    return min_of(value.X,
-                  value.Y,
-                  value.Z,
-                  value.W);
+    return min_of(value.x,
+                  value.y,
+                  value.z,
+                  value.w);
 }
 
 // -----------------------------------------------------------------------------
@@ -2784,10 +2890,10 @@ constexpr T & ggm::min_element(Vector4D<T> & value) noexcept
 template <typename T>
 constexpr T ggm::min_element(Vector4D<T> const & value) noexcept
 {
-    return min_of(value.X,
-                  value.Y,
-                  value.Z,
-                  value.W);
+    return min_of(value.x,
+                  value.y,
+                  value.z,
+                  value.w);
 }
 
 // =============================================================================
@@ -2821,8 +2927,8 @@ constexpr ggm::Vector2D<T> ggm::reciprocal(Vector2D<T> const & value,
                                            Vector2D<T> const & defaultValue) noexcept
 {
     return Vector2D<T>{
-        reciprocal(value.X, defaultValue.X),
-        reciprocal(value.Y, defaultValue.Y),
+        reciprocal(value.x, defaultValue.x),
+        reciprocal(value.y, defaultValue.y),
     };
 }
 
@@ -2833,9 +2939,9 @@ constexpr ggm::Vector3D<T> ggm::reciprocal(Vector3D<T> const & value,
                                            Vector3D<T> const & defaultValue) noexcept
 {
     return Vector3D<T>{
-        reciprocal(value.X, defaultValue.X),
-        reciprocal(value.Y, defaultValue.Y),
-        reciprocal(value.Z, defaultValue.Z),
+        reciprocal(value.x, defaultValue.x),
+        reciprocal(value.y, defaultValue.y),
+        reciprocal(value.z, defaultValue.z),
     };
 }
 
@@ -2846,10 +2952,10 @@ constexpr ggm::Vector4D<T> ggm::reciprocal(Vector4D<T> const & value,
                                            Vector4D<T> const & defaultValue) noexcept
 {
     return Vector4D<T>{
-        reciprocal(value.X, defaultValue.X),
-        reciprocal(value.Y, defaultValue.Y),
-        reciprocal(value.Z, defaultValue.Z),
-        reciprocal(value.W, defaultValue.W),
+        reciprocal(value.x, defaultValue.x),
+        reciprocal(value.y, defaultValue.y),
+        reciprocal(value.z, defaultValue.z),
+        reciprocal(value.w, defaultValue.w),
     };
 }
 
@@ -2860,8 +2966,8 @@ inline ggm::Vector2D<T> ggm::reciprocal_sqrt(Vector2D<T> const & value,
                                              Vector2D<T> const & defaultValue) noexcept
 {
     return Vector2D<T>{
-        reciprocal_sqrt(value.X, defaultValue.X),
-        reciprocal_sqrt(value.Y, defaultValue.Y),
+        reciprocal_sqrt(value.x, defaultValue.x),
+        reciprocal_sqrt(value.y, defaultValue.y),
     };
 }
 
@@ -2872,9 +2978,9 @@ inline ggm::Vector3D<T> ggm::reciprocal_sqrt(Vector3D<T> const & value,
                                              Vector3D<T> const & defaultValue) noexcept
 {
     return Vector3D<T>{
-        reciprocal_sqrt(value.X, defaultValue.X),
-        reciprocal_sqrt(value.Y, defaultValue.Y),
-        reciprocal_sqrt(value.Z, defaultValue.Z),
+        reciprocal_sqrt(value.x, defaultValue.x),
+        reciprocal_sqrt(value.y, defaultValue.y),
+        reciprocal_sqrt(value.z, defaultValue.z),
     };
 }
 
@@ -2885,10 +2991,10 @@ inline ggm::Vector4D<T> ggm::reciprocal_sqrt(Vector4D<T> const & value,
                                              Vector4D<T> const & defaultValue) noexcept
 {
     return Vector4D<T>{
-        reciprocal_sqrt(value.X, defaultValue.X),
-        reciprocal_sqrt(value.Y, defaultValue.Y),
-        reciprocal_sqrt(value.Z, defaultValue.Z),
-        reciprocal_sqrt(value.W, defaultValue.W),
+        reciprocal_sqrt(value.x, defaultValue.x),
+        reciprocal_sqrt(value.y, defaultValue.y),
+        reciprocal_sqrt(value.z, defaultValue.z),
+        reciprocal_sqrt(value.w, defaultValue.w),
     };
 }
 
@@ -2965,8 +3071,8 @@ constexpr ggm::Vector2D<T> ggm::repeat(Vector2D<T> const & value,
                                        Vector2D<T> const & maxValue) noexcept
 {
     return Vector2D<T>{
-        repeat(value.X, minValue.X, maxValue.X),
-        repeat(value.Y, minValue.Y, maxValue.Y),
+        repeat(value.x, minValue.x, maxValue.x),
+        repeat(value.y, minValue.y, maxValue.y),
     };
 }
 
@@ -2978,9 +3084,9 @@ constexpr ggm::Vector3D<T> ggm::repeat(Vector3D<T> const & value,
                                        Vector3D<T> const & maxValue) noexcept
 {
     return Vector3D<T>{
-        repeat(value.X, minValue.X, maxValue.X),
-        repeat(value.Y, minValue.Y, maxValue.Y),
-        repeat(value.Z, minValue.Z, maxValue.Z),
+        repeat(value.x, minValue.x, maxValue.x),
+        repeat(value.y, minValue.y, maxValue.y),
+        repeat(value.z, minValue.z, maxValue.z),
     };
 }
 
@@ -2992,10 +3098,10 @@ constexpr ggm::Vector4D<T> ggm::repeat(Vector4D<T> const & value,
                                        Vector4D<T> const & maxValue) noexcept
 {
     return Vector4D<T>{
-        repeat(value.X, minValue.X, maxValue.X),
-        repeat(value.Y, minValue.Y, maxValue.Y),
-        repeat(value.Z, minValue.Z, maxValue.Z),
-        repeat(value.W, minValue.W, maxValue.W),
+        repeat(value.x, minValue.x, maxValue.x),
+        repeat(value.y, minValue.y, maxValue.y),
+        repeat(value.z, minValue.z, maxValue.z),
+        repeat(value.w, minValue.w, maxValue.w),
     };
 }
 
@@ -3005,8 +3111,8 @@ template <typename T>
 constexpr ggm::Vector2D<T> ggm::saturate(Vector2D<T> const & value) noexcept
 {
     return Vector2D<T>{
-        saturate(value.X),
-        saturate(value.Y),
+        saturate(value.x),
+        saturate(value.y),
     };
 }
 
@@ -3016,9 +3122,9 @@ template <typename T>
 constexpr ggm::Vector3D<T> ggm::saturate(Vector3D<T> const & value) noexcept
 {
     return Vector3D<T>{
-        saturate(value.X),
-        saturate(value.Y),
-        saturate(value.Z),
+        saturate(value.x),
+        saturate(value.y),
+        saturate(value.z),
     };
 }
 
@@ -3028,10 +3134,10 @@ template <typename T>
 constexpr ggm::Vector4D<T> ggm::saturate(Vector4D<T> const & value) noexcept
 {
     return Vector4D<T>{
-        saturate(value.X),
-        saturate(value.Y),
-        saturate(value.Z),
-        saturate(value.W),
+        saturate(value.x),
+        saturate(value.y),
+        saturate(value.z),
+        saturate(value.w),
     };
 }
 
@@ -3043,8 +3149,8 @@ constexpr ggm::Vector2D<T> ggm::smooth_step(Vector2D<T> const & edge0,
                                             Vector2D<T> const & value) noexcept
 {
     return Vector2D<T>{
-        smooth_step(edge0.X, edge1.X, value.X),
-        smooth_step(edge0.Y, edge1.Y, value.Y),
+        smooth_step(edge0.x, edge1.x, value.x),
+        smooth_step(edge0.y, edge1.y, value.y),
     };
 }
 
@@ -3056,9 +3162,9 @@ constexpr ggm::Vector3D<T> ggm::smooth_step(Vector3D<T> const & edge0,
                                             Vector3D<T> const & value) noexcept
 {
     return Vector3D<T>{
-        smooth_step(edge0.X, edge1.X, value.X),
-        smooth_step(edge0.Y, edge1.Y, value.Y),
-        smooth_step(edge0.Z, edge1.Z, value.Z),
+        smooth_step(edge0.x, edge1.x, value.x),
+        smooth_step(edge0.y, edge1.y, value.y),
+        smooth_step(edge0.z, edge1.z, value.z),
     };
 }
 
@@ -3070,10 +3176,10 @@ constexpr ggm::Vector4D<T> ggm::smooth_step(Vector4D<T> const & edge0,
                                             Vector4D<T> const & value) noexcept
 {
     return Vector4D<T>{
-        smooth_step(edge0.X, edge1.X, value.X),
-        smooth_step(edge0.Y, edge1.Y, value.Y),
-        smooth_step(edge0.Z, edge1.Z, value.Z),
-        smooth_step(edge0.W, edge1.W, value.W),
+        smooth_step(edge0.x, edge1.x, value.x),
+        smooth_step(edge0.y, edge1.y, value.y),
+        smooth_step(edge0.z, edge1.z, value.z),
+        smooth_step(edge0.w, edge1.w, value.w),
     };
 }
 
@@ -3083,8 +3189,8 @@ template <typename T>
 constexpr ggm::Vector2D<T> ggm::trunc(Vector2D<T> const & value) noexcept
 {
     return Vector2D<T>{
-        trunc(value.X),
-        trunc(value.Y),
+        trunc(value.x),
+        trunc(value.y),
     };
 }
 // -----------------------------------------------------------------------------
@@ -3093,9 +3199,9 @@ template <typename T>
 constexpr ggm::Vector3D<T> ggm::trunc(Vector3D<T> const & value) noexcept
 {
     return Vector3D<T>{
-        trunc(value.X),
-        trunc(value.Y),
-        trunc(value.Z),
+        trunc(value.x),
+        trunc(value.y),
+        trunc(value.z),
     };
 }
 
@@ -3105,10 +3211,10 @@ template <typename T>
 constexpr ggm::Vector4D<T> ggm::trunc(Vector4D<T> const & value) noexcept
 {
     return Vector4D<T>{
-        trunc(value.X),
-        trunc(value.Y),
-        trunc(value.Z),
-        trunc(value.W),
+        trunc(value.x),
+        trunc(value.y),
+        trunc(value.z),
+        trunc(value.w),
     };
 }
 
@@ -3118,54 +3224,54 @@ constexpr ggm::Vector4D<T> ggm::trunc(Vector4D<T> const & value) noexcept
 
 constexpr bool ggm::all_of(Vector2D<bool> const & value) noexcept
 {
-    return value.X &&
-           value.Y;
+    return value.x &&
+           value.y;
 }
 
 // -----------------------------------------------------------------------------
 
 constexpr bool ggm::all_of(Vector3D<bool> const & value) noexcept
 {
-    return value.X &&
-           value.Y &&
-           value.Z;
+    return value.x &&
+           value.y &&
+           value.z;
 }
 
 // -----------------------------------------------------------------------------
 
 constexpr bool ggm::all_of(Vector4D<bool> const & value) noexcept
 {
-    return value.X &&
-           value.Y &&
-           value.Z &&
-           value.W;
+    return value.x &&
+           value.y &&
+           value.z &&
+           value.w;
 }
 
 // =============================================================================
 
 constexpr bool ggm::any_of(Vector2D<bool> const & value) noexcept
 {
-    return value.X ||
-           value.Y;
+    return value.x ||
+           value.y;
 }
 
 // -----------------------------------------------------------------------------
 
 constexpr bool ggm::any_of(Vector3D<bool> const & value) noexcept
 {
-    return value.X ||
-           value.Y ||
-           value.Z;
+    return value.x ||
+           value.y ||
+           value.z;
 }
 
 // -----------------------------------------------------------------------------
 
 constexpr bool ggm::any_of(Vector4D<bool> const & value) noexcept
 {
-    return value.X ||
-           value.Y ||
-           value.Z ||
-           value.W;
+    return value.x ||
+           value.y ||
+           value.z ||
+           value.w;
 }
 
 // =============================================================================
@@ -3176,8 +3282,8 @@ inline ggm::Vector2D<bool> ggm::is_close(Vector2D<T> const & lhs,
                                          T const &           epsilon) noexcept
 {
     return Vector2D<bool>{
-        is_close(lhs.X, rhs.X, epsilon),
-        is_close(lhs.Y, rhs.Y, epsilon),
+        is_close(lhs.x, rhs.x, epsilon),
+        is_close(lhs.y, rhs.y, epsilon),
     };
 }
 
@@ -3189,9 +3295,9 @@ inline ggm::Vector3D<bool> ggm::is_close(Vector3D<T> const & lhs,
                                          T const &           epsilon) noexcept
 {
     return Vector3D<bool>{
-        is_close(lhs.X, rhs.X, epsilon),
-        is_close(lhs.Y, rhs.Y, epsilon),
-        is_close(lhs.Z, rhs.Z, epsilon),
+        is_close(lhs.x, rhs.x, epsilon),
+        is_close(lhs.y, rhs.y, epsilon),
+        is_close(lhs.z, rhs.z, epsilon),
     };
 }
 
@@ -3203,10 +3309,10 @@ inline ggm::Vector4D<bool> ggm::is_close(Vector4D<T> const & lhs,
                                          T const &           epsilon) noexcept
 {
     return Vector4D<bool>{
-        is_close(lhs.X, rhs.X, epsilon),
-        is_close(lhs.Y, rhs.Y, epsilon),
-        is_close(lhs.Z, rhs.Z, epsilon),
-        is_close(lhs.W, rhs.W, epsilon),
+        is_close(lhs.x, rhs.x, epsilon),
+        is_close(lhs.y, rhs.y, epsilon),
+        is_close(lhs.z, rhs.z, epsilon),
+        is_close(lhs.w, rhs.w, epsilon),
     };
 }
 
@@ -3217,8 +3323,8 @@ constexpr ggm::Vector2D<bool> ggm::is_equal(Vector2D<T> const & lhs,
                                             Vector2D<T> const & rhs) noexcept
 {
     return Vector2D<bool>{
-        lhs.X == rhs.X,
-        lhs.Y == rhs.Y,
+        lhs.x == rhs.x,
+        lhs.y == rhs.y,
     };
 }
 
@@ -3229,9 +3335,9 @@ constexpr ggm::Vector3D<bool> ggm::is_equal(Vector3D<T> const & lhs,
                                             Vector3D<T> const & rhs) noexcept
 {
     return Vector3D<bool>{
-        lhs.X == rhs.X,
-        lhs.Y == rhs.Y,
-        lhs.Z == rhs.Z,
+        lhs.x == rhs.x,
+        lhs.y == rhs.y,
+        lhs.z == rhs.z,
     };
 }
 
@@ -3242,10 +3348,10 @@ constexpr ggm::Vector4D<bool> ggm::is_equal(Vector4D<T> const & lhs,
                                             Vector4D<T> const & rhs) noexcept
 {
     return Vector4D<bool>{
-        lhs.X == rhs.X,
-        lhs.Y == rhs.Y,
-        lhs.Z == rhs.Z,
-        lhs.W == rhs.W,
+        lhs.x == rhs.x,
+        lhs.y == rhs.y,
+        lhs.z == rhs.z,
+        lhs.w == rhs.w,
     };
 }
 
@@ -3256,8 +3362,8 @@ constexpr ggm::Vector2D<bool> ggm::is_greater(Vector2D<T> const & lhs,
                                               Vector2D<T> const & rhs) noexcept
 {
     return Vector2D<bool>{
-        lhs.X > rhs.X,
-        lhs.Y > rhs.Y,
+        lhs.x > rhs.x,
+        lhs.y > rhs.y,
     };
 }
 
@@ -3268,9 +3374,9 @@ constexpr ggm::Vector3D<bool> ggm::is_greater(Vector3D<T> const & lhs,
                                               Vector3D<T> const & rhs) noexcept
 {
     return Vector3D<bool>{
-        lhs.X > rhs.X,
-        lhs.Y > rhs.Y,
-        lhs.Z > rhs.Z,
+        lhs.x > rhs.x,
+        lhs.y > rhs.y,
+        lhs.z > rhs.z,
     };
 }
 
@@ -3281,10 +3387,10 @@ constexpr ggm::Vector4D<bool> ggm::is_greater(Vector4D<T> const & lhs,
                                               Vector4D<T> const & rhs) noexcept
 {
     return Vector4D<bool>{
-        lhs.X > rhs.X,
-        lhs.Y > rhs.Y,
-        lhs.Z > rhs.Z,
-        lhs.W > rhs.W,
+        lhs.x > rhs.x,
+        lhs.y > rhs.y,
+        lhs.z > rhs.z,
+        lhs.w > rhs.w,
     };
 }
 
@@ -3295,8 +3401,8 @@ constexpr ggm::Vector2D<bool> ggm::is_greater_equal(Vector2D<T> const & lhs,
                                                     Vector2D<T> const & rhs) noexcept
 {
     return Vector2D<bool>{
-        lhs.X >= rhs.X,
-        lhs.Y >= rhs.Y,
+        lhs.x >= rhs.x,
+        lhs.y >= rhs.y,
     };
 }
 
@@ -3307,9 +3413,9 @@ constexpr ggm::Vector3D<bool> ggm::is_greater_equal(Vector3D<T> const & lhs,
                                                     Vector3D<T> const & rhs) noexcept
 {
     return Vector3D<bool>{
-        lhs.X >= rhs.X,
-        lhs.Y >= rhs.Y,
-        lhs.Z >= rhs.Z,
+        lhs.x >= rhs.x,
+        lhs.y >= rhs.y,
+        lhs.z >= rhs.z,
     };
 }
 
@@ -3320,10 +3426,10 @@ constexpr ggm::Vector4D<bool> ggm::is_greater_equal(Vector4D<T> const & lhs,
                                                     Vector4D<T> const & rhs) noexcept
 {
     return Vector4D<bool>{
-        lhs.X >= rhs.X,
-        lhs.Y >= rhs.Y,
-        lhs.Z >= rhs.Z,
-        lhs.W >= rhs.W,
+        lhs.x >= rhs.x,
+        lhs.y >= rhs.y,
+        lhs.z >= rhs.z,
+        lhs.w >= rhs.w,
     };
 }
 
@@ -3334,8 +3440,8 @@ constexpr ggm::Vector2D<bool> ggm::is_less(Vector2D<T> const & lhs,
                                            Vector2D<T> const & rhs) noexcept
 {
     return Vector2D<bool>{
-        lhs.X < rhs.X,
-        lhs.Y < rhs.Y,
+        lhs.x < rhs.x,
+        lhs.y < rhs.y,
     };
 }
 
@@ -3346,9 +3452,9 @@ constexpr ggm::Vector3D<bool> ggm::is_less(Vector3D<T> const & lhs,
                                            Vector3D<T> const & rhs) noexcept
 {
     return Vector3D<bool>{
-        lhs.X < rhs.X,
-        lhs.Y < rhs.Y,
-        lhs.Z < rhs.Z,
+        lhs.x < rhs.x,
+        lhs.y < rhs.y,
+        lhs.z < rhs.z,
     };
 }
 
@@ -3359,10 +3465,10 @@ constexpr ggm::Vector4D<bool> ggm::is_less(Vector4D<T> const & lhs,
                                            Vector4D<T> const & rhs) noexcept
 {
     return Vector4D<bool>{
-        lhs.X < rhs.X,
-        lhs.Y < rhs.Y,
-        lhs.Z < rhs.Z,
-        lhs.W < rhs.W,
+        lhs.x < rhs.x,
+        lhs.y < rhs.y,
+        lhs.z < rhs.z,
+        lhs.w < rhs.w,
     };
 }
 
@@ -3373,8 +3479,8 @@ constexpr ggm::Vector2D<bool> ggm::is_less_equal(Vector2D<T> const & lhs,
                                                  Vector2D<T> const & rhs) noexcept
 {
     return Vector2D<bool>{
-        lhs.X <= rhs.X,
-        lhs.Y <= rhs.Y,
+        lhs.x <= rhs.x,
+        lhs.y <= rhs.y,
     };
 }
 
@@ -3385,9 +3491,9 @@ constexpr ggm::Vector3D<bool> ggm::is_less_equal(Vector3D<T> const & lhs,
                                                  Vector3D<T> const & rhs) noexcept
 {
     return Vector3D<bool>{
-        lhs.X <= rhs.X,
-        lhs.Y <= rhs.Y,
-        lhs.Z <= rhs.Z,
+        lhs.x <= rhs.x,
+        lhs.y <= rhs.y,
+        lhs.z <= rhs.z,
     };
 }
 
@@ -3398,10 +3504,10 @@ constexpr ggm::Vector4D<bool> ggm::is_less_equal(Vector4D<T> const & lhs,
                                                  Vector4D<T> const & rhs) noexcept
 {
     return Vector4D<bool>{
-        lhs.X <= rhs.X,
-        lhs.Y <= rhs.Y,
-        lhs.Z <= rhs.Z,
-        lhs.W <= rhs.W,
+        lhs.x <= rhs.x,
+        lhs.y <= rhs.y,
+        lhs.z <= rhs.z,
+        lhs.w <= rhs.w,
     };
 }
 
@@ -3412,8 +3518,8 @@ constexpr ggm::Vector2D<bool> ggm::is_not_equal(Vector2D<T> const & lhs,
                                                 Vector2D<T> const & rhs) noexcept
 {
     return Vector2D<bool>{
-        lhs.X != rhs.X,
-        lhs.Y != rhs.Y,
+        lhs.x != rhs.x,
+        lhs.y != rhs.y,
     };
 }
 
@@ -3424,9 +3530,9 @@ constexpr ggm::Vector3D<bool> ggm::is_not_equal(Vector3D<T> const & lhs,
                                                 Vector3D<T> const & rhs) noexcept
 {
     return Vector3D<bool>{
-        lhs.X != rhs.X,
-        lhs.Y != rhs.Y,
-        lhs.Z != rhs.Z,
+        lhs.x != rhs.x,
+        lhs.y != rhs.y,
+        lhs.z != rhs.z,
     };
 }
 
@@ -3437,10 +3543,10 @@ constexpr ggm::Vector4D<bool> ggm::is_not_equal(Vector4D<T> const & lhs,
                                                 Vector4D<T> const & rhs) noexcept
 {
     return Vector4D<bool>{
-        lhs.X != rhs.X,
-        lhs.Y != rhs.Y,
-        lhs.Z != rhs.Z,
-        lhs.W != rhs.W,
+        lhs.x != rhs.x,
+        lhs.y != rhs.y,
+        lhs.z != rhs.z,
+        lhs.w != rhs.w,
     };
 }
 
@@ -3448,27 +3554,27 @@ constexpr ggm::Vector4D<bool> ggm::is_not_equal(Vector4D<T> const & lhs,
 
 constexpr bool ggm::none_of(Vector2D<bool> const & value) noexcept
 {
-    return !value.X &&
-           !value.Y;
+    return !value.x &&
+           !value.y;
 }
 
 // -----------------------------------------------------------------------------
 
 constexpr bool ggm::none_of(Vector3D<bool> const & value) noexcept
 {
-    return !value.X &&
-           !value.Y &&
-           !value.Z;
+    return !value.x &&
+           !value.y &&
+           !value.z;
 }
 
 // -----------------------------------------------------------------------------
 
 constexpr bool ggm::none_of(Vector4D<bool> const & value) noexcept
 {
-    return !value.X &&
-           !value.Y &&
-           !value.Z &&
-           !value.W;
+    return !value.x &&
+           !value.y &&
+           !value.z &&
+           !value.w;
 }
 
 // =============================================================================

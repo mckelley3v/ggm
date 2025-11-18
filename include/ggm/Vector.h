@@ -23,20 +23,17 @@ namespace ggm
     template <typename T>
     struct Vector2D
     {
-        ///< runtime index of component: [0] == .X, [1] == .Y
+        ///< runtime index of component: [0] == .x, [1] == .y
         constexpr T & operator[](std::size_t const index) noexcept;
-        ///< runtime index of component: [0] == .X, [1] == .Y
+        ///< runtime index of component: [0] == .x, [1] == .y
         constexpr T const & operator[](std::size_t const index) const noexcept;
 
         template <typename U>
         explicit constexpr operator Vector2D<U>() const noexcept;
 
-        friend constexpr bool operator==(Vector2D const & lhs,
-                                         Vector2D const & rhs) noexcept = default;
-
         // members:
-        T X; // uninitialized
-        T Y; // uninitialized
+        T x; // uninitialized
+        T y; // uninitialized
     };
 
     // =============================================================================
@@ -49,22 +46,19 @@ namespace ggm
     template <typename T>
     struct Vector3D
     {
-        ///< runtime index of component: [0] == .X, [1] == .Y, [2] == .Z
+        ///< runtime index of component: [0] == .x, [1] == .y, [2] == .z
         constexpr T & operator[](std::size_t const index) noexcept;
 
-        ///< runtime index of component: [0] == .X, [1] == .Y, [2] == .Z
+        ///< runtime index of component: [0] == .x, [1] == .y, [2] == .z
         constexpr T const & operator[](std::size_t const index) const noexcept;
 
         template <typename U>
         explicit constexpr operator Vector3D<U>() const noexcept;
 
-        friend constexpr bool operator==(Vector3D const & lhs,
-                                         Vector3D const & rhs) noexcept = default;
-
         // members:
-        T X; // uninitialized
-        T Y; // uninitialized
-        T Z; // uninitialized
+        T x; // uninitialized
+        T y; // uninitialized
+        T z; // uninitialized
     };
 
     // =============================================================================
@@ -77,23 +71,20 @@ namespace ggm
     template <typename T>
     struct Vector4D
     {
-        ///< runtime index of component: [0] == .X, [1] == .Y, [2] == .Z, [3] == .W
+        ///< runtime index of component: [0] == .x, [1] == .y, [2] == .z, [3] == .w
         constexpr T & operator[](std::size_t const index) noexcept;
 
-        ///< runtime index of component: [0] == .X, [1] == .Y, [2] == .Z, [3] == .W
+        ///< runtime index of component: [0] == .x, [1] == .y, [2] == .z, [3] == .w
         constexpr T const & operator[](std::size_t const index) const noexcept;
 
         template <typename U>
         explicit constexpr operator Vector4D<U>() const noexcept;
 
-        friend constexpr bool operator==(Vector4D const & lhs,
-                                         Vector4D const & rhs) noexcept = default;
-
         // members:
-        T X; // uninitialized
-        T Y; // uninitialized
-        T Z; // uninitialized
-        T W; // uninitialized
+        T x; // uninitialized
+        T y; // uninitialized
+        T z; // uninitialized
+        T w; // uninitialized
     };
 
     // =============================================================================
@@ -128,8 +119,8 @@ namespace ggm::VectorImpl
         /// Used to implement constexpr operator [] in a way compatible with Vector2D
         /// having separate named members instead of a single array member.
         static constexpr T VectorType::* Members[Size] = {
-            &VectorType::X, // [0]
-            &VectorType::Y, // [1]
+            &VectorType::x, // [0]
+            &VectorType::y, // [1]
         };
     };
 
@@ -148,9 +139,9 @@ namespace ggm::VectorImpl
         /// Used to implement constexpr operator [] in a way compatible with Vector3D
         /// having separate named members instead of a single array member.
         static constexpr T VectorType::* Members[Size] = {
-            &VectorType::X, // [0]
-            &VectorType::Y, // [1]
-            &VectorType::Z, // [2]
+            &VectorType::x, // [0]
+            &VectorType::y, // [1]
+            &VectorType::z, // [2]
         };
     };
 
@@ -169,10 +160,10 @@ namespace ggm::VectorImpl
         /// Used to implement constexpr operator [] in a way compatible with Vector4D
         /// having separate named members instead of a single array member.
         static constexpr T VectorType::* Members[Size] = {
-            &VectorType::X, // [0]
-            &VectorType::Y, // [1]
-            &VectorType::Z, // [2]
-            &VectorType::W, // [3]
+            &VectorType::x, // [0]
+            &VectorType::y, // [1]
+            &VectorType::z, // [2]
+            &VectorType::w, // [3]
         };
     };
 
@@ -214,8 +205,8 @@ template <typename U>
 constexpr ggm::Vector2D<T>::operator Vector2D<U>() const noexcept
 {
     return Vector2D<U>{
-        static_cast<U>(X),
-        static_cast<U>(Y),
+        static_cast<U>(x),
+        static_cast<U>(y),
     };
 }
 
@@ -254,9 +245,9 @@ template <typename U>
 constexpr ggm::Vector3D<T>::operator Vector3D<U>() const noexcept
 {
     return Vector3D<U>{
-        static_cast<U>(X),
-        static_cast<U>(Y),
-        static_cast<U>(Z),
+        static_cast<U>(x),
+        static_cast<U>(y),
+        static_cast<U>(z),
     };
 }
 
@@ -295,10 +286,10 @@ template <typename U>
 constexpr ggm::Vector4D<T>::operator Vector4D<U>() const noexcept
 {
     return Vector4D<U>{
-        static_cast<U>(X),
-        static_cast<U>(Y),
-        static_cast<U>(Z),
-        static_cast<U>(W),
+        static_cast<U>(x),
+        static_cast<U>(y),
+        static_cast<U>(z),
+        static_cast<U>(w),
     };
 }
 
