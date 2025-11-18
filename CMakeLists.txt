@@ -48,6 +48,7 @@ add_library(
         "include/ggm/Matrix.h"
         "include/ggm/MatrixFwd.h"
         "include/ggm/MatrixTypedefs.h"
+        "include/ggm/MatrixUtil.h"
         "include/ggm/NumericConstants.h"
         "include/ggm/NumericUtil.h"
         "include/ggm/Vector.h"
@@ -67,7 +68,7 @@ target_include_directories(
 target_compile_features(
     ggm
     PUBLIC
-        cxx_std_20
+        cxx_std_17
 )
 
 target_compile_options(
@@ -84,6 +85,7 @@ if (GGM_ENABLE_UNIT_TESTS)
     add_executable(
         test_ggm
         "tests/TestMatrix.cpp"
+        "tests/TestMatrixUtil.cpp"
         "tests/TestNumericUtil.cpp"
         "tests/TestVector.cpp"
         "tests/TestVectorUtil.cpp"
@@ -106,7 +108,7 @@ if (GGM_ENABLE_UNIT_TESTS)
     target_compile_features(
         test_ggm
         PRIVATE
-            cxx_std_20
+            cxx_std_17
     )
 
     target_compile_options(

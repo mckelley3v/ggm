@@ -10,6 +10,10 @@
 namespace ggm
 {
     // =============================================================================
+    /// @defgroup Matrix Mathematical Matrix structs for NxM
+    // =============================================================================
+
+    // =============================================================================
     // Matrix1x2
     // =============================================================================
 
@@ -28,9 +32,6 @@ namespace ggm
 
         template <typename U>
         explicit constexpr operator Matrix1x2<U>() const noexcept;
-
-        friend constexpr bool operator==(Matrix1x2 const & lhs,
-                                         Matrix1x2 const & rhs) noexcept = default;
 
         // members:
         T m00; // uninitialized
@@ -57,9 +58,6 @@ namespace ggm
         template <typename U>
         explicit constexpr operator Matrix1x3<U>() const noexcept;
 
-        friend constexpr bool operator==(Matrix1x3 const & lhs,
-                                         Matrix1x3 const & rhs) noexcept = default;
-
         // members:
         T m00; // uninitialized
         T m01; // uninitialized
@@ -85,9 +83,6 @@ namespace ggm
 
         template <typename U>
         explicit constexpr operator Matrix1x4<U>() const noexcept;
-
-        friend constexpr bool operator==(Matrix1x4 const & lhs,
-                                         Matrix1x4 const & rhs) noexcept = default;
 
         // members:
         T m00; // uninitialized
@@ -116,9 +111,6 @@ namespace ggm
         template <typename U>
         explicit constexpr operator Matrix2x1<U>() const noexcept;
 
-        friend constexpr bool operator==(Matrix2x1 const & lhs,
-                                         Matrix2x1 const & rhs) noexcept = default;
-
         // members:
         T m00; // uninitialized
         T m10; // uninitialized
@@ -143,9 +135,6 @@ namespace ggm
 
         template <typename U>
         explicit constexpr operator Matrix2x2<U>() const noexcept;
-
-        friend constexpr bool operator==(Matrix2x2 const & lhs,
-                                         Matrix2x2 const & rhs) noexcept = default;
 
         // members:
         T m00; // uninitialized
@@ -173,9 +162,6 @@ namespace ggm
 
         template <typename U>
         explicit constexpr operator Matrix2x3<U>() const noexcept;
-
-        friend constexpr bool operator==(Matrix2x3 const & lhs,
-                                         Matrix2x3 const & rhs) noexcept = default;
 
         // members:
         T m00; // uninitialized
@@ -205,9 +191,6 @@ namespace ggm
 
         template <typename U>
         explicit constexpr operator Matrix2x4<U>() const noexcept;
-
-        friend constexpr bool operator==(Matrix2x4 const & lhs,
-                                         Matrix2x4 const & rhs) noexcept = default;
 
         // members:
         T m00; // uninitialized
@@ -240,9 +223,6 @@ namespace ggm
         template <typename U>
         explicit constexpr operator Matrix3x1<U>() const noexcept;
 
-        friend constexpr bool operator==(Matrix3x1 const & lhs,
-                                         Matrix3x1 const & rhs) noexcept = default;
-
         // members:
         T m00; // uninitialized
         T m10; // uninitialized
@@ -268,9 +248,6 @@ namespace ggm
 
         template <typename U>
         explicit constexpr operator Matrix3x2<U>() const noexcept;
-
-        friend constexpr bool operator==(Matrix3x2 const & lhs,
-                                         Matrix3x2 const & rhs) noexcept = default;
 
         // members:
         T m00; // uninitialized
@@ -300,9 +277,6 @@ namespace ggm
 
         template <typename U>
         explicit constexpr operator Matrix3x3<U>() const noexcept;
-
-        friend constexpr bool operator==(Matrix3x3 const & lhs,
-                                         Matrix3x3 const & rhs) noexcept = default;
 
         // members:
         T m00; // uninitialized
@@ -335,9 +309,6 @@ namespace ggm
 
         template <typename U>
         explicit constexpr operator Matrix3x4<U>() const noexcept;
-
-        friend constexpr bool operator==(Matrix3x4 const & lhs,
-                                         Matrix3x4 const & rhs) noexcept = default;
 
         // members:
         T m00; // uninitialized
@@ -374,9 +345,6 @@ namespace ggm
         template <typename U>
         explicit constexpr operator Matrix4x1<U>() const noexcept;
 
-        friend constexpr bool operator==(Matrix4x1 const & lhs,
-                                         Matrix4x1 const & rhs) noexcept = default;
-
         // members:
         T m00; // uninitialized
         T m10; // uninitialized
@@ -403,9 +371,6 @@ namespace ggm
 
         template <typename U>
         explicit constexpr operator Matrix4x2<U>() const noexcept;
-
-        friend constexpr bool operator==(Matrix4x2 const & lhs,
-                                         Matrix4x2 const & rhs) noexcept = default;
 
         // members:
         T m00; // uninitialized
@@ -437,9 +402,6 @@ namespace ggm
 
         template <typename U>
         explicit constexpr operator Matrix4x3<U>() const noexcept;
-
-        friend constexpr bool operator==(Matrix4x3 const & lhs,
-                                         Matrix4x3 const & rhs) noexcept = default;
 
         // members:
         T m00; // uninitialized
@@ -475,9 +437,6 @@ namespace ggm
 
         template <typename U>
         explicit constexpr operator Matrix4x4<U>() const noexcept;
-
-        friend constexpr bool operator==(Matrix4x4 const & lhs,
-                                         Matrix4x4 const & rhs) noexcept = default;
 
         // members:
         T m00; // uninitialized
