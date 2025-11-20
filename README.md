@@ -21,7 +21,7 @@ C++ graphics and game 3D math library.
   * mathematically correct, but still appropriate for game & graphics usage
   * easy and familiar syntax
     * yes: ```v.x```
-    * no: ```v.x(), v.GetX(), v.SetX(), v[0], v[X]```
+    * no: ```v.x(), v.GetX(), v.SetX(), v[X]```
   * full constexpr support
   * GLSL/HLSL like syntax
     * yes: ```dot(u, v)```
@@ -85,7 +85,7 @@ C++ graphics and game 3D math library.
   * missing constexpr support (e.g. abs, floor)
   * simplified implementation (e.g. clamp, lerp)
     * omits handling of nan/inf values, overflow, etc.
-  * avoid heavy standard library #include (e.g. <algorithm>)
+  * avoid heavy standard library #include (e.g. \<algorithm\>)
 
 ---
 ## Coding Standards
@@ -112,7 +112,7 @@ This library should be very easy to read and debug:
 * Avoid nesting types
   * This prevents forward declarations
 * Support constexpr whenever reasonable
-  * Weigh value when required to add additional #include
+  * Avoid adding additional #include
 
 ### Variables
 * Prefer single-assignment style
@@ -141,6 +141,15 @@ This library should be very easy to read and debug:
 * be const correct
   * be mindful of multiple const levels for pointer types
 
+### Exceptions
+* Be exception safe
+  * Use classes to own resources (e.g. std\:\:unique_ptr)
+  * Try to provide as strong of an exception guarantee as is reasonable
+  * See [Exception safety](https://en.cppreference.com/w/cpp/language/exceptions.html#Exception_safety)
+* Exceptions may be thrown, but only for truly exceptional scenarios
+* Prefer return values that communicate failure (e.g. std\:\:optional, std\:\:expected)
+* Catch exceptions by reference to avoid slicing and unnecessary copying
+
 ### APIs
 * Inline function implementations are to be implemented at bottom of file
   * Keep interface and implementation separate
@@ -154,7 +163,7 @@ This library should be very easy to read and debug:
 * Prefer default member initializers
   * Except when it requires adding an additional #include
 * Avoid adding const to by-value return types
-  * This prevents move and RVO
+  * This prevents move and return-value-optimization
   * const reference is allowed and encouraged when appropriate
 
 ### Macros
@@ -264,11 +273,11 @@ namespace MyNamespace
         MyClass& operator = (MyClass && rhs) = default;
         MyClass& operator = (MyClass const & rhs) = default;
 
-        // always default destructor, use = default if appropriate
+        // always define destructor, use = default if appropriate
         ~MyClass() = default;
 
         int&  MyIntVar();            // function name of style "Noun" implies non-const access (try to avoid)
-        int   GetMyIntVar() const;   // function name of style "GetNoun" implies const member function
+        int   GetMyIntVar() const;   // function name of style "GetNoun" implies const member accessor
 
         float& MyFloatVar();
         float  GetMyFloatVar() const;
