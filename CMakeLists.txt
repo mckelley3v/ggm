@@ -45,20 +45,21 @@ add_library(
     ggm
     STATIC
         "include/ggm/ConstantsUtil.h"
-        "include/ggm/MatrixAll.h"
         "include/ggm/Matrix/Matrix.h"
+        "include/ggm/Matrix/MatrixConstants.h"
         "include/ggm/Matrix/MatrixFwd.h"
         "include/ggm/Matrix/MatrixTypedefs.h"
         "include/ggm/Matrix/MatrixUtil.h"
-        "include/ggm/NumericAll.h"
+        "include/ggm/MatrixAll.h"
         "include/ggm/Numeric/NumericConstants.h"
         "include/ggm/Numeric/NumericUtil.h"
-        "include/ggm/VectorAll.h"
+        "include/ggm/NumericAll.h"
         "include/ggm/Vector/Vector.h"
         "include/ggm/Vector/VectorConstants.h"
         "include/ggm/Vector/VectorFwd.h"
         "include/ggm/Vector/VectorTypedefs.h"
         "include/ggm/Vector/VectorUtil.h"
+        "include/ggm/VectorAll.h"
         "source/ggm/NumericUtil.cpp"
 )
 
@@ -88,11 +89,14 @@ if (GGM_ENABLE_UNIT_TESTS)
     add_executable(
         test_ggm
         "tests/TestMatrix.cpp"
+        "tests/TestMatrixConstants.cpp"
         "tests/TestMatrixUtil.cpp"
+        "tests/TestNumericConstants.cpp"
         "tests/TestNumericUtil.cpp"
-        "tests/TestVector.cpp"
-        "tests/TestVectorUtil.cpp"
         "tests/TestUtils/Types.h"
+        "tests/TestVector.cpp"
+        "tests/TestVectorConstants.cpp"
+        "tests/TestVectorUtil.cpp"
     )
 
     target_include_directories(

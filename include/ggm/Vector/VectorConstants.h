@@ -15,6 +15,8 @@
 ///
 /// Syntax            | Description
 /// ------            | -----------
+/// Zero<VectorType>  | constant for { T{0}, T{0}, T{0}, T{0} }
+/// Ones<VectorType>  | constant for { T{1}, T{1}, T{1}, T{1} }
 /// AxisX<VectorType> | constant for { T{1}, T{0}, T{0}, T{0} }
 /// AxisY<VectorType> | constant for { T{0}, T{1}, T{0}, T{0} }
 /// AxisZ<VectorType> | constant for { T{0}, T{0}, T{1}, T{0} }
@@ -24,6 +26,45 @@
 
 namespace ggm
 {
+    // =============================================================================
+
+    /// Vector constant for {0, 0}
+    /// @relates Vector2D
+    template <typename T>
+    inline constexpr Vector2D<T> Zero<Vector2D<T>> = { T{ 0 }, T{ 0 } };
+
+    /// Vector constant for {0, 0, 0}
+    /// @relates Vector3D
+    template <typename T>
+    inline constexpr Vector3D<T> Zero<Vector3D<T>> = { T{ 0 }, T{ 0 }, T{ 0 } };
+
+    /// Vector constant for {0, 0, 0, 0}
+    /// @relates Vector4D
+    template <typename T>
+    inline constexpr Vector4D<T> Zero<Vector4D<T>> = { T{ 0 }, T{ 0 }, T{ 0 }, T{ 0 } };
+
+    // =============================================================================
+
+    template <typename T>
+    inline constexpr T Ones = undefined_constant<T>();
+
+    // ----------------------------------------------------------------------------------------------
+
+    /// Vector constant for {1, 1}
+    /// @relates Vector2D
+    template <typename T>
+    inline constexpr Vector2D<T> Ones<Vector2D<T>> = { T{ 1 }, T{ 1 } };
+
+    /// Vector constant for {1, 1, 1}
+    /// @relates Vector3D
+    template <typename T>
+    inline constexpr Vector3D<T> Ones<Vector3D<T>> = { T{ 1 }, T{ 1 }, T{ 1 } };
+
+    /// Vector constant for {1, 1, 1, 1}
+    /// @relates Vector4D
+    template <typename T>
+    inline constexpr Vector4D<T> Ones<Vector4D<T>> = { T{ 1 }, T{ 1 }, T{ 1 }, T{ 1 } };
+
     // =============================================================================
 
     template <typename T>

@@ -12,6 +12,11 @@ namespace ggm
     template <typename T>
     constexpr T undefined_constant() = delete;
 
+    // -----------------------------------------------------------------------------
+
+    template <typename T>
+    inline constexpr T Zero = T{ 0 };
+
     // =============================================================================
 } // namespace ggm
 
