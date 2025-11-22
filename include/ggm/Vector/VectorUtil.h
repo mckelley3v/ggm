@@ -2,9 +2,9 @@
 #ifndef GGM_VECTOR_UTIL_H
 #define GGM_VECTOR_UTIL_H
 
-#include "ggm/NumericConstants.h"
-#include "ggm/NumericUtil.h"
-#include "ggm/Vector.h"
+#include "ggm/Numeric/NumericConstants.h"
+#include "ggm/Numeric/NumericUtil.h"
+#include "ggm/Vector/Vector.h"
 
 #include <type_traits>
 

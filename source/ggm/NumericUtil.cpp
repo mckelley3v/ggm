@@ -1,4 +1,4 @@
-#include "ggm/NumericUtil.h"
+#include "ggm/Numeric/NumericUtil.h"
 
 #include <algorithm>
 #include <cmath>

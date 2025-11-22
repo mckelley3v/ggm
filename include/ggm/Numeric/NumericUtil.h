@@ -2,7 +2,7 @@
 #ifndef GGM_NUMERIC_UTIL_H
 #define GGM_NUMERIC_UTIL_H
 
-#include "ggm/NumericConstants.h"
+#include "ggm/Numeric/NumericConstants.h"
 
 #include <cassert>
 #include <limits>

@@ -1,4 +1,5 @@
-#include "ggm/MatrixUtil.h"
+#include "ggm/Matrix/Matrix.h"
+#include "ggm/Matrix/MatrixUtil.h"
 
 #include "TestUtils/Types.h"
 

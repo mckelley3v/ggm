@@ -2,7 +2,7 @@
 #ifndef GGM_MATRIX_TYPEDEFS_H
 #define GGM_MATRIX_TYPEDEFS_H
 
-#include "ggm/MatrixFwd.h"
+#include "ggm/Matrix/MatrixFwd.h"
 
 #include <cstddef>
 #include <cstdint>

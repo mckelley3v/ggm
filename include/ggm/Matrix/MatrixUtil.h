@@ -2,7 +2,7 @@
 #ifndef GGM_MATRIX_UTIL_H
 #define GGM_MATRIX_UTIL_H
 
-#include "ggm/Matrix.h"
+#include "ggm/Matrix/Matrix.h"
 
 // =============================================================================
 /// @addtogroup Matrix

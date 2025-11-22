@@ -1,4 +1,5 @@
-#include "ggm/VectorUtil.h"
+#include "ggm/Vector/Vector.h"
+#include "ggm/Vector/VectorUtil.h"
 
 #include "TestUtils/Types.h"
 

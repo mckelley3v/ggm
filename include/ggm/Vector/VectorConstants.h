@@ -3,7 +3,7 @@
 #define GGM_VECTOR_CONSTANTS_H
 
 #include "ggm/ConstantsUtil.h"
-#include "ggm/Vector.h"
+#include "ggm/Vector/Vector.h"
 
 // =============================================================================
 /// @addtogroup Vector

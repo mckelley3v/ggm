@@ -2,7 +2,7 @@
 #ifndef GGM_VECTOR_TYPEDEFS_H
 #define GGM_VECTOR_TYPEDEFS_H
 
-#include "VectorFwd.h"
+#include "ggm/Vector/VectorFwd.h"
 
 #include <cstddef>
 #include <cstdint>

@@ -7,13 +7,13 @@ C++ graphics and game 3D math library.
   | ------------ | ------------- | ------------- | ------------- |
   | ~~Vector1D~~ | Vector2D\<T\> | Vector3D\<T\> | Vector4D\<T\> |
 
-* | File                                               | Description                                     |
-  | -------------------------------------------------- | ----------------------------------------------- |
-  | [Vector.h](include/ggm/Vector.h)                   | Minimal definition of vector types              |
-  | [VectorFwd.h](include/ggm/VectorFwd.h)             | Forward declaration of vector types             |
-  | [VectorUtil.h](include/ggm/VectorUtil.h)           | Definition of vector operators and utilities    |
-  | [VectorTypedefs.h](include/ggm/VectorTypedefs.h)   | Typedefs of common vector types, e.g. Vector3Df |
-  | [VectorConstants.h](include/ggm/VectorConstants.h) | Definitions of common vector constants          |
+* | File                                                      | Description                                     |
+  | --------------------------------------------------------- | ----------------------------------------------- |
+  | [Vector.h](include/ggm/Vector/Vector.h)                   | Minimal definition of vector types              |
+  | [VectorFwd.h](include/ggm/Vector/VectorFwd.h)             | Forward declaration of vector types             |
+  | [VectorUtil.h](include/ggm/Vector/VectorUtil.h)           | Definition of vector operators and utilities    |
+  | [VectorTypedefs.h](include/ggm/Vector/VectorTypedefs.h)   | Typedefs of common vector types, e.g. Vector3Df |
+  | [VectorConstants.h](include/ggm/Vector/VectorConstants.h) | Definitions of common vector constants          |
 
 ### Implementation design
 * Goals:
@@ -36,13 +36,13 @@ C++ graphics and game 3D math library.
   | Matrix3x1\<T\> | Matrix3x2\<T\> | Matrix3x3\<T\> | Matrix3x4\<T\> |
   | Matrix4x1\<T\> | Matrix4x2\<T\> | Matrix4x3\<T\> | Matrix4x4\<T\> |
 
-* | File                                               | Description                                      |
-  | -------------------------------------------------- | ------------------------------------------------ |
-  | [Matrix.h](include/ggm/Matrix.h)                   | Minimal definition of matrix types               |
-  | [MatrixFwd.h](include/ggm/MatrixFwd.h)             | Forward declaration of matrix types              |
-  | [MatrixUtil.h](include/ggm/MatrixUtil.h)           | Definition of matrix operators and utilities     |
-  | [MatrixTypedefs.h](include/ggm/MatrixTypedefs.h)   | Typedefs of common matrix types, e.g. Matrix4x4f |
-  | [MatrixConstants.h](include/ggm/MatrixConstants.h) | Definitions of common matrix constants           |
+* | File                                                      | Description                                      |
+  | --------------------------------------------------------- | ------------------------------------------------ |
+  | [Matrix.h](include/ggm/Matrix/Matrix.h)                   | Minimal definition of matrix types               |
+  | [MatrixFwd.h](include/ggm/Matrix/MatrixFwd.h)             | Forward declaration of matrix types              |
+  | [MatrixUtil.h](include/ggm/Matrix/MatrixUtil.h)           | Definition of matrix operators and utilities     |
+  | [MatrixTypedefs.h](include/ggm/Matrix/MatrixTypedefs.h)   | Typedefs of common matrix types, e.g. Matrix4x4f |
+  | [MatrixConstants.h](include/ggm/Matrix/MatrixConstants.h) | Definitions of common matrix constants           |
 
 ### Implementation design
 * Goals:
@@ -101,7 +101,7 @@ This library should be very easy to read and debug:
 * Avoid unnecessary layers of code
 * Reasonable performance in Debug builds
 * No by-hand SIMD
-  * Eensure that the code is simple enough so the compiler can auto-vectorize when appropriate
+  * Ensure that the code is simple enough so the compiler can auto-vectorize when appropriate
 * Avoid overly complex templates
 * Do not generalize when code would be less performant than manually written for that scenario
   * (within reason of course)
@@ -131,7 +131,7 @@ This library should be very easy to read and debug:
 
 ### Class
 * always define all constructors/assignment/destructors
-  * an "= default" implemenation is encouraged whenever possible
+  * an "= default" implementation is encouraged whenever possible
 * no public member variables
 * avoid protected member variables
 * no const member variables
