@@ -14,6 +14,30 @@ namespace ggm
     // =============================================================================
 
     // =============================================================================
+    // Matrix1x1
+    // =============================================================================
+
+    /// A 1x1 mathematical matrix (row major storage)
+    /// @tparam T The type of each matrix element (usually float or double)
+    template <typename T>
+    struct Matrix1x1
+    {
+        /// runtime indexing of element: m(R, C) == m.mRC
+        constexpr T & operator()(std::size_t const row,
+                                 std::size_t const col) noexcept;
+
+        /// runtime indexing of element: m(R, C) == m.mRC
+        constexpr T const & operator()(std::size_t const row,
+                                       std::size_t const col) const noexcept;
+
+        template <typename U>
+        explicit constexpr operator Matrix1x1<U>() const noexcept;
+
+        // members:
+        T m00; // uninitialized
+    };
+
+    // =============================================================================
     // Matrix1x2
     // =============================================================================
 
@@ -22,11 +46,11 @@ namespace ggm
     template <typename T>
     struct Matrix1x2
     {
-        /// runtime indexing of element: mtx(R, C) == mtx.mRC
+        /// runtime indexing of element: m(R, C) == m.mRC
         constexpr T & operator()(std::size_t const row,
                                  std::size_t const col) noexcept;
 
-        /// runtime indexing of element: mtx(R, C) == mtx.mRC
+        /// runtime indexing of element: m(R, C) == m.mRC
         constexpr T const & operator()(std::size_t const row,
                                        std::size_t const col) const noexcept;
 
@@ -47,11 +71,11 @@ namespace ggm
     template <typename T>
     struct Matrix1x3
     {
-        /// runtime indexing of element: mtx(R, C) == mtx.mRC
+        /// runtime indexing of element: m(R, C) == m.mRC
         constexpr T & operator()(std::size_t const row,
                                  std::size_t const col) noexcept;
 
-        /// runtime indexing of element: mtx(R, C) == mtx.mRC
+        /// runtime indexing of element: m(R, C) == m.mRC
         constexpr T const & operator()(std::size_t const row,
                                        std::size_t const col) const noexcept;
 
@@ -73,11 +97,11 @@ namespace ggm
     template <typename T>
     struct Matrix1x4
     {
-        /// runtime indexing of element: mtx(R, C) == mtx.mRC
+        /// runtime indexing of element: m(R, C) == m.mRC
         constexpr T & operator()(std::size_t const row,
                                  std::size_t const col) noexcept;
 
-        /// runtime indexing of element: mtx(R, C) == mtx.mRC
+        /// runtime indexing of element: m(R, C) == m.mRC
         constexpr T const & operator()(std::size_t const row,
                                        std::size_t const col) const noexcept;
 
@@ -100,11 +124,11 @@ namespace ggm
     template <typename T>
     struct Matrix2x1
     {
-        /// runtime indexing of element: mtx(R, C) == mtx.mRC
+        /// runtime indexing of element: m(R, C) == m.mRC
         constexpr T & operator()(std::size_t const row,
                                  std::size_t const col) noexcept;
 
-        /// runtime indexing of element: mtx(R, C) == mtx.mRC
+        /// runtime indexing of element: m(R, C) == m.mRC
         constexpr T const & operator()(std::size_t const row,
                                        std::size_t const col) const noexcept;
 
@@ -125,11 +149,11 @@ namespace ggm
     template <typename T>
     struct Matrix2x2
     {
-        /// runtime indexing of element: mtx(R, C) == mtx.mRC
+        /// runtime indexing of element: m(R, C) == m.mRC
         constexpr T & operator()(std::size_t const row,
                                  std::size_t const col) noexcept;
 
-        /// runtime indexing of element: mtx(R, C) == mtx.mRC
+        /// runtime indexing of element: m(R, C) == m.mRC
         constexpr T const & operator()(std::size_t const row,
                                        std::size_t const col) const noexcept;
 
@@ -152,11 +176,11 @@ namespace ggm
     template <typename T>
     struct Matrix2x3
     {
-        /// runtime indexing of element: mtx(R, C) == mtx.mRC
+        /// runtime indexing of element: m(R, C) == m.mRC
         constexpr T & operator()(std::size_t const row,
                                  std::size_t const col) noexcept;
 
-        /// runtime indexing of element: mtx(R, C) == mtx.mRC
+        /// runtime indexing of element: m(R, C) == m.mRC
         constexpr T const & operator()(std::size_t const row,
                                        std::size_t const col) const noexcept;
 
@@ -181,11 +205,11 @@ namespace ggm
     template <typename T>
     struct Matrix2x4
     {
-        /// runtime indexing of element: mtx(R, C) == mtx.mRC
+        /// runtime indexing of element: m(R, C) == m.mRC
         constexpr T & operator()(std::size_t const row,
                                  std::size_t const col) noexcept;
 
-        /// runtime indexing of element: mtx(R, C) == mtx.mRC
+        /// runtime indexing of element: m(R, C) == m.mRC
         constexpr T const & operator()(std::size_t const row,
                                        std::size_t const col) const noexcept;
 
@@ -212,11 +236,11 @@ namespace ggm
     template <typename T>
     struct Matrix3x1
     {
-        /// runtime indexing of element: mtx(R, C) == mtx.mRC
+        /// runtime indexing of element: m(R, C) == m.mRC
         constexpr T & operator()(std::size_t const row,
                                  std::size_t const col) noexcept;
 
-        /// runtime indexing of element: mtx(R, C) == mtx.mRC
+        /// runtime indexing of element: m(R, C) == m.mRC
         constexpr T const & operator()(std::size_t const row,
                                        std::size_t const col) const noexcept;
 
@@ -238,11 +262,11 @@ namespace ggm
     template <typename T>
     struct Matrix3x2
     {
-        /// runtime indexing of element: mtx(R, C) == mtx.mRC
+        /// runtime indexing of element: m(R, C) == m.mRC
         constexpr T & operator()(std::size_t const row,
                                  std::size_t const col) noexcept;
 
-        /// runtime indexing of element: mtx(R, C) == mtx.mRC
+        /// runtime indexing of element: m(R, C) == m.mRC
         constexpr T const & operator()(std::size_t const row,
                                        std::size_t const col) const noexcept;
 
@@ -267,11 +291,11 @@ namespace ggm
     template <typename T>
     struct Matrix3x3
     {
-        /// runtime indexing of element: mtx(R, C) == mtx.mRC
+        /// runtime indexing of element: m(R, C) == m.mRC
         constexpr T & operator()(std::size_t const row,
                                  std::size_t const col) noexcept;
 
-        /// runtime indexing of element: mtx(R, C) == mtx.mRC
+        /// runtime indexing of element: m(R, C) == m.mRC
         constexpr T const & operator()(std::size_t const row,
                                        std::size_t const col) const noexcept;
 
@@ -299,11 +323,11 @@ namespace ggm
     template <typename T>
     struct Matrix3x4
     {
-        /// runtime indexing of element: mtx(R, C) == mtx.mRC
+        /// runtime indexing of element: m(R, C) == m.mRC
         constexpr T & operator()(std::size_t const row,
                                  std::size_t const col) noexcept;
 
-        /// runtime indexing of element: mtx(R, C) == mtx.mRC
+        /// runtime indexing of element: m(R, C) == m.mRC
         constexpr T const & operator()(std::size_t const row,
                                        std::size_t const col) const noexcept;
 
@@ -334,11 +358,11 @@ namespace ggm
     template <typename T>
     struct Matrix4x1
     {
-        /// runtime indexing of element: mtx(R, C) == mtx.mRC
+        /// runtime indexing of element: m(R, C) == m.mRC
         constexpr T & operator()(std::size_t const row,
                                  std::size_t const col) noexcept;
 
-        /// runtime indexing of element: mtx(R, C) == mtx.mRC
+        /// runtime indexing of element: m(R, C) == m.mRC
         constexpr T const & operator()(std::size_t const row,
                                        std::size_t const col) const noexcept;
 
@@ -361,11 +385,11 @@ namespace ggm
     template <typename T>
     struct Matrix4x2
     {
-        /// runtime indexing of element: mtx(R, C) == mtx.mRC
+        /// runtime indexing of element: m(R, C) == m.mRC
         constexpr T & operator()(std::size_t const row,
                                  std::size_t const col) noexcept;
 
-        /// runtime indexing of element: mtx(R, C) == mtx.mRC
+        /// runtime indexing of element: m(R, C) == m.mRC
         constexpr T const & operator()(std::size_t const row,
                                        std::size_t const col) const noexcept;
 
@@ -392,11 +416,11 @@ namespace ggm
     template <typename T>
     struct Matrix4x3
     {
-        /// runtime indexing of element: mtx(R, C) == mtx.mRC
+        /// runtime indexing of element: m(R, C) == m.mRC
         constexpr T & operator()(std::size_t const row,
                                  std::size_t const col) noexcept;
 
-        /// runtime indexing of element: mtx(R, C) == mtx.mRC
+        /// runtime indexing of element: m(R, C) == m.mRC
         constexpr T const & operator()(std::size_t const row,
                                        std::size_t const col) const noexcept;
 
@@ -427,11 +451,11 @@ namespace ggm
     template <typename T>
     struct Matrix4x4
     {
-        /// runtime indexing of element: mtx(R, C) == mtx.mRC
+        /// runtime indexing of element: m(R, C) == m.mRC
         constexpr T & operator()(std::size_t const row,
                                  std::size_t const col) noexcept;
 
-        /// runtime indexing of element: mtx(R, C) == mtx.mRC
+        /// runtime indexing of element: m(R, C) == m.mRC
         constexpr T const & operator()(std::size_t const row,
                                        std::size_t const col) const noexcept;
 
@@ -470,6 +494,25 @@ namespace ggm::MatrixImpl
 
     template <typename MatrixType>
     struct MatrixTraits;
+
+    // -----------------------------------------------------------------------------
+
+    template <typename T>
+    struct MatrixTraits<Matrix1x1<T>>
+    {
+        typedef Matrix1x1<T> MatrixType;
+        typedef T            ValueType;
+
+        static constexpr std::size_t RowCount = 1;
+        static constexpr std::size_t ColCount = 1;
+
+        static constexpr T MatrixType::* Members[RowCount][ColCount] = {
+            // row[0]
+            {
+                &MatrixType::m00, // col[0]
+            },
+        };
+    };
 
     // -----------------------------------------------------------------------------
 
@@ -914,6 +957,49 @@ namespace ggm::MatrixImpl
 
     // =============================================================================
 } // namespace ggm::MatrixImpl
+
+// =============================================================================
+// ggm::Matrix1x1 implementation:
+// =============================================================================
+
+template <typename T>
+constexpr T & ggm::Matrix1x1<T>::operator()(std::size_t const row,
+                                            std::size_t const col) noexcept
+{
+    using namespace MatrixImpl;
+    typedef MatrixTraits<Matrix1x1<T>> MatrixTraits;
+
+    assert((0 <= row) && (row < MatrixTraits::RowCount));
+    assert((0 <= col) && (col < MatrixTraits::ColCount));
+
+    return this->*MatrixTraits::Members[row][col];
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr T const & ggm::Matrix1x1<T>::operator()(std::size_t const row,
+                                                  std::size_t const col) const noexcept
+{
+    using namespace MatrixImpl;
+    typedef MatrixTraits<Matrix1x1<T>> MatrixTraits;
+
+    assert((0 <= row) && (row < MatrixTraits::RowCount));
+    assert((0 <= col) && (col < MatrixTraits::ColCount));
+
+    return this->*MatrixTraits::Members[row][col];
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+template <typename U>
+constexpr ggm::Matrix1x1<T>::operator Matrix1x1<U>() const noexcept
+{
+    return Matrix1x1<U>{
+        static_cast<U>(m00),
+    };
+}
 
 // =============================================================================
 // ggm::Matrix1x2 implementation:

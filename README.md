@@ -3,17 +3,19 @@ C++ graphics and game 3D math library.
 
 ---
 ## Vector
-* | Vector       |               |               |               |
-  | ------------ | ------------- | ------------- | ------------- |
-  | ~~Vector1D~~ | Vector2D\<T\> | Vector3D\<T\> | Vector4D\<T\> |
+* | Vector        |               |               |
+  | ------------- | ------------- | ------------- |
+  | Vector2D\<T\> | Vector3D\<T\> | Vector4D\<T\> |
 
-* | File                                                      | Description                                     |
-  | --------------------------------------------------------- | ----------------------------------------------- |
-  | [Vector.h](include/ggm/Vector/Vector.h)                   | Minimal definition of vector types              |
-  | [VectorFwd.h](include/ggm/Vector/VectorFwd.h)             | Forward declaration of vector types             |
-  | [VectorUtil.h](include/ggm/Vector/VectorUtil.h)           | Definition of vector operators and utilities    |
-  | [VectorTypedefs.h](include/ggm/Vector/VectorTypedefs.h)   | Typedefs of common vector types, e.g. Vector3Df |
-  | [VectorConstants.h](include/ggm/Vector/VectorConstants.h) | Definitions of common vector constants          |
+* | File                                                                 | Description                                     |
+  | -------------------------------------------------------------------- | ----------------------------------------------- |
+  | [ggm/VectorAll.h](include/ggm/VectorAll.h)                           | Top-level header file for all of /ggm/Vector/   |
+  |                                                                      |                                                 |
+  | [ggm/Vector/Vector.h](include/ggm/Vector/Vector.h)                   | Minimal definition of vector types              |
+  | [ggm/Vector/VectorFwd.h](include/ggm/Vector/VectorFwd.h)             | Forward declaration of vector types             |
+  | [ggm/Vector/VectorUtil.h](include/ggm/Vector/VectorUtil.h)           | Definition of vector operators and utilities    |
+  | [ggm/Vector/VectorTypedefs.h](include/ggm/Vector/VectorTypedefs.h)   | Typedefs of common vector types, e.g. Vector3Df |
+  | [ggm/Vector/VectorConstants.h](include/ggm/Vector/VectorConstants.h) | Definitions of common vector constants          |
 
 ### Implementation design
 * Goals:
@@ -31,18 +33,20 @@ C++ graphics and game 3D math library.
 ## Matrix
 * | Matrix         |                |                |                |
   | -------------- | -------------- | -------------- | -------------- |
-  | ~~Matrix1x1~~  | Matrix1x2\<T\> | Matrix1x3\<T\> | Matrix1x4\<T\> |
+  | Matrix1x1\<T\> | Matrix1x2\<T\> | Matrix1x3\<T\> | Matrix1x4\<T\> |
   | Matrix2x1\<T\> | Matrix2x2\<T\> | Matrix2x3\<T\> | Matrix2x4\<T\> |
   | Matrix3x1\<T\> | Matrix3x2\<T\> | Matrix3x3\<T\> | Matrix3x4\<T\> |
   | Matrix4x1\<T\> | Matrix4x2\<T\> | Matrix4x3\<T\> | Matrix4x4\<T\> |
 
-* | File                                                      | Description                                      |
-  | --------------------------------------------------------- | ------------------------------------------------ |
-  | [Matrix.h](include/ggm/Matrix/Matrix.h)                   | Minimal definition of matrix types               |
-  | [MatrixFwd.h](include/ggm/Matrix/MatrixFwd.h)             | Forward declaration of matrix types              |
-  | [MatrixUtil.h](include/ggm/Matrix/MatrixUtil.h)           | Definition of matrix operators and utilities     |
-  | [MatrixTypedefs.h](include/ggm/Matrix/MatrixTypedefs.h)   | Typedefs of common matrix types, e.g. Matrix4x4f |
-  | [MatrixConstants.h](include/ggm/Matrix/MatrixConstants.h) | Definitions of common matrix constants           |
+* | File                                                                 | Description                                      |
+  | -------------------------------------------------------------------- | ------------------------------------------------ |
+  | [ggm/MatrixAll.h](include/ggm/MatrixAll.h)                           | Top-level header file for all of /ggm/Matrix/    |
+  |                                                                      |                                                  |
+  | [Matrix.h](include/ggm/Matrix/Matrix.h)                              | Minimal definition of matrix types               |
+  | [MatrixFwd.h](include/ggm/Matrix/MatrixFwd.h)                        | Forward declaration of matrix types              |
+  | [MatrixUtil.h](include/ggm/Matrix/MatrixUtil.h)                      | Definition of matrix operators and utilities     |
+  | [MatrixTypedefs.h](include/ggm/Matrix/MatrixTypedefs.h)              | Typedefs of common matrix types, e.g. Matrix4x4f |
+  | [MatrixConstants.h](include/ggm/Matrix/MatrixConstants.h)            | Definitions of common matrix constants           |
 
 ### Implementation design
 * Goals:
@@ -75,10 +79,12 @@ C++ graphics and game 3D math library.
   | y = smooth_step(e0, e1, x);  | Hermite cubic interpolation from 0 to 1 as value progresses from edge0 to edge1.                 |
   | y = trunc(x);                | Compute greatest integral value s.t. abs(trunc(value)) &le; abs(value), i.e. round towards zero. |
 
-* | File                                                 | Description                             |
-  | ---------------------------------------------------- | --------------------------------------- |
-  | [NumericUtil.h](include/ggm/NumericUtil.h)           | Definition of numeric utilities         |
-  | [NumericConstants.h](include/ggm/NumericConstants.h) | Definitions of common numeric constants |
+* | File                                                 | Description                                    |
+  | ---------------------------------------------------- | ---------------------------------------------- |
+  | [ggm/NumericAll.h](include/ggm/NumericAll.h)         | Top-level header file for all of /ggm/Numeric/ |
+  |                                                      |                                                |
+  | [NumericUtil.h](include/ggm/NumericUtil.h)           | Definition of numeric utilities                |
+  | [NumericConstants.h](include/ggm/NumericConstants.h) | Definitions of common numeric constants        |
 
 ### Implementation design
 * Duplicates with standard library exist due to:

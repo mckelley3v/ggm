@@ -11,6 +11,9 @@ namespace ggm
     // =============================================================================
 
     template <typename T>
+    struct Matrix1x1;
+
+    template <typename T>
     struct Matrix1x2;
 
     template <typename T>

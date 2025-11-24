@@ -12,6 +12,32 @@
 namespace ggm
 {
     // =============================================================================
+    // aliases for fully typed Matrix1x1
+    // =============================================================================
+
+    typedef Matrix1x1<bool>               Matrix1x1b;
+    typedef Matrix1x1<short>              Matrix1x1hi;
+    typedef Matrix1x1<unsigned short>     Matrix1x1hu;
+    typedef Matrix1x1<int>                Matrix1x1i;
+    typedef Matrix1x1<unsigned int>       Matrix1x1u;
+    typedef Matrix1x1<long>               Matrix1x1li;
+    typedef Matrix1x1<unsigned long>      Matrix1x1lu;
+    typedef Matrix1x1<long long>          Matrix1x1lli;
+    typedef Matrix1x1<unsigned long long> Matrix1x1llu;
+    typedef Matrix1x1<float>              Matrix1x1f;
+    typedef Matrix1x1<double>             Matrix1x1lf;
+    typedef Matrix1x1<long double>        Matrix1x1Lf;
+    typedef Matrix1x1<std::int8_t>        Matrix1x1i8;
+    typedef Matrix1x1<std::uint8_t>       Matrix1x1u8;
+    typedef Matrix1x1<std::int16_t>       Matrix1x1i16;
+    typedef Matrix1x1<std::uint16_t>      Matrix1x1u16;
+    typedef Matrix1x1<std::int32_t>       Matrix1x1i32;
+    typedef Matrix1x1<std::uint32_t>      Matrix1x1u32;
+    typedef Matrix1x1<std::int64_t>       Matrix1x1i64;
+    typedef Matrix1x1<std::uint64_t>      Matrix1x1u64;
+    typedef Matrix1x1<std::size_t>        Matrix1x1zu;
+
+    // =============================================================================
     // aliases for fully typed Matrix1x2
     // =============================================================================
 

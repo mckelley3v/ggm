@@ -89,18 +89,18 @@
 /// comparisons:
 /// ------------
 ///
-/// Syntax                         | Description
-/// ------                         | -----------
-/// b = all_of(v);                 | true if all bool elements are true
-/// b = any_of(v);                 | true if any bool elements are true
-/// b = is_close(u, v);            | element-wise is_close
-/// b = is_equal(u, v);            | element-wise ==
-/// b = is_greater(u, v);          | element-wise >
-/// b = is_greater_equal(u, v);    | element-wise >=
-/// b = is_less(u, v);             | element-wise <
-/// b = is_less_equal(u, v);       | element-wise <=
-/// b = is_not_equal(u, v);        | element-wise !=
-/// b = none_of(v);                | true if all bool elements are false
+/// Syntax                      | Description
+/// ------                      | -----------
+/// b = all_of(v);              | true if all bool elements are true
+/// b = any_of(v);              | true if any bool elements are true
+/// b = is_close(u, v);         | element-wise is_close
+/// b = is_equal(u, v);         | element-wise ==
+/// b = is_greater(u, v);       | element-wise >
+/// b = is_greater_equal(u, v); | element-wise >=
+/// b = is_less(u, v);          | element-wise <
+/// b = is_less_equal(u, v);    | element-wise <=
+/// b = is_not_equal(u, v);     | element-wise !=
+/// b = none_of(v);             | true if all bool elements are false
 ///
 /// @}
 // =============================================================================
