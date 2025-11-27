@@ -1915,6 +1915,2817 @@ namespace ggm
 // =============================================================================
 
 template <typename T>
+constexpr ggm::Matrix1x1<T> & ggm::operator+=(Matrix1x1<T> &       lhs,
+                                              Matrix1x1<T> const & rhs) noexcept
+{
+    lhs.m00 += rhs.m00;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x2<T> & ggm::operator+=(Matrix1x2<T> &       lhs,
+                                              Matrix1x2<T> const & rhs) noexcept
+{
+    lhs.m00 += rhs.m00;
+    lhs.m01 += rhs.m01;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x3<T> & ggm::operator+=(Matrix1x3<T> &       lhs,
+                                              Matrix1x3<T> const & rhs) noexcept
+{
+    lhs.m00 += rhs.m00;
+    lhs.m01 += rhs.m01;
+    lhs.m02 += rhs.m02;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x4<T> & ggm::operator+=(Matrix1x4<T> &       lhs,
+                                              Matrix1x4<T> const & rhs) noexcept
+{
+    lhs.m00 += rhs.m00;
+    lhs.m01 += rhs.m01;
+    lhs.m02 += rhs.m02;
+    lhs.m03 += rhs.m03;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x1<T> & ggm::operator+=(Matrix2x1<T> &       lhs,
+                                              Matrix2x1<T> const & rhs) noexcept
+{
+    lhs.m00 += rhs.m00;
+    lhs.m10 += rhs.m10;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x2<T> & ggm::operator+=(Matrix2x2<T> &       lhs,
+                                              Matrix2x2<T> const & rhs) noexcept
+{
+    lhs.m00 += rhs.m00;
+    lhs.m01 += rhs.m01;
+    lhs.m10 += rhs.m10;
+    lhs.m11 += rhs.m11;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x3<T> & ggm::operator+=(Matrix2x3<T> &       lhs,
+                                              Matrix2x3<T> const & rhs) noexcept
+{
+    lhs.m00 += rhs.m00;
+    lhs.m01 += rhs.m01;
+    lhs.m02 += rhs.m02;
+    lhs.m10 += rhs.m10;
+    lhs.m11 += rhs.m11;
+    lhs.m12 += rhs.m12;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x4<T> & ggm::operator+=(Matrix2x4<T> &       lhs,
+                                              Matrix2x4<T> const & rhs) noexcept
+{
+    lhs.m00 += rhs.m00;
+    lhs.m01 += rhs.m01;
+    lhs.m02 += rhs.m02;
+    lhs.m03 += rhs.m03;
+    lhs.m10 += rhs.m10;
+    lhs.m11 += rhs.m11;
+    lhs.m12 += rhs.m12;
+    lhs.m13 += rhs.m13;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x1<T> & ggm::operator+=(Matrix3x1<T> &       lhs,
+                                              Matrix3x1<T> const & rhs) noexcept
+{
+    lhs.m00 += rhs.m00;
+    lhs.m10 += rhs.m10;
+    lhs.m20 += rhs.m20;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x2<T> & ggm::operator+=(Matrix3x2<T> &       lhs,
+                                              Matrix3x2<T> const & rhs) noexcept
+{
+    lhs.m00 += rhs.m00;
+    lhs.m01 += rhs.m01;
+    lhs.m10 += rhs.m10;
+    lhs.m11 += rhs.m11;
+    lhs.m20 += rhs.m20;
+    lhs.m21 += rhs.m21;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x3<T> & ggm::operator+=(Matrix3x3<T> &       lhs,
+                                              Matrix3x3<T> const & rhs) noexcept
+{
+    lhs.m00 += rhs.m00;
+    lhs.m01 += rhs.m01;
+    lhs.m02 += rhs.m02;
+    lhs.m10 += rhs.m10;
+    lhs.m11 += rhs.m11;
+    lhs.m12 += rhs.m12;
+    lhs.m20 += rhs.m20;
+    lhs.m21 += rhs.m21;
+    lhs.m22 += rhs.m22;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x4<T> & ggm::operator+=(Matrix3x4<T> &       lhs,
+                                              Matrix3x4<T> const & rhs) noexcept
+{
+    lhs.m00 += rhs.m00;
+    lhs.m01 += rhs.m01;
+    lhs.m02 += rhs.m02;
+    lhs.m03 += rhs.m03;
+    lhs.m10 += rhs.m10;
+    lhs.m11 += rhs.m11;
+    lhs.m12 += rhs.m12;
+    lhs.m13 += rhs.m13;
+    lhs.m20 += rhs.m20;
+    lhs.m21 += rhs.m21;
+    lhs.m22 += rhs.m22;
+    lhs.m23 += rhs.m23;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x1<T> & ggm::operator+=(Matrix4x1<T> &       lhs,
+                                              Matrix4x1<T> const & rhs) noexcept
+{
+    lhs.m00 += rhs.m00;
+    lhs.m10 += rhs.m10;
+    lhs.m20 += rhs.m20;
+    lhs.m30 += rhs.m30;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x2<T> & ggm::operator+=(Matrix4x2<T> &       lhs,
+                                              Matrix4x2<T> const & rhs) noexcept
+{
+    lhs.m00 += rhs.m00;
+    lhs.m01 += rhs.m01;
+    lhs.m10 += rhs.m10;
+    lhs.m11 += rhs.m11;
+    lhs.m20 += rhs.m20;
+    lhs.m21 += rhs.m21;
+    lhs.m30 += rhs.m30;
+    lhs.m31 += rhs.m31;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x3<T> & ggm::operator+=(Matrix4x3<T> &       lhs,
+                                              Matrix4x3<T> const & rhs) noexcept
+{
+    lhs.m00 += rhs.m00;
+    lhs.m01 += rhs.m01;
+    lhs.m02 += rhs.m02;
+    lhs.m10 += rhs.m10;
+    lhs.m11 += rhs.m11;
+    lhs.m12 += rhs.m12;
+    lhs.m20 += rhs.m20;
+    lhs.m21 += rhs.m21;
+    lhs.m22 += rhs.m22;
+    lhs.m30 += rhs.m30;
+    lhs.m31 += rhs.m31;
+    lhs.m32 += rhs.m32;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x4<T> & ggm::operator+=(Matrix4x4<T> &       lhs,
+                                              Matrix4x4<T> const & rhs) noexcept
+{
+    lhs.m00 += rhs.m00;
+    lhs.m01 += rhs.m01;
+    lhs.m02 += rhs.m02;
+    lhs.m03 += rhs.m03;
+    lhs.m10 += rhs.m10;
+    lhs.m11 += rhs.m11;
+    lhs.m12 += rhs.m12;
+    lhs.m13 += rhs.m13;
+    lhs.m20 += rhs.m20;
+    lhs.m21 += rhs.m21;
+    lhs.m22 += rhs.m22;
+    lhs.m23 += rhs.m23;
+    lhs.m30 += rhs.m30;
+    lhs.m31 += rhs.m31;
+    lhs.m32 += rhs.m32;
+    lhs.m33 += rhs.m33;
+    return lhs;
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Matrix1x1<T> & ggm::operator-=(Matrix1x1<T> &       lhs,
+                                              Matrix1x1<T> const & rhs) noexcept
+{
+    lhs.m00 -= rhs.m00;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x2<T> & ggm::operator-=(Matrix1x2<T> &       lhs,
+                                              Matrix1x2<T> const & rhs) noexcept
+{
+    lhs.m00 -= rhs.m00;
+    lhs.m01 -= rhs.m01;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x3<T> & ggm::operator-=(Matrix1x3<T> &       lhs,
+                                              Matrix1x3<T> const & rhs) noexcept
+{
+    lhs.m00 -= rhs.m00;
+    lhs.m01 -= rhs.m01;
+    lhs.m02 -= rhs.m02;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x4<T> & ggm::operator-=(Matrix1x4<T> &       lhs,
+                                              Matrix1x4<T> const & rhs) noexcept
+{
+    lhs.m00 -= rhs.m00;
+    lhs.m01 -= rhs.m01;
+    lhs.m02 -= rhs.m02;
+    lhs.m03 -= rhs.m03;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x1<T> & ggm::operator-=(Matrix2x1<T> &       lhs,
+                                              Matrix2x1<T> const & rhs) noexcept
+{
+    lhs.m00 -= rhs.m00;
+    lhs.m10 -= rhs.m10;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x2<T> & ggm::operator-=(Matrix2x2<T> &       lhs,
+                                              Matrix2x2<T> const & rhs) noexcept
+{
+    lhs.m00 -= rhs.m00;
+    lhs.m01 -= rhs.m01;
+    lhs.m10 -= rhs.m10;
+    lhs.m11 -= rhs.m11;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x3<T> & ggm::operator-=(Matrix2x3<T> &       lhs,
+                                              Matrix2x3<T> const & rhs) noexcept
+{
+    lhs.m00 -= rhs.m00;
+    lhs.m01 -= rhs.m01;
+    lhs.m02 -= rhs.m02;
+    lhs.m10 -= rhs.m10;
+    lhs.m11 -= rhs.m11;
+    lhs.m12 -= rhs.m12;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x4<T> & ggm::operator-=(Matrix2x4<T> &       lhs,
+                                              Matrix2x4<T> const & rhs) noexcept
+{
+    lhs.m00 -= rhs.m00;
+    lhs.m01 -= rhs.m01;
+    lhs.m02 -= rhs.m02;
+    lhs.m03 -= rhs.m03;
+    lhs.m10 -= rhs.m10;
+    lhs.m11 -= rhs.m11;
+    lhs.m12 -= rhs.m12;
+    lhs.m13 -= rhs.m13;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x1<T> & ggm::operator-=(Matrix3x1<T> &       lhs,
+                                              Matrix3x1<T> const & rhs) noexcept
+{
+    lhs.m00 -= rhs.m00;
+    lhs.m10 -= rhs.m10;
+    lhs.m20 -= rhs.m20;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x2<T> & ggm::operator-=(Matrix3x2<T> &       lhs,
+                                              Matrix3x2<T> const & rhs) noexcept
+{
+    lhs.m00 -= rhs.m00;
+    lhs.m01 -= rhs.m01;
+    lhs.m10 -= rhs.m10;
+    lhs.m11 -= rhs.m11;
+    lhs.m20 -= rhs.m20;
+    lhs.m21 -= rhs.m21;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x3<T> & ggm::operator-=(Matrix3x3<T> &       lhs,
+                                              Matrix3x3<T> const & rhs) noexcept
+{
+    lhs.m00 -= rhs.m00;
+    lhs.m01 -= rhs.m01;
+    lhs.m02 -= rhs.m02;
+    lhs.m10 -= rhs.m10;
+    lhs.m11 -= rhs.m11;
+    lhs.m12 -= rhs.m12;
+    lhs.m20 -= rhs.m20;
+    lhs.m21 -= rhs.m21;
+    lhs.m22 -= rhs.m22;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x4<T> & ggm::operator-=(Matrix3x4<T> &       lhs,
+                                              Matrix3x4<T> const & rhs) noexcept
+{
+    lhs.m00 -= rhs.m00;
+    lhs.m01 -= rhs.m01;
+    lhs.m02 -= rhs.m02;
+    lhs.m03 -= rhs.m03;
+    lhs.m10 -= rhs.m10;
+    lhs.m11 -= rhs.m11;
+    lhs.m12 -= rhs.m12;
+    lhs.m13 -= rhs.m13;
+    lhs.m20 -= rhs.m20;
+    lhs.m21 -= rhs.m21;
+    lhs.m22 -= rhs.m22;
+    lhs.m23 -= rhs.m23;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x1<T> & ggm::operator-=(Matrix4x1<T> &       lhs,
+                                              Matrix4x1<T> const & rhs) noexcept
+{
+    lhs.m00 -= rhs.m00;
+    lhs.m10 -= rhs.m10;
+    lhs.m20 -= rhs.m20;
+    lhs.m30 -= rhs.m30;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x2<T> & ggm::operator-=(Matrix4x2<T> &       lhs,
+                                              Matrix4x2<T> const & rhs) noexcept
+{
+    lhs.m00 -= rhs.m00;
+    lhs.m01 -= rhs.m01;
+    lhs.m10 -= rhs.m10;
+    lhs.m11 -= rhs.m11;
+    lhs.m20 -= rhs.m20;
+    lhs.m21 -= rhs.m21;
+    lhs.m30 -= rhs.m30;
+    lhs.m31 -= rhs.m31;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x3<T> & ggm::operator-=(Matrix4x3<T> &       lhs,
+                                              Matrix4x3<T> const & rhs) noexcept
+{
+    lhs.m00 -= rhs.m00;
+    lhs.m01 -= rhs.m01;
+    lhs.m02 -= rhs.m02;
+    lhs.m10 -= rhs.m10;
+    lhs.m11 -= rhs.m11;
+    lhs.m12 -= rhs.m12;
+    lhs.m20 -= rhs.m20;
+    lhs.m21 -= rhs.m21;
+    lhs.m22 -= rhs.m22;
+    lhs.m30 -= rhs.m30;
+    lhs.m31 -= rhs.m31;
+    lhs.m32 -= rhs.m32;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x4<T> & ggm::operator-=(Matrix4x4<T> &       lhs,
+                                              Matrix4x4<T> const & rhs) noexcept
+{
+    lhs.m00 -= rhs.m00;
+    lhs.m01 -= rhs.m01;
+    lhs.m02 -= rhs.m02;
+    lhs.m03 -= rhs.m03;
+    lhs.m10 -= rhs.m10;
+    lhs.m11 -= rhs.m11;
+    lhs.m12 -= rhs.m12;
+    lhs.m13 -= rhs.m13;
+    lhs.m20 -= rhs.m20;
+    lhs.m21 -= rhs.m21;
+    lhs.m22 -= rhs.m22;
+    lhs.m23 -= rhs.m23;
+    lhs.m30 -= rhs.m30;
+    lhs.m31 -= rhs.m31;
+    lhs.m32 -= rhs.m32;
+    lhs.m33 -= rhs.m33;
+    return lhs;
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Matrix1x1<T> & ggm::operator*=(Matrix1x1<T> & lhs,
+                                              T const &      rhs) noexcept
+{
+    lhs.m00 *= rhs;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x2<T> & ggm::operator*=(Matrix1x2<T> & lhs,
+                                              T const &      rhs) noexcept
+{
+    lhs.m00 *= rhs;
+    lhs.m01 *= rhs;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x3<T> & ggm::operator*=(Matrix1x3<T> & lhs,
+                                              T const &      rhs) noexcept
+{
+    lhs.m00 *= rhs;
+    lhs.m01 *= rhs;
+    lhs.m02 *= rhs;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x4<T> & ggm::operator*=(Matrix1x4<T> & lhs,
+                                              T const &      rhs) noexcept
+{
+    lhs.m00 *= rhs;
+    lhs.m01 *= rhs;
+    lhs.m02 *= rhs;
+    lhs.m03 *= rhs;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x1<T> & ggm::operator*=(Matrix2x1<T> & lhs,
+                                              T const &      rhs) noexcept
+{
+    lhs.m00 *= rhs;
+    lhs.m10 *= rhs;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x2<T> & ggm::operator*=(Matrix2x2<T> & lhs,
+                                              T const &      rhs) noexcept
+{
+    lhs.m00 *= rhs;
+    lhs.m01 *= rhs;
+    lhs.m10 *= rhs;
+    lhs.m11 *= rhs;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x3<T> & ggm::operator*=(Matrix2x3<T> & lhs,
+                                              T const &      rhs) noexcept
+{
+    lhs.m00 *= rhs;
+    lhs.m01 *= rhs;
+    lhs.m02 *= rhs;
+    lhs.m10 *= rhs;
+    lhs.m11 *= rhs;
+    lhs.m12 *= rhs;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x4<T> & ggm::operator*=(Matrix2x4<T> & lhs,
+                                              T const &      rhs) noexcept
+{
+    lhs.m00 *= rhs;
+    lhs.m01 *= rhs;
+    lhs.m02 *= rhs;
+    lhs.m03 *= rhs;
+    lhs.m10 *= rhs;
+    lhs.m11 *= rhs;
+    lhs.m12 *= rhs;
+    lhs.m13 *= rhs;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x1<T> & ggm::operator*=(Matrix3x1<T> & lhs,
+                                              T const &      rhs) noexcept
+{
+    lhs.m00 *= rhs;
+    lhs.m10 *= rhs;
+    lhs.m20 *= rhs;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x2<T> & ggm::operator*=(Matrix3x2<T> & lhs,
+                                              T const &      rhs) noexcept
+{
+    lhs.m00 *= rhs;
+    lhs.m01 *= rhs;
+    lhs.m10 *= rhs;
+    lhs.m11 *= rhs;
+    lhs.m20 *= rhs;
+    lhs.m21 *= rhs;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x3<T> & ggm::operator*=(Matrix3x3<T> & lhs,
+                                              T const &      rhs) noexcept
+{
+    lhs.m00 *= rhs;
+    lhs.m01 *= rhs;
+    lhs.m02 *= rhs;
+    lhs.m10 *= rhs;
+    lhs.m11 *= rhs;
+    lhs.m12 *= rhs;
+    lhs.m20 *= rhs;
+    lhs.m21 *= rhs;
+    lhs.m22 *= rhs;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x4<T> & ggm::operator*=(Matrix3x4<T> & lhs,
+                                              T const &      rhs) noexcept
+{
+    lhs.m00 *= rhs;
+    lhs.m01 *= rhs;
+    lhs.m02 *= rhs;
+    lhs.m03 *= rhs;
+    lhs.m10 *= rhs;
+    lhs.m11 *= rhs;
+    lhs.m12 *= rhs;
+    lhs.m13 *= rhs;
+    lhs.m20 *= rhs;
+    lhs.m21 *= rhs;
+    lhs.m22 *= rhs;
+    lhs.m23 *= rhs;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x1<T> & ggm::operator*=(Matrix4x1<T> & lhs,
+                                              T const &      rhs) noexcept
+{
+    lhs.m00 *= rhs;
+    lhs.m10 *= rhs;
+    lhs.m20 *= rhs;
+    lhs.m30 *= rhs;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x2<T> & ggm::operator*=(Matrix4x2<T> & lhs,
+                                              T const &      rhs) noexcept
+{
+    lhs.m00 *= rhs;
+    lhs.m01 *= rhs;
+    lhs.m10 *= rhs;
+    lhs.m11 *= rhs;
+    lhs.m20 *= rhs;
+    lhs.m21 *= rhs;
+    lhs.m30 *= rhs;
+    lhs.m31 *= rhs;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x3<T> & ggm::operator*=(Matrix4x3<T> & lhs,
+                                              T const &      rhs) noexcept
+{
+    lhs.m00 *= rhs;
+    lhs.m01 *= rhs;
+    lhs.m02 *= rhs;
+    lhs.m10 *= rhs;
+    lhs.m11 *= rhs;
+    lhs.m12 *= rhs;
+    lhs.m20 *= rhs;
+    lhs.m21 *= rhs;
+    lhs.m22 *= rhs;
+    lhs.m30 *= rhs;
+    lhs.m31 *= rhs;
+    lhs.m32 *= rhs;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x4<T> & ggm::operator*=(Matrix4x4<T> & lhs,
+                                              T const &      rhs) noexcept
+{
+    lhs.m00 *= rhs;
+    lhs.m01 *= rhs;
+    lhs.m02 *= rhs;
+    lhs.m03 *= rhs;
+    lhs.m10 *= rhs;
+    lhs.m11 *= rhs;
+    lhs.m12 *= rhs;
+    lhs.m13 *= rhs;
+    lhs.m20 *= rhs;
+    lhs.m21 *= rhs;
+    lhs.m22 *= rhs;
+    lhs.m23 *= rhs;
+    lhs.m30 *= rhs;
+    lhs.m31 *= rhs;
+    lhs.m32 *= rhs;
+    lhs.m33 *= rhs;
+    return lhs;
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Matrix1x1<T> & ggm::operator*=(Matrix1x1<T> &       lhs,
+                                              Matrix1x1<T> const & rhs) noexcept
+{
+    return lhs = lhs * rhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x2<T> & ggm::operator*=(Matrix2x2<T> &       lhs,
+                                              Matrix2x2<T> const & rhs) noexcept
+{
+    return lhs = lhs * rhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x3<T> & ggm::operator*=(Matrix3x3<T> &       lhs,
+                                              Matrix3x3<T> const & rhs) noexcept
+{
+    return lhs = lhs * rhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x4<T> & ggm::operator*=(Matrix4x4<T> &       lhs,
+                                              Matrix4x4<T> const & rhs) noexcept
+{
+    return lhs = lhs * rhs;
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Matrix1x1<T> & ggm::operator/=(Matrix1x1<T> & lhs,
+                                              T const &      rhs) noexcept
+{
+    lhs.m00 /= rhs;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x2<T> & ggm::operator/=(Matrix1x2<T> & lhs,
+                                              T const &      rhs) noexcept
+{
+    lhs.m00 /= rhs;
+    lhs.m01 /= rhs;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x3<T> & ggm::operator/=(Matrix1x3<T> & lhs,
+                                              T const &      rhs) noexcept
+{
+    lhs.m00 /= rhs;
+    lhs.m01 /= rhs;
+    lhs.m02 /= rhs;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x4<T> & ggm::operator/=(Matrix1x4<T> & lhs,
+                                              T const &      rhs) noexcept
+{
+    lhs.m00 /= rhs;
+    lhs.m01 /= rhs;
+    lhs.m02 /= rhs;
+    lhs.m03 /= rhs;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x1<T> & ggm::operator/=(Matrix2x1<T> & lhs,
+                                              T const &      rhs) noexcept
+{
+    lhs.m00 /= rhs;
+    lhs.m10 /= rhs;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x2<T> & ggm::operator/=(Matrix2x2<T> & lhs,
+                                              T const &      rhs) noexcept
+{
+    lhs.m00 /= rhs;
+    lhs.m01 /= rhs;
+    lhs.m10 /= rhs;
+    lhs.m11 /= rhs;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x3<T> & ggm::operator/=(Matrix2x3<T> & lhs,
+                                              T const &      rhs) noexcept
+{
+    lhs.m00 /= rhs;
+    lhs.m01 /= rhs;
+    lhs.m02 /= rhs;
+    lhs.m10 /= rhs;
+    lhs.m11 /= rhs;
+    lhs.m12 /= rhs;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x4<T> & ggm::operator/=(Matrix2x4<T> & lhs,
+                                              T const &      rhs) noexcept
+{
+    lhs.m00 /= rhs;
+    lhs.m01 /= rhs;
+    lhs.m02 /= rhs;
+    lhs.m03 /= rhs;
+    lhs.m10 /= rhs;
+    lhs.m11 /= rhs;
+    lhs.m12 /= rhs;
+    lhs.m13 /= rhs;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x1<T> & ggm::operator/=(Matrix3x1<T> & lhs,
+                                              T const &      rhs) noexcept
+{
+    lhs.m00 /= rhs;
+    lhs.m10 /= rhs;
+    lhs.m20 /= rhs;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x2<T> & ggm::operator/=(Matrix3x2<T> & lhs,
+                                              T const &      rhs) noexcept
+{
+    lhs.m00 /= rhs;
+    lhs.m01 /= rhs;
+    lhs.m10 /= rhs;
+    lhs.m11 /= rhs;
+    lhs.m20 /= rhs;
+    lhs.m21 /= rhs;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x3<T> & ggm::operator/=(Matrix3x3<T> & lhs,
+                                              T const &      rhs) noexcept
+{
+    lhs.m00 /= rhs;
+    lhs.m01 /= rhs;
+    lhs.m02 /= rhs;
+    lhs.m10 /= rhs;
+    lhs.m11 /= rhs;
+    lhs.m12 /= rhs;
+    lhs.m20 /= rhs;
+    lhs.m21 /= rhs;
+    lhs.m22 /= rhs;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x4<T> & ggm::operator/=(Matrix3x4<T> & lhs,
+                                              T const &      rhs) noexcept
+{
+    lhs.m00 /= rhs;
+    lhs.m01 /= rhs;
+    lhs.m02 /= rhs;
+    lhs.m03 /= rhs;
+    lhs.m10 /= rhs;
+    lhs.m11 /= rhs;
+    lhs.m12 /= rhs;
+    lhs.m13 /= rhs;
+    lhs.m20 /= rhs;
+    lhs.m21 /= rhs;
+    lhs.m22 /= rhs;
+    lhs.m23 /= rhs;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x1<T> & ggm::operator/=(Matrix4x1<T> & lhs,
+                                              T const &      rhs) noexcept
+{
+    lhs.m00 /= rhs;
+    lhs.m10 /= rhs;
+    lhs.m20 /= rhs;
+    lhs.m30 /= rhs;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x2<T> & ggm::operator/=(Matrix4x2<T> & lhs,
+                                              T const &      rhs) noexcept
+{
+    lhs.m00 /= rhs;
+    lhs.m01 /= rhs;
+    lhs.m10 /= rhs;
+    lhs.m11 /= rhs;
+    lhs.m20 /= rhs;
+    lhs.m21 /= rhs;
+    lhs.m30 /= rhs;
+    lhs.m31 /= rhs;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x3<T> & ggm::operator/=(Matrix4x3<T> & lhs,
+                                              T const &      rhs) noexcept
+{
+    lhs.m00 /= rhs;
+    lhs.m01 /= rhs;
+    lhs.m02 /= rhs;
+    lhs.m10 /= rhs;
+    lhs.m11 /= rhs;
+    lhs.m12 /= rhs;
+    lhs.m20 /= rhs;
+    lhs.m21 /= rhs;
+    lhs.m22 /= rhs;
+    lhs.m30 /= rhs;
+    lhs.m31 /= rhs;
+    lhs.m32 /= rhs;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x4<T> & ggm::operator/=(Matrix4x4<T> & lhs,
+                                              T const &      rhs) noexcept
+{
+    lhs.m00 /= rhs;
+    lhs.m01 /= rhs;
+    lhs.m02 /= rhs;
+    lhs.m03 /= rhs;
+    lhs.m10 /= rhs;
+    lhs.m11 /= rhs;
+    lhs.m12 /= rhs;
+    lhs.m13 /= rhs;
+    lhs.m20 /= rhs;
+    lhs.m21 /= rhs;
+    lhs.m22 /= rhs;
+    lhs.m23 /= rhs;
+    lhs.m30 /= rhs;
+    lhs.m31 /= rhs;
+    lhs.m32 /= rhs;
+    lhs.m33 /= rhs;
+    return lhs;
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Matrix1x1<T> ggm::operator+(Matrix1x1<T> const & value) noexcept
+{
+    return Matrix1x1<T>{
+        +value.m00,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x2<T> ggm::operator+(Matrix1x2<T> const & value) noexcept
+{
+    return Matrix1x2<T>{
+        +value.m00,
+        +value.m01,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x3<T> ggm::operator+(Matrix1x3<T> const & value) noexcept
+{
+    return Matrix1x3<T>{
+        +value.m00,
+        +value.m01,
+        +value.m02,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x4<T> ggm::operator+(Matrix1x4<T> const & value) noexcept
+{
+    return Matrix1x4<T>{
+        +value.m00,
+        +value.m01,
+        +value.m02,
+        +value.m03,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x1<T> ggm::operator+(Matrix2x1<T> const & value) noexcept
+{
+    return Matrix2x1<T>{
+        +value.m00,
+        +value.m10,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x2<T> ggm::operator+(Matrix2x2<T> const & value) noexcept
+{
+    return Matrix2x2<T>{
+        +value.m00,
+        +value.m01,
+        +value.m10,
+        +value.m11,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x3<T> ggm::operator+(Matrix2x3<T> const & value) noexcept
+{
+    return Matrix2x3<T>{
+        +value.m00,
+        +value.m01,
+        +value.m02,
+        +value.m10,
+        +value.m11,
+        +value.m12,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x4<T> ggm::operator+(Matrix2x4<T> const & value) noexcept
+{
+    return Matrix2x4<T>{
+        +value.m00,
+        +value.m01,
+        +value.m02,
+        +value.m03,
+        +value.m10,
+        +value.m11,
+        +value.m12,
+        +value.m13,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x1<T> ggm::operator+(Matrix3x1<T> const & value) noexcept
+{
+    return Matrix3x1<T>{
+        +value.m00,
+        +value.m10,
+        +value.m20,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x2<T> ggm::operator+(Matrix3x2<T> const & value) noexcept
+{
+    return Matrix3x2<T>{
+        +value.m00,
+        +value.m01,
+        +value.m10,
+        +value.m11,
+        +value.m20,
+        +value.m21,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x3<T> ggm::operator+(Matrix3x3<T> const & value) noexcept
+{
+    return Matrix3x3<T>{
+        +value.m00,
+        +value.m01,
+        +value.m02,
+        +value.m10,
+        +value.m11,
+        +value.m12,
+        +value.m20,
+        +value.m21,
+        +value.m22,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x4<T> ggm::operator+(Matrix3x4<T> const & value) noexcept
+{
+    return Matrix3x4<T>{
+        +value.m00,
+        +value.m01,
+        +value.m02,
+        +value.m03,
+        +value.m10,
+        +value.m11,
+        +value.m12,
+        +value.m13,
+        +value.m20,
+        +value.m21,
+        +value.m22,
+        +value.m23,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x1<T> ggm::operator+(Matrix4x1<T> const & value) noexcept
+{
+    return Matrix4x1<T>{
+        +value.m00,
+        +value.m10,
+        +value.m20,
+        +value.m30,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x2<T> ggm::operator+(Matrix4x2<T> const & value) noexcept
+{
+    return Matrix4x2<T>{
+        +value.m00,
+        +value.m01,
+        +value.m10,
+        +value.m11,
+        +value.m20,
+        +value.m21,
+        +value.m30,
+        +value.m31,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x3<T> ggm::operator+(Matrix4x3<T> const & value) noexcept
+{
+    return Matrix4x3<T>{
+        +value.m00,
+        +value.m01,
+        +value.m02,
+        +value.m10,
+        +value.m11,
+        +value.m12,
+        +value.m20,
+        +value.m21,
+        +value.m22,
+        +value.m30,
+        +value.m31,
+        +value.m32,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x4<T> ggm::operator+(Matrix4x4<T> const & value) noexcept
+{
+    return Matrix4x4<T>{
+        +value.m00,
+        +value.m01,
+        +value.m02,
+        +value.m03,
+        +value.m10,
+        +value.m11,
+        +value.m12,
+        +value.m13,
+        +value.m20,
+        +value.m21,
+        +value.m22,
+        +value.m23,
+        +value.m30,
+        +value.m31,
+        +value.m32,
+        +value.m33,
+    };
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Matrix1x1<T> ggm::operator-(Matrix1x1<T> const & value) noexcept
+{
+    return Matrix1x1<T>{
+        -value.m00,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x2<T> ggm::operator-(Matrix1x2<T> const & value) noexcept
+{
+    return Matrix1x2<T>{
+        -value.m00,
+        -value.m01,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x3<T> ggm::operator-(Matrix1x3<T> const & value) noexcept
+{
+    return Matrix1x3<T>{
+        -value.m00,
+        -value.m01,
+        -value.m02,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x4<T> ggm::operator-(Matrix1x4<T> const & value) noexcept
+{
+    return Matrix1x4<T>{
+        -value.m00,
+        -value.m01,
+        -value.m02,
+        -value.m03,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x1<T> ggm::operator-(Matrix2x1<T> const & value) noexcept
+{
+    return Matrix2x1<T>{
+        -value.m00,
+        -value.m10,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x2<T> ggm::operator-(Matrix2x2<T> const & value) noexcept
+{
+    return Matrix2x2<T>{
+        -value.m00,
+        -value.m01,
+        -value.m10,
+        -value.m11,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x3<T> ggm::operator-(Matrix2x3<T> const & value) noexcept
+{
+    return Matrix2x3<T>{
+        -value.m00,
+        -value.m01,
+        -value.m02,
+        -value.m10,
+        -value.m11,
+        -value.m12,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x4<T> ggm::operator-(Matrix2x4<T> const & value) noexcept
+{
+    return Matrix2x4<T>{
+        -value.m00,
+        -value.m01,
+        -value.m02,
+        -value.m03,
+        -value.m10,
+        -value.m11,
+        -value.m12,
+        -value.m13,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x1<T> ggm::operator-(Matrix3x1<T> const & value) noexcept
+{
+    return Matrix3x1<T>{
+        -value.m00,
+        -value.m10,
+        -value.m20,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x2<T> ggm::operator-(Matrix3x2<T> const & value) noexcept
+{
+    return Matrix3x2<T>{
+        -value.m00,
+        -value.m01,
+        -value.m10,
+        -value.m11,
+        -value.m20,
+        -value.m21,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x3<T> ggm::operator-(Matrix3x3<T> const & value) noexcept
+{
+    return Matrix3x3<T>{
+        -value.m00,
+        -value.m01,
+        -value.m02,
+        -value.m10,
+        -value.m11,
+        -value.m12,
+        -value.m20,
+        -value.m21,
+        -value.m22,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x4<T> ggm::operator-(Matrix3x4<T> const & value) noexcept
+{
+    return Matrix3x4<T>{
+        -value.m00,
+        -value.m01,
+        -value.m02,
+        -value.m03,
+        -value.m10,
+        -value.m11,
+        -value.m12,
+        -value.m13,
+        -value.m20,
+        -value.m21,
+        -value.m22,
+        -value.m23,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x1<T> ggm::operator-(Matrix4x1<T> const & value) noexcept
+{
+    return Matrix4x1<T>{
+        -value.m00,
+        -value.m10,
+        -value.m20,
+        -value.m30,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x2<T> ggm::operator-(Matrix4x2<T> const & value) noexcept
+{
+    return Matrix4x2<T>{
+        -value.m00,
+        -value.m01,
+        -value.m10,
+        -value.m11,
+        -value.m20,
+        -value.m21,
+        -value.m30,
+        -value.m31,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x3<T> ggm::operator-(Matrix4x3<T> const & value) noexcept
+{
+    return Matrix4x3<T>{
+        -value.m00,
+        -value.m01,
+        -value.m02,
+        -value.m10,
+        -value.m11,
+        -value.m12,
+        -value.m20,
+        -value.m21,
+        -value.m22,
+        -value.m30,
+        -value.m31,
+        -value.m32,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x4<T> ggm::operator-(Matrix4x4<T> const & value) noexcept
+{
+    return Matrix4x4<T>{
+        -value.m00,
+        -value.m01,
+        -value.m02,
+        -value.m03,
+        -value.m10,
+        -value.m11,
+        -value.m12,
+        -value.m13,
+        -value.m20,
+        -value.m21,
+        -value.m22,
+        -value.m23,
+        -value.m30,
+        -value.m31,
+        -value.m32,
+        -value.m33,
+    };
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Matrix1x1<T> ggm::operator+(Matrix1x1<T> const & lhs,
+                                           Matrix1x1<T> const & rhs) noexcept
+{
+    return Matrix1x1<T>{
+        lhs.m00 + rhs.m00,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x2<T> ggm::operator+(Matrix1x2<T> const & lhs,
+                                           Matrix1x2<T> const & rhs) noexcept
+{
+    return Matrix1x2<T>{
+        lhs.m00 + rhs.m00,
+        lhs.m01 + rhs.m01,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x3<T> ggm::operator+(Matrix1x3<T> const & lhs,
+                                           Matrix1x3<T> const & rhs) noexcept
+{
+    return Matrix1x3<T>{
+        lhs.m00 + rhs.m00,
+        lhs.m01 + rhs.m01,
+        lhs.m02 + rhs.m02,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x4<T> ggm::operator+(Matrix1x4<T> const & lhs,
+                                           Matrix1x4<T> const & rhs) noexcept
+{
+    return Matrix1x4<T>{
+        lhs.m00 + rhs.m00,
+        lhs.m01 + rhs.m01,
+        lhs.m02 + rhs.m02,
+        lhs.m03 + rhs.m03,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x1<T> ggm::operator+(Matrix2x1<T> const & lhs,
+                                           Matrix2x1<T> const & rhs) noexcept
+{
+    return Matrix2x1<T>{
+        lhs.m00 + rhs.m00,
+        lhs.m10 + rhs.m10,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x2<T> ggm::operator+(Matrix2x2<T> const & lhs,
+                                           Matrix2x2<T> const & rhs) noexcept
+{
+    return Matrix2x2<T>{
+        lhs.m00 + rhs.m00,
+        lhs.m01 + rhs.m01,
+        lhs.m10 + rhs.m10,
+        lhs.m11 + rhs.m11,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x3<T> ggm::operator+(Matrix2x3<T> const & lhs,
+                                           Matrix2x3<T> const & rhs) noexcept
+{
+    return Matrix2x3<T>{
+        lhs.m00 + rhs.m00,
+        lhs.m01 + rhs.m01,
+        lhs.m02 + rhs.m02,
+        lhs.m10 + rhs.m10,
+        lhs.m11 + rhs.m11,
+        lhs.m12 + rhs.m12,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x4<T> ggm::operator+(Matrix2x4<T> const & lhs,
+                                           Matrix2x4<T> const & rhs) noexcept
+{
+    return Matrix2x4<T>{
+        lhs.m00 + rhs.m00,
+        lhs.m01 + rhs.m01,
+        lhs.m02 + rhs.m02,
+        lhs.m03 + rhs.m03,
+        lhs.m10 + rhs.m10,
+        lhs.m11 + rhs.m11,
+        lhs.m12 + rhs.m12,
+        lhs.m13 + rhs.m13,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x1<T> ggm::operator+(Matrix3x1<T> const & lhs,
+                                           Matrix3x1<T> const & rhs) noexcept
+{
+    return Matrix3x1<T>{
+        lhs.m00 + rhs.m00,
+        lhs.m10 + rhs.m10,
+        lhs.m20 + rhs.m20,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x2<T> ggm::operator+(Matrix3x2<T> const & lhs,
+                                           Matrix3x2<T> const & rhs) noexcept
+{
+    return Matrix3x2<T>{
+        lhs.m00 + rhs.m00,
+        lhs.m01 + rhs.m01,
+        lhs.m10 + rhs.m10,
+        lhs.m11 + rhs.m11,
+        lhs.m20 + rhs.m20,
+        lhs.m21 + rhs.m21,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x3<T> ggm::operator+(Matrix3x3<T> const & lhs,
+                                           Matrix3x3<T> const & rhs) noexcept
+{
+    return Matrix3x3<T>{
+        lhs.m00 + rhs.m00,
+        lhs.m01 + rhs.m01,
+        lhs.m02 + rhs.m02,
+        lhs.m10 + rhs.m10,
+        lhs.m11 + rhs.m11,
+        lhs.m12 + rhs.m12,
+        lhs.m20 + rhs.m20,
+        lhs.m21 + rhs.m21,
+        lhs.m22 + rhs.m22,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x4<T> ggm::operator+(Matrix3x4<T> const & lhs,
+                                           Matrix3x4<T> const & rhs) noexcept
+{
+    return Matrix3x4<T>{
+        lhs.m00 + rhs.m00,
+        lhs.m01 + rhs.m01,
+        lhs.m02 + rhs.m02,
+        lhs.m03 + rhs.m03,
+        lhs.m10 + rhs.m10,
+        lhs.m11 + rhs.m11,
+        lhs.m12 + rhs.m12,
+        lhs.m13 + rhs.m13,
+        lhs.m20 + rhs.m20,
+        lhs.m21 + rhs.m21,
+        lhs.m22 + rhs.m22,
+        lhs.m23 + rhs.m23,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x1<T> ggm::operator+(Matrix4x1<T> const & lhs,
+                                           Matrix4x1<T> const & rhs) noexcept
+{
+    return Matrix4x1<T>{
+        lhs.m00 + rhs.m00,
+        lhs.m10 + rhs.m10,
+        lhs.m20 + rhs.m20,
+        lhs.m30 + rhs.m30,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x2<T> ggm::operator+(Matrix4x2<T> const & lhs,
+                                           Matrix4x2<T> const & rhs) noexcept
+{
+    return Matrix4x2<T>{
+        lhs.m00 + rhs.m00,
+        lhs.m01 + rhs.m01,
+        lhs.m10 + rhs.m10,
+        lhs.m11 + rhs.m11,
+        lhs.m20 + rhs.m20,
+        lhs.m21 + rhs.m21,
+        lhs.m30 + rhs.m30,
+        lhs.m31 + rhs.m31,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x3<T> ggm::operator+(Matrix4x3<T> const & lhs,
+                                           Matrix4x3<T> const & rhs) noexcept
+{
+    return Matrix4x3<T>{
+        lhs.m00 + rhs.m00,
+        lhs.m01 + rhs.m01,
+        lhs.m02 + rhs.m02,
+        lhs.m10 + rhs.m10,
+        lhs.m11 + rhs.m11,
+        lhs.m12 + rhs.m12,
+        lhs.m20 + rhs.m20,
+        lhs.m21 + rhs.m21,
+        lhs.m22 + rhs.m22,
+        lhs.m30 + rhs.m30,
+        lhs.m31 + rhs.m31,
+        lhs.m32 + rhs.m32,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x4<T> ggm::operator+(Matrix4x4<T> const & lhs,
+                                           Matrix4x4<T> const & rhs) noexcept
+{
+    return Matrix4x4<T>{
+        lhs.m00 + rhs.m00,
+        lhs.m01 + rhs.m01,
+        lhs.m02 + rhs.m02,
+        lhs.m03 + rhs.m03,
+        lhs.m10 + rhs.m10,
+        lhs.m11 + rhs.m11,
+        lhs.m12 + rhs.m12,
+        lhs.m13 + rhs.m13,
+        lhs.m20 + rhs.m20,
+        lhs.m21 + rhs.m21,
+        lhs.m22 + rhs.m22,
+        lhs.m23 + rhs.m23,
+        lhs.m30 + rhs.m30,
+        lhs.m31 + rhs.m31,
+        lhs.m32 + rhs.m32,
+        lhs.m33 + rhs.m33,
+    };
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Matrix1x1<T> ggm::operator-(Matrix1x1<T> const & lhs,
+                                           Matrix1x1<T> const & rhs) noexcept
+{
+    return Matrix1x1<T>{
+        lhs.m00 - rhs.m00,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x2<T> ggm::operator-(Matrix1x2<T> const & lhs,
+                                           Matrix1x2<T> const & rhs) noexcept
+{
+    return Matrix1x2<T>{
+        lhs.m00 - rhs.m00,
+        lhs.m01 - rhs.m01,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x3<T> ggm::operator-(Matrix1x3<T> const & lhs,
+                                           Matrix1x3<T> const & rhs) noexcept
+{
+    return Matrix1x3<T>{
+        lhs.m00 - rhs.m00,
+        lhs.m01 - rhs.m01,
+        lhs.m02 - rhs.m02,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x4<T> ggm::operator-(Matrix1x4<T> const & lhs,
+                                           Matrix1x4<T> const & rhs) noexcept
+{
+    return Matrix1x4<T>{
+        lhs.m00 - rhs.m00,
+        lhs.m01 - rhs.m01,
+        lhs.m02 - rhs.m02,
+        lhs.m03 - rhs.m03,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x1<T> ggm::operator-(Matrix2x1<T> const & lhs,
+                                           Matrix2x1<T> const & rhs) noexcept
+{
+    return Matrix2x1<T>{
+        lhs.m00 - rhs.m00,
+        lhs.m10 - rhs.m10,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x2<T> ggm::operator-(Matrix2x2<T> const & lhs,
+                                           Matrix2x2<T> const & rhs) noexcept
+{
+    return Matrix2x2<T>{
+        lhs.m00 - rhs.m00,
+        lhs.m01 - rhs.m01,
+        lhs.m10 - rhs.m10,
+        lhs.m11 - rhs.m11,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x3<T> ggm::operator-(Matrix2x3<T> const & lhs,
+                                           Matrix2x3<T> const & rhs) noexcept
+{
+    return Matrix2x3<T>{
+        lhs.m00 - rhs.m00,
+        lhs.m01 - rhs.m01,
+        lhs.m02 - rhs.m02,
+        lhs.m10 - rhs.m10,
+        lhs.m11 - rhs.m11,
+        lhs.m12 - rhs.m12,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x4<T> ggm::operator-(Matrix2x4<T> const & lhs,
+                                           Matrix2x4<T> const & rhs) noexcept
+{
+    return Matrix2x4<T>{
+        lhs.m00 - rhs.m00,
+        lhs.m01 - rhs.m01,
+        lhs.m02 - rhs.m02,
+        lhs.m03 - rhs.m03,
+        lhs.m10 - rhs.m10,
+        lhs.m11 - rhs.m11,
+        lhs.m12 - rhs.m12,
+        lhs.m13 - rhs.m13,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x1<T> ggm::operator-(Matrix3x1<T> const & lhs,
+                                           Matrix3x1<T> const & rhs) noexcept
+{
+    return Matrix3x1<T>{
+        lhs.m00 - rhs.m00,
+        lhs.m10 - rhs.m10,
+        lhs.m20 - rhs.m20,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x2<T> ggm::operator-(Matrix3x2<T> const & lhs,
+                                           Matrix3x2<T> const & rhs) noexcept
+{
+    return Matrix3x2<T>{
+        lhs.m00 - rhs.m00,
+        lhs.m01 - rhs.m01,
+        lhs.m10 - rhs.m10,
+        lhs.m11 - rhs.m11,
+        lhs.m20 - rhs.m20,
+        lhs.m21 - rhs.m21,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x3<T> ggm::operator-(Matrix3x3<T> const & lhs,
+                                           Matrix3x3<T> const & rhs) noexcept
+{
+    return Matrix3x3<T>{
+        lhs.m00 - rhs.m00,
+        lhs.m01 - rhs.m01,
+        lhs.m02 - rhs.m02,
+        lhs.m10 - rhs.m10,
+        lhs.m11 - rhs.m11,
+        lhs.m12 - rhs.m12,
+        lhs.m20 - rhs.m20,
+        lhs.m21 - rhs.m21,
+        lhs.m22 - rhs.m22,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x4<T> ggm::operator-(Matrix3x4<T> const & lhs,
+                                           Matrix3x4<T> const & rhs) noexcept
+{
+    return Matrix3x4<T>{
+        lhs.m00 - rhs.m00,
+        lhs.m01 - rhs.m01,
+        lhs.m02 - rhs.m02,
+        lhs.m03 - rhs.m03,
+        lhs.m10 - rhs.m10,
+        lhs.m11 - rhs.m11,
+        lhs.m12 - rhs.m12,
+        lhs.m13 - rhs.m13,
+        lhs.m20 - rhs.m20,
+        lhs.m21 - rhs.m21,
+        lhs.m22 - rhs.m22,
+        lhs.m23 - rhs.m23,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x1<T> ggm::operator-(Matrix4x1<T> const & lhs,
+                                           Matrix4x1<T> const & rhs) noexcept
+{
+    return Matrix4x1<T>{
+        lhs.m00 - rhs.m00,
+        lhs.m10 - rhs.m10,
+        lhs.m20 - rhs.m20,
+        lhs.m30 - rhs.m30,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x2<T> ggm::operator-(Matrix4x2<T> const & lhs,
+                                           Matrix4x2<T> const & rhs) noexcept
+{
+    return Matrix4x2<T>{
+        lhs.m00 - rhs.m00,
+        lhs.m01 - rhs.m01,
+        lhs.m10 - rhs.m10,
+        lhs.m11 - rhs.m11,
+        lhs.m20 - rhs.m20,
+        lhs.m21 - rhs.m21,
+        lhs.m30 - rhs.m30,
+        lhs.m31 - rhs.m31,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x3<T> ggm::operator-(Matrix4x3<T> const & lhs,
+                                           Matrix4x3<T> const & rhs) noexcept
+{
+    return Matrix4x3<T>{
+        lhs.m00 - rhs.m00,
+        lhs.m01 - rhs.m01,
+        lhs.m02 - rhs.m02,
+        lhs.m10 - rhs.m10,
+        lhs.m11 - rhs.m11,
+        lhs.m12 - rhs.m12,
+        lhs.m20 - rhs.m20,
+        lhs.m21 - rhs.m21,
+        lhs.m22 - rhs.m22,
+        lhs.m30 - rhs.m30,
+        lhs.m31 - rhs.m31,
+        lhs.m32 - rhs.m32,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x4<T> ggm::operator-(Matrix4x4<T> const & lhs,
+                                           Matrix4x4<T> const & rhs) noexcept
+{
+    return Matrix4x4<T>{
+        lhs.m00 - rhs.m00,
+        lhs.m01 - rhs.m01,
+        lhs.m02 - rhs.m02,
+        lhs.m03 - rhs.m03,
+        lhs.m10 - rhs.m10,
+        lhs.m11 - rhs.m11,
+        lhs.m12 - rhs.m12,
+        lhs.m13 - rhs.m13,
+        lhs.m20 - rhs.m20,
+        lhs.m21 - rhs.m21,
+        lhs.m22 - rhs.m22,
+        lhs.m23 - rhs.m23,
+        lhs.m30 - rhs.m30,
+        lhs.m31 - rhs.m31,
+        lhs.m32 - rhs.m32,
+        lhs.m33 - rhs.m33,
+    };
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Matrix1x1<T> ggm::operator*(T const &            lhs,
+                                           Matrix1x1<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x2<T> ggm::operator*(T const &            lhs,
+                                           Matrix1x2<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x3<T> ggm::operator*(T const &            lhs,
+                                           Matrix1x3<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x4<T> ggm::operator*(T const &            lhs,
+                                           Matrix1x4<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x1<T> ggm::operator*(T const &            lhs,
+                                           Matrix2x1<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x2<T> ggm::operator*(T const &            lhs,
+                                           Matrix2x2<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x3<T> ggm::operator*(T const &            lhs,
+                                           Matrix2x3<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x4<T> ggm::operator*(T const &            lhs,
+                                           Matrix2x4<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x1<T> ggm::operator*(T const &            lhs,
+                                           Matrix3x1<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x2<T> ggm::operator*(T const &            lhs,
+                                           Matrix3x2<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x3<T> ggm::operator*(T const &            lhs,
+                                           Matrix3x3<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x4<T> ggm::operator*(T const &            lhs,
+                                           Matrix3x4<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x1<T> ggm::operator*(T const &            lhs,
+                                           Matrix4x1<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x2<T> ggm::operator*(T const &            lhs,
+                                           Matrix4x2<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x3<T> ggm::operator*(T const &            lhs,
+                                           Matrix4x3<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x4<T> ggm::operator*(T const &            lhs,
+                                           Matrix4x4<T> const & rhs) noexcept;
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Matrix1x1<T> ggm::operator*(Matrix1x1<T> const & lhs,
+                                           T const &            rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x2<T> ggm::operator*(Matrix1x2<T> const & lhs,
+                                           T const &            rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x3<T> ggm::operator*(Matrix1x3<T> const & lhs,
+                                           T const &            rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x4<T> ggm::operator*(Matrix1x4<T> const & lhs,
+                                           T const &            rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x1<T> ggm::operator*(Matrix2x1<T> const & lhs,
+                                           T const &            rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x2<T> ggm::operator*(Matrix2x2<T> const & lhs,
+                                           T const &            rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x3<T> ggm::operator*(Matrix2x3<T> const & lhs,
+                                           T const &            rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x4<T> ggm::operator*(Matrix2x4<T> const & lhs,
+                                           T const &            rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x1<T> ggm::operator*(Matrix3x1<T> const & lhs,
+                                           T const &            rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x2<T> ggm::operator*(Matrix3x2<T> const & lhs,
+                                           T const &            rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x3<T> ggm::operator*(Matrix3x3<T> const & lhs,
+                                           T const &            rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x4<T> ggm::operator*(Matrix3x4<T> const & lhs,
+                                           T const &            rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x1<T> ggm::operator*(Matrix4x1<T> const & lhs,
+                                           T const &            rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x2<T> ggm::operator*(Matrix4x2<T> const & lhs,
+                                           T const &            rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x3<T> ggm::operator*(Matrix4x3<T> const & lhs,
+                                           T const &            rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x4<T> ggm::operator*(Matrix4x4<T> const & lhs,
+                                           T const &            rhs) noexcept;
+
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// Matrix1x1 = Matrix1xP * MatrixPx1
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x1<T> ggm::operator*(Matrix1x1<T> const & lhs,
+                                           Matrix1x1<T> const & rhs) noexcept
+{
+    return Matrix1x1<T>{
+        lhs.m00 * rhs.m00,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x1<T> ggm::operator*(Matrix1x2<T> const & lhs,
+                                           Matrix2x1<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x1<T> ggm::operator*(Matrix1x3<T> const & lhs,
+                                           Matrix3x1<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x1<T> ggm::operator*(Matrix1x4<T> const & lhs,
+                                           Matrix4x1<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+// Matrix1x2 = Matrix1xP * MatrixPx2
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x2<T> ggm::operator*(Matrix1x1<T> const & lhs,
+                                           Matrix1x2<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x2<T> ggm::operator*(Matrix1x2<T> const & lhs,
+                                           Matrix2x2<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x2<T> ggm::operator*(Matrix1x3<T> const & lhs,
+                                           Matrix3x2<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x2<T> ggm::operator*(Matrix1x4<T> const & lhs,
+                                           Matrix4x2<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+// Matrix1x3 = Matrix1xP * MatrixPx3
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x3<T> ggm::operator*(Matrix1x1<T> const & lhs,
+                                           Matrix1x3<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x3<T> ggm::operator*(Matrix1x2<T> const & lhs,
+                                           Matrix2x3<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x3<T> ggm::operator*(Matrix1x3<T> const & lhs,
+                                           Matrix3x3<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x3<T> ggm::operator*(Matrix1x4<T> const & lhs,
+                                           Matrix4x3<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+// Matrix1x4 = Matrix1xP * MatrixPx4
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x4<T> ggm::operator*(Matrix1x1<T> const & lhs,
+                                           Matrix1x4<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x4<T> ggm::operator*(Matrix1x2<T> const & lhs,
+                                           Matrix2x4<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x4<T> ggm::operator*(Matrix1x3<T> const & lhs,
+                                           Matrix3x4<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x4<T> ggm::operator*(Matrix1x4<T> const & lhs,
+                                           Matrix4x4<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+// Matrix2x1 = Matrix2xP * MatrixPx1
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x1<T> ggm::operator*(Matrix2x1<T> const & lhs,
+                                           Matrix1x1<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x1<T> ggm::operator*(Matrix2x2<T> const & lhs,
+                                           Matrix2x1<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x1<T> ggm::operator*(Matrix2x3<T> const & lhs,
+                                           Matrix3x1<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x1<T> ggm::operator*(Matrix2x4<T> const & lhs,
+                                           Matrix4x1<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+// Matrix2x2 = Matrix2xP * MatrixPx2
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x2<T> ggm::operator*(Matrix2x1<T> const & lhs,
+                                           Matrix1x2<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x2<T> ggm::operator*(Matrix2x2<T> const & lhs,
+                                           Matrix2x2<T> const & rhs) noexcept
+{
+    //            lhs                    rhs
+    //        col0  col1             col0  col1
+    // | row0: m00   m01 |   | row0:  m00   m01 |
+    // | row1: m10   m11 | * | row1:  m10   m11 |
+    //
+    //   | dot(lhs.row0, rhs.col0)  dot(lhs.row0, rhs.col1)  |
+    // = | dot(lhs.row1, rhs.col0)  dot(lhs.row1, rhs.col1)  |
+
+    return Matrix2x2<T>{
+        // row0:
+        (lhs.m00 * rhs.m00) + (lhs.m01 * rhs.m10),
+        (lhs.m00 * rhs.m01) + (lhs.m01 * rhs.m11),
+        // row1:
+        (lhs.m10 * rhs.m00) + (lhs.m11 * rhs.m10),
+        (lhs.m10 * rhs.m01) + (lhs.m11 * rhs.m11),
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x2<T> ggm::operator*(Matrix2x3<T> const & lhs,
+                                           Matrix3x2<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x2<T> ggm::operator*(Matrix2x4<T> const & lhs,
+                                           Matrix4x2<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+// Matrix2x3 = Matrix2xP * MatrixPx3
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x3<T> ggm::operator*(Matrix2x1<T> const & lhs,
+                                           Matrix1x3<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x3<T> ggm::operator*(Matrix2x2<T> const & lhs,
+                                           Matrix2x3<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x3<T> ggm::operator*(Matrix2x3<T> const & lhs,
+                                           Matrix3x3<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x3<T> ggm::operator*(Matrix2x4<T> const & lhs,
+                                           Matrix4x3<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+// Matrix2x4 = Matrix2xP * MatrixPx4
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x4<T> ggm::operator*(Matrix2x1<T> const & lhs,
+                                           Matrix1x4<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x4<T> ggm::operator*(Matrix2x2<T> const & lhs,
+                                           Matrix2x4<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x4<T> ggm::operator*(Matrix2x3<T> const & lhs,
+                                           Matrix3x4<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x4<T> ggm::operator*(Matrix2x4<T> const & lhs,
+                                           Matrix4x4<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+// Matrix3x1 = Matrix3xP * MatrixPx1
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x1<T> ggm::operator*(Matrix3x1<T> const & lhs,
+                                           Matrix1x1<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x1<T> ggm::operator*(Matrix3x2<T> const & lhs,
+                                           Matrix2x1<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x1<T> ggm::operator*(Matrix3x3<T> const & lhs,
+                                           Matrix3x1<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x1<T> ggm::operator*(Matrix3x4<T> const & lhs,
+                                           Matrix4x1<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+// Matrix3x2 = Matrix3xP * MatrixPx2
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x2<T> ggm::operator*(Matrix3x1<T> const & lhs,
+                                           Matrix1x2<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x2<T> ggm::operator*(Matrix3x2<T> const & lhs,
+                                           Matrix2x2<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x2<T> ggm::operator*(Matrix3x3<T> const & lhs,
+                                           Matrix3x2<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x2<T> ggm::operator*(Matrix3x4<T> const & lhs,
+                                           Matrix4x2<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+// Matrix3x3 = Matrix3xP * MatrixPx3
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x3<T> ggm::operator*(Matrix3x1<T> const & lhs,
+                                           Matrix1x3<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x3<T> ggm::operator*(Matrix3x2<T> const & lhs,
+                                           Matrix2x3<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x3<T> ggm::operator*(Matrix3x3<T> const & lhs,
+                                           Matrix3x3<T> const & rhs) noexcept
+{
+    //               lhs                           rhs
+    //        col0  col1  col2              col0  col1  col2
+    // | row0: m00   m01   m02  |   | row0:  m00   m01   m02 |
+    // | row1: m10   m11   m12  | * | row1:  m10   m11   m12 |
+    // | row2: m20   m21   m22  |   | row2:  m20   m21   m22 |
+    //
+    //   | dot(lhs.row0, rhs.col0)  dot(lhs.row0, rhs.col1)  dot(lhs.row0, rhs.col2) |
+    // = | dot(lhs.row1, rhs.col0)  dot(lhs.row1, rhs.col1)  dot(lhs.row1, rhs.col2) |
+    //   | dot(lhs.row2, rhs.col0)  dot(lhs.row2, rhs.col1)  dot(lhs.row2, rhs.col2) |
+
+    return Matrix3x3<T>{
+        // row0:
+        (lhs.m00 * rhs.m00) + (lhs.m01 * rhs.m10) + (lhs.m02 * rhs.m20),
+        (lhs.m00 * rhs.m01) + (lhs.m01 * rhs.m11) + (lhs.m02 * rhs.m21),
+        (lhs.m00 * rhs.m02) + (lhs.m01 * rhs.m12) + (lhs.m02 * rhs.m22),
+        // row1:
+        (lhs.m10 * rhs.m00) + (lhs.m11 * rhs.m10) + (lhs.m12 * rhs.m20),
+        (lhs.m10 * rhs.m01) + (lhs.m11 * rhs.m11) + (lhs.m12 * rhs.m21),
+        (lhs.m10 * rhs.m02) + (lhs.m11 * rhs.m12) + (lhs.m12 * rhs.m22),
+        // row2:
+        (lhs.m20 * rhs.m00) + (lhs.m21 * rhs.m10) + (lhs.m22 * rhs.m20),
+        (lhs.m20 * rhs.m01) + (lhs.m21 * rhs.m11) + (lhs.m22 * rhs.m21),
+        (lhs.m20 * rhs.m02) + (lhs.m21 * rhs.m12) + (lhs.m22 * rhs.m22),
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x3<T> ggm::operator*(Matrix3x4<T> const & lhs,
+                                           Matrix4x3<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+// Matrix3x4 = Matrix3xP * MatrixPx4
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x4<T> ggm::operator*(Matrix3x1<T> const & lhs,
+                                           Matrix1x4<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x4<T> ggm::operator*(Matrix3x2<T> const & lhs,
+                                           Matrix2x4<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x4<T> ggm::operator*(Matrix3x3<T> const & lhs,
+                                           Matrix3x4<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x4<T> ggm::operator*(Matrix3x4<T> const & lhs,
+                                           Matrix4x4<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+// Matrix4x1 = Matrix4xP * MatrixPx1
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x1<T> ggm::operator*(Matrix4x1<T> const & lhs,
+                                           Matrix1x1<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x1<T> ggm::operator*(Matrix4x2<T> const & lhs,
+                                           Matrix2x1<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x1<T> ggm::operator*(Matrix4x3<T> const & lhs,
+                                           Matrix3x1<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x1<T> ggm::operator*(Matrix4x4<T> const & lhs,
+                                           Matrix4x1<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+// Matrix4x2 = Matrix4xP * MatrixPx2
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x2<T> ggm::operator*(Matrix4x1<T> const & lhs,
+                                           Matrix1x2<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x2<T> ggm::operator*(Matrix4x2<T> const & lhs,
+                                           Matrix2x2<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x2<T> ggm::operator*(Matrix4x3<T> const & lhs,
+                                           Matrix3x2<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x2<T> ggm::operator*(Matrix4x4<T> const & lhs,
+                                           Matrix4x2<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+// Matrix4x3 = Matrix4xP * MatrixPx3
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x3<T> ggm::operator*(Matrix4x1<T> const & lhs,
+                                           Matrix1x3<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x3<T> ggm::operator*(Matrix4x2<T> const & lhs,
+                                           Matrix2x3<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x3<T> ggm::operator*(Matrix4x3<T> const & lhs,
+                                           Matrix3x3<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x3<T> ggm::operator*(Matrix4x4<T> const & lhs,
+                                           Matrix4x3<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+// Matrix4x4 = Matrix4xP * MatrixPx4
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x4<T> ggm::operator*(Matrix4x1<T> const & lhs,
+                                           Matrix1x4<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x4<T> ggm::operator*(Matrix4x2<T> const & lhs,
+                                           Matrix2x4<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x4<T> ggm::operator*(Matrix4x3<T> const & lhs,
+                                           Matrix3x4<T> const & rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x4<T> ggm::operator*(Matrix4x4<T> const & lhs,
+                                           Matrix4x4<T> const & rhs) noexcept
+{
+    //                lhs                            rhs
+    //        col0  col1  col2  col3             col0  col1  col2  col3
+    // | row0: m00   m01   m02   m03 |   | row0:  m00   m01   m02   m03 |
+    // | row1: m10   m11   m12   m13 | * | row1:  m10   m11   m12   m13 |
+    // | row2: m20   m21   m22   m23 |   | row2:  m20   m21   m22   m23 |
+    // | row3: m30   m31   m32   m33 |   | row3:  m30   m31   m32   m33 |
+    //
+    //   | dot(lhs.row0, rhs.col0)  dot(lhs.row0, rhs.col1)  dot(lhs.row0, rhs.col2)  dot(lhs.row0, rhs.col3) |
+    // = | dot(lhs.row1, rhs.col0)  dot(lhs.row1, rhs.col1)  dot(lhs.row1, rhs.col2)  dot(lhs.row1, rhs.col3) |
+    //   | dot(lhs.row2, rhs.col0)  dot(lhs.row2, rhs.col1)  dot(lhs.row2, rhs.col2)  dot(lhs.row2, rhs.col3) |
+    //   | dot(lhs.row3, rhs.col0)  dot(lhs.row3, rhs.col1)  dot(lhs.row3, rhs.col2)  dot(lhs.row3, rhs.col3) |
+
+    return Matrix4x4<T>{
+        // row0:
+        (lhs.m00 * rhs.m00) + (lhs.m01 * rhs.m10) + (lhs.m02 * rhs.m20) + (lhs.m03 * rhs.m30),
+        (lhs.m00 * rhs.m01) + (lhs.m01 * rhs.m11) + (lhs.m02 * rhs.m21) + (lhs.m03 * rhs.m31),
+        (lhs.m00 * rhs.m02) + (lhs.m01 * rhs.m12) + (lhs.m02 * rhs.m22) + (lhs.m03 * rhs.m32),
+        (lhs.m00 * rhs.m03) + (lhs.m01 * rhs.m13) + (lhs.m02 * rhs.m23) + (lhs.m03 * rhs.m33),
+        // row1:
+        (lhs.m10 * rhs.m00) + (lhs.m11 * rhs.m10) + (lhs.m12 * rhs.m20) + (lhs.m13 * rhs.m30),
+        (lhs.m10 * rhs.m01) + (lhs.m11 * rhs.m11) + (lhs.m12 * rhs.m21) + (lhs.m13 * rhs.m31),
+        (lhs.m10 * rhs.m02) + (lhs.m11 * rhs.m12) + (lhs.m12 * rhs.m22) + (lhs.m13 * rhs.m32),
+        (lhs.m10 * rhs.m03) + (lhs.m11 * rhs.m13) + (lhs.m12 * rhs.m23) + (lhs.m13 * rhs.m33),
+        // row2:
+        (lhs.m20 * rhs.m00) + (lhs.m21 * rhs.m10) + (lhs.m22 * rhs.m20) + (lhs.m23 * rhs.m30),
+        (lhs.m20 * rhs.m01) + (lhs.m21 * rhs.m11) + (lhs.m22 * rhs.m21) + (lhs.m23 * rhs.m31),
+        (lhs.m20 * rhs.m02) + (lhs.m21 * rhs.m12) + (lhs.m22 * rhs.m22) + (lhs.m23 * rhs.m32),
+        (lhs.m20 * rhs.m03) + (lhs.m21 * rhs.m13) + (lhs.m22 * rhs.m23) + (lhs.m23 * rhs.m33),
+        // row3:
+        (lhs.m30 * rhs.m00) + (lhs.m31 * rhs.m10) + (lhs.m32 * rhs.m20) + (lhs.m33 * rhs.m30),
+        (lhs.m30 * rhs.m01) + (lhs.m31 * rhs.m11) + (lhs.m32 * rhs.m21) + (lhs.m33 * rhs.m31),
+        (lhs.m30 * rhs.m02) + (lhs.m31 * rhs.m12) + (lhs.m32 * rhs.m22) + (lhs.m33 * rhs.m32),
+        (lhs.m30 * rhs.m03) + (lhs.m31 * rhs.m13) + (lhs.m32 * rhs.m23) + (lhs.m33 * rhs.m33),
+    };
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Matrix1x1<T> ggm::operator/(Matrix1x1<T> const & lhs,
+                                           T const &            rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x2<T> ggm::operator/(Matrix1x2<T> const & lhs,
+                                           T const &            rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x3<T> ggm::operator/(Matrix1x3<T> const & lhs,
+                                           T const &            rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x4<T> ggm::operator/(Matrix1x4<T> const & lhs,
+                                           T const &            rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x1<T> ggm::operator/(Matrix2x1<T> const & lhs,
+                                           T const &            rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x2<T> ggm::operator/(Matrix2x2<T> const & lhs,
+                                           T const &            rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x3<T> ggm::operator/(Matrix2x3<T> const & lhs,
+                                           T const &            rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x4<T> ggm::operator/(Matrix2x4<T> const & lhs,
+                                           T const &            rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x1<T> ggm::operator/(Matrix3x1<T> const & lhs,
+                                           T const &            rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x2<T> ggm::operator/(Matrix3x2<T> const & lhs,
+                                           T const &            rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x3<T> ggm::operator/(Matrix3x3<T> const & lhs,
+                                           T const &            rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x4<T> ggm::operator/(Matrix3x4<T> const & lhs,
+                                           T const &            rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x1<T> ggm::operator/(Matrix4x1<T> const & lhs,
+                                           T const &            rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x2<T> ggm::operator/(Matrix4x2<T> const & lhs,
+                                           T const &            rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x3<T> ggm::operator/(Matrix4x3<T> const & lhs,
+                                           T const &            rhs) noexcept;
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x4<T> ggm::operator/(Matrix4x4<T> const & lhs,
+                                           T const &            rhs) noexcept;
+
+// =============================================================================
+
+template <typename T>
 constexpr bool ggm::operator==(Matrix1x1<T> const & lhs,
                                Matrix1x1<T> const & rhs) noexcept
 {

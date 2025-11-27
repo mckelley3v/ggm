@@ -42,11 +42,11 @@ C++ graphics and game 3D math library.
   | -------------------------------------------------------------------- | ------------------------------------------------ |
   | [ggm/MatrixAll.h](include/ggm/MatrixAll.h)                           | Top-level header file for all of /ggm/Matrix/    |
   |                                                                      |                                                  |
-  | [Matrix.h](include/ggm/Matrix/Matrix.h)                              | Minimal definition of matrix types               |
-  | [MatrixFwd.h](include/ggm/Matrix/MatrixFwd.h)                        | Forward declaration of matrix types              |
-  | [MatrixUtil.h](include/ggm/Matrix/MatrixUtil.h)                      | Definition of matrix operators and utilities     |
-  | [MatrixTypedefs.h](include/ggm/Matrix/MatrixTypedefs.h)              | Typedefs of common matrix types, e.g. Matrix4x4f |
-  | [MatrixConstants.h](include/ggm/Matrix/MatrixConstants.h)            | Definitions of common matrix constants           |
+  | [ggm/Matrix/Matrix.h](include/ggm/Matrix/Matrix.h)                   | Minimal definition of matrix types               |
+  | [ggm/Matrix/MatrixFwd.h](include/ggm/Matrix/MatrixFwd.h)             | Forward declaration of matrix types              |
+  | [ggm/Matrix/MatrixUtil.h](include/ggm/Matrix/MatrixUtil.h)           | Definition of matrix operators and utilities     |
+  | [ggm/Matrix/MatrixTypedefs.h](include/ggm/Matrix/MatrixTypedefs.h)   | Typedefs of common matrix types, e.g. Matrix4x4f |
+  | [ggm/Matrix/MatrixConstants.h](include/ggm/Matrix/MatrixConstants.h) | Definitions of common matrix constants           |
 
 ### Implementation design
 * Goals:
@@ -79,12 +79,12 @@ C++ graphics and game 3D math library.
   | y = smooth_step(e0, e1, x);  | Hermite cubic interpolation from 0 to 1 as value progresses from edge0 to edge1.                 |
   | y = trunc(x);                | Compute greatest integral value s.t. abs(trunc(value)) &le; abs(value), i.e. round towards zero. |
 
-* | File                                                 | Description                                    |
-  | ---------------------------------------------------- | ---------------------------------------------- |
-  | [ggm/NumericAll.h](include/ggm/NumericAll.h)         | Top-level header file for all of /ggm/Numeric/ |
-  |                                                      |                                                |
-  | [NumericUtil.h](include/ggm/NumericUtil.h)           | Definition of numeric utilities                |
-  | [NumericConstants.h](include/ggm/NumericConstants.h) | Definitions of common numeric constants        |
+* | File                                                             | Description                                    |
+  | ---------------------------------------------------------------- | ---------------------------------------------- |
+  | [ggm/NumericAll.h](include/ggm/NumericAll.h)                     | Top-level header file for all of /ggm/Numeric/ |
+  |                                                                  |                                                |
+  | [ggm/Numeric/NumericUtil.h](include/ggm/NumericUtil.h)           | Definition of numeric utilities                |
+  | [ggm/Numeric/NumericConstants.h](include/ggm/NumericConstants.h) | Definitions of common numeric constants        |
 
 ### Implementation design
 * Duplicates with standard library exist due to:
