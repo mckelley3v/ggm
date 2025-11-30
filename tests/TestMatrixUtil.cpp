@@ -335,6 +335,28 @@ template ggm::Matrix4x4<float> ggm::operator*(ggm::Matrix4x4<float> const & lhs,
 
 // =============================================================================
 
+template ggm::Matrix1x1<float> ggm::operator/(ggm::Matrix1x1<float> const & lhs, float const & rhs);
+template ggm::Matrix1x2<float> ggm::operator/(ggm::Matrix1x2<float> const & lhs, float const & rhs);
+template ggm::Matrix1x3<float> ggm::operator/(ggm::Matrix1x3<float> const & lhs, float const & rhs);
+template ggm::Matrix1x4<float> ggm::operator/(ggm::Matrix1x4<float> const & lhs, float const & rhs);
+
+template ggm::Matrix2x1<float> ggm::operator/(ggm::Matrix2x1<float> const & lhs, float const & rhs);
+template ggm::Matrix2x2<float> ggm::operator/(ggm::Matrix2x2<float> const & lhs, float const & rhs);
+template ggm::Matrix2x3<float> ggm::operator/(ggm::Matrix2x3<float> const & lhs, float const & rhs);
+template ggm::Matrix2x4<float> ggm::operator/(ggm::Matrix2x4<float> const & lhs, float const & rhs);
+
+template ggm::Matrix3x1<float> ggm::operator/(ggm::Matrix3x1<float> const & lhs, float const & rhs);
+template ggm::Matrix3x2<float> ggm::operator/(ggm::Matrix3x2<float> const & lhs, float const & rhs);
+template ggm::Matrix3x3<float> ggm::operator/(ggm::Matrix3x3<float> const & lhs, float const & rhs);
+template ggm::Matrix3x4<float> ggm::operator/(ggm::Matrix3x4<float> const & lhs, float const & rhs);
+
+template ggm::Matrix4x1<float> ggm::operator/(ggm::Matrix4x1<float> const & lhs, float const & rhs);
+template ggm::Matrix4x2<float> ggm::operator/(ggm::Matrix4x2<float> const & lhs, float const & rhs);
+template ggm::Matrix4x3<float> ggm::operator/(ggm::Matrix4x3<float> const & lhs, float const & rhs);
+template ggm::Matrix4x4<float> ggm::operator/(ggm::Matrix4x4<float> const & lhs, float const & rhs);
+
+// =============================================================================
+
 TEMPLATE_TEST_CASE("Matrix::TestMatrixUtil::operator==", /*tags*/ "", GGM_NUMERIC_TEST_TYPES())
 {
     using namespace ggm;
