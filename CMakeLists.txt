@@ -6,11 +6,14 @@ project(
     VERSION 0.0.1
 )
 
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+
 # ==============================================================================
 # configure:
 # ==============================================================================
 
-option(GGM_ENABLE_UNIT_TESTS "Enable unit-tests for ggm" ${PROJECT_IS_TOP_LEVEL})
+option(GGM_ENABLE_UNIT_TESTS "Enable unit-tests for ggm"               ${PROJECT_IS_TOP_LEVEL})
+option(GGM_ALLOW_IDE_FOLDER  "Allow setting the IDE folder on targets" ${PROJECT_IS_TOP_LEVEL})
 
 if (NOT PROJECT_IS_TOP_LEVEL)
     set(GGM_WARNING_FLAGS "") # only enable warnings for development repo, disable for users
@@ -22,19 +25,24 @@ endif()
 Include(FetchContent)
 
 if (GGM_ENABLE_UNIT_TESTS)
+    enable_testing()
+
+    # use Catch for testing
     FetchContent_Declare(
       Catch2
       GIT_REPOSITORY https://github.com/catchorg/Catch2.git
-      GIT_TAG        v3.11.0
+      GIT_TAG        v3.11.0 # Sep 20, 2025
     )
-
-    list(APPEND CMAKE_MODULE_PATH ${Catch2_SOURCE_DIR}/extras)
-    include(CTest)
-    include(Catch)
 
     FetchContent_MakeAvailable(Catch2)
 
-    enable_testing()
+    if (GGM_ALLOW_IDE_FOLDER)
+        set_target_properties(Catch2         PROPERTIES FOLDER "external")
+        set_target_properties(Catch2WithMain PROPERTIES FOLDER "external")
+    endif()
+
+    list(APPEND CMAKE_MODULE_PATH ${Catch2_SOURCE_DIR}/extras)
+    include(Catch)
 endif()
 
 # ==============================================================================

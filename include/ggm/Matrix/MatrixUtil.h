@@ -3,6 +3,7 @@
 #define GGM_MATRIX_UTIL_H
 
 #include "ggm/Matrix/Matrix.h"
+#include "ggm/Numeric/NumericUtil.h"
 
 // =============================================================================
 /// @addtogroup Matrix
@@ -1931,51 +1932,60 @@ namespace ggm
     /// true if square matrix can be inverted, i.e. determinant != 0
     /// @relates Matrix2x2
     template <typename T>
-    constexpr bool is_invertible(Matrix2x2<T> const & value) noexcept;
+    constexpr bool is_invertible(Matrix2x2<T> const & value,
+                                 T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     /// true if square matrix can be inverted, i.e. determinant != 0
     /// @relates Matrix3x3
     template <typename T>
-    constexpr bool is_invertible(Matrix3x3<T> const & value) noexcept;
+    constexpr bool is_invertible(Matrix3x3<T> const & value,
+                                 T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     /// true if square matrix can be inverted, i.e. determinant != 0
     /// @relates Matrix4x4
     template <typename T>
-    constexpr bool is_invertible(Matrix4x4<T> const & value) noexcept;
+    constexpr bool is_invertible(Matrix4x4<T> const & value,
+                                 T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     // =============================================================================
 
     /// true if square matrix rows and cols are orthonormal vectors
     /// @relates Matrix2x2
     template <typename T>
-    constexpr bool is_orthogonal(Matrix2x2<T> const & value) noexcept;
+    constexpr bool is_orthogonal(Matrix2x2<T> const & value,
+                                 T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     /// true if square matrix rows and cols are orthonormal vectors
     /// @relates Matrix3x3
     template <typename T>
-    constexpr bool is_orthogonal(Matrix3x3<T> const & value) noexcept;
+    constexpr bool is_orthogonal(Matrix3x3<T> const & value,
+                                 T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     /// true if square matrix rows and cols are orthonormal vectors
     /// @relates Matrix4x4
     template <typename T>
-    constexpr bool is_orthogonal(Matrix4x4<T> const & value) noexcept;
+    constexpr bool is_orthogonal(Matrix4x4<T> const & value,
+                                 T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     // =============================================================================
 
     /// calculate inverse of square matrix
     /// @relates Matrix2x2
     template <typename T>
-    constexpr Matrix2x2<T> inverse(Matrix2x2<T> const & value) noexcept;
+    constexpr Matrix2x2<T> inverse(Matrix2x2<T> const & value,
+                                   T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     /// calculate inverse of square matrix
     /// @relates Matrix3x3
     template <typename T>
-    constexpr Matrix3x3<T> inverse(Matrix3x3<T> const & value) noexcept;
+    constexpr Matrix3x3<T> inverse(Matrix3x3<T> const & value,
+                                   T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     /// calculate inverse of square matrix
     /// @relates Matrix4x4
     template <typename T>
-    constexpr Matrix4x4<T> inverse(Matrix4x4<T> const & value) noexcept;
+    constexpr Matrix4x4<T> inverse(Matrix4x4<T> const & value,
+                                   T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     // =============================================================================
     /// return the transpose of the matrix
@@ -7881,6 +7891,203 @@ constexpr bool ggm::operator!=(Matrix4x4<T> const & lhs,
            (lhs.m31 != rhs.m31) ||
            (lhs.m32 != rhs.m32) ||
            (lhs.m33 != rhs.m33);
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr T ggm::determinant(Matrix2x2<T> const & value) noexcept
+{
+    // | m00  m01 |
+    // | m10  m11 |
+
+    return (value.m00 * value.m11) - (value.m01 * value.m10);
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr T ggm::determinant(Matrix3x3<T> const & value) noexcept
+{
+    // | m00 m01 m02 |
+    // | m10 m11 m12 |
+    // | m20 m21 m22 |
+
+    T const detMinor00 = value.m11 * value.m22 - value.m12 * value.m21;
+    T const detMinor01 = value.m10 * value.m22 - value.m12 * value.m20;
+    T const detMinor02 = value.m11 * value.m21 - value.m11 * value.m20;
+
+    return value.m00 * detMinor00 -
+           value.m01 * detMinor01 +
+           value.m02 * detMinor02;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr T ggm::determinant(Matrix4x4<T> const & value) noexcept
+{
+    // | m00 m01 m02 m03 |
+    // | m10 m11 m12 m13 |
+    // | m20 m21 m22 m23 |
+    // | m30 m31 m32 m33 |
+
+    T const detSubMinor0 = value.m22 * value.m33 - value.m23 * value.m32;
+    T const detSubMinor1 = value.m21 * value.m33 - value.m23 * value.m31;
+    T const detSubMinor2 = value.m21 * value.m32 - value.m22 * value.m31;
+    T const detSubMinor3 = value.m20 * value.m33 - value.m23 * value.m30;
+    T const detSubMinor4 = value.m20 * value.m32 - value.m22 * value.m30;
+    T const detSubMinor5 = value.m20 * value.m31 - value.m21 * value.m30;
+
+    T const detMinor00 = value.m11 * detSubMinor0 -
+                         value.m12 * detSubMinor1 +
+                         value.m13 * detSubMinor2;
+
+    T const detMinor01 = value.m10 * detSubMinor0 -
+                         value.m12 * detSubMinor3 +
+                         value.m13 * detSubMinor4;
+
+    T const detMinor02 = value.m10 * detSubMinor1 -
+                         value.m11 * detSubMinor3 +
+                         value.m13 * detSubMinor5;
+
+    T const detMinor03 = value.m10 * detSubMinor2 -
+                         value.m11 * detSubMinor4 +
+                         value.m12 * detSubMinor5;
+
+    return value.m00 * detMinor00 -
+           value.m01 * detMinor01 +
+           value.m02 * detMinor02 -
+           value.m03 * detMinor03;
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr bool ggm::is_invertible(Matrix2x2<T> const & value,
+                                  T const &            epsilon) noexcept
+{
+    return !is_close(determinant(value), T{ 0 }, epsilon);
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr bool ggm::is_invertible(Matrix3x3<T> const & value,
+                                  T const &            epsilon) noexcept
+{
+    return !is_close(determinant(value), T{ 0 }, epsilon);
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr bool ggm::is_invertible(Matrix4x4<T> const & value,
+                                  T const &            epsilon) noexcept
+{
+    return !is_close(determinant(value), T{ 0 }, epsilon);
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr bool ggm::is_orthogonal(Matrix2x2<T> const & value,
+                                  T const &            epsilon) noexcept
+{
+    // check if value * transpose(value) == identity:
+    //
+    // { m00  m01 } * { m00  m10 } == { 1  0 }
+    // { m10  m11 }   { m01  m11 }    { 0  1 }
+    //
+    // i00: dot(row0: {m00, m01}, col0: {m00, m01}) == 1
+    // i01: dot(row0: {m00, m01}, col1: {m10, m11}) == 0
+    // i10: dot(row1: {m10, m11}, col0: {m00, m01}) == 0 (duplicates i01)
+    // i11: dot(row1: {m10, m11}, col1: {m10, m11}) == 1
+
+    return is_close(value.m00 * value.m00 + value.m01 * value.m01, T{ 1 }, epsilon) &&
+           is_close(value.m00 * value.m10 + value.m01 * value.m11, T{ 0 }, epsilon) &&
+           is_close(value.m10 * value.m10 + value.m11 * value.m11, T{ 1 }, epsilon);
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr bool ggm::is_orthogonal(Matrix3x3<T> const & value,
+                                  T const &            epsilon) noexcept
+{
+    // check if value * transpose(value) == identity:
+    //
+    // { m00 m01 m02 }   { m00 m10 m20 }    { 1 0 0 }
+    // { m10 m11 m12 } * { m01 m11 m21 } == { 0 1 0 }
+    // { m20 m21 m22 }   { m02 m12 m22 }    { 0 0 1 }
+    //
+    // i00: dot(row0: {m00 m01 m02}, col0: {m00 m01 m02}) == 1
+    // i01: dot(row0: {m00 m01 m02}, col1: {m10 m11 m12}) == 0
+    // i02: dot(row0: {m00 m01 m02}, col2: {m20 m21 m22}) == 0
+    // i10: dot(row1: {m10 m11 m12}, col0: {m00 m01 m02}) == 0
+    // i11: dot(row1: {m10 m11 m12}, col1: {m10 m11 m12}) == 1
+    // i12: dot(row1: {m10 m11 m12}, col2: {m20 m21 m22}) == 0
+    // i20: dot(row2: {m20 m21 m22}, col0: {m00 m01 m02}) == 0
+    // i21: dot(row2: {m20 m21 m22}, col1: {m10 m11 m12}) == 0
+    // i22: dot(row2: {m20 m21 m22}, col2: {m20 m21 m22}) == 1
+
+    return is_close(value.m00 * value.m00 + value.m01 * value.m01 + value.m02 * value.m02, T{ 1 }, epsilon) &&
+           is_close(value.m00 * value.m10 + value.m01 * value.m11 + value.m02 * value.m12, T{ 0 }, epsilon) &&
+           is_close(value.m00 * value.m20 + value.m01 * value.m21 + value.m02 * value.m22, T{ 0 }, epsilon) &&
+           is_close(value.m10 * value.m00 + value.m11 * value.m01 + value.m12 * value.m02, T{ 0 }, epsilon) &&
+           is_close(value.m10 * value.m10 + value.m11 * value.m11 + value.m12 * value.m12, T{ 1 }, epsilon) &&
+           is_close(value.m10 * value.m20 + value.m11 * value.m21 + value.m12 * value.m22, T{ 0 }, epsilon) &&
+           is_close(value.m20 * value.m00 + value.m21 * value.m01 + value.m22 * value.m02, T{ 0 }, epsilon) &&
+           is_close(value.m20 * value.m10 + value.m21 * value.m11 + value.m22 * value.m12, T{ 0 }, epsilon) &&
+           is_close(value.m20 * value.m20 + value.m21 * value.m21 + value.m22 * value.m22, T{ 1 }, epsilon);
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr bool ggm::is_orthogonal(Matrix4x4<T> const & value,
+                                  T const &            epsilon) noexcept
+{
+    // check if value * transpose(value) == identity:
+    //
+    // { m00 m01 m02 m03 }   { m00 m10 m20 m30 }    { 1 0 0 0 }
+    // { m10 m11 m12 m13 } * { m01 m11 m21 m31 } == { 0 1 0 0 }
+    // { m20 m21 m22 m23 }   { m02 m12 m22 m32 }    { 0 0 1 0 }
+    // { m30 m31 m32 m33 }   { m03 m13 m23 m33 }    { 0 0 0 1 }
+    //
+    // i00: dot(row0: {m00 m01 m02 m03}, col0: {m00 m01 m02 m03}) == 1
+    // i01: dot(row0: {m00 m01 m02 m03}, col1: {m10 m11 m12 m13}) == 0
+    // i02: dot(row0: {m00 m01 m02 m03}, col2: {m20 m21 m22 m23}) == 0
+    // i03: dot(row0: {m00 m01 m02 m03}, col3: {m30 m31 m32 m33}) == 0
+    // i10: dot(row1: {m10 m11 m12 m13}, col0: {m00 m01 m02 m03}) == 0
+    // i11: dot(row1: {m10 m11 m12 m13}, col1: {m10 m11 m12 m13}) == 1
+    // i12: dot(row1: {m10 m11 m12 m13}, col2: {m20 m21 m22 m23}) == 0
+    // i13: dot(row1: {m10 m11 m12 m13}, col3: {m30 m31 m32 m33}) == 0
+    // i20: dot(row2: {m20 m21 m22 m23}, col0: {m00 m01 m02 m03}) == 0
+    // i21: dot(row2: {m20 m21 m22 m23}, col1: {m10 m11 m12 m13}) == 0
+    // i22: dot(row2: {m20 m21 m22 m23}, col2: {m20 m21 m22 m23}) == 1
+    // i23: dot(row2: {m20 m21 m22 m23}, col3: {m30 m31 m32 m33}) == 0
+    // i30: dot(row3: {m30 m31 m32 m33}, col0: {m00 m01 m02 m03}) == 0
+    // i31: dot(row3: {m30 m31 m32 m33}, col1: {m10 m11 m12 m13}) == 0
+    // i32: dot(row3: {m30 m31 m32 m33}, col2: {m20 m21 m22 m23}) == 0
+    // i33: dot(row3: {m30 m31 m32 m33}, col3: {m30 m31 m32 m33}) == 1
+
+    return is_close(value.m00 * value.m00 + value.m01 * value.m01 + value.m02 * value.m02 + value.m03 * value.m03, T{ 1 }, epsilon) &&
+           is_close(value.m00 * value.m10 + value.m01 * value.m11 + value.m02 * value.m12 + value.m03 * value.m13, T{ 0 }, epsilon) &&
+           is_close(value.m00 * value.m20 + value.m01 * value.m21 + value.m02 * value.m22 + value.m03 * value.m23, T{ 0 }, epsilon) &&
+           is_close(value.m00 * value.m30 + value.m01 * value.m31 + value.m02 * value.m32 + value.m03 * value.m33, T{ 0 }, epsilon) &&
+           is_close(value.m10 * value.m00 + value.m11 * value.m01 + value.m12 * value.m02 + value.m13 * value.m03, T{ 0 }, epsilon) &&
+           is_close(value.m10 * value.m10 + value.m11 * value.m11 + value.m12 * value.m12 + value.m13 * value.m13, T{ 1 }, epsilon) &&
+           is_close(value.m10 * value.m20 + value.m11 * value.m21 + value.m12 * value.m22 + value.m13 * value.m23, T{ 0 }, epsilon) &&
+           is_close(value.m10 * value.m30 + value.m11 * value.m31 + value.m12 * value.m32 + value.m13 * value.m33, T{ 0 }, epsilon) &&
+           is_close(value.m20 * value.m00 + value.m21 * value.m01 + value.m22 * value.m02 + value.m23 * value.m03, T{ 0 }, epsilon) &&
+           is_close(value.m20 * value.m10 + value.m21 * value.m11 + value.m22 * value.m12 + value.m23 * value.m13, T{ 0 }, epsilon) &&
+           is_close(value.m20 * value.m20 + value.m21 * value.m21 + value.m22 * value.m22 + value.m23 * value.m23, T{ 1 }, epsilon) &&
+           is_close(value.m20 * value.m30 + value.m21 * value.m31 + value.m22 * value.m32 + value.m23 * value.m33, T{ 0 }, epsilon) &&
+           is_close(value.m30 * value.m00 + value.m31 * value.m01 + value.m32 * value.m02 + value.m33 * value.m03, T{ 0 }, epsilon) &&
+           is_close(value.m30 * value.m10 + value.m31 * value.m11 + value.m32 * value.m12 + value.m33 * value.m13, T{ 0 }, epsilon) &&
+           is_close(value.m30 * value.m20 + value.m31 * value.m21 + value.m32 * value.m22 + value.m33 * value.m23, T{ 0 }, epsilon) &&
+           is_close(value.m30 * value.m30 + value.m31 * value.m31 + value.m32 * value.m32 + value.m33 * value.m33, T{ 1 }, epsilon);
 }
 
 // =============================================================================
