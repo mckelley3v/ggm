@@ -2229,101 +2229,101 @@ namespace ggm
     /// create a matrix from the given row vectors
     /// @relates Matrix1x2
     template <typename T>
-    constexpr Matrix1x2<T> matrix_from_rows(Matrix1x1<T> const & row0,
-                                            Matrix1x1<T> const & row1) noexcept;
+    constexpr Matrix1x2<T> matrix_from_rows(Matrix1x2<T> const & row0) noexcept;
 
     /// create a matrix from the given row vectors
     /// @relates Matrix1x3
     template <typename T>
-    constexpr Matrix1x3<T> matrix_from_rows(Matrix1x1<T> const & row0,
-                                            Matrix1x1<T> const & row1,
-                                            Matrix1x1<T> const & row2) noexcept;
+    constexpr Matrix1x3<T> matrix_from_rows(Matrix1x3<T> const & row0) noexcept;
 
     /// create a matrix from the given row vectors
     /// @relates Matrix1x4
     template <typename T>
-    constexpr Matrix1x4<T> matrix_from_rows(Matrix1x1<T> const & row0,
+    constexpr Matrix1x4<T> matrix_from_rows(Matrix1x4<T> const & row0) noexcept;
+
+    /// create a matrix from the given row vectors
+    /// @relates Matrix2x1
+    template <typename T>
+    constexpr Matrix2x1<T> matrix_from_rows(Matrix1x1<T> const & row0,
+                                            Matrix1x1<T> const & row1) noexcept;
+
+    /// create a matrix from the given row vectors
+    /// @relates Matrix2x2
+    template <typename T>
+    constexpr Matrix2x2<T> matrix_from_rows(Matrix1x2<T> const & row0,
+                                            Matrix1x2<T> const & row1) noexcept;
+
+    /// create a matrix from the given row vectors
+    /// @relates Matrix2x3
+    template <typename T>
+    constexpr Matrix2x3<T> matrix_from_rows(Matrix1x3<T> const & row0,
+                                            Matrix1x3<T> const & row1) noexcept;
+
+    /// create a matrix from the given row vectors
+    /// @relates Matrix2x4
+    template <typename T>
+    constexpr Matrix2x4<T> matrix_from_rows(Matrix1x4<T> const & row0,
+                                            Matrix1x4<T> const & row1) noexcept;
+
+    /// create a matrix from the given row vectors
+    /// @relates Matrix3x1
+    template <typename T>
+    constexpr Matrix3x1<T> matrix_from_rows(Matrix1x1<T> const & row0,
+                                            Matrix1x1<T> const & row1,
+                                            Matrix1x1<T> const & row2) noexcept;
+
+    /// create a matrix from the given row vectors
+    /// @relates Matrix3x2
+    template <typename T>
+    constexpr Matrix3x2<T> matrix_from_rows(Matrix1x2<T> const & row0,
+                                            Matrix1x2<T> const & row1,
+                                            Matrix1x2<T> const & row2) noexcept;
+
+    /// create a matrix from the given row vectors
+    /// @relates Matrix3x3
+    template <typename T>
+    constexpr Matrix3x3<T> matrix_from_rows(Matrix1x3<T> const & row0,
+                                            Matrix1x3<T> const & row1,
+                                            Matrix1x3<T> const & row2) noexcept;
+
+    /// create a matrix from the given row vectors
+    /// @relates Matrix3x4
+    template <typename T>
+    constexpr Matrix3x4<T> matrix_from_rows(Matrix1x4<T> const & row0,
+                                            Matrix1x4<T> const & row1,
+                                            Matrix1x4<T> const & row2) noexcept;
+
+    /// create a matrix from the given row vectors
+    /// @relates Matrix4x1
+    template <typename T>
+    constexpr Matrix4x1<T> matrix_from_rows(Matrix1x1<T> const & row0,
                                             Matrix1x1<T> const & row1,
                                             Matrix1x1<T> const & row2,
                                             Matrix1x1<T> const & row3) noexcept;
 
     /// create a matrix from the given row vectors
-    /// @relates Matrix2x1
-    template <typename T>
-    constexpr Matrix2x1<T> matrix_from_rows(Matrix2x1<T> const & row0) noexcept;
-
-    /// create a matrix from the given row vectors
-    /// @relates Matrix2x2
-    template <typename T>
-    constexpr Matrix2x2<T> matrix_from_rows(Matrix2x1<T> const & row0,
-                                            Matrix2x1<T> const & row1) noexcept;
-
-    /// create a matrix from the given row vectors
-    /// @relates Matrix2x3
-    template <typename T>
-    constexpr Matrix2x3<T> matrix_from_rows(Matrix2x1<T> const & row0,
-                                            Matrix2x1<T> const & row1,
-                                            Matrix2x1<T> const & row2) noexcept;
-
-    /// create a matrix from the given row vectors
-    /// @relates Matrix2x4
-    template <typename T>
-    constexpr Matrix2x4<T> matrix_from_rows(Matrix2x1<T> const & row0,
-                                            Matrix2x1<T> const & row1,
-                                            Matrix2x1<T> const & row2,
-                                            Matrix2x1<T> const & row3) noexcept;
-
-    /// create a matrix from the given row vectors
-    /// @relates Matrix3x1
-    template <typename T>
-    constexpr Matrix3x1<T> matrix_from_rows(Matrix3x1<T> const & row0) noexcept;
-
-    /// create a matrix from the given row vectors
-    /// @relates Matrix3x2
-    template <typename T>
-    constexpr Matrix3x2<T> matrix_from_rows(Matrix3x1<T> const & row0,
-                                            Matrix3x1<T> const & row1) noexcept;
-
-    /// create a matrix from the given row vectors
-    /// @relates Matrix3x3
-    template <typename T>
-    constexpr Matrix3x3<T> matrix_from_rows(Matrix3x1<T> const & row0,
-                                            Matrix3x1<T> const & row1,
-                                            Matrix3x1<T> const & row2) noexcept;
-
-    /// create a matrix from the given row vectors
-    /// @relates Matrix3x4
-    template <typename T>
-    constexpr Matrix3x4<T> matrix_from_rows(Matrix3x1<T> const & row0,
-                                            Matrix3x1<T> const & row1,
-                                            Matrix3x1<T> const & row2,
-                                            Matrix3x1<T> const & row3) noexcept;
-
-    /// create a matrix from the given row vectors
-    /// @relates Matrix4x1
-    template <typename T>
-    constexpr Matrix4x1<T> matrix_from_rows(Matrix4x1<T> const & row0) noexcept;
-
-    /// create a matrix from the given row vectors
     /// @relates Matrix4x2
     template <typename T>
-    constexpr Matrix4x2<T> matrix_from_rows(Matrix4x1<T> const & row0,
-                                            Matrix4x1<T> const & row1) noexcept;
+    constexpr Matrix4x2<T> matrix_from_rows(Matrix1x2<T> const & row0,
+                                            Matrix1x2<T> const & row1,
+                                            Matrix1x2<T> const & row2,
+                                            Matrix1x2<T> const & row3) noexcept;
 
     /// create a matrix from the given row vectors
     /// @relates Matrix4x3
     template <typename T>
-    constexpr Matrix4x3<T> matrix_from_rows(Matrix4x1<T> const & row0,
-                                            Matrix4x1<T> const & row1,
-                                            Matrix4x1<T> const & row2) noexcept;
+    constexpr Matrix4x3<T> matrix_from_rows(Matrix1x3<T> const & row0,
+                                            Matrix1x3<T> const & row1,
+                                            Matrix1x3<T> const & row2,
+                                            Matrix1x3<T> const & row3) noexcept;
 
     /// create a matrix from the given row vectors
     /// @relates Matrix4x4
     template <typename T>
-    constexpr Matrix4x4<T> matrix_from_rows(Matrix4x1<T> const & row0,
-                                            Matrix4x1<T> const & row1,
-                                            Matrix4x1<T> const & row2,
-                                            Matrix4x1<T> const & row3) noexcept;
+    constexpr Matrix4x4<T> matrix_from_rows(Matrix1x4<T> const & row0,
+                                            Matrix1x4<T> const & row1,
+                                            Matrix1x4<T> const & row2,
+                                            Matrix1x4<T> const & row3) noexcept;
 
     // =============================================================================
 
@@ -8820,6 +8820,274 @@ constexpr ggm::Matrix4x4<T> ggm::matrix_from_cols(Matrix4x1<T> const & col0,
         /*.m31 = */ col1.m30,
         /*.m32 = */ col2.m30,
         /*.m33 = */ col3.m30,
+    };
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Matrix1x1<T> ggm::matrix_from_rows(Matrix1x1<T> const & row0) noexcept
+{
+    return Matrix1x1<T>{
+        /*.m00 = */ row0.m00,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x2<T> ggm::matrix_from_rows(Matrix1x2<T> const & row0) noexcept
+{
+    return Matrix1x2<T>{
+        /*.m00 = */ row0.m00,
+        /*.m01 = */ row0.m01,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x3<T> ggm::matrix_from_rows(Matrix1x3<T> const & row0) noexcept
+{
+    return Matrix1x3<T>{
+        /*.m00 = */ row0.m00,
+        /*.m01 = */ row0.m01,
+        /*.m02 = */ row0.m02,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x4<T> ggm::matrix_from_rows(Matrix1x4<T> const & row0) noexcept
+{
+    return Matrix1x4<T>{
+        /*.m00 = */ row0.m00,
+        /*.m01 = */ row0.m01,
+        /*.m02 = */ row0.m02,
+        /*.m03 = */ row0.m03,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x1<T> ggm::matrix_from_rows(Matrix1x1<T> const & row0,
+                                                  Matrix1x1<T> const & row1) noexcept
+{
+    return Matrix2x1<T>{
+        /*.m00 = */ row0.m00,
+        /*.m10 = */ row1.m00,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x2<T> ggm::matrix_from_rows(Matrix1x2<T> const & row0,
+                                                  Matrix1x2<T> const & row1) noexcept
+{
+    return Matrix2x2<T>{
+        /*.m00 = */ row0.m00,
+        /*.m01 = */ row0.m01,
+        /*.m10 = */ row1.m00,
+        /*.m11 = */ row1.m01,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x3<T> ggm::matrix_from_rows(Matrix1x3<T> const & row0,
+                                                  Matrix1x3<T> const & row1) noexcept
+{
+    return Matrix2x3<T>{
+        /*.m00 = */ row0.m00,
+        /*.m01 = */ row0.m01,
+        /*.m02 = */ row0.m02,
+        /*.m10 = */ row1.m00,
+        /*.m11 = */ row1.m01,
+        /*.m12 = */ row1.m02,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x4<T> ggm::matrix_from_rows(Matrix1x4<T> const & row0,
+                                                  Matrix1x4<T> const & row1) noexcept
+{
+    return Matrix2x4<T>{
+        /*.m00 = */ row0.m00,
+        /*.m01 = */ row0.m01,
+        /*.m02 = */ row0.m02,
+        /*.m03 = */ row0.m03,
+        /*.m10 = */ row1.m00,
+        /*.m11 = */ row1.m01,
+        /*.m12 = */ row1.m02,
+        /*.m13 = */ row1.m03,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x1<T> ggm::matrix_from_rows(Matrix1x1<T> const & row0,
+                                                  Matrix1x1<T> const & row1,
+                                                  Matrix1x1<T> const & row2) noexcept
+{
+    return Matrix3x1<T>{
+        /*.m00 = */ row0.m00,
+        /*.m10 = */ row1.m00,
+        /*.m20 = */ row2.m00,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x2<T> ggm::matrix_from_rows(Matrix1x2<T> const & row0,
+                                                  Matrix1x2<T> const & row1,
+                                                  Matrix1x2<T> const & row2) noexcept
+{
+    return Matrix3x2<T>{
+        /*.m00 = */ row0.m00,
+        /*.m01 = */ row0.m01,
+        /*.m10 = */ row1.m00,
+        /*.m11 = */ row1.m01,
+        /*.m20 = */ row2.m00,
+        /*.m21 = */ row2.m01,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x3<T> ggm::matrix_from_rows(Matrix1x3<T> const & row0,
+                                                  Matrix1x3<T> const & row1,
+                                                  Matrix1x3<T> const & row2) noexcept
+{
+    return Matrix3x3<T>{
+        /*.m00 = */ row0.m00,
+        /*.m01 = */ row0.m01,
+        /*.m02 = */ row0.m02,
+        /*.m10 = */ row1.m00,
+        /*.m11 = */ row1.m01,
+        /*.m12 = */ row1.m02,
+        /*.m20 = */ row2.m00,
+        /*.m21 = */ row2.m01,
+        /*.m22 = */ row2.m02,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x4<T> ggm::matrix_from_rows(Matrix1x4<T> const & row0,
+                                                  Matrix1x4<T> const & row1,
+                                                  Matrix1x4<T> const & row2) noexcept
+{
+    return Matrix3x4<T>{
+        /*.m00 = */ row0.m00,
+        /*.m01 = */ row0.m01,
+        /*.m02 = */ row0.m02,
+        /*.m03 = */ row0.m03,
+        /*.m10 = */ row1.m00,
+        /*.m11 = */ row1.m01,
+        /*.m12 = */ row1.m02,
+        /*.m13 = */ row1.m03,
+        /*.m20 = */ row2.m00,
+        /*.m21 = */ row2.m01,
+        /*.m22 = */ row2.m02,
+        /*.m23 = */ row2.m03,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x1<T> ggm::matrix_from_rows(Matrix1x1<T> const & row0,
+                                                  Matrix1x1<T> const & row1,
+                                                  Matrix1x1<T> const & row2,
+                                                  Matrix1x1<T> const & row3) noexcept
+{
+    return Matrix4x1<T>{
+        /*.m00 = */ row0.m00,
+        /*.m10 = */ row1.m00,
+        /*.m20 = */ row2.m00,
+        /*.m30 = */ row3.m00,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x2<T> ggm::matrix_from_rows(Matrix1x2<T> const & row0,
+                                                  Matrix1x2<T> const & row1,
+                                                  Matrix1x2<T> const & row2,
+                                                  Matrix1x2<T> const & row3) noexcept
+{
+    return Matrix4x2<T>{
+        /*.m00 = */ row0.m00,
+        /*.m01 = */ row0.m01,
+        /*.m10 = */ row1.m00,
+        /*.m11 = */ row1.m01,
+        /*.m20 = */ row2.m00,
+        /*.m21 = */ row2.m01,
+        /*.m30 = */ row3.m00,
+        /*.m31 = */ row3.m01,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x3<T> ggm::matrix_from_rows(Matrix1x3<T> const & row0,
+                                                  Matrix1x3<T> const & row1,
+                                                  Matrix1x3<T> const & row2,
+                                                  Matrix1x3<T> const & row3) noexcept
+{
+    return Matrix4x3<T>{
+        /*.m00 = */ row0.m00,
+        /*.m01 = */ row0.m01,
+        /*.m02 = */ row0.m02,
+        /*.m10 = */ row1.m00,
+        /*.m11 = */ row1.m01,
+        /*.m12 = */ row1.m02,
+        /*.m20 = */ row2.m00,
+        /*.m21 = */ row2.m01,
+        /*.m22 = */ row2.m02,
+        /*.m30 = */ row3.m00,
+        /*.m31 = */ row3.m01,
+        /*.m32 = */ row3.m02,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x4<T> ggm::matrix_from_rows(Matrix1x4<T> const & row0,
+                                                  Matrix1x4<T> const & row1,
+                                                  Matrix1x4<T> const & row2,
+                                                  Matrix1x4<T> const & row3) noexcept
+{
+    return Matrix4x4<T>{
+        /*.m00 = */ row0.m00,
+        /*.m01 = */ row0.m01,
+        /*.m02 = */ row0.m02,
+        /*.m03 = */ row0.m03,
+        /*.m10 = */ row1.m00,
+        /*.m11 = */ row1.m01,
+        /*.m12 = */ row1.m02,
+        /*.m13 = */ row1.m03,
+        /*.m20 = */ row2.m00,
+        /*.m21 = */ row2.m01,
+        /*.m22 = */ row2.m02,
+        /*.m23 = */ row2.m03,
+        /*.m30 = */ row3.m00,
+        /*.m31 = */ row3.m01,
+        /*.m32 = */ row3.m02,
+        /*.m33 = */ row3.m03,
     };
 }
 
