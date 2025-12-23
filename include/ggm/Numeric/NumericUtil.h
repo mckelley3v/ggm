@@ -353,11 +353,14 @@ namespace ggm
     constexpr double      reciprocal(unsigned long long const value,
                                      double const             defaultValue = 0.0) noexcept;
     constexpr float       reciprocal(float const value,
-                                     float const defaultValue = 0.0f) noexcept;
+                                     float const defaultValue = 0.0f,
+                                     float const epsilon      = DefaultTolerance<float>) noexcept;
     constexpr double      reciprocal(double const value,
-                                     double const defaultValue = 0.0) noexcept;
+                                     double const defaultValue = 0.0,
+                                     double const epsilon      = DefaultTolerance<double>) noexcept;
     constexpr long double reciprocal(long double const value,
-                                     long double const defaultValue = 0.0l) noexcept;
+                                     long double const defaultValue = 0.0l,
+                                     long double const epsilon      = DefaultTolerance<long double>) noexcept;
 
     // =============================================================================
     /// A safe reciprocal square-root function.
@@ -1242,7 +1245,7 @@ constexpr auto && ggm::min_of(T0 && value0,
 // =============================================================================
 
 constexpr float ggm::reciprocal(short const value,
-                                float const defaultValue /*= 0.0f*/) noexcept
+                                float const defaultValue) noexcept
 {
     return (value == 0) ? defaultValue : 1.0f / value;
 }
@@ -1250,7 +1253,7 @@ constexpr float ggm::reciprocal(short const value,
 // -----------------------------------------------------------------------------
 
 constexpr float ggm::reciprocal(unsigned short const value,
-                                float const          defaultValue /*= 0.0f*/) noexcept
+                                float const          defaultValue) noexcept
 {
     return (value == 0) ? defaultValue : 1.0f / value;
 }
@@ -1258,7 +1261,7 @@ constexpr float ggm::reciprocal(unsigned short const value,
 // -----------------------------------------------------------------------------
 
 constexpr float ggm::reciprocal(int const   value,
-                                float const defaultValue /*= 0.0f*/) noexcept
+                                float const defaultValue) noexcept
 {
     return (value == 0) ? defaultValue : 1.0f / value;
 }
@@ -1266,7 +1269,7 @@ constexpr float ggm::reciprocal(int const   value,
 // -----------------------------------------------------------------------------
 
 constexpr float ggm::reciprocal(unsigned int const value,
-                                float const        defaultValue /*= 0.0f*/) noexcept
+                                float const        defaultValue) noexcept
 {
     return (value == 0) ? defaultValue : 1.0f / value;
 }
@@ -1274,7 +1277,7 @@ constexpr float ggm::reciprocal(unsigned int const value,
 // -----------------------------------------------------------------------------
 
 constexpr float ggm::reciprocal(long const  value,
-                                float const defaultValue /*= 0.0f*/) noexcept
+                                float const defaultValue) noexcept
 {
     return (value == 0) ? defaultValue : 1.0f / value;
 }
@@ -1282,7 +1285,7 @@ constexpr float ggm::reciprocal(long const  value,
 // -----------------------------------------------------------------------------
 
 constexpr float ggm::reciprocal(unsigned long const value,
-                                float const         defaultValue /*= 0.0f*/) noexcept
+                                float const         defaultValue) noexcept
 {
     return (value == 0) ? defaultValue : 1.0f / value;
 }
@@ -1290,7 +1293,7 @@ constexpr float ggm::reciprocal(unsigned long const value,
 // -----------------------------------------------------------------------------
 
 constexpr double ggm::reciprocal(long long const value,
-                                 double const    defaultValue /*= 0.0*/) noexcept
+                                 double const    defaultValue) noexcept
 {
     return (value == 0) ? defaultValue : 1.0 / value;
 }
@@ -1298,7 +1301,7 @@ constexpr double ggm::reciprocal(long long const value,
 // -----------------------------------------------------------------------------
 
 constexpr double ggm::reciprocal(unsigned long long const value,
-                                 double const             defaultValue /*= 0.0*/) noexcept
+                                 double const             defaultValue) noexcept
 {
     return (value == 0) ? defaultValue : 1.0 / value;
 }
@@ -1306,25 +1309,28 @@ constexpr double ggm::reciprocal(unsigned long long const value,
 // -----------------------------------------------------------------------------
 
 constexpr float ggm::reciprocal(float const value,
-                                float const defaultValue /*= 0.0f*/) noexcept
+                                float const defaultValue,
+                                float const epsilon) noexcept
 {
-    return (value == 0.0f) ? defaultValue : 1.0f / value;
+    return is_close(value, 0.0f, epsilon) ? defaultValue : 1.0f / value;
 }
 
 // -----------------------------------------------------------------------------
 
 constexpr double ggm::reciprocal(double const value,
-                                 double const defaultValue /*= 0.0*/) noexcept
+                                 double const defaultValue,
+                                 double const epsilon) noexcept
 {
-    return (value == 0.0) ? defaultValue : 1.0 / value;
+    return is_close(value, 0.0, epsilon) ? defaultValue : 1.0 / value;
 }
 
 // -----------------------------------------------------------------------------
 
 constexpr long double ggm::reciprocal(long double const value,
-                                      long double const defaultValue /*= 0.0l*/) noexcept
+                                      long double const defaultValue,
+                                      long double const epsilon) noexcept
 {
-    return (value == 0.0l) ? defaultValue : 1.0l / value;
+    return is_close(value, 0.0l, epsilon) ? defaultValue : 1.0l / value;
 }
 
 // =============================================================================

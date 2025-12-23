@@ -1913,6 +1913,11 @@ namespace ggm
     // =============================================================================
 
     /// calculate the determinant of square matrix
+    /// @relates Matrix1x1
+    template <typename T>
+    constexpr T determinant(Matrix1x1<T> const & value) noexcept;
+
+    /// calculate the determinant of square matrix
     /// @relates Matrix2x2
     template <typename T>
     constexpr T determinant(Matrix2x2<T> const & value) noexcept;
@@ -1928,6 +1933,12 @@ namespace ggm
     constexpr T determinant(Matrix4x4<T> const & value) noexcept;
 
     // =============================================================================
+
+    /// true if square matrix can be inverted, i.e. determinant != 0
+    /// @relates Matrix1x1
+    template <typename T>
+    constexpr bool is_invertible(Matrix1x1<T> const & value,
+                                 T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     /// true if square matrix can be inverted, i.e. determinant != 0
     /// @relates Matrix2x2
@@ -1950,6 +1961,12 @@ namespace ggm
     // =============================================================================
 
     /// true if square matrix rows and cols are orthonormal vectors
+    /// @relates Matrix1x1
+    template <typename T>
+    constexpr bool is_orthogonal(Matrix1x1<T> const & value,
+                                 T const &            epsilon = DefaultTolerance<T>) noexcept;
+
+    /// true if square matrix rows and cols are orthonormal vectors
     /// @relates Matrix2x2
     template <typename T>
     constexpr bool is_orthogonal(Matrix2x2<T> const & value,
@@ -1968,6 +1985,12 @@ namespace ggm
                                  T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     // =============================================================================
+
+    /// calculate inverse of square matrix
+    /// @relates Matrix1x1
+    template <typename T>
+    constexpr Matrix1x1<T> inverse(Matrix1x1<T> const & value,
+                                   T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     /// calculate inverse of square matrix
     /// @relates Matrix2x2
@@ -7896,12 +7919,20 @@ constexpr bool ggm::operator!=(Matrix4x4<T> const & lhs,
 // =============================================================================
 
 template <typename T>
+constexpr T ggm::determinant(Matrix1x1<T> const & value) noexcept
+{
+    return value.m00;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
 constexpr T ggm::determinant(Matrix2x2<T> const & value) noexcept
 {
     // | m00  m01 |
     // | m10  m11 |
 
-    return (value.m00 * value.m11) - (value.m01 * value.m10);
+    return value.m00 * value.m11 - value.m01 * value.m10;
 }
 
 // -----------------------------------------------------------------------------
@@ -7964,6 +7995,15 @@ constexpr T ggm::determinant(Matrix4x4<T> const & value) noexcept
 // =============================================================================
 
 template <typename T>
+constexpr bool ggm::is_invertible(Matrix1x1<T> const & value,
+                                  T const &            epsilon) noexcept
+{
+    return !is_close(determinant(value), T{ 0 }, epsilon);
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
 constexpr bool ggm::is_invertible(Matrix2x2<T> const & value,
                                   T const &            epsilon) noexcept
 {
@@ -7989,6 +8029,21 @@ constexpr bool ggm::is_invertible(Matrix4x4<T> const & value,
 }
 
 // =============================================================================
+
+template <typename T>
+constexpr bool ggm::is_orthogonal(Matrix1x1<T> const & value,
+                                  T const &            epsilon) noexcept
+{
+    // check if value * transpose(value) == identity:
+    //
+    // { m00 } * { m00 } == { 1 }
+    //
+    // i00: dot(row0: {m00}, col0: {m00}) == 1
+
+    return is_close(value.m00 * value.m00, T{ 1 }, epsilon);
+}
+
+// -----------------------------------------------------------------------------
 
 template <typename T>
 constexpr bool ggm::is_orthogonal(Matrix2x2<T> const & value,
@@ -8088,6 +8143,413 @@ constexpr bool ggm::is_orthogonal(Matrix4x4<T> const & value,
            is_close(value.m30 * value.m10 + value.m31 * value.m11 + value.m32 * value.m12 + value.m33 * value.m13, T{ 0 }, epsilon) &&
            is_close(value.m30 * value.m20 + value.m31 * value.m21 + value.m32 * value.m22 + value.m33 * value.m23, T{ 0 }, epsilon) &&
            is_close(value.m30 * value.m30 + value.m31 * value.m31 + value.m32 * value.m32 + value.m33 * value.m33, T{ 1 }, epsilon);
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Matrix1x1<T> ggm::inverse(Matrix1x1<T> const & value,
+                                         T const &            epsilon) noexcept
+{
+    T const det = value.m00;
+
+    T const invDet = reciprocal(det, T{ 0 }, epsilon);
+
+    return Matrix1x1<T>{
+        /*.m00 = */ value.m00 * invDet,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x2<T> ggm::inverse(Matrix2x2<T> const & value,
+                                         T const &            epsilon) noexcept
+{
+    T const det = value.m00 * value.m11 - value.m01 * value.m10;
+
+    T const invDet = reciprocal(det, T{ 0 }, epsilon);
+
+    return Matrix2x2<T>{
+        /*.m00 = */ +value.m11 * invDet,
+        /*.m01 = */ -value.m10 * invDet,
+        /*.m10 = */ -value.m01 * invDet,
+        /*.m11 = */ +value.m00 * invDet,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x3<T> ggm::inverse(Matrix3x3<T> const & value,
+                                         T const &            epsilon) noexcept
+{
+    T const detMinor00 = value.m11 * value.m22 - value.m12 * value.m21;
+    T const detMinor01 = value.m10 * value.m22 - value.m12 * value.m20;
+    T const detMinor02 = value.m10 * value.m21 - value.m11 * value.m20;
+    T const detMinor10 = value.m01 * value.m22 - value.m02 * value.m21;
+    T const detMinor11 = value.m00 * value.m22 - value.m02 * value.m20;
+    T const detMinor12 = value.m00 * value.m21 - value.m01 * value.m20;
+    T const detMinor20 = value.m01 * value.m12 - value.m02 * value.m11;
+    T const detMinor21 = value.m00 * value.m12 - value.m02 * value.m10;
+    T const detMinor22 = value.m00 * value.m11 - value.m01 * value.m10;
+
+    T const det = value.m00 * detMinor00 -
+                  value.m01 * detMinor01 +
+                  value.m02 * detMinor02;
+
+    T const invDet = reciprocal(det, T{ 0 }, epsilon);
+
+    return Matrix3x3<T>{
+        /*.m00 = */ +detMinor00 * invDet,
+        /*.m01 = */ -detMinor10 * invDet,
+        /*.m02 = */ +detMinor20 * invDet,
+        /*.m10 = */ -detMinor01 * invDet,
+        /*.m11 = */ +detMinor11 * invDet,
+        /*.m12 = */ -detMinor21 * invDet,
+        /*.m20 = */ +detMinor02 * invDet,
+        /*.m21 = */ -detMinor12 * invDet,
+        /*.m22 = */ +detMinor22 * invDet,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x4<T> ggm::inverse(Matrix4x4<T> const & value,
+                                         T const &            epsilon) noexcept
+{
+    T const detSubMinor01 = value.m22 * value.m33 - value.m23 * value.m32;
+    T const detSubMinor02 = value.m21 * value.m33 - value.m23 * value.m31;
+    T const detSubMinor03 = value.m21 * value.m32 - value.m22 * value.m31;
+    T const detSubMinor04 = value.m20 * value.m33 - value.m23 * value.m30;
+    T const detSubMinor05 = value.m20 * value.m32 - value.m22 * value.m30;
+    T const detSubMinor06 = value.m20 * value.m31 - value.m21 * value.m30;
+    T const detSubMinor07 = value.m02 * value.m13 - value.m03 * value.m12;
+    T const detSubMinor08 = value.m01 * value.m13 - value.m03 * value.m11;
+    T const detSubMinor09 = value.m01 * value.m12 - value.m02 * value.m11;
+    T const detSubMinor10 = value.m00 * value.m13 - value.m03 * value.m10;
+    T const detSubMinor11 = value.m00 * value.m12 - value.m02 * value.m10;
+    T const detSubMinor12 = value.m00 * value.m11 - value.m01 * value.m10;
+
+    T const detMinor00 = value.m11 * detSubMinor01 - value.m12 * detSubMinor02 + value.m13 * detSubMinor03;
+    T const detMinor01 = value.m10 * detSubMinor01 - value.m12 * detSubMinor04 + value.m13 * detSubMinor05;
+    T const detMinor02 = value.m10 * detSubMinor02 - value.m11 * detSubMinor04 + value.m13 * detSubMinor06;
+    T const detMinor03 = value.m10 * detSubMinor03 - value.m11 * detSubMinor05 + value.m12 * detSubMinor06;
+    T const detMinor10 = value.m01 * detSubMinor01 - value.m02 * detSubMinor02 + value.m03 * detSubMinor03;
+    T const detMinor11 = value.m00 * detSubMinor01 - value.m02 * detSubMinor04 + value.m03 * detSubMinor05;
+    T const detMinor12 = value.m00 * detSubMinor02 - value.m01 * detSubMinor04 + value.m03 * detSubMinor06;
+    T const detMinor13 = value.m00 * detSubMinor03 - value.m01 * detSubMinor05 + value.m02 * detSubMinor06;
+    T const detMinor20 = value.m31 * detSubMinor07 - value.m32 * detSubMinor08 + value.m33 * detSubMinor09;
+    T const detMinor21 = value.m30 * detSubMinor07 - value.m32 * detSubMinor10 + value.m33 * detSubMinor11;
+    T const detMinor22 = value.m30 * detSubMinor08 - value.m31 * detSubMinor10 + value.m33 * detSubMinor12;
+    T const detMinor23 = value.m30 * detSubMinor09 - value.m31 * detSubMinor11 + value.m32 * detSubMinor12;
+    T const detMinor30 = value.m21 * detSubMinor07 - value.m22 * detSubMinor08 + value.m23 * detSubMinor09;
+    T const detMinor31 = value.m20 * detSubMinor07 - value.m22 * detSubMinor10 + value.m23 * detSubMinor11;
+    T const detMinor32 = value.m20 * detSubMinor08 - value.m21 * detSubMinor10 + value.m23 * detSubMinor12;
+    T const detMinor33 = value.m20 * detSubMinor09 - value.m21 * detSubMinor11 + value.m22 * detSubMinor12;
+
+    T const det = value.m00 * detMinor00 -
+                  value.m01 * detMinor01 +
+                  value.m02 * detMinor02 -
+                  value.m03 * detMinor03;
+
+    T const invDet = reciprocal(det, T{ 0 }, epsilon);
+
+    return Matrix4x4<T>{
+        /*.m00 = */ +detMinor00 * invDet,
+        /*.m01 = */ -detMinor10 * invDet,
+        /*.m02 = */ +detMinor20 * invDet,
+        /*.m03 = */ -detMinor30 * invDet,
+        /*.m10 = */ -detMinor01 * invDet,
+        /*.m11 = */ +detMinor11 * invDet,
+        /*.m12 = */ -detMinor21 * invDet,
+        /*.m13 = */ +detMinor31 * invDet,
+        /*.m20 = */ +detMinor02 * invDet,
+        /*.m21 = */ -detMinor12 * invDet,
+        /*.m22 = */ +detMinor22 * invDet,
+        /*.m23 = */ -detMinor32 * invDet,
+        /*.m30 = */ -detMinor03 * invDet,
+        /*.m31 = */ +detMinor13 * invDet,
+        /*.m32 = */ -detMinor23 * invDet,
+        /*.m33 = */ +detMinor33 * invDet,
+    };
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Matrix1x1<T> ggm::transpose(Matrix1x1<T> const & value) noexcept
+{
+    return Matrix1x1<T>{
+        /*.m00 = */ value.m00,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x2<T> ggm::transpose(Matrix2x1<T> const & value) noexcept
+{
+    return Matrix1x2<T>{
+        /*.m00 = */ value.m00,
+        /*.m01 = */ value.m10,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x3<T> ggm::transpose(Matrix3x1<T> const & value) noexcept
+{
+    return Matrix1x3<T>{
+        /*.m00 = */ value.m00,
+        /*.m01 = */ value.m10,
+        /*.m02 = */ value.m20,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x4<T> ggm::transpose(Matrix4x1<T> const & value) noexcept
+{
+    return Matrix1x4<T>{
+        /*.m00 = */ value.m00,
+        /*.m01 = */ value.m10,
+        /*.m02 = */ value.m20,
+        /*.m03 = */ value.m30,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x1<T> ggm::transpose(Matrix1x2<T> const & value) noexcept
+{
+    return Matrix2x1<T>{
+        /*.m00 = */ value.m00,
+        /*.m10 = */ value.m01,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x2<T> ggm::transpose(Matrix2x2<T> const & value) noexcept
+{
+    return Matrix2x2<T>{
+        /*.m00 = */ value.m00,
+        /*.m01 = */ value.m10,
+        /*.m10 = */ value.m01,
+        /*.m11 = */ value.m11,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x3<T> ggm::transpose(Matrix3x2<T> const & value) noexcept
+{
+    return Matrix2x3<T>{
+        /*.m00 = */ value.m00,
+        /*.m01 = */ value.m10,
+        /*.m02 = */ value.m20,
+        /*.m10 = */ value.m01,
+        /*.m11 = */ value.m11,
+        /*.m12 = */ value.m21,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x4<T> ggm::transpose(Matrix4x2<T> const & value) noexcept
+{
+    return Matrix2x4<T>{
+        /*.m00 = */ value.m00,
+        /*.m01 = */ value.m01,
+        /*.m02 = */ value.m02,
+        /*.m03 = */ value.m03,
+        /*.m10 = */ value.m10,
+        /*.m11 = */ value.m11,
+        /*.m12 = */ value.m12,
+        /*.m13 = */ value.m13,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x1<T> ggm::transpose(Matrix1x3<T> const & value) noexcept
+{
+    return Matrix3x1<T>{
+        /*.m00 = */ value.m00,
+        /*.m10 = */ value.m01,
+        /*.m20 = */ value.m02,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x2<T> ggm::transpose(Matrix2x3<T> const & value) noexcept
+{
+    return Matrix3x2<T>{
+        /*.m00 = */ value.m00,
+        /*.m01 = */ value.m10,
+        /*.m10 = */ value.m01,
+        /*.m11 = */ value.m11,
+        /*.m20 = */ value.m02,
+        /*.m21 = */ value.m12,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x3<T> ggm::transpose(Matrix3x3<T> const & value) noexcept
+{
+    return Matrix3x3<T>{
+        /*.m00 = */ value.m00,
+        /*.m01 = */ value.m10,
+        /*.m02 = */ value.m20,
+        /*.m10 = */ value.m01,
+        /*.m11 = */ value.m11,
+        /*.m12 = */ value.m21,
+        /*.m20 = */ value.m02,
+        /*.m21 = */ value.m12,
+        /*.m22 = */ value.m22,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x4<T> ggm::transpose(Matrix4x3<T> const & value) noexcept
+{
+    return Matrix3x4<T>{
+        /*.m00 = */ value.m00,
+        /*.m01 = */ value.m10,
+        /*.m02 = */ value.m20,
+        /*.m03 = */ value.m30,
+        /*.m10 = */ value.m01,
+        /*.m11 = */ value.m11,
+        /*.m12 = */ value.m21,
+        /*.m13 = */ value.m31,
+        /*.m20 = */ value.m02,
+        /*.m21 = */ value.m12,
+        /*.m22 = */ value.m22,
+        /*.m23 = */ value.m32,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x1<T> ggm::transpose(Matrix1x4<T> const & value) noexcept
+{
+    return Matrix4x1<T>{
+        /*.m00 = */ value.m00,
+        /*.m10 = */ value.m01,
+        /*.m20 = */ value.m02,
+        /*.m30 = */ value.m03,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x2<T> ggm::transpose(Matrix2x4<T> const & value) noexcept
+{
+    return Matrix4x2<T>{
+        /*.m00 = */ value.m00,
+        /*.m01 = */ value.m10,
+        /*.m10 = */ value.m01,
+        /*.m11 = */ value.m11,
+        /*.m20 = */ value.m02,
+        /*.m21 = */ value.m12,
+        /*.m30 = */ value.m03,
+        /*.m31 = */ value.m13,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x3<T> ggm::transpose(Matrix3x4<T> const & value) noexcept
+{
+    return Matrix4x3<T>{
+        /*.m00 = */ value.m00,
+        /*.m01 = */ value.m10,
+        /*.m02 = */ value.m20,
+        /*.m10 = */ value.m01,
+        /*.m11 = */ value.m11,
+        /*.m12 = */ value.m21,
+        /*.m20 = */ value.m02,
+        /*.m21 = */ value.m12,
+        /*.m22 = */ value.m22,
+        /*.m30 = */ value.m03,
+        /*.m31 = */ value.m13,
+        /*.m32 = */ value.m23,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x4<T> ggm::transpose(Matrix4x4<T> const & value) noexcept
+{
+    return Matrix4x4<T>{
+        /*.m00 = */ value.m00,
+        /*.m01 = */ value.m10,
+        /*.m02 = */ value.m20,
+        /*.m03 = */ value.m30,
+        /*.m10 = */ value.m01,
+        /*.m11 = */ value.m11,
+        /*.m12 = */ value.m21,
+        /*.m13 = */ value.m31,
+        /*.m20 = */ value.m02,
+        /*.m21 = */ value.m12,
+        /*.m22 = */ value.m22,
+        /*.m23 = */ value.m32,
+        /*.m30 = */ value.m03,
+        /*.m31 = */ value.m13,
+        /*.m32 = */ value.m23,
+        /*.m33 = */ value.m33,
+    };
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr T ggm::trace(Matrix1x1<T> const & value) noexcept
+{
+    return value.m00;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr T ggm::trace(Matrix2x2<T> const & value) noexcept
+{
+    return value.m00 + value.m11;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr T ggm::trace(Matrix3x3<T> const & value) noexcept
+{
+    return value.m00 + value.m11 + value.m22;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr T ggm::trace(Matrix4x4<T> const & value) noexcept
+{
+    return value.m00 + value.m11 + value.m22 + value.m33;
 }
 
 // =============================================================================
