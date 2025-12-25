@@ -58,8 +58,7 @@ namespace ggm
         explicit constexpr operator Matrix1x2<U>() const noexcept;
 
         // members:
-        T m00; // uninitialized
-        T m01; // uninitialized
+        T m00, m01; // uninitialized
     };
 
     // =============================================================================
@@ -83,9 +82,7 @@ namespace ggm
         explicit constexpr operator Matrix1x3<U>() const noexcept;
 
         // members:
-        T m00; // uninitialized
-        T m01; // uninitialized
-        T m02; // uninitialized
+        T m00, m01, m02; // uninitialized
     };
 
     // =============================================================================
@@ -109,10 +106,7 @@ namespace ggm
         explicit constexpr operator Matrix1x4<U>() const noexcept;
 
         // members:
-        T m00; // uninitialized
-        T m01; // uninitialized
-        T m02; // uninitialized
-        T m03; // uninitialized
+        T m00, m01, m02, m03; // uninitialized
     };
 
     // =============================================================================
@@ -161,10 +155,8 @@ namespace ggm
         explicit constexpr operator Matrix2x2<U>() const noexcept;
 
         // members:
-        T m00; // uninitialized
-        T m01; // uninitialized
-        T m10; // uninitialized
-        T m11; // uninitialized
+        T m00, m01; // uninitialized
+        T m10, m11; // uninitialized
     };
 
     // =============================================================================
@@ -188,12 +180,8 @@ namespace ggm
         explicit constexpr operator Matrix2x3<U>() const noexcept;
 
         // members:
-        T m00; // uninitialized
-        T m01; // uninitialized
-        T m02; // uninitialized
-        T m10; // uninitialized
-        T m11; // uninitialized
-        T m12; // uninitialized
+        T m00, m01, m02; // uninitialized
+        T m10, m11, m12; // uninitialized
     };
 
     // =============================================================================
@@ -217,14 +205,8 @@ namespace ggm
         explicit constexpr operator Matrix2x4<U>() const noexcept;
 
         // members:
-        T m00; // uninitialized
-        T m01; // uninitialized
-        T m02; // uninitialized
-        T m03; // uninitialized
-        T m10; // uninitialized
-        T m11; // uninitialized
-        T m12; // uninitialized
-        T m13; // uninitialized
+        T m00, m01, m02, m03; // uninitialized
+        T m10, m11, m12, m13; // uninitialized
     };
 
     // =============================================================================
@@ -274,12 +256,9 @@ namespace ggm
         explicit constexpr operator Matrix3x2<U>() const noexcept;
 
         // members:
-        T m00; // uninitialized
-        T m01; // uninitialized
-        T m10; // uninitialized
-        T m11; // uninitialized
-        T m20; // uninitialized
-        T m21; // uninitialized
+        T m00, m01; // uninitialized
+        T m10, m11; // uninitialized
+        T m20, m21; // uninitialized
     };
 
     // =============================================================================
@@ -303,15 +282,9 @@ namespace ggm
         explicit constexpr operator Matrix3x3<U>() const noexcept;
 
         // members:
-        T m00; // uninitialized
-        T m01; // uninitialized
-        T m02; // uninitialized
-        T m10; // uninitialized
-        T m11; // uninitialized
-        T m12; // uninitialized
-        T m20; // uninitialized
-        T m21; // uninitialized
-        T m22; // uninitialized
+        T m00, m01, m02; // uninitialized
+        T m10, m11, m12; // uninitialized
+        T m20, m21, m22; // uninitialized
     };
 
     // =============================================================================
@@ -335,18 +308,9 @@ namespace ggm
         explicit constexpr operator Matrix3x4<U>() const noexcept;
 
         // members:
-        T m00; // uninitialized
-        T m01; // uninitialized
-        T m02; // uninitialized
-        T m03; // uninitialized
-        T m10; // uninitialized
-        T m11; // uninitialized
-        T m12; // uninitialized
-        T m13; // uninitialized
-        T m20; // uninitialized
-        T m21; // uninitialized
-        T m22; // uninitialized
-        T m23; // uninitialized
+        T m00, m01, m02, m03; // uninitialized
+        T m10, m11, m12, m13; // uninitialized
+        T m20, m21, m22, m23; // uninitialized
     };
 
     // =============================================================================
@@ -397,14 +361,10 @@ namespace ggm
         explicit constexpr operator Matrix4x2<U>() const noexcept;
 
         // members:
-        T m00; // uninitialized
-        T m01; // uninitialized
-        T m10; // uninitialized
-        T m11; // uninitialized
-        T m20; // uninitialized
-        T m21; // uninitialized
-        T m30; // uninitialized
-        T m31; // uninitialized
+        T m00, m01; // uninitialized
+        T m10, m11; // uninitialized
+        T m20, m21; // uninitialized
+        T m30, m31; // uninitialized
     };
 
     // =============================================================================
@@ -428,18 +388,10 @@ namespace ggm
         explicit constexpr operator Matrix4x3<U>() const noexcept;
 
         // members:
-        T m00; // uninitialized
-        T m01; // uninitialized
-        T m02; // uninitialized
-        T m10; // uninitialized
-        T m11; // uninitialized
-        T m12; // uninitialized
-        T m20; // uninitialized
-        T m21; // uninitialized
-        T m22; // uninitialized
-        T m30; // uninitialized
-        T m31; // uninitialized
-        T m32; // uninitialized
+        T m00, m01, m02; // uninitialized
+        T m10, m11, m12; // uninitialized
+        T m20, m21, m22; // uninitialized
+        T m30, m31, m32; // uninitialized
     };
 
     // =============================================================================
@@ -463,22 +415,10 @@ namespace ggm
         explicit constexpr operator Matrix4x4<U>() const noexcept;
 
         // members:
-        T m00; // uninitialized
-        T m01; // uninitialized
-        T m02; // uninitialized
-        T m03; // uninitialized
-        T m10; // uninitialized
-        T m11; // uninitialized
-        T m12; // uninitialized
-        T m13; // uninitialized
-        T m20; // uninitialized
-        T m21; // uninitialized
-        T m22; // uninitialized
-        T m23; // uninitialized
-        T m30; // uninitialized
-        T m31; // uninitialized
-        T m32; // uninitialized
-        T m33; // uninitialized
+        T m00, m01, m02, m03; // uninitialized
+        T m10, m11, m12, m13; // uninitialized
+        T m20, m21, m22, m23; // uninitialized
+        T m30, m31, m32, m33; // uninitialized
     };
 
     // =============================================================================

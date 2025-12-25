@@ -57,19 +57,19 @@
 /// functions:
 /// ----------
 ///
-/// Syntax                        | Description
-/// ------                        | -----------
-/// determinant(m)                | calculate the determinant of square matrix
-/// is_invertible(m)              | true if square matrix can be inverted, i.e. determinant != 0
-/// is_orthogonal(m)              | true if square matrix rows and cols are orthonormal vectors
-/// inverse(m)                    | calculate inverse of square matrix
-/// transpose(m)                  | make matrix by turning rows into cols
-/// trace(m)                      | sum of square matrix diagonal elements
-/// matrix_from_cols(c0, ..., cN) | create a matrix from the given column vectors
-/// matrix_from_rows(r0, ..., rN) | create a matrix from the given row vectors
-/// matrix_drop_col(m, c)         | create a submatrix by removing the specified col
-/// matrix_drop_row(m, r)         | create a submatrix by removing the specified row
-/// matrix_drop_row_col(m, r, c)  | create a submatrix by removing the specified row and col
+/// Syntax                              | Description
+/// ------                              | -----------
+/// determinant(m)                      | calculate the determinant of square matrix
+/// is_invertible(m)                    | true if square matrix can be inverted, i.e. determinant != 0
+/// is_orthogonal(m)                    | true if square matrix rows and cols are orthonormal vectors
+/// inverse(m)                          | calculate inverse of square matrix
+/// transpose(m)                        | make matrix by turning rows into cols
+/// trace(m)                            | sum of square matrix diagonal elements
+/// matrix_from_cols(c0, ..., cN)       | create a matrix from the given column vectors
+/// matrix_from_rows(r0, ..., rN)       | create a matrix from the given row vectors
+/// matrix_drop_col<C>(m)               | create a submatrix by removing the specified col
+/// matrix_drop_row<R>(m)               | create a submatrix by removing the specified row
+/// matrix_drop_row_col<R, C>(m, r, c)  | create a submatrix by removing the specified row and col
 ///
 /// comparisons:
 /// ------------
@@ -2329,214 +2329,214 @@ namespace ggm
 
     /// create a submatrix by removing the specified col
     /// @relates Matrix1x1, Matrix1x2
-    template <typename T>
-    constexpr Matrix1x1<T> matrix_drop_col(Matrix1x2<T> const & value,
-                                           size_t const         colIndex) noexcept;
+    template <std::size_t ColIndex,
+              typename T>
+    constexpr Matrix1x1<T> matrix_drop_col(Matrix1x2<T> const & value) noexcept;
 
     /// create a submatrix by removing the specified col
     /// @relates Matrix1x2, Matrix1x3
-    template <typename T>
-    constexpr Matrix1x2<T> matrix_drop_col(Matrix1x3<T> const & value,
-                                           size_t const         colIndex) noexcept;
+    template <std::size_t ColIndex,
+              typename T>
+    constexpr Matrix1x2<T> matrix_drop_col(Matrix1x3<T> const & value) noexcept;
 
     /// create a submatrix by removing the specified col
     /// @relates Matrix1x3, Matrix1x4
-    template <typename T>
-    constexpr Matrix1x3<T> matrix_drop_col(Matrix1x4<T> const & value,
-                                           size_t const         colIndex) noexcept;
+    template <std::size_t ColIndex,
+              typename T>
+    constexpr Matrix1x3<T> matrix_drop_col(Matrix1x4<T> const & value) noexcept;
 
     /// create a submatrix by removing the specified col
     /// @relates Matrix2x1, Matrix2x2
-    template <typename T>
-    constexpr Matrix2x1<T> matrix_drop_col(Matrix2x2<T> const & value,
-                                           size_t const         colIndex) noexcept;
+    template <std::size_t ColIndex,
+              typename T>
+    constexpr Matrix2x1<T> matrix_drop_col(Matrix2x2<T> const & value) noexcept;
 
     /// create a submatrix by removing the specified col
     /// @relates Matrix2x2, Matrix2x3
-    template <typename T>
-    constexpr Matrix2x2<T> matrix_drop_col(Matrix2x3<T> const & value,
-                                           size_t const         colIndex) noexcept;
+    template <std::size_t ColIndex,
+              typename T>
+    constexpr Matrix2x2<T> matrix_drop_col(Matrix2x3<T> const & value) noexcept;
 
     /// create a submatrix by removing the specified col
     /// @relates Matrix2x3, Matrix2x4
-    template <typename T>
-    constexpr Matrix2x3<T> matrix_drop_col(Matrix2x4<T> const & value,
-                                           size_t const         colIndex) noexcept;
+    template <std::size_t ColIndex,
+              typename T>
+    constexpr Matrix2x3<T> matrix_drop_col(Matrix2x4<T> const & value) noexcept;
 
     /// create a submatrix by removing the specified col
     /// @relates Matrix3x1, Matrix3x2
-    template <typename T>
-    constexpr Matrix3x1<T> matrix_drop_col(Matrix3x2<T> const & value,
-                                           size_t const         colIndex) noexcept;
+    template <std::size_t ColIndex,
+              typename T>
+    constexpr Matrix3x1<T> matrix_drop_col(Matrix3x2<T> const & value) noexcept;
 
     /// create a submatrix by removing the specified col
     /// @relates Matrix3x2, Matrix3x3
-    template <typename T>
-    constexpr Matrix3x2<T> matrix_drop_col(Matrix3x3<T> const & value,
-                                           size_t const         colIndex) noexcept;
+    template <std::size_t ColIndex,
+              typename T>
+    constexpr Matrix3x2<T> matrix_drop_col(Matrix3x3<T> const & value) noexcept;
 
     /// create a submatrix by removing the specified col
     /// @relates Matrix3x3, Matrix3x4
-    template <typename T>
-    constexpr Matrix3x3<T> matrix_drop_col(Matrix3x4<T> const & value,
-                                           size_t const         colIndex) noexcept;
+    template <std::size_t ColIndex,
+              typename T>
+    constexpr Matrix3x3<T> matrix_drop_col(Matrix3x4<T> const & value) noexcept;
 
     /// create a submatrix by removing the specified col
     /// @relates Matrix4x1, Matrix4x2
-    template <typename T>
-    constexpr Matrix4x1<T> matrix_drop_col(Matrix4x2<T> const & value,
-                                           size_t const         colIndex) noexcept;
+    template <std::size_t ColIndex,
+              typename T>
+    constexpr Matrix4x1<T> matrix_drop_col(Matrix4x2<T> const & value) noexcept;
 
     /// create a submatrix by removing the specified col
     /// @relates Matrix4x2, Matrix4x3
-    template <typename T>
-    constexpr Matrix4x2<T> matrix_drop_col(Matrix4x3<T> const & value,
-                                           size_t const         colIndex) noexcept;
+    template <std::size_t ColIndex,
+              typename T>
+    constexpr Matrix4x2<T> matrix_drop_col(Matrix4x3<T> const & value) noexcept;
 
     /// create a submatrix by removing the specified col
     /// @relates Matrix4x3, Matrix4x4
-    template <typename T>
-    constexpr Matrix4x3<T> matrix_drop_col(Matrix4x4<T> const & value,
-                                           size_t const         colIndex) noexcept;
+    template <std::size_t ColIndex,
+              typename T>
+    constexpr Matrix4x3<T> matrix_drop_col(Matrix4x4<T> const & value) noexcept;
 
     // =============================================================================
 
     /// create a submatrix by removing the specified row
     /// @relates Matrix1x1, Matrix2x1
-    template <typename T>
-    constexpr Matrix1x1<T> matrix_drop_row(Matrix2x1<T> const & value,
-                                           size_t const         rowIndex) noexcept;
+    template <std::size_t RowIndex,
+              typename T>
+    constexpr Matrix1x1<T> matrix_drop_row(Matrix2x1<T> const & value) noexcept;
 
     /// create a submatrix by removing the specified row
     /// @relates Matrix2x1, Matrix3x1
-    template <typename T>
-    constexpr Matrix2x1<T> matrix_drop_row(Matrix3x1<T> const & value,
-                                           size_t const         rowIndex) noexcept;
+    template <std::size_t RowIndex,
+              typename T>
+    constexpr Matrix2x1<T> matrix_drop_row(Matrix3x1<T> const & value) noexcept;
 
     /// create a submatrix by removing the specified row
     /// @relates Matrix3x1, Matrix4x1
-    template <typename T>
-    constexpr Matrix3x1<T> matrix_drop_row(Matrix4x1<T> const & value,
-                                           size_t const         rowIndex) noexcept;
+    template <std::size_t RowIndex,
+              typename T>
+    constexpr Matrix3x1<T> matrix_drop_row(Matrix4x1<T> const & value) noexcept;
 
     /// create a submatrix by removing the specified row
     /// @relates Matrix1x2, Matrix2x2
-    template <typename T>
-    constexpr Matrix1x2<T> matrix_drop_row(Matrix2x2<T> const & value,
-                                           size_t const         rowIndex) noexcept;
+    template <std::size_t RowIndex,
+              typename T>
+    constexpr Matrix1x2<T> matrix_drop_row(Matrix2x2<T> const & value) noexcept;
 
     /// create a submatrix by removing the specified row
     /// @relates Matrix2x2, Matrix3x2
-    template <typename T>
-    constexpr Matrix2x2<T> matrix_drop_row(Matrix3x2<T> const & value,
-                                           size_t const         rowIndex) noexcept;
+    template <std::size_t RowIndex,
+              typename T>
+    constexpr Matrix2x2<T> matrix_drop_row(Matrix3x2<T> const & value) noexcept;
 
     /// create a submatrix by removing the specified row
     /// @relates Matrix3x2, Matrix4x2
-    template <typename T>
-    constexpr Matrix3x2<T> matrix_drop_row(Matrix4x2<T> const & value,
-                                           size_t const         rowIndex) noexcept;
+    template <std::size_t RowIndex,
+              typename T>
+    constexpr Matrix3x2<T> matrix_drop_row(Matrix4x2<T> const & value) noexcept;
 
     /// create a submatrix by removing the specified row
     /// @relates Matrix1x3, Matrix2x3
-    template <typename T>
-    constexpr Matrix1x3<T> matrix_drop_row(Matrix2x3<T> const & value,
-                                           size_t const         rowIndex) noexcept;
+    template <std::size_t RowIndex,
+              typename T>
+    constexpr Matrix1x3<T> matrix_drop_row(Matrix2x3<T> const & value) noexcept;
 
     /// create a submatrix by removing the specified row
     /// @relates Matrix2x3, Matrix3x3
-    template <typename T>
-    constexpr Matrix2x3<T> matrix_drop_row(Matrix3x3<T> const & value,
-                                           size_t const         rowIndex) noexcept;
+    template <std::size_t RowIndex,
+              typename T>
+    constexpr Matrix2x3<T> matrix_drop_row(Matrix3x3<T> const & value) noexcept;
 
     /// create a submatrix by removing the specified row
     /// @relates Matrix3x3, Matrix4x3
-    template <typename T>
-    constexpr Matrix3x3<T> matrix_drop_row(Matrix4x3<T> const & value,
-                                           size_t const         rowIndex) noexcept;
+    template <std::size_t RowIndex,
+              typename T>
+    constexpr Matrix3x3<T> matrix_drop_row(Matrix4x3<T> const & value) noexcept;
 
     /// create a submatrix by removing the specified row
     /// @relates Matrix1x4, Matrix2x4
-    template <typename T>
-    constexpr Matrix1x4<T> matrix_drop_row(Matrix2x4<T> const & value,
-                                           size_t const         rowIndex) noexcept;
+    template <std::size_t RowIndex,
+              typename T>
+    constexpr Matrix1x4<T> matrix_drop_row(Matrix2x4<T> const & value) noexcept;
 
     /// create a submatrix by removing the specified row
     /// @relates Matrix2x4, Matrix3x4
-    template <typename T>
-    constexpr Matrix2x4<T> matrix_drop_row(Matrix3x4<T> const & value,
-                                           size_t const         rowIndex) noexcept;
+    template <std::size_t RowIndex,
+              typename T>
+    constexpr Matrix2x4<T> matrix_drop_row(Matrix3x4<T> const & value) noexcept;
 
     /// create a submatrix by removing the specified row
     /// @relates Matrix3x4, Matrix4x4
-    template <typename T>
-    constexpr Matrix3x4<T> matrix_drop_row(Matrix4x4<T> const & value,
-                                           size_t const         rowIndex) noexcept;
+    template <std::size_t RowIndex,
+              typename T>
+    constexpr Matrix3x4<T> matrix_drop_row(Matrix4x4<T> const & value) noexcept;
 
     // =============================================================================
 
     /// create a submatrix by removing the specified row and col
     /// @relates Matrix1x1, Matrix2x2
-    template <typename T>
-    constexpr Matrix1x1<T> matrix_drop_row_col(Matrix2x2<T> const & value,
-                                               size_t const         rowIndex,
-                                               size_t const         colIndex) noexcept;
+    template <std::size_t RowIndex,
+              std::size_t ColIndex,
+              typename T>
+    constexpr Matrix1x1<T> matrix_drop_row_col(Matrix2x2<T> const & value) noexcept;
 
     /// create a submatrix by removing the specified row and col
     /// @relates Matrix1x2, Matrix2x3
-    template <typename T>
-    constexpr Matrix1x2<T> matrix_drop_row_col(Matrix2x3<T> const & value,
-                                               size_t const         rowIndex,
-                                               size_t const         colIndex) noexcept;
+    template <std::size_t RowIndex,
+              std::size_t ColIndex,
+              typename T>
+    constexpr Matrix1x2<T> matrix_drop_row_col(Matrix2x3<T> const & value) noexcept;
 
     /// create a submatrix by removing the specified row and col
     /// @relates Matrix1x3, Matrix2x4
-    template <typename T>
-    constexpr Matrix1x3<T> matrix_drop_row_col(Matrix2x4<T> const & value,
-                                               size_t const         rowIndex,
-                                               size_t const         colIndex) noexcept;
+    template <std::size_t RowIndex,
+              std::size_t ColIndex,
+              typename T>
+    constexpr Matrix1x3<T> matrix_drop_row_col(Matrix2x4<T> const & value) noexcept;
 
     /// create a submatrix by removing the specified row and col
     /// @relates Matrix2x1, Matrix3x2
-    template <typename T>
-    constexpr Matrix2x1<T> matrix_drop_row_col(Matrix3x2<T> const & value,
-                                               size_t const         rowIndex,
-                                               size_t const         colIndex) noexcept;
+    template <std::size_t RowIndex,
+              std::size_t ColIndex,
+              typename T>
+    constexpr Matrix2x1<T> matrix_drop_row_col(Matrix3x2<T> const & value) noexcept;
 
     /// create a submatrix by removing the specified row and col
     /// @relates Matrix2x2, Matrix3x3
-    template <typename T>
-    constexpr Matrix2x2<T> matrix_drop_row_col(Matrix3x3<T> const & value,
-                                               size_t const         rowIndex,
-                                               size_t const         colIndex) noexcept;
+    template <std::size_t RowIndex,
+              std::size_t ColIndex,
+              typename T>
+    constexpr Matrix2x2<T> matrix_drop_row_col(Matrix3x3<T> const & value) noexcept;
 
     /// create a submatrix by removing the specified row and col
     /// @relates Matrix2x3, Matrix3x4
-    template <typename T>
-    constexpr Matrix2x3<T> matrix_drop_row_col(Matrix3x4<T> const & value,
-                                               size_t const         rowIndex,
-                                               size_t const         colIndex) noexcept;
+    template <std::size_t RowIndex,
+              std::size_t ColIndex,
+              typename T>
+    constexpr Matrix2x3<T> matrix_drop_row_col(Matrix3x4<T> const & value) noexcept;
 
     /// create a submatrix by removing the specified row and col
     /// @relates Matrix3x1, Matrix4x2
-    template <typename T>
-    constexpr Matrix3x1<T> matrix_drop_row_col(Matrix4x2<T> const & value,
-                                               size_t const         rowIndex,
-                                               size_t const         colIndex) noexcept;
+    template <std::size_t RowIndex,
+              std::size_t ColIndex,
+              typename T>
+    constexpr Matrix3x1<T> matrix_drop_row_col(Matrix4x2<T> const & value) noexcept;
 
     /// create a submatrix by removing the specified row and col
     /// @relates Matrix3x2, Matrix4x3
-    template <typename T>
-    constexpr Matrix3x2<T> matrix_drop_row_col(Matrix4x3<T> const & value,
-                                               size_t const         rowIndex,
-                                               size_t const         colIndex) noexcept;
+    template <std::size_t RowIndex,
+              std::size_t ColIndex,
+              typename T>
+    constexpr Matrix3x2<T> matrix_drop_row_col(Matrix4x3<T> const & value) noexcept;
 
     /// create a submatrix by removing the specified row and col
     /// @relates Matrix3x3, Matrix4x4
-    template <typename T>
-    constexpr Matrix3x3<T> matrix_drop_row_col(Matrix4x4<T> const & value,
-                                               size_t const         rowIndex,
-                                               size_t const         colIndex) noexcept;
+    template <std::size_t RowIndex,
+              std::size_t ColIndex,
+              typename T>
+    constexpr Matrix3x3<T> matrix_drop_row_col(Matrix4x4<T> const & value) noexcept;
 
     // =============================================================================
     // comparisons:
@@ -2791,588 +2791,588 @@ namespace ggm
     /// element-wise ==
     /// @relates Matrix1x1
     template <typename T>
-    Matrix1x1<bool> is_equal(Matrix1x1<T> const & lhs,
-                             Matrix1x1<T> const & rhs) noexcept;
+    constexpr Matrix1x1<bool> is_equal(Matrix1x1<T> const & lhs,
+                                       Matrix1x1<T> const & rhs) noexcept;
 
     /// element-wise ==
     /// @relates Matrix1x2
     template <typename T>
-    Matrix1x2<bool> is_equal(Matrix1x2<T> const & lhs,
-                             Matrix1x2<T> const & rhs) noexcept;
+    constexpr Matrix1x2<bool> is_equal(Matrix1x2<T> const & lhs,
+                                       Matrix1x2<T> const & rhs) noexcept;
 
     /// element-wise ==
     /// @relates Matrix1x3
     template <typename T>
-    Matrix1x3<bool> is_equal(Matrix1x3<T> const & lhs,
-                             Matrix1x3<T> const & rhs) noexcept;
+    constexpr Matrix1x3<bool> is_equal(Matrix1x3<T> const & lhs,
+                                       Matrix1x3<T> const & rhs) noexcept;
 
     /// element-wise ==
     /// @relates Matrix1x4
     template <typename T>
-    Matrix1x4<bool> is_equal(Matrix1x4<T> const & lhs,
-                             Matrix1x4<T> const & rhs) noexcept;
+    constexpr Matrix1x4<bool> is_equal(Matrix1x4<T> const & lhs,
+                                       Matrix1x4<T> const & rhs) noexcept;
 
     /// element-wise ==
     /// @relates Matrix2x1
     template <typename T>
-    Matrix2x1<bool> is_equal(Matrix2x1<T> const & lhs,
-                             Matrix2x1<T> const & rhs) noexcept;
+    constexpr Matrix2x1<bool> is_equal(Matrix2x1<T> const & lhs,
+                                       Matrix2x1<T> const & rhs) noexcept;
 
     /// element-wise ==
     /// @relates Matrix2x2
     template <typename T>
-    Matrix2x2<bool> is_equal(Matrix2x2<T> const & lhs,
-                             Matrix2x2<T> const & rhs) noexcept;
+    constexpr Matrix2x2<bool> is_equal(Matrix2x2<T> const & lhs,
+                                       Matrix2x2<T> const & rhs) noexcept;
 
     /// element-wise ==
     /// @relates Matrix2x3
     template <typename T>
-    Matrix2x3<bool> is_equal(Matrix2x3<T> const & lhs,
-                             Matrix2x3<T> const & rhs) noexcept;
+    constexpr Matrix2x3<bool> is_equal(Matrix2x3<T> const & lhs,
+                                       Matrix2x3<T> const & rhs) noexcept;
 
     /// element-wise ==
     /// @relates Matrix2x4
     template <typename T>
-    Matrix2x4<bool> is_equal(Matrix2x4<T> const & lhs,
-                             Matrix2x4<T> const & rhs) noexcept;
+    constexpr Matrix2x4<bool> is_equal(Matrix2x4<T> const & lhs,
+                                       Matrix2x4<T> const & rhs) noexcept;
 
     /// element-wise ==
     /// @relates Matrix3x1
     template <typename T>
-    Matrix3x1<bool> is_equal(Matrix3x1<T> const & lhs,
-                             Matrix3x1<T> const & rhs) noexcept;
+    constexpr Matrix3x1<bool> is_equal(Matrix3x1<T> const & lhs,
+                                       Matrix3x1<T> const & rhs) noexcept;
 
     /// element-wise ==
     /// @relates Matrix3x2
     template <typename T>
-    Matrix3x2<bool> is_equal(Matrix3x2<T> const & lhs,
-                             Matrix3x2<T> const & rhs) noexcept;
+    constexpr Matrix3x2<bool> is_equal(Matrix3x2<T> const & lhs,
+                                       Matrix3x2<T> const & rhs) noexcept;
 
     /// element-wise ==
     /// @relates Matrix3x3
     template <typename T>
-    Matrix3x3<bool> is_equal(Matrix3x3<T> const & lhs,
-                             Matrix3x3<T> const & rhs) noexcept;
+    constexpr Matrix3x3<bool> is_equal(Matrix3x3<T> const & lhs,
+                                       Matrix3x3<T> const & rhs) noexcept;
 
     /// element-wise ==
     /// @relates Matrix3x4
     template <typename T>
-    Matrix3x4<bool> is_equal(Matrix3x4<T> const & lhs,
-                             Matrix3x4<T> const & rhs) noexcept;
+    constexpr Matrix3x4<bool> is_equal(Matrix3x4<T> const & lhs,
+                                       Matrix3x4<T> const & rhs) noexcept;
 
     /// element-wise ==
     /// @relates Matrix4x1
     template <typename T>
-    Matrix4x1<bool> is_equal(Matrix4x1<T> const & lhs,
-                             Matrix4x1<T> const & rhs) noexcept;
+    constexpr Matrix4x1<bool> is_equal(Matrix4x1<T> const & lhs,
+                                       Matrix4x1<T> const & rhs) noexcept;
 
     /// element-wise ==
     /// @relates Matrix4x2
     template <typename T>
-    Matrix4x2<bool> is_equal(Matrix4x2<T> const & lhs,
-                             Matrix4x2<T> const & rhs) noexcept;
+    constexpr Matrix4x2<bool> is_equal(Matrix4x2<T> const & lhs,
+                                       Matrix4x2<T> const & rhs) noexcept;
 
     /// element-wise ==
     /// @relates Matrix4x3
     template <typename T>
-    Matrix4x3<bool> is_equal(Matrix4x3<T> const & lhs,
-                             Matrix4x3<T> const & rhs) noexcept;
+    constexpr Matrix4x3<bool> is_equal(Matrix4x3<T> const & lhs,
+                                       Matrix4x3<T> const & rhs) noexcept;
 
     /// element-wise ==
     /// @relates Matrix4x4
     template <typename T>
-    Matrix4x4<bool> is_equal(Matrix4x4<T> const & lhs,
-                             Matrix4x4<T> const & rhs) noexcept;
+    constexpr Matrix4x4<bool> is_equal(Matrix4x4<T> const & lhs,
+                                       Matrix4x4<T> const & rhs) noexcept;
 
     // =============================================================================
 
     /// element-wise >
     /// @relates Matrix1x1
     template <typename T>
-    Matrix1x1<bool> is_greater(Matrix1x1<T> const & lhs,
-                               Matrix1x1<T> const & rhs) noexcept;
+    constexpr Matrix1x1<bool> is_greater(Matrix1x1<T> const & lhs,
+                                         Matrix1x1<T> const & rhs) noexcept;
 
     /// element-wise >
     /// @relates Matrix1x2
     template <typename T>
-    Matrix1x2<bool> is_greater(Matrix1x2<T> const & lhs,
-                               Matrix1x2<T> const & rhs) noexcept;
+    constexpr Matrix1x2<bool> is_greater(Matrix1x2<T> const & lhs,
+                                         Matrix1x2<T> const & rhs) noexcept;
 
     /// element-wise >
     /// @relates Matrix1x3
     template <typename T>
-    Matrix1x3<bool> is_greater(Matrix1x3<T> const & lhs,
-                               Matrix1x3<T> const & rhs) noexcept;
+    constexpr Matrix1x3<bool> is_greater(Matrix1x3<T> const & lhs,
+                                         Matrix1x3<T> const & rhs) noexcept;
 
     /// element-wise >
     /// @relates Matrix1x4
     template <typename T>
-    Matrix1x4<bool> is_greater(Matrix1x4<T> const & lhs,
-                               Matrix1x4<T> const & rhs) noexcept;
+    constexpr Matrix1x4<bool> is_greater(Matrix1x4<T> const & lhs,
+                                         Matrix1x4<T> const & rhs) noexcept;
 
     /// element-wise >
     /// @relates Matrix2x1
     template <typename T>
-    Matrix2x1<bool> is_greater(Matrix2x1<T> const & lhs,
-                               Matrix2x1<T> const & rhs) noexcept;
+    constexpr Matrix2x1<bool> is_greater(Matrix2x1<T> const & lhs,
+                                         Matrix2x1<T> const & rhs) noexcept;
 
     /// element-wise >
     /// @relates Matrix2x2
     template <typename T>
-    Matrix2x2<bool> is_greater(Matrix2x2<T> const & lhs,
-                               Matrix2x2<T> const & rhs) noexcept;
+    constexpr Matrix2x2<bool> is_greater(Matrix2x2<T> const & lhs,
+                                         Matrix2x2<T> const & rhs) noexcept;
 
     /// element-wise >
     /// @relates Matrix2x3
     template <typename T>
-    Matrix2x3<bool> is_greater(Matrix2x3<T> const & lhs,
-                               Matrix2x3<T> const & rhs) noexcept;
+    constexpr Matrix2x3<bool> is_greater(Matrix2x3<T> const & lhs,
+                                         Matrix2x3<T> const & rhs) noexcept;
 
     /// element-wise >
     /// @relates Matrix2x4
     template <typename T>
-    Matrix2x4<bool> is_greater(Matrix2x4<T> const & lhs,
-                               Matrix2x4<T> const & rhs) noexcept;
+    constexpr Matrix2x4<bool> is_greater(Matrix2x4<T> const & lhs,
+                                         Matrix2x4<T> const & rhs) noexcept;
 
     /// element-wise >
     /// @relates Matrix3x1
     template <typename T>
-    Matrix3x1<bool> is_greater(Matrix3x1<T> const & lhs,
-                               Matrix3x1<T> const & rhs) noexcept;
+    constexpr Matrix3x1<bool> is_greater(Matrix3x1<T> const & lhs,
+                                         Matrix3x1<T> const & rhs) noexcept;
 
     /// element-wise >
     /// @relates Matrix3x2
     template <typename T>
-    Matrix3x2<bool> is_greater(Matrix3x2<T> const & lhs,
-                               Matrix3x2<T> const & rhs) noexcept;
+    constexpr Matrix3x2<bool> is_greater(Matrix3x2<T> const & lhs,
+                                         Matrix3x2<T> const & rhs) noexcept;
 
     /// element-wise >
     /// @relates Matrix3x3
     template <typename T>
-    Matrix3x3<bool> is_greater(Matrix3x3<T> const & lhs,
-                               Matrix3x3<T> const & rhs) noexcept;
+    constexpr Matrix3x3<bool> is_greater(Matrix3x3<T> const & lhs,
+                                         Matrix3x3<T> const & rhs) noexcept;
 
     /// element-wise >
     /// @relates Matrix3x4
     template <typename T>
-    Matrix3x4<bool> is_greater(Matrix3x4<T> const & lhs,
-                               Matrix3x4<T> const & rhs) noexcept;
+    constexpr Matrix3x4<bool> is_greater(Matrix3x4<T> const & lhs,
+                                         Matrix3x4<T> const & rhs) noexcept;
 
     /// element-wise >
     /// @relates Matrix4x1
     template <typename T>
-    Matrix4x1<bool> is_greater(Matrix4x1<T> const & lhs,
-                               Matrix4x1<T> const & rhs) noexcept;
+    constexpr Matrix4x1<bool> is_greater(Matrix4x1<T> const & lhs,
+                                         Matrix4x1<T> const & rhs) noexcept;
 
     /// element-wise >
     /// @relates Matrix4x2
     template <typename T>
-    Matrix4x2<bool> is_greater(Matrix4x2<T> const & lhs,
-                               Matrix4x2<T> const & rhs) noexcept;
+    constexpr Matrix4x2<bool> is_greater(Matrix4x2<T> const & lhs,
+                                         Matrix4x2<T> const & rhs) noexcept;
 
     /// element-wise >
     /// @relates Matrix4x3
     template <typename T>
-    Matrix4x3<bool> is_greater(Matrix4x3<T> const & lhs,
-                               Matrix4x3<T> const & rhs) noexcept;
+    constexpr Matrix4x3<bool> is_greater(Matrix4x3<T> const & lhs,
+                                         Matrix4x3<T> const & rhs) noexcept;
 
     /// element-wise >
     /// @relates Matrix4x4
     template <typename T>
-    Matrix4x4<bool> is_greater(Matrix4x4<T> const & lhs,
-                               Matrix4x4<T> const & rhs) noexcept;
+    constexpr Matrix4x4<bool> is_greater(Matrix4x4<T> const & lhs,
+                                         Matrix4x4<T> const & rhs) noexcept;
 
     // =============================================================================
 
     /// element-wise >=
     /// @relates Matrix1x1
     template <typename T>
-    Matrix1x1<bool> is_greater_equal(Matrix1x1<T> const & lhs,
-                                     Matrix1x1<T> const & rhs) noexcept;
+    constexpr Matrix1x1<bool> is_greater_equal(Matrix1x1<T> const & lhs,
+                                               Matrix1x1<T> const & rhs) noexcept;
 
     /// element-wise >=
     /// @relates Matrix1x2
     template <typename T>
-    Matrix1x2<bool> is_greater_equal(Matrix1x2<T> const & lhs,
-                                     Matrix1x2<T> const & rhs) noexcept;
+    constexpr Matrix1x2<bool> is_greater_equal(Matrix1x2<T> const & lhs,
+                                               Matrix1x2<T> const & rhs) noexcept;
 
     /// element-wise >=
     /// @relates Matrix1x3
     template <typename T>
-    Matrix1x3<bool> is_greater_equal(Matrix1x3<T> const & lhs,
-                                     Matrix1x3<T> const & rhs) noexcept;
+    constexpr Matrix1x3<bool> is_greater_equal(Matrix1x3<T> const & lhs,
+                                               Matrix1x3<T> const & rhs) noexcept;
 
     /// element-wise >=
     /// @relates Matrix1x4
     template <typename T>
-    Matrix1x4<bool> is_greater_equal(Matrix1x4<T> const & lhs,
-                                     Matrix1x4<T> const & rhs) noexcept;
+    constexpr Matrix1x4<bool> is_greater_equal(Matrix1x4<T> const & lhs,
+                                               Matrix1x4<T> const & rhs) noexcept;
 
     /// element-wise >=
     /// @relates Matrix2x1
     template <typename T>
-    Matrix2x1<bool> is_greater_equal(Matrix2x1<T> const & lhs,
-                                     Matrix2x1<T> const & rhs) noexcept;
+    constexpr Matrix2x1<bool> is_greater_equal(Matrix2x1<T> const & lhs,
+                                               Matrix2x1<T> const & rhs) noexcept;
 
     /// element-wise >=
     /// @relates Matrix2x2
     template <typename T>
-    Matrix2x2<bool> is_greater_equal(Matrix2x2<T> const & lhs,
-                                     Matrix2x2<T> const & rhs) noexcept;
+    constexpr Matrix2x2<bool> is_greater_equal(Matrix2x2<T> const & lhs,
+                                               Matrix2x2<T> const & rhs) noexcept;
 
     /// element-wise >=
     /// @relates Matrix2x3
     template <typename T>
-    Matrix2x3<bool> is_greater_equal(Matrix2x3<T> const & lhs,
-                                     Matrix2x3<T> const & rhs) noexcept;
+    constexpr Matrix2x3<bool> is_greater_equal(Matrix2x3<T> const & lhs,
+                                               Matrix2x3<T> const & rhs) noexcept;
 
     /// element-wise >=
     /// @relates Matrix2x4
     template <typename T>
-    Matrix2x4<bool> is_greater_equal(Matrix2x4<T> const & lhs,
-                                     Matrix2x4<T> const & rhs) noexcept;
+    constexpr Matrix2x4<bool> is_greater_equal(Matrix2x4<T> const & lhs,
+                                               Matrix2x4<T> const & rhs) noexcept;
 
     /// element-wise >=
     /// @relates Matrix3x1
     template <typename T>
-    Matrix3x1<bool> is_greater_equal(Matrix3x1<T> const & lhs,
-                                     Matrix3x1<T> const & rhs) noexcept;
+    constexpr Matrix3x1<bool> is_greater_equal(Matrix3x1<T> const & lhs,
+                                               Matrix3x1<T> const & rhs) noexcept;
 
     /// element-wise >=
     /// @relates Matrix3x2
     template <typename T>
-    Matrix3x2<bool> is_greater_equal(Matrix3x2<T> const & lhs,
-                                     Matrix3x2<T> const & rhs) noexcept;
+    constexpr Matrix3x2<bool> is_greater_equal(Matrix3x2<T> const & lhs,
+                                               Matrix3x2<T> const & rhs) noexcept;
 
     /// element-wise >=
     /// @relates Matrix3x3
     template <typename T>
-    Matrix3x3<bool> is_greater_equal(Matrix3x3<T> const & lhs,
-                                     Matrix3x3<T> const & rhs) noexcept;
+    constexpr Matrix3x3<bool> is_greater_equal(Matrix3x3<T> const & lhs,
+                                               Matrix3x3<T> const & rhs) noexcept;
 
     /// element-wise >=
     /// @relates Matrix3x4
     template <typename T>
-    Matrix3x4<bool> is_greater_equal(Matrix3x4<T> const & lhs,
-                                     Matrix3x4<T> const & rhs) noexcept;
+    constexpr Matrix3x4<bool> is_greater_equal(Matrix3x4<T> const & lhs,
+                                               Matrix3x4<T> const & rhs) noexcept;
 
     /// element-wise >=
     /// @relates Matrix4x1
     template <typename T>
-    Matrix4x1<bool> is_greater_equal(Matrix4x1<T> const & lhs,
-                                     Matrix4x1<T> const & rhs) noexcept;
+    constexpr Matrix4x1<bool> is_greater_equal(Matrix4x1<T> const & lhs,
+                                               Matrix4x1<T> const & rhs) noexcept;
 
     /// element-wise >=
     /// @relates Matrix4x2
     template <typename T>
-    Matrix4x2<bool> is_greater_equal(Matrix4x2<T> const & lhs,
-                                     Matrix4x2<T> const & rhs) noexcept;
+    constexpr Matrix4x2<bool> is_greater_equal(Matrix4x2<T> const & lhs,
+                                               Matrix4x2<T> const & rhs) noexcept;
 
     /// element-wise >=
     /// @relates Matrix4x3
     template <typename T>
-    Matrix4x3<bool> is_greater_equal(Matrix4x3<T> const & lhs,
-                                     Matrix4x3<T> const & rhs) noexcept;
+    constexpr Matrix4x3<bool> is_greater_equal(Matrix4x3<T> const & lhs,
+                                               Matrix4x3<T> const & rhs) noexcept;
 
     /// element-wise >=
     /// @relates Matrix4x4
     template <typename T>
-    Matrix4x4<bool> is_greater_equal(Matrix4x4<T> const & lhs,
-                                     Matrix4x4<T> const & rhs) noexcept;
+    constexpr Matrix4x4<bool> is_greater_equal(Matrix4x4<T> const & lhs,
+                                               Matrix4x4<T> const & rhs) noexcept;
 
     // =============================================================================
 
     /// element-wise <
     /// @relates Matrix1x1
     template <typename T>
-    Matrix1x1<bool> is_less(Matrix1x1<T> const & lhs,
-                            Matrix1x1<T> const & rhs) noexcept;
+    constexpr Matrix1x1<bool> is_less(Matrix1x1<T> const & lhs,
+                                      Matrix1x1<T> const & rhs) noexcept;
 
     /// element-wise <
     /// @relates Matrix1x2
     template <typename T>
-    Matrix1x2<bool> is_less(Matrix1x2<T> const & lhs,
-                            Matrix1x2<T> const & rhs) noexcept;
+    constexpr Matrix1x2<bool> is_less(Matrix1x2<T> const & lhs,
+                                      Matrix1x2<T> const & rhs) noexcept;
 
     /// element-wise <
     /// @relates Matrix1x3
     template <typename T>
-    Matrix1x3<bool> is_less(Matrix1x3<T> const & lhs,
-                            Matrix1x3<T> const & rhs) noexcept;
+    constexpr Matrix1x3<bool> is_less(Matrix1x3<T> const & lhs,
+                                      Matrix1x3<T> const & rhs) noexcept;
 
     /// element-wise <
     /// @relates Matrix1x4
     template <typename T>
-    Matrix1x4<bool> is_less(Matrix1x4<T> const & lhs,
-                            Matrix1x4<T> const & rhs) noexcept;
+    constexpr Matrix1x4<bool> is_less(Matrix1x4<T> const & lhs,
+                                      Matrix1x4<T> const & rhs) noexcept;
 
     /// element-wise <
     /// @relates Matrix2x1
     template <typename T>
-    Matrix2x1<bool> is_less(Matrix2x1<T> const & lhs,
-                            Matrix2x1<T> const & rhs) noexcept;
+    constexpr Matrix2x1<bool> is_less(Matrix2x1<T> const & lhs,
+                                      Matrix2x1<T> const & rhs) noexcept;
 
     /// element-wise <
     /// @relates Matrix2x2
     template <typename T>
-    Matrix2x2<bool> is_less(Matrix2x2<T> const & lhs,
-                            Matrix2x2<T> const & rhs) noexcept;
+    constexpr Matrix2x2<bool> is_less(Matrix2x2<T> const & lhs,
+                                      Matrix2x2<T> const & rhs) noexcept;
 
     /// element-wise <
     /// @relates Matrix2x3
     template <typename T>
-    Matrix2x3<bool> is_less(Matrix2x3<T> const & lhs,
-                            Matrix2x3<T> const & rhs) noexcept;
+    constexpr Matrix2x3<bool> is_less(Matrix2x3<T> const & lhs,
+                                      Matrix2x3<T> const & rhs) noexcept;
 
     /// element-wise <
     /// @relates Matrix2x4
     template <typename T>
-    Matrix2x4<bool> is_less(Matrix2x4<T> const & lhs,
-                            Matrix2x4<T> const & rhs) noexcept;
+    constexpr Matrix2x4<bool> is_less(Matrix2x4<T> const & lhs,
+                                      Matrix2x4<T> const & rhs) noexcept;
 
     /// element-wise <
     /// @relates Matrix3x1
     template <typename T>
-    Matrix3x1<bool> is_less(Matrix3x1<T> const & lhs,
-                            Matrix3x1<T> const & rhs) noexcept;
+    constexpr Matrix3x1<bool> is_less(Matrix3x1<T> const & lhs,
+                                      Matrix3x1<T> const & rhs) noexcept;
 
     /// element-wise <
     /// @relates Matrix3x2
     template <typename T>
-    Matrix3x2<bool> is_less(Matrix3x2<T> const & lhs,
-                            Matrix3x2<T> const & rhs) noexcept;
+    constexpr Matrix3x2<bool> is_less(Matrix3x2<T> const & lhs,
+                                      Matrix3x2<T> const & rhs) noexcept;
 
     /// element-wise <
     /// @relates Matrix3x3
     template <typename T>
-    Matrix3x3<bool> is_less(Matrix3x3<T> const & lhs,
-                            Matrix3x3<T> const & rhs) noexcept;
+    constexpr Matrix3x3<bool> is_less(Matrix3x3<T> const & lhs,
+                                      Matrix3x3<T> const & rhs) noexcept;
 
     /// element-wise <
     /// @relates Matrix3x4
     template <typename T>
-    Matrix3x4<bool> is_less(Matrix3x4<T> const & lhs,
-                            Matrix3x4<T> const & rhs) noexcept;
+    constexpr Matrix3x4<bool> is_less(Matrix3x4<T> const & lhs,
+                                      Matrix3x4<T> const & rhs) noexcept;
 
     /// element-wise <
     /// @relates Matrix4x1
     template <typename T>
-    Matrix4x1<bool> is_less(Matrix4x1<T> const & lhs,
-                            Matrix4x1<T> const & rhs) noexcept;
+    constexpr Matrix4x1<bool> is_less(Matrix4x1<T> const & lhs,
+                                      Matrix4x1<T> const & rhs) noexcept;
 
     /// element-wise <
     /// @relates Matrix4x2
     template <typename T>
-    Matrix4x2<bool> is_less(Matrix4x2<T> const & lhs,
-                            Matrix4x2<T> const & rhs) noexcept;
+    constexpr Matrix4x2<bool> is_less(Matrix4x2<T> const & lhs,
+                                      Matrix4x2<T> const & rhs) noexcept;
 
     /// element-wise <
     /// @relates Matrix4x3
     template <typename T>
-    Matrix4x3<bool> is_less(Matrix4x3<T> const & lhs,
-                            Matrix4x3<T> const & rhs) noexcept;
+    constexpr Matrix4x3<bool> is_less(Matrix4x3<T> const & lhs,
+                                      Matrix4x3<T> const & rhs) noexcept;
 
     /// element-wise <
     /// @relates Matrix4x4
     template <typename T>
-    Matrix4x4<bool> is_less(Matrix4x4<T> const & lhs,
-                            Matrix4x4<T> const & rhs) noexcept;
+    constexpr Matrix4x4<bool> is_less(Matrix4x4<T> const & lhs,
+                                      Matrix4x4<T> const & rhs) noexcept;
 
     // =============================================================================
 
     /// element-wise <=
     /// @relates Matrix1x1
     template <typename T>
-    Matrix1x1<bool> is_less_equal(Matrix1x1<T> const & lhs,
-                                  Matrix1x1<T> const & rhs) noexcept;
+    constexpr Matrix1x1<bool> is_less_equal(Matrix1x1<T> const & lhs,
+                                            Matrix1x1<T> const & rhs) noexcept;
 
     /// element-wise <=
     /// @relates Matrix1x2
     template <typename T>
-    Matrix1x2<bool> is_less_equal(Matrix1x2<T> const & lhs,
-                                  Matrix1x2<T> const & rhs) noexcept;
+    constexpr Matrix1x2<bool> is_less_equal(Matrix1x2<T> const & lhs,
+                                            Matrix1x2<T> const & rhs) noexcept;
 
     /// element-wise <=
     /// @relates Matrix1x3
     template <typename T>
-    Matrix1x3<bool> is_less_equal(Matrix1x3<T> const & lhs,
-                                  Matrix1x3<T> const & rhs) noexcept;
+    constexpr Matrix1x3<bool> is_less_equal(Matrix1x3<T> const & lhs,
+                                            Matrix1x3<T> const & rhs) noexcept;
 
     /// element-wise <=
     /// @relates Matrix1x4
     template <typename T>
-    Matrix1x4<bool> is_less_equal(Matrix1x4<T> const & lhs,
-                                  Matrix1x4<T> const & rhs) noexcept;
+    constexpr Matrix1x4<bool> is_less_equal(Matrix1x4<T> const & lhs,
+                                            Matrix1x4<T> const & rhs) noexcept;
 
     /// element-wise <=
     /// @relates Matrix2x1
     template <typename T>
-    Matrix2x1<bool> is_less_equal(Matrix2x1<T> const & lhs,
-                                  Matrix2x1<T> const & rhs) noexcept;
+    constexpr Matrix2x1<bool> is_less_equal(Matrix2x1<T> const & lhs,
+                                            Matrix2x1<T> const & rhs) noexcept;
 
     /// element-wise <=
     /// @relates Matrix2x2
     template <typename T>
-    Matrix2x2<bool> is_less_equal(Matrix2x2<T> const & lhs,
-                                  Matrix2x2<T> const & rhs) noexcept;
+    constexpr Matrix2x2<bool> is_less_equal(Matrix2x2<T> const & lhs,
+                                            Matrix2x2<T> const & rhs) noexcept;
 
     /// element-wise <=
     /// @relates Matrix2x3
     template <typename T>
-    Matrix2x3<bool> is_less_equal(Matrix2x3<T> const & lhs,
-                                  Matrix2x3<T> const & rhs) noexcept;
+    constexpr Matrix2x3<bool> is_less_equal(Matrix2x3<T> const & lhs,
+                                            Matrix2x3<T> const & rhs) noexcept;
 
     /// element-wise <=
     /// @relates Matrix2x4
     template <typename T>
-    Matrix2x4<bool> is_less_equal(Matrix2x4<T> const & lhs,
-                                  Matrix2x4<T> const & rhs) noexcept;
+    constexpr Matrix2x4<bool> is_less_equal(Matrix2x4<T> const & lhs,
+                                            Matrix2x4<T> const & rhs) noexcept;
 
     /// element-wise <=
     /// @relates Matrix3x1
     template <typename T>
-    Matrix3x1<bool> is_less_equal(Matrix3x1<T> const & lhs,
-                                  Matrix3x1<T> const & rhs) noexcept;
+    constexpr Matrix3x1<bool> is_less_equal(Matrix3x1<T> const & lhs,
+                                            Matrix3x1<T> const & rhs) noexcept;
 
     /// element-wise <=
     /// @relates Matrix3x2
     template <typename T>
-    Matrix3x2<bool> is_less_equal(Matrix3x2<T> const & lhs,
-                                  Matrix3x2<T> const & rhs) noexcept;
+    constexpr Matrix3x2<bool> is_less_equal(Matrix3x2<T> const & lhs,
+                                            Matrix3x2<T> const & rhs) noexcept;
 
     /// element-wise <=
     /// @relates Matrix3x3
     template <typename T>
-    Matrix3x3<bool> is_less_equal(Matrix3x3<T> const & lhs,
-                                  Matrix3x3<T> const & rhs) noexcept;
+    constexpr Matrix3x3<bool> is_less_equal(Matrix3x3<T> const & lhs,
+                                            Matrix3x3<T> const & rhs) noexcept;
 
     /// element-wise <=
     /// @relates Matrix3x4
     template <typename T>
-    Matrix3x4<bool> is_less_equal(Matrix3x4<T> const & lhs,
-                                  Matrix3x4<T> const & rhs) noexcept;
+    constexpr Matrix3x4<bool> is_less_equal(Matrix3x4<T> const & lhs,
+                                            Matrix3x4<T> const & rhs) noexcept;
 
     /// element-wise <=
     /// @relates Matrix4x1
     template <typename T>
-    Matrix4x1<bool> is_less_equal(Matrix4x1<T> const & lhs,
-                                  Matrix4x1<T> const & rhs) noexcept;
+    constexpr Matrix4x1<bool> is_less_equal(Matrix4x1<T> const & lhs,
+                                            Matrix4x1<T> const & rhs) noexcept;
 
     /// element-wise <=
     /// @relates Matrix4x2
     template <typename T>
-    Matrix4x2<bool> is_less_equal(Matrix4x2<T> const & lhs,
-                                  Matrix4x2<T> const & rhs) noexcept;
+    constexpr Matrix4x2<bool> is_less_equal(Matrix4x2<T> const & lhs,
+                                            Matrix4x2<T> const & rhs) noexcept;
 
     /// element-wise <=
     /// @relates Matrix4x3
     template <typename T>
-    Matrix4x3<bool> is_less_equal(Matrix4x3<T> const & lhs,
-                                  Matrix4x3<T> const & rhs) noexcept;
+    constexpr Matrix4x3<bool> is_less_equal(Matrix4x3<T> const & lhs,
+                                            Matrix4x3<T> const & rhs) noexcept;
 
     /// element-wise <=
     /// @relates Matrix4x4
     template <typename T>
-    Matrix4x4<bool> is_less_equal(Matrix4x4<T> const & lhs,
-                                  Matrix4x4<T> const & rhs) noexcept;
+    constexpr Matrix4x4<bool> is_less_equal(Matrix4x4<T> const & lhs,
+                                            Matrix4x4<T> const & rhs) noexcept;
 
     // =============================================================================
 
     /// element-wise !=
     /// @relates Matrix1x1
     template <typename T>
-    Matrix1x1<bool> is_not_equal(Matrix1x1<T> const & lhs,
-                                 Matrix1x1<T> const & rhs) noexcept;
+    constexpr Matrix1x1<bool> is_not_equal(Matrix1x1<T> const & lhs,
+                                           Matrix1x1<T> const & rhs) noexcept;
 
     /// element-wise !=
     /// @relates Matrix1x2
     template <typename T>
-    Matrix1x2<bool> is_not_equal(Matrix1x2<T> const & lhs,
-                                 Matrix1x2<T> const & rhs) noexcept;
+    constexpr Matrix1x2<bool> is_not_equal(Matrix1x2<T> const & lhs,
+                                           Matrix1x2<T> const & rhs) noexcept;
 
     /// element-wise !=
     /// @relates Matrix1x3
     template <typename T>
-    Matrix1x3<bool> is_not_equal(Matrix1x3<T> const & lhs,
-                                 Matrix1x3<T> const & rhs) noexcept;
+    constexpr Matrix1x3<bool> is_not_equal(Matrix1x3<T> const & lhs,
+                                           Matrix1x3<T> const & rhs) noexcept;
 
     /// element-wise !=
     /// @relates Matrix1x4
     template <typename T>
-    Matrix1x4<bool> is_not_equal(Matrix1x4<T> const & lhs,
-                                 Matrix1x4<T> const & rhs) noexcept;
+    constexpr Matrix1x4<bool> is_not_equal(Matrix1x4<T> const & lhs,
+                                           Matrix1x4<T> const & rhs) noexcept;
 
     /// element-wise !=
     /// @relates Matrix2x1
     template <typename T>
-    Matrix2x1<bool> is_not_equal(Matrix2x1<T> const & lhs,
-                                 Matrix2x1<T> const & rhs) noexcept;
+    constexpr Matrix2x1<bool> is_not_equal(Matrix2x1<T> const & lhs,
+                                           Matrix2x1<T> const & rhs) noexcept;
 
     /// element-wise !=
     /// @relates Matrix2x2
     template <typename T>
-    Matrix2x2<bool> is_not_equal(Matrix2x2<T> const & lhs,
-                                 Matrix2x2<T> const & rhs) noexcept;
+    constexpr Matrix2x2<bool> is_not_equal(Matrix2x2<T> const & lhs,
+                                           Matrix2x2<T> const & rhs) noexcept;
 
     /// element-wise !=
     /// @relates Matrix2x3
     template <typename T>
-    Matrix2x3<bool> is_not_equal(Matrix2x3<T> const & lhs,
-                                 Matrix2x3<T> const & rhs) noexcept;
+    constexpr Matrix2x3<bool> is_not_equal(Matrix2x3<T> const & lhs,
+                                           Matrix2x3<T> const & rhs) noexcept;
 
     /// element-wise !=
     /// @relates Matrix2x4
     template <typename T>
-    Matrix2x4<bool> is_not_equal(Matrix2x4<T> const & lhs,
-                                 Matrix2x4<T> const & rhs) noexcept;
+    constexpr Matrix2x4<bool> is_not_equal(Matrix2x4<T> const & lhs,
+                                           Matrix2x4<T> const & rhs) noexcept;
 
     /// element-wise !=
     /// @relates Matrix3x1
     template <typename T>
-    Matrix3x1<bool> is_not_equal(Matrix3x1<T> const & lhs,
-                                 Matrix3x1<T> const & rhs) noexcept;
+    constexpr Matrix3x1<bool> is_not_equal(Matrix3x1<T> const & lhs,
+                                           Matrix3x1<T> const & rhs) noexcept;
 
     /// element-wise !=
     /// @relates Matrix3x2
     template <typename T>
-    Matrix3x2<bool> is_not_equal(Matrix3x2<T> const & lhs,
-                                 Matrix3x2<T> const & rhs) noexcept;
+    constexpr Matrix3x2<bool> is_not_equal(Matrix3x2<T> const & lhs,
+                                           Matrix3x2<T> const & rhs) noexcept;
 
     /// element-wise !=
     /// @relates Matrix3x3
     template <typename T>
-    Matrix3x3<bool> is_not_equal(Matrix3x3<T> const & lhs,
-                                 Matrix3x3<T> const & rhs) noexcept;
+    constexpr Matrix3x3<bool> is_not_equal(Matrix3x3<T> const & lhs,
+                                           Matrix3x3<T> const & rhs) noexcept;
 
     /// element-wise !=
     /// @relates Matrix3x4
     template <typename T>
-    Matrix3x4<bool> is_not_equal(Matrix3x4<T> const & lhs,
-                                 Matrix3x4<T> const & rhs) noexcept;
+    constexpr Matrix3x4<bool> is_not_equal(Matrix3x4<T> const & lhs,
+                                           Matrix3x4<T> const & rhs) noexcept;
 
     /// element-wise !=
     /// @relates Matrix4x1
     template <typename T>
-    Matrix4x1<bool> is_not_equal(Matrix4x1<T> const & lhs,
-                                 Matrix4x1<T> const & rhs) noexcept;
+    constexpr Matrix4x1<bool> is_not_equal(Matrix4x1<T> const & lhs,
+                                           Matrix4x1<T> const & rhs) noexcept;
 
     /// element-wise !=
     /// @relates Matrix4x2
     template <typename T>
-    Matrix4x2<bool> is_not_equal(Matrix4x2<T> const & lhs,
-                                 Matrix4x2<T> const & rhs) noexcept;
+    constexpr Matrix4x2<bool> is_not_equal(Matrix4x2<T> const & lhs,
+                                           Matrix4x2<T> const & rhs) noexcept;
 
     /// element-wise !=
     /// @relates Matrix4x3
     template <typename T>
-    Matrix4x3<bool> is_not_equal(Matrix4x3<T> const & lhs,
-                                 Matrix4x3<T> const & rhs) noexcept;
+    constexpr Matrix4x3<bool> is_not_equal(Matrix4x3<T> const & lhs,
+                                           Matrix4x3<T> const & rhs) noexcept;
 
     /// element-wise !=
     /// @relates Matrix4x4
     template <typename T>
-    Matrix4x4<bool> is_not_equal(Matrix4x4<T> const & lhs,
-                                 Matrix4x4<T> const & rhs) noexcept;
+    constexpr Matrix4x4<bool> is_not_equal(Matrix4x4<T> const & lhs,
+                                           Matrix4x4<T> const & rhs) noexcept;
 
     // =============================================================================
 
@@ -8285,7 +8285,7 @@ template <typename T>
 constexpr ggm::Matrix1x1<T> ggm::transpose(Matrix1x1<T> const & value) noexcept
 {
     return Matrix1x1<T>{
-        /*.m00 = */ value.m00,
+        value.m00,
     };
 }
 
@@ -8295,8 +8295,9 @@ template <typename T>
 constexpr ggm::Matrix1x2<T> ggm::transpose(Matrix2x1<T> const & value) noexcept
 {
     return Matrix1x2<T>{
-        /*.m00 = */ value.m00,
-        /*.m01 = */ value.m10,
+        // clang-format off
+        value.m00, value.m10,
+        // clang-format on
     };
 }
 
@@ -8306,9 +8307,9 @@ template <typename T>
 constexpr ggm::Matrix1x3<T> ggm::transpose(Matrix3x1<T> const & value) noexcept
 {
     return Matrix1x3<T>{
-        /*.m00 = */ value.m00,
-        /*.m01 = */ value.m10,
-        /*.m02 = */ value.m20,
+        // clang-format off
+        value.m00, value.m10, value.m20,
+        // clang-format on
     };
 }
 
@@ -8318,10 +8319,9 @@ template <typename T>
 constexpr ggm::Matrix1x4<T> ggm::transpose(Matrix4x1<T> const & value) noexcept
 {
     return Matrix1x4<T>{
-        /*.m00 = */ value.m00,
-        /*.m01 = */ value.m10,
-        /*.m02 = */ value.m20,
-        /*.m03 = */ value.m30,
+        // clang-format off
+        value.m00, value.m10, value.m20, value.m30,
+        // clang-format on
     };
 }
 
@@ -8331,8 +8331,8 @@ template <typename T>
 constexpr ggm::Matrix2x1<T> ggm::transpose(Matrix1x2<T> const & value) noexcept
 {
     return Matrix2x1<T>{
-        /*.m00 = */ value.m00,
-        /*.m10 = */ value.m01,
+        value.m00,
+        value.m01,
     };
 }
 
@@ -8342,10 +8342,10 @@ template <typename T>
 constexpr ggm::Matrix2x2<T> ggm::transpose(Matrix2x2<T> const & value) noexcept
 {
     return Matrix2x2<T>{
-        /*.m00 = */ value.m00,
-        /*.m01 = */ value.m10,
-        /*.m10 = */ value.m01,
-        /*.m11 = */ value.m11,
+        // clang-format off
+        value.m00, value.m10,
+        value.m01, value.m11,
+        // clang-format on
     };
 }
 
@@ -8355,12 +8355,10 @@ template <typename T>
 constexpr ggm::Matrix2x3<T> ggm::transpose(Matrix3x2<T> const & value) noexcept
 {
     return Matrix2x3<T>{
-        /*.m00 = */ value.m00,
-        /*.m01 = */ value.m10,
-        /*.m02 = */ value.m20,
-        /*.m10 = */ value.m01,
-        /*.m11 = */ value.m11,
-        /*.m12 = */ value.m21,
+        // clang-format off
+        value.m00, value.m10, value.m20,
+        value.m01, value.m11, value.m21,
+        // clang-format on
     };
 }
 
@@ -8370,14 +8368,10 @@ template <typename T>
 constexpr ggm::Matrix2x4<T> ggm::transpose(Matrix4x2<T> const & value) noexcept
 {
     return Matrix2x4<T>{
-        /*.m00 = */ value.m00,
-        /*.m01 = */ value.m01,
-        /*.m02 = */ value.m02,
-        /*.m03 = */ value.m03,
-        /*.m10 = */ value.m10,
-        /*.m11 = */ value.m11,
-        /*.m12 = */ value.m12,
-        /*.m13 = */ value.m13,
+        // clang-format off
+        value.m00, value.m10, value.m20, value.m30,
+        value.m01, value.m11, value.m21, value.m31,
+        // clang-format on
     };
 }
 
@@ -8387,9 +8381,9 @@ template <typename T>
 constexpr ggm::Matrix3x1<T> ggm::transpose(Matrix1x3<T> const & value) noexcept
 {
     return Matrix3x1<T>{
-        /*.m00 = */ value.m00,
-        /*.m10 = */ value.m01,
-        /*.m20 = */ value.m02,
+        value.m00,
+        value.m01,
+        value.m02,
     };
 }
 
@@ -8399,12 +8393,11 @@ template <typename T>
 constexpr ggm::Matrix3x2<T> ggm::transpose(Matrix2x3<T> const & value) noexcept
 {
     return Matrix3x2<T>{
-        /*.m00 = */ value.m00,
-        /*.m01 = */ value.m10,
-        /*.m10 = */ value.m01,
-        /*.m11 = */ value.m11,
-        /*.m20 = */ value.m02,
-        /*.m21 = */ value.m12,
+        // clang-format off
+        value.m00, value.m10,
+        value.m01, value.m11,
+        value.m02, value.m12,
+        // clang-format on
     };
 }
 
@@ -8414,15 +8407,11 @@ template <typename T>
 constexpr ggm::Matrix3x3<T> ggm::transpose(Matrix3x3<T> const & value) noexcept
 {
     return Matrix3x3<T>{
-        /*.m00 = */ value.m00,
-        /*.m01 = */ value.m10,
-        /*.m02 = */ value.m20,
-        /*.m10 = */ value.m01,
-        /*.m11 = */ value.m11,
-        /*.m12 = */ value.m21,
-        /*.m20 = */ value.m02,
-        /*.m21 = */ value.m12,
-        /*.m22 = */ value.m22,
+        // clang-format off
+        value.m00, value.m10, value.m20,
+        value.m01, value.m11, value.m21,
+        value.m02, value.m12, value.m22,
+        // clang-format on
     };
 }
 
@@ -8432,18 +8421,11 @@ template <typename T>
 constexpr ggm::Matrix3x4<T> ggm::transpose(Matrix4x3<T> const & value) noexcept
 {
     return Matrix3x4<T>{
-        /*.m00 = */ value.m00,
-        /*.m01 = */ value.m10,
-        /*.m02 = */ value.m20,
-        /*.m03 = */ value.m30,
-        /*.m10 = */ value.m01,
-        /*.m11 = */ value.m11,
-        /*.m12 = */ value.m21,
-        /*.m13 = */ value.m31,
-        /*.m20 = */ value.m02,
-        /*.m21 = */ value.m12,
-        /*.m22 = */ value.m22,
-        /*.m23 = */ value.m32,
+        // clang-format off
+        value.m00, value.m10, value.m20, value.m30,
+        value.m01, value.m11, value.m21, value.m31,
+        value.m02, value.m12, value.m22, value.m32,
+        // clang-format on
     };
 }
 
@@ -8453,10 +8435,10 @@ template <typename T>
 constexpr ggm::Matrix4x1<T> ggm::transpose(Matrix1x4<T> const & value) noexcept
 {
     return Matrix4x1<T>{
-        /*.m00 = */ value.m00,
-        /*.m10 = */ value.m01,
-        /*.m20 = */ value.m02,
-        /*.m30 = */ value.m03,
+        value.m00,
+        value.m01,
+        value.m02,
+        value.m03,
     };
 }
 
@@ -8466,14 +8448,12 @@ template <typename T>
 constexpr ggm::Matrix4x2<T> ggm::transpose(Matrix2x4<T> const & value) noexcept
 {
     return Matrix4x2<T>{
-        /*.m00 = */ value.m00,
-        /*.m01 = */ value.m10,
-        /*.m10 = */ value.m01,
-        /*.m11 = */ value.m11,
-        /*.m20 = */ value.m02,
-        /*.m21 = */ value.m12,
-        /*.m30 = */ value.m03,
-        /*.m31 = */ value.m13,
+        // clang-format off
+        value.m00, value.m10,
+        value.m01, value.m11,
+        value.m02, value.m12,
+        value.m03, value.m13,
+        // clang-format on
     };
 }
 
@@ -8483,18 +8463,12 @@ template <typename T>
 constexpr ggm::Matrix4x3<T> ggm::transpose(Matrix3x4<T> const & value) noexcept
 {
     return Matrix4x3<T>{
-        /*.m00 = */ value.m00,
-        /*.m01 = */ value.m10,
-        /*.m02 = */ value.m20,
-        /*.m10 = */ value.m01,
-        /*.m11 = */ value.m11,
-        /*.m12 = */ value.m21,
-        /*.m20 = */ value.m02,
-        /*.m21 = */ value.m12,
-        /*.m22 = */ value.m22,
-        /*.m30 = */ value.m03,
-        /*.m31 = */ value.m13,
-        /*.m32 = */ value.m23,
+        // clang-format off
+        value.m00, value.m10, value.m20,
+        value.m01, value.m11, value.m21,
+        value.m02, value.m12, value.m22,
+        value.m03, value.m13, value.m23,
+        // clang-format on
     };
 }
 
@@ -8504,22 +8478,12 @@ template <typename T>
 constexpr ggm::Matrix4x4<T> ggm::transpose(Matrix4x4<T> const & value) noexcept
 {
     return Matrix4x4<T>{
-        /*.m00 = */ value.m00,
-        /*.m01 = */ value.m10,
-        /*.m02 = */ value.m20,
-        /*.m03 = */ value.m30,
-        /*.m10 = */ value.m01,
-        /*.m11 = */ value.m11,
-        /*.m12 = */ value.m21,
-        /*.m13 = */ value.m31,
-        /*.m20 = */ value.m02,
-        /*.m21 = */ value.m12,
-        /*.m22 = */ value.m22,
-        /*.m23 = */ value.m32,
-        /*.m30 = */ value.m03,
-        /*.m31 = */ value.m13,
-        /*.m32 = */ value.m23,
-        /*.m33 = */ value.m33,
+        // clang-format off
+        value.m00, value.m10, value.m20, value.m30,
+        value.m01, value.m11, value.m21, value.m31,
+        value.m02, value.m12, value.m22, value.m32,
+        value.m03, value.m13, value.m23, value.m33,
+        // clang-format on
     };
 }
 
@@ -8561,7 +8525,7 @@ template <typename T>
 constexpr ggm::Matrix1x1<T> ggm::matrix_from_cols(Matrix1x1<T> const & col0) noexcept
 {
     return Matrix1x1<T>{
-        /*.m00 = */ col0.m00,
+        col0.m00,
     };
 }
 
@@ -8572,8 +8536,9 @@ constexpr ggm::Matrix1x2<T> ggm::matrix_from_cols(Matrix1x1<T> const & col0,
                                                   Matrix1x1<T> const & col1) noexcept
 {
     return Matrix1x2<T>{
-        /*.m00 = */ col0.m00,
-        /*.m01 = */ col1.m00,
+        // clang-format off
+        col0.m00, col1.m00,
+        // clang-format on
     };
 }
 
@@ -8585,9 +8550,9 @@ constexpr ggm::Matrix1x3<T> ggm::matrix_from_cols(Matrix1x1<T> const & col0,
                                                   Matrix1x1<T> const & col2) noexcept
 {
     return Matrix1x3<T>{
-        /*.m00 = */ col0.m00,
-        /*.m01 = */ col1.m00,
-        /*.m02 = */ col2.m00,
+        // clang-format off
+        col0.m00, col1.m00, col2.m00,
+        // clang-format on
     };
 }
 
@@ -8600,10 +8565,9 @@ constexpr ggm::Matrix1x4<T> ggm::matrix_from_cols(Matrix1x1<T> const & col0,
                                                   Matrix1x1<T> const & col3) noexcept
 {
     return Matrix1x4<T>{
-        /*.m00 = */ col0.m00,
-        /*.m01 = */ col1.m00,
-        /*.m02 = */ col2.m00,
-        /*.m03 = */ col3.m00,
+        // clang-format off
+        col0.m00, col1.m00, col2.m00, col3.m00,
+        // clang-format on
     };
 }
 
@@ -8613,8 +8577,8 @@ template <typename T>
 constexpr ggm::Matrix2x1<T> ggm::matrix_from_cols(Matrix2x1<T> const & col0) noexcept
 {
     return Matrix2x1<T>{
-        /*.m00 = */ col0.m00,
-        /*.m10 = */ col0.m10,
+        col0.m00,
+        col0.m10,
     };
 }
 
@@ -8625,10 +8589,10 @@ constexpr ggm::Matrix2x2<T> ggm::matrix_from_cols(Matrix2x1<T> const & col0,
                                                   Matrix2x1<T> const & col1) noexcept
 {
     return Matrix2x2<T>{
-        /*.m00 = */ col0.m00,
-        /*.m01 = */ col1.m00,
-        /*.m10 = */ col0.m10,
-        /*.m11 = */ col1.m10,
+        // clang-format off
+        col0.m00, col1.m00,
+        col0.m10, col1.m10,
+        // clang-format on
     };
 }
 
@@ -8640,12 +8604,10 @@ constexpr ggm::Matrix2x3<T> ggm::matrix_from_cols(Matrix2x1<T> const & col0,
                                                   Matrix2x1<T> const & col2) noexcept
 {
     return Matrix2x3<T>{
-        /*.m00 = */ col0.m00,
-        /*.m01 = */ col1.m00,
-        /*.m02 = */ col2.m00,
-        /*.m10 = */ col0.m10,
-        /*.m11 = */ col1.m10,
-        /*.m12 = */ col2.m10,
+        // clang-format off
+        col0.m00, col1.m00, col2.m00,
+        col0.m10, col1.m10, col2.m10,
+        // clang-format on
     };
 }
 
@@ -8658,14 +8620,10 @@ constexpr ggm::Matrix2x4<T> ggm::matrix_from_cols(Matrix2x1<T> const & col0,
                                                   Matrix2x1<T> const & col3) noexcept
 {
     return Matrix2x4<T>{
-        /*.m00 = */ col0.m00,
-        /*.m01 = */ col1.m00,
-        /*.m02 = */ col2.m00,
-        /*.m03 = */ col3.m00,
-        /*.m10 = */ col0.m10,
-        /*.m11 = */ col1.m10,
-        /*.m12 = */ col2.m10,
-        /*.m13 = */ col3.m10,
+        // clang-format off
+        col0.m00, col1.m00, col2.m00, col3.m00,
+        col0.m10, col1.m10, col2.m10, col3.m10,
+        // clang-format on
     };
 }
 
@@ -8675,9 +8633,9 @@ template <typename T>
 constexpr ggm::Matrix3x1<T> ggm::matrix_from_cols(Matrix3x1<T> const & col0) noexcept
 {
     return Matrix3x1<T>{
-        /*.m00 = */ col0.m00,
-        /*.m10 = */ col0.m10,
-        /*.m20 = */ col0.m20,
+        col0.m00,
+        col0.m10,
+        col0.m20,
     };
 }
 
@@ -8688,12 +8646,11 @@ constexpr ggm::Matrix3x2<T> ggm::matrix_from_cols(Matrix3x1<T> const & col0,
                                                   Matrix3x1<T> const & col1) noexcept
 {
     return Matrix3x2<T>{
-        /*.m00 = */ col0.m00,
-        /*.m01 = */ col1.m00,
-        /*.m10 = */ col0.m10,
-        /*.m11 = */ col1.m10,
-        /*.m20 = */ col0.m20,
-        /*.m21 = */ col1.m20,
+        // clang-format off
+        col0.m00, col1.m00,
+        col0.m10, col1.m10,
+        col0.m20, col1.m20,
+        // clang-format on
     };
 }
 
@@ -8705,15 +8662,11 @@ constexpr ggm::Matrix3x3<T> ggm::matrix_from_cols(Matrix3x1<T> const & col0,
                                                   Matrix3x1<T> const & col2) noexcept
 {
     return Matrix3x3<T>{
-        /*.m00 = */ col0.m00,
-        /*.m01 = */ col1.m00,
-        /*.m02 = */ col2.m00,
-        /*.m10 = */ col0.m10,
-        /*.m11 = */ col1.m10,
-        /*.m12 = */ col2.m10,
-        /*.m20 = */ col0.m20,
-        /*.m21 = */ col1.m20,
-        /*.m22 = */ col2.m20,
+        // clang-format off
+        col0.m00, col1.m00, col2.m00,
+        col0.m10, col1.m10, col2.m10,
+        col0.m20, col1.m20, col2.m20,
+        // clang-format on
     };
 }
 
@@ -8726,18 +8679,11 @@ constexpr ggm::Matrix3x4<T> ggm::matrix_from_cols(Matrix3x1<T> const & col0,
                                                   Matrix3x1<T> const & col3) noexcept
 {
     return Matrix3x4<T>{
-        /*.m00 = */ col0.m00,
-        /*.m01 = */ col1.m00,
-        /*.m02 = */ col2.m00,
-        /*.m03 = */ col3.m00,
-        /*.m10 = */ col0.m10,
-        /*.m11 = */ col1.m10,
-        /*.m12 = */ col2.m10,
-        /*.m13 = */ col3.m10,
-        /*.m20 = */ col0.m20,
-        /*.m21 = */ col1.m20,
-        /*.m22 = */ col2.m20,
-        /*.m23 = */ col3.m20,
+        // clang-format off
+        col0.m00, col1.m00, col2.m00, col3.m00,
+        col0.m10, col1.m10, col2.m10, col3.m10,
+        col0.m20, col1.m20, col2.m20, col3.m20,
+        // clang-format on
     };
 }
 
@@ -8747,10 +8693,10 @@ template <typename T>
 constexpr ggm::Matrix4x1<T> ggm::matrix_from_cols(Matrix4x1<T> const & col0) noexcept
 {
     return Matrix4x1<T>{
-        /*.m00 = */ col0.m00,
-        /*.m10 = */ col0.m10,
-        /*.m20 = */ col0.m20,
-        /*.m30 = */ col0.m30,
+        col0.m00,
+        col0.m10,
+        col0.m20,
+        col0.m30,
     };
 }
 
@@ -8761,14 +8707,12 @@ constexpr ggm::Matrix4x2<T> ggm::matrix_from_cols(Matrix4x1<T> const & col0,
                                                   Matrix4x1<T> const & col1) noexcept
 {
     return Matrix4x2<T>{
-        /*.m00 = */ col0.m00,
-        /*.m01 = */ col1.m00,
-        /*.m10 = */ col0.m10,
-        /*.m11 = */ col1.m10,
-        /*.m20 = */ col0.m20,
-        /*.m21 = */ col1.m20,
-        /*.m30 = */ col0.m30,
-        /*.m31 = */ col1.m30,
+        // clang-format off
+        col0.m00, col1.m00,
+        col0.m10, col1.m10,
+        col0.m20, col1.m20,
+        col0.m30, col1.m30,
+        // clang-format on
     };
 }
 
@@ -8780,18 +8724,12 @@ constexpr ggm::Matrix4x3<T> ggm::matrix_from_cols(Matrix4x1<T> const & col0,
                                                   Matrix4x1<T> const & col2) noexcept
 {
     return Matrix4x3<T>{
-        /*.m00 = */ col0.m00,
-        /*.m01 = */ col1.m00,
-        /*.m02 = */ col2.m00,
-        /*.m10 = */ col0.m10,
-        /*.m11 = */ col1.m10,
-        /*.m12 = */ col2.m10,
-        /*.m20 = */ col0.m20,
-        /*.m21 = */ col1.m20,
-        /*.m22 = */ col2.m20,
-        /*.m30 = */ col0.m30,
-        /*.m31 = */ col1.m30,
-        /*.m32 = */ col2.m30,
+        // clang-format off
+        col0.m00, col1.m00, col2.m00,
+        col0.m10, col1.m10, col2.m10,
+        col0.m20, col1.m20, col2.m20,
+        col0.m30, col1.m30, col2.m30,
+        // clang-format on
     };
 }
 
@@ -8804,22 +8742,12 @@ constexpr ggm::Matrix4x4<T> ggm::matrix_from_cols(Matrix4x1<T> const & col0,
                                                   Matrix4x1<T> const & col3) noexcept
 {
     return Matrix4x4<T>{
-        /*.m00 = */ col0.m00,
-        /*.m01 = */ col1.m00,
-        /*.m02 = */ col2.m00,
-        /*.m03 = */ col3.m00,
-        /*.m10 = */ col0.m10,
-        /*.m11 = */ col1.m10,
-        /*.m12 = */ col2.m10,
-        /*.m13 = */ col3.m10,
-        /*.m20 = */ col0.m20,
-        /*.m21 = */ col1.m20,
-        /*.m22 = */ col2.m20,
-        /*.m23 = */ col3.m20,
-        /*.m30 = */ col0.m30,
-        /*.m31 = */ col1.m30,
-        /*.m32 = */ col2.m30,
-        /*.m33 = */ col3.m30,
+        // clang-format off
+        col0.m00, col1.m00, col2.m00, col3.m00,
+        col0.m10, col1.m10, col2.m10, col3.m10,
+        col0.m20, col1.m20, col2.m20, col3.m20,
+        col0.m30, col1.m30, col2.m30, col3.m30,
+        // clang-format on
     };
 }
 
@@ -8829,7 +8757,7 @@ template <typename T>
 constexpr ggm::Matrix1x1<T> ggm::matrix_from_rows(Matrix1x1<T> const & row0) noexcept
 {
     return Matrix1x1<T>{
-        /*.m00 = */ row0.m00,
+        row0.m00,
     };
 }
 
@@ -8839,8 +8767,9 @@ template <typename T>
 constexpr ggm::Matrix1x2<T> ggm::matrix_from_rows(Matrix1x2<T> const & row0) noexcept
 {
     return Matrix1x2<T>{
-        /*.m00 = */ row0.m00,
-        /*.m01 = */ row0.m01,
+        // clang-format off
+        row0.m00, row0.m01,
+        // clang-format on
     };
 }
 
@@ -8850,9 +8779,9 @@ template <typename T>
 constexpr ggm::Matrix1x3<T> ggm::matrix_from_rows(Matrix1x3<T> const & row0) noexcept
 {
     return Matrix1x3<T>{
-        /*.m00 = */ row0.m00,
-        /*.m01 = */ row0.m01,
-        /*.m02 = */ row0.m02,
+        // clang-format off
+        row0.m00, row0.m01, row0.m02,
+        // clang-format on
     };
 }
 
@@ -8862,10 +8791,9 @@ template <typename T>
 constexpr ggm::Matrix1x4<T> ggm::matrix_from_rows(Matrix1x4<T> const & row0) noexcept
 {
     return Matrix1x4<T>{
-        /*.m00 = */ row0.m00,
-        /*.m01 = */ row0.m01,
-        /*.m02 = */ row0.m02,
-        /*.m03 = */ row0.m03,
+        // clang-format off
+        row0.m00, row0.m01, row0.m02, row0.m03,
+        // clang-format on
     };
 }
 
@@ -8876,8 +8804,8 @@ constexpr ggm::Matrix2x1<T> ggm::matrix_from_rows(Matrix1x1<T> const & row0,
                                                   Matrix1x1<T> const & row1) noexcept
 {
     return Matrix2x1<T>{
-        /*.m00 = */ row0.m00,
-        /*.m10 = */ row1.m00,
+        row0.m00,
+        row1.m00,
     };
 }
 
@@ -8888,10 +8816,10 @@ constexpr ggm::Matrix2x2<T> ggm::matrix_from_rows(Matrix1x2<T> const & row0,
                                                   Matrix1x2<T> const & row1) noexcept
 {
     return Matrix2x2<T>{
-        /*.m00 = */ row0.m00,
-        /*.m01 = */ row0.m01,
-        /*.m10 = */ row1.m00,
-        /*.m11 = */ row1.m01,
+        // clang-format off
+        row0.m00, row0.m01,
+        row1.m00, row1.m01,
+        // clang-format on
     };
 }
 
@@ -8902,12 +8830,10 @@ constexpr ggm::Matrix2x3<T> ggm::matrix_from_rows(Matrix1x3<T> const & row0,
                                                   Matrix1x3<T> const & row1) noexcept
 {
     return Matrix2x3<T>{
-        /*.m00 = */ row0.m00,
-        /*.m01 = */ row0.m01,
-        /*.m02 = */ row0.m02,
-        /*.m10 = */ row1.m00,
-        /*.m11 = */ row1.m01,
-        /*.m12 = */ row1.m02,
+        // clang-format off
+        row0.m00, row0.m01, row0.m02,
+        row1.m00, row1.m01, row1.m02,
+        // clang-format on
     };
 }
 
@@ -8918,14 +8844,10 @@ constexpr ggm::Matrix2x4<T> ggm::matrix_from_rows(Matrix1x4<T> const & row0,
                                                   Matrix1x4<T> const & row1) noexcept
 {
     return Matrix2x4<T>{
-        /*.m00 = */ row0.m00,
-        /*.m01 = */ row0.m01,
-        /*.m02 = */ row0.m02,
-        /*.m03 = */ row0.m03,
-        /*.m10 = */ row1.m00,
-        /*.m11 = */ row1.m01,
-        /*.m12 = */ row1.m02,
-        /*.m13 = */ row1.m03,
+        // clang-format off
+        row0.m00, row0.m01, row0.m02, row0.m03,
+        row1.m00, row1.m01, row1.m02, row1.m03,
+        // clang-format on
     };
 }
 
@@ -8937,9 +8859,9 @@ constexpr ggm::Matrix3x1<T> ggm::matrix_from_rows(Matrix1x1<T> const & row0,
                                                   Matrix1x1<T> const & row2) noexcept
 {
     return Matrix3x1<T>{
-        /*.m00 = */ row0.m00,
-        /*.m10 = */ row1.m00,
-        /*.m20 = */ row2.m00,
+        row0.m00,
+        row1.m00,
+        row2.m00,
     };
 }
 
@@ -8951,12 +8873,11 @@ constexpr ggm::Matrix3x2<T> ggm::matrix_from_rows(Matrix1x2<T> const & row0,
                                                   Matrix1x2<T> const & row2) noexcept
 {
     return Matrix3x2<T>{
-        /*.m00 = */ row0.m00,
-        /*.m01 = */ row0.m01,
-        /*.m10 = */ row1.m00,
-        /*.m11 = */ row1.m01,
-        /*.m20 = */ row2.m00,
-        /*.m21 = */ row2.m01,
+        // clang-format off
+        row0.m00, row0.m01,
+        row1.m00, row1.m01,
+        row2.m00, row2.m01,
+        // clang-format on
     };
 }
 
@@ -8968,15 +8889,11 @@ constexpr ggm::Matrix3x3<T> ggm::matrix_from_rows(Matrix1x3<T> const & row0,
                                                   Matrix1x3<T> const & row2) noexcept
 {
     return Matrix3x3<T>{
-        /*.m00 = */ row0.m00,
-        /*.m01 = */ row0.m01,
-        /*.m02 = */ row0.m02,
-        /*.m10 = */ row1.m00,
-        /*.m11 = */ row1.m01,
-        /*.m12 = */ row1.m02,
-        /*.m20 = */ row2.m00,
-        /*.m21 = */ row2.m01,
-        /*.m22 = */ row2.m02,
+        // clang-format off
+        row0.m00, row0.m01, row0.m02,
+        row1.m00, row1.m01, row1.m02,
+        row2.m00, row2.m01, row2.m02,
+        // clang-format on
     };
 }
 
@@ -8988,18 +8905,11 @@ constexpr ggm::Matrix3x4<T> ggm::matrix_from_rows(Matrix1x4<T> const & row0,
                                                   Matrix1x4<T> const & row2) noexcept
 {
     return Matrix3x4<T>{
-        /*.m00 = */ row0.m00,
-        /*.m01 = */ row0.m01,
-        /*.m02 = */ row0.m02,
-        /*.m03 = */ row0.m03,
-        /*.m10 = */ row1.m00,
-        /*.m11 = */ row1.m01,
-        /*.m12 = */ row1.m02,
-        /*.m13 = */ row1.m03,
-        /*.m20 = */ row2.m00,
-        /*.m21 = */ row2.m01,
-        /*.m22 = */ row2.m02,
-        /*.m23 = */ row2.m03,
+        // clang-format off
+        row0.m00, row0.m01, row0.m02, row0.m03,
+        row1.m00, row1.m01, row1.m02, row1.m03,
+        row2.m00, row2.m01, row2.m02, row2.m03,
+        // clang-format on
     };
 }
 
@@ -9012,10 +8922,10 @@ constexpr ggm::Matrix4x1<T> ggm::matrix_from_rows(Matrix1x1<T> const & row0,
                                                   Matrix1x1<T> const & row3) noexcept
 {
     return Matrix4x1<T>{
-        /*.m00 = */ row0.m00,
-        /*.m10 = */ row1.m00,
-        /*.m20 = */ row2.m00,
-        /*.m30 = */ row3.m00,
+        row0.m00,
+        row1.m00,
+        row2.m00,
+        row3.m00,
     };
 }
 
@@ -9028,14 +8938,12 @@ constexpr ggm::Matrix4x2<T> ggm::matrix_from_rows(Matrix1x2<T> const & row0,
                                                   Matrix1x2<T> const & row3) noexcept
 {
     return Matrix4x2<T>{
-        /*.m00 = */ row0.m00,
-        /*.m01 = */ row0.m01,
-        /*.m10 = */ row1.m00,
-        /*.m11 = */ row1.m01,
-        /*.m20 = */ row2.m00,
-        /*.m21 = */ row2.m01,
-        /*.m30 = */ row3.m00,
-        /*.m31 = */ row3.m01,
+        // clang-format off
+        row0.m00, row0.m01,
+        row1.m00, row1.m01,
+        row2.m00, row2.m01,
+        row3.m00, row3.m01,
+        // clang-format on
     };
 }
 
@@ -9048,18 +8956,12 @@ constexpr ggm::Matrix4x3<T> ggm::matrix_from_rows(Matrix1x3<T> const & row0,
                                                   Matrix1x3<T> const & row3) noexcept
 {
     return Matrix4x3<T>{
-        /*.m00 = */ row0.m00,
-        /*.m01 = */ row0.m01,
-        /*.m02 = */ row0.m02,
-        /*.m10 = */ row1.m00,
-        /*.m11 = */ row1.m01,
-        /*.m12 = */ row1.m02,
-        /*.m20 = */ row2.m00,
-        /*.m21 = */ row2.m01,
-        /*.m22 = */ row2.m02,
-        /*.m30 = */ row3.m00,
-        /*.m31 = */ row3.m01,
-        /*.m32 = */ row3.m02,
+        // clang-format off
+        row0.m00, row0.m01, row0.m02,
+        row1.m00, row1.m01, row1.m02,
+        row2.m00, row2.m01, row2.m02,
+        row3.m00, row3.m01, row3.m02,
+        // clang-format on
     };
 }
 
@@ -9072,23 +8974,483 @@ constexpr ggm::Matrix4x4<T> ggm::matrix_from_rows(Matrix1x4<T> const & row0,
                                                   Matrix1x4<T> const & row3) noexcept
 {
     return Matrix4x4<T>{
-        /*.m00 = */ row0.m00,
-        /*.m01 = */ row0.m01,
-        /*.m02 = */ row0.m02,
-        /*.m03 = */ row0.m03,
-        /*.m10 = */ row1.m00,
-        /*.m11 = */ row1.m01,
-        /*.m12 = */ row1.m02,
-        /*.m13 = */ row1.m03,
-        /*.m20 = */ row2.m00,
-        /*.m21 = */ row2.m01,
-        /*.m22 = */ row2.m02,
-        /*.m23 = */ row2.m03,
-        /*.m30 = */ row3.m00,
-        /*.m31 = */ row3.m01,
-        /*.m32 = */ row3.m02,
-        /*.m33 = */ row3.m03,
+        // clang-format off
+        row0.m00, row0.m01, row0.m02, row0.m03,
+        row1.m00, row1.m01, row1.m02, row1.m03,
+        row2.m00, row2.m01, row2.m02, row2.m03,
+        row3.m00, row3.m01, row3.m02, row3.m03,
+        // clang-format on
     };
+}
+
+// =============================================================================
+
+template <std::size_t ColIndex,
+          typename T>
+constexpr ggm::Matrix1x1<T> ggm::matrix_drop_col(Matrix1x2<T> const & value) noexcept
+{
+    if constexpr (ColIndex == 0)
+    {
+        return Matrix1x1<T>{
+            value.m01,
+        };
+    }
+    else if constexpr (ColIndex == 1)
+    {
+        return Matrix1x1<T>{
+            value.m00,
+        };
+    }
+    else
+    {
+        static_assert(ColIndex < 2, "Invalid ColIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t ColIndex,
+          typename T>
+constexpr ggm::Matrix1x2<T> ggm::matrix_drop_col(Matrix1x3<T> const & value) noexcept
+{
+    if constexpr (ColIndex == 0)
+    {
+        return Matrix1x2<T>{
+            // clang-format off
+            value.m01, value.m02,
+            // clang-format on
+        };
+    }
+    else if constexpr (ColIndex == 1)
+    {
+        return Matrix1x2<T>{
+            // clang-format off
+            value.m00, value.m02,
+            // clang-format on
+        };
+    }
+    else if constexpr (ColIndex == 2)
+    {
+        return Matrix1x2<T>{
+            // clang-format off
+            value.m00, value.m01,
+            // clang-format on
+        };
+    }
+    else
+    {
+        static_assert(ColIndex < 3, "Invalid ColIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t ColIndex,
+          typename T>
+constexpr ggm::Matrix1x3<T> ggm::matrix_drop_col(Matrix1x4<T> const & value) noexcept
+{
+    if constexpr (ColIndex == 0)
+    {
+        return Matrix1x3<T>{
+            // clang-format off
+            value.m01, value.m02, value.m03,
+            // clang-format on
+        };
+    }
+    else if constexpr (ColIndex == 1)
+    {
+        return Matrix1x3<T>{
+            // clang-format off
+            value.m00, value.m02, value.m03,
+            // clang-format on
+        };
+    }
+    else if constexpr (ColIndex == 2)
+    {
+        return Matrix1x3<T>{
+            // clang-format off
+            value.m00, value.m01, value.m03,
+            // clang-format on
+        };
+    }
+    else if constexpr (ColIndex == 3)
+    {
+        return Matrix1x3<T>{
+            // clang-format off
+            value.m00, value.m01, value.m02,
+            // clang-format on
+        };
+    }
+    else
+    {
+        static_assert(ColIndex < 4, "Invalid ColIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t ColIndex,
+          typename T>
+constexpr ggm::Matrix2x1<T> ggm::matrix_drop_col(Matrix2x2<T> const & value) noexcept
+{
+    if constexpr (ColIndex == 0)
+    {
+        return Matrix2x1<T>{
+            value.m01,
+            value.m11,
+        };
+    }
+    else if constexpr (ColIndex == 1)
+    {
+        return Matrix2x1<T>{
+            value.m00,
+            value.m10,
+        };
+    }
+    else
+    {
+        static_assert(ColIndex < 2, "Invalid ColIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t ColIndex,
+          typename T>
+constexpr ggm::Matrix2x2<T> ggm::matrix_drop_col(Matrix2x3<T> const & value) noexcept
+{
+    if constexpr (ColIndex == 0)
+    {
+        return Matrix2x2<T>{
+            // clang-format off
+            value.m01, value.m02,
+            value.m11, value.m12,
+            // clang-format on
+        };
+    }
+    else if constexpr (ColIndex == 1)
+    {
+        return Matrix2x2<T>{
+            // clang-format off
+            value.m00, value.m02,
+            value.m10, value.m12,
+            // clang-format on
+        };
+    }
+    else if constexpr (ColIndex == 2)
+    {
+        return Matrix2x2<T>{
+            // clang-format off
+            value.m00, value.m01,
+            value.m10, value.m11,
+            // clang-format on
+        };
+    }
+    else
+    {
+        static_assert(ColIndex < 3, "Invalid ColIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t ColIndex,
+          typename T>
+constexpr ggm::Matrix2x3<T> ggm::matrix_drop_col(Matrix2x4<T> const & value) noexcept
+{
+    if constexpr (ColIndex == 0)
+    {
+        return Matrix2x3<T>{
+            // clang-format off
+            value.m01, value.m02, value.m03,
+            value.m11, value.m12, value.m13,
+            // clang-format on
+        };
+    }
+    else if constexpr (ColIndex == 1)
+    {
+        return Matrix2x3<T>{
+            // clang-format off
+            value.m00, value.m02, value.m03,
+            value.m10, value.m12, value.m13,
+            // clang-format on
+        };
+    }
+    else if constexpr (ColIndex == 2)
+    {
+        return Matrix2x3<T>{
+            // clang-format off
+            value.m00, value.m01, value.m03,
+            value.m10, value.m11, value.m13,
+            // clang-format on
+        };
+    }
+    else if constexpr (ColIndex == 3)
+    {
+        return Matrix2x3<T>{
+            // clang-format off
+            value.m00, value.m01, value.m02,
+            value.m10, value.m11, value.m12,
+            // clang-format on
+        };
+    }
+    else
+    {
+        static_assert(ColIndex < 4, "Invalid ColIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t ColIndex,
+          typename T>
+constexpr ggm::Matrix3x1<T> ggm::matrix_drop_col(Matrix3x2<T> const & value) noexcept
+{
+    if constexpr (ColIndex == 0)
+    {
+        return Matrix3x1<T>{
+            value.m01,
+            value.m11,
+            value.m21,
+        };
+    }
+    else if constexpr (ColIndex == 1)
+    {
+        return Matrix3x1<T>{
+            value.m00,
+            value.m10,
+            value.m20,
+        };
+    }
+    else
+    {
+        static_assert(ColIndex < 2, "Invalid ColIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t ColIndex,
+          typename T>
+constexpr ggm::Matrix3x2<T> ggm::matrix_drop_col(Matrix3x3<T> const & value) noexcept
+{
+    if constexpr (ColIndex == 0)
+    {
+        return Matrix3x2<T>{
+            // clang-format off
+            value.m01, value.m02,
+            value.m11, value.m12,
+            value.m21, value.m22,
+            // clang-format on
+        };
+    }
+    else if constexpr (ColIndex == 1)
+    {
+        return Matrix3x2<T>{
+            // clang-format off
+            value.m00, value.m02,
+            value.m10, value.m12,
+            value.m20, value.m22,
+            // clang-format on
+        };
+    }
+    else if constexpr (ColIndex == 2)
+    {
+        return Matrix3x2<T>{
+            // clang-format off
+            value.m00, value.m01,
+            value.m10, value.m11,
+            value.m20, value.m21,
+            // clang-format on
+        };
+    }
+    else
+    {
+        static_assert(ColIndex < 3, "Invalid ColIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t ColIndex,
+          typename T>
+constexpr ggm::Matrix3x3<T> ggm::matrix_drop_col(Matrix3x4<T> const & value) noexcept
+{
+    if constexpr (ColIndex == 0)
+    {
+        return Matrix3x3<T>{
+            // clang-format off
+            value.m01, value.m02, value.m03,
+            value.m11, value.m12, value.m13,
+            value.m21, value.m22, value.m23,
+            // clang-format on
+        };
+    }
+    else if constexpr (ColIndex == 1)
+    {
+        return Matrix3x3<T>{
+            // clang-format off
+            value.m00, value.m02, value.m03,
+            value.m10, value.m12, value.m13,
+            value.m20, value.m22, value.m23,
+            // clang-format on
+        };
+    }
+    else if constexpr (ColIndex == 2)
+    {
+        return Matrix3x3<T>{
+            // clang-format off
+            value.m00, value.m01, value.m03,
+            value.m10, value.m11, value.m13,
+            value.m20, value.m21, value.m23,
+            // clang-format on
+        };
+    }
+    else if constexpr (ColIndex == 3)
+    {
+        return Matrix3x3<T>{
+            // clang-format off
+            value.m00, value.m01, value.m02,
+            value.m10, value.m11, value.m12,
+            value.m20, value.m21, value.m22,
+            // clang-format on
+        };
+    }
+    else
+    {
+        static_assert(ColIndex < 4, "Invalid ColIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t ColIndex,
+          typename T>
+constexpr ggm::Matrix4x1<T> ggm::matrix_drop_col(Matrix4x2<T> const & value) noexcept
+{
+    if constexpr (ColIndex == 0)
+    {
+        return Matrix4x1<T>{
+            value.m01,
+            value.m11,
+            value.m21,
+            value.m31,
+        };
+    }
+    else if constexpr (ColIndex == 1)
+    {
+        return Matrix4x1<T>{
+            value.m00,
+            value.m10,
+            value.m20,
+            value.m30,
+        };
+    }
+    else
+    {
+        static_assert(ColIndex < 2, "Invalid ColIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t ColIndex,
+          typename T>
+constexpr ggm::Matrix4x2<T> ggm::matrix_drop_col(Matrix4x3<T> const & value) noexcept
+{
+    if constexpr (ColIndex == 0)
+    {
+        return Matrix4x2<T>{
+            // clang-format off
+            value.m01, value.m02,
+            value.m11, value.m12,
+            value.m21, value.m22,
+            value.m31, value.m32,
+            // clang-format on
+        };
+    }
+    else if constexpr (ColIndex == 1)
+    {
+        return Matrix4x2<T>{
+            // clang-format off
+            value.m00, value.m02,
+            value.m10, value.m12,
+            value.m20, value.m22,
+            value.m30, value.m32,
+            // clang-format on
+        };
+    }
+    else if constexpr (ColIndex == 2)
+    {
+        return Matrix4x2<T>{
+            // clang-format off
+            value.m00, value.m01,
+            value.m10, value.m11,
+            value.m20, value.m21,
+            value.m30, value.m31,
+            // clang-format on
+        };
+    }
+    else
+    {
+        static_assert(ColIndex < 3, "Invalid ColIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t ColIndex,
+          typename T>
+constexpr ggm::Matrix4x3<T> ggm::matrix_drop_col(Matrix4x4<T> const & value) noexcept
+{
+    if constexpr (ColIndex == 0)
+    {
+        return Matrix4x3<T>{
+            // clang-format off
+            value.m01, value.m02, value.m03,
+            value.m11, value.m12, value.m13,
+            value.m21, value.m22, value.m23,
+            value.m31, value.m32, value.m33,
+            // clang-format on
+        };
+    }
+    else if constexpr (ColIndex == 1)
+    {
+        return Matrix4x3<T>{
+            // clang-format off
+            value.m00, value.m02, value.m03,
+            value.m10, value.m12, value.m13,
+            value.m20, value.m22, value.m23,
+            value.m30, value.m32, value.m33,
+            // clang-format on
+        };
+    }
+    else if constexpr (ColIndex == 2)
+    {
+        return Matrix4x3<T>{
+            // clang-format off
+            value.m00, value.m01, value.m03,
+            value.m10, value.m11, value.m13,
+            value.m20, value.m21, value.m23,
+            value.m30, value.m31, value.m33,
+            // clang-format on
+        };
+    }
+    else if constexpr (ColIndex == 3)
+    {
+        return Matrix4x3<T>{
+            // clang-format off
+            value.m00, value.m01, value.m02,
+            value.m10, value.m11, value.m12,
+            value.m20, value.m21, value.m22,
+            value.m30, value.m31, value.m32,
+            // clang-format on
+        };
+    }
+    else
+    {
+        static_assert(ColIndex < 4, "Invalid ColIndex");
+    }
 }
 
 // =============================================================================

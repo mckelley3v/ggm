@@ -12,348 +12,535 @@
 // explicitly instantiate templates to confirm they compile without error:
 // =============================================================================
 
-template ggm::Matrix1x1<float> & ggm::operator+= <float>(ggm::Matrix1x1<float> & lhs, ggm::Matrix1x1<float> const & rhs);
-template ggm::Matrix1x2<float> & ggm::operator+= <float>(ggm::Matrix1x2<float> & lhs, ggm::Matrix1x2<float> const & rhs);
-template ggm::Matrix1x3<float> & ggm::operator+= <float>(ggm::Matrix1x3<float> & lhs, ggm::Matrix1x3<float> const & rhs);
-template ggm::Matrix1x4<float> & ggm::operator+= <float>(ggm::Matrix1x4<float> & lhs, ggm::Matrix1x4<float> const & rhs);
-template ggm::Matrix2x1<float> & ggm::operator+= <float>(ggm::Matrix2x1<float> & lhs, ggm::Matrix2x1<float> const & rhs);
-template ggm::Matrix2x2<float> & ggm::operator+= <float>(ggm::Matrix2x2<float> & lhs, ggm::Matrix2x2<float> const & rhs);
-template ggm::Matrix2x3<float> & ggm::operator+= <float>(ggm::Matrix2x3<float> & lhs, ggm::Matrix2x3<float> const & rhs);
-template ggm::Matrix2x4<float> & ggm::operator+= <float>(ggm::Matrix2x4<float> & lhs, ggm::Matrix2x4<float> const & rhs);
-template ggm::Matrix3x1<float> & ggm::operator+= <float>(ggm::Matrix3x1<float> & lhs, ggm::Matrix3x1<float> const & rhs);
-template ggm::Matrix3x2<float> & ggm::operator+= <float>(ggm::Matrix3x2<float> & lhs, ggm::Matrix3x2<float> const & rhs);
-template ggm::Matrix3x3<float> & ggm::operator+= <float>(ggm::Matrix3x3<float> & lhs, ggm::Matrix3x3<float> const & rhs);
-template ggm::Matrix3x4<float> & ggm::operator+= <float>(ggm::Matrix3x4<float> & lhs, ggm::Matrix3x4<float> const & rhs);
-template ggm::Matrix4x1<float> & ggm::operator+= <float>(ggm::Matrix4x1<float> & lhs, ggm::Matrix4x1<float> const & rhs);
-template ggm::Matrix4x2<float> & ggm::operator+= <float>(ggm::Matrix4x2<float> & lhs, ggm::Matrix4x2<float> const & rhs);
-template ggm::Matrix4x3<float> & ggm::operator+= <float>(ggm::Matrix4x3<float> & lhs, ggm::Matrix4x3<float> const & rhs);
-template ggm::Matrix4x4<float> & ggm::operator+= <float>(ggm::Matrix4x4<float> & lhs, ggm::Matrix4x4<float> const & rhs);
+template ggm::Matrix1x1<float> & ggm::operator+= <float>(ggm::Matrix1x1<float> & lhs, ggm::Matrix1x1<float> const & rhs) noexcept;
+template ggm::Matrix1x2<float> & ggm::operator+= <float>(ggm::Matrix1x2<float> & lhs, ggm::Matrix1x2<float> const & rhs) noexcept;
+template ggm::Matrix1x3<float> & ggm::operator+= <float>(ggm::Matrix1x3<float> & lhs, ggm::Matrix1x3<float> const & rhs) noexcept;
+template ggm::Matrix1x4<float> & ggm::operator+= <float>(ggm::Matrix1x4<float> & lhs, ggm::Matrix1x4<float> const & rhs) noexcept;
+template ggm::Matrix2x1<float> & ggm::operator+= <float>(ggm::Matrix2x1<float> & lhs, ggm::Matrix2x1<float> const & rhs) noexcept;
+template ggm::Matrix2x2<float> & ggm::operator+= <float>(ggm::Matrix2x2<float> & lhs, ggm::Matrix2x2<float> const & rhs) noexcept;
+template ggm::Matrix2x3<float> & ggm::operator+= <float>(ggm::Matrix2x3<float> & lhs, ggm::Matrix2x3<float> const & rhs) noexcept;
+template ggm::Matrix2x4<float> & ggm::operator+= <float>(ggm::Matrix2x4<float> & lhs, ggm::Matrix2x4<float> const & rhs) noexcept;
+template ggm::Matrix3x1<float> & ggm::operator+= <float>(ggm::Matrix3x1<float> & lhs, ggm::Matrix3x1<float> const & rhs) noexcept;
+template ggm::Matrix3x2<float> & ggm::operator+= <float>(ggm::Matrix3x2<float> & lhs, ggm::Matrix3x2<float> const & rhs) noexcept;
+template ggm::Matrix3x3<float> & ggm::operator+= <float>(ggm::Matrix3x3<float> & lhs, ggm::Matrix3x3<float> const & rhs) noexcept;
+template ggm::Matrix3x4<float> & ggm::operator+= <float>(ggm::Matrix3x4<float> & lhs, ggm::Matrix3x4<float> const & rhs) noexcept;
+template ggm::Matrix4x1<float> & ggm::operator+= <float>(ggm::Matrix4x1<float> & lhs, ggm::Matrix4x1<float> const & rhs) noexcept;
+template ggm::Matrix4x2<float> & ggm::operator+= <float>(ggm::Matrix4x2<float> & lhs, ggm::Matrix4x2<float> const & rhs) noexcept;
+template ggm::Matrix4x3<float> & ggm::operator+= <float>(ggm::Matrix4x3<float> & lhs, ggm::Matrix4x3<float> const & rhs) noexcept;
+template ggm::Matrix4x4<float> & ggm::operator+= <float>(ggm::Matrix4x4<float> & lhs, ggm::Matrix4x4<float> const & rhs) noexcept;
 
 // =============================================================================
 
-template ggm::Matrix1x1<float> & ggm::operator-= <float>(ggm::Matrix1x1<float> & lhs, ggm::Matrix1x1<float> const & rhs);
-template ggm::Matrix1x2<float> & ggm::operator-= <float>(ggm::Matrix1x2<float> & lhs, ggm::Matrix1x2<float> const & rhs);
-template ggm::Matrix1x3<float> & ggm::operator-= <float>(ggm::Matrix1x3<float> & lhs, ggm::Matrix1x3<float> const & rhs);
-template ggm::Matrix1x4<float> & ggm::operator-= <float>(ggm::Matrix1x4<float> & lhs, ggm::Matrix1x4<float> const & rhs);
-template ggm::Matrix2x1<float> & ggm::operator-= <float>(ggm::Matrix2x1<float> & lhs, ggm::Matrix2x1<float> const & rhs);
-template ggm::Matrix2x2<float> & ggm::operator-= <float>(ggm::Matrix2x2<float> & lhs, ggm::Matrix2x2<float> const & rhs);
-template ggm::Matrix2x3<float> & ggm::operator-= <float>(ggm::Matrix2x3<float> & lhs, ggm::Matrix2x3<float> const & rhs);
-template ggm::Matrix2x4<float> & ggm::operator-= <float>(ggm::Matrix2x4<float> & lhs, ggm::Matrix2x4<float> const & rhs);
-template ggm::Matrix3x1<float> & ggm::operator-= <float>(ggm::Matrix3x1<float> & lhs, ggm::Matrix3x1<float> const & rhs);
-template ggm::Matrix3x2<float> & ggm::operator-= <float>(ggm::Matrix3x2<float> & lhs, ggm::Matrix3x2<float> const & rhs);
-template ggm::Matrix3x3<float> & ggm::operator-= <float>(ggm::Matrix3x3<float> & lhs, ggm::Matrix3x3<float> const & rhs);
-template ggm::Matrix3x4<float> & ggm::operator-= <float>(ggm::Matrix3x4<float> & lhs, ggm::Matrix3x4<float> const & rhs);
-template ggm::Matrix4x1<float> & ggm::operator-= <float>(ggm::Matrix4x1<float> & lhs, ggm::Matrix4x1<float> const & rhs);
-template ggm::Matrix4x2<float> & ggm::operator-= <float>(ggm::Matrix4x2<float> & lhs, ggm::Matrix4x2<float> const & rhs);
-template ggm::Matrix4x3<float> & ggm::operator-= <float>(ggm::Matrix4x3<float> & lhs, ggm::Matrix4x3<float> const & rhs);
-template ggm::Matrix4x4<float> & ggm::operator-= <float>(ggm::Matrix4x4<float> & lhs, ggm::Matrix4x4<float> const & rhs);
+template ggm::Matrix1x1<float> & ggm::operator-= <float>(ggm::Matrix1x1<float> & lhs, ggm::Matrix1x1<float> const & rhs) noexcept;
+template ggm::Matrix1x2<float> & ggm::operator-= <float>(ggm::Matrix1x2<float> & lhs, ggm::Matrix1x2<float> const & rhs) noexcept;
+template ggm::Matrix1x3<float> & ggm::operator-= <float>(ggm::Matrix1x3<float> & lhs, ggm::Matrix1x3<float> const & rhs) noexcept;
+template ggm::Matrix1x4<float> & ggm::operator-= <float>(ggm::Matrix1x4<float> & lhs, ggm::Matrix1x4<float> const & rhs) noexcept;
+template ggm::Matrix2x1<float> & ggm::operator-= <float>(ggm::Matrix2x1<float> & lhs, ggm::Matrix2x1<float> const & rhs) noexcept;
+template ggm::Matrix2x2<float> & ggm::operator-= <float>(ggm::Matrix2x2<float> & lhs, ggm::Matrix2x2<float> const & rhs) noexcept;
+template ggm::Matrix2x3<float> & ggm::operator-= <float>(ggm::Matrix2x3<float> & lhs, ggm::Matrix2x3<float> const & rhs) noexcept;
+template ggm::Matrix2x4<float> & ggm::operator-= <float>(ggm::Matrix2x4<float> & lhs, ggm::Matrix2x4<float> const & rhs) noexcept;
+template ggm::Matrix3x1<float> & ggm::operator-= <float>(ggm::Matrix3x1<float> & lhs, ggm::Matrix3x1<float> const & rhs) noexcept;
+template ggm::Matrix3x2<float> & ggm::operator-= <float>(ggm::Matrix3x2<float> & lhs, ggm::Matrix3x2<float> const & rhs) noexcept;
+template ggm::Matrix3x3<float> & ggm::operator-= <float>(ggm::Matrix3x3<float> & lhs, ggm::Matrix3x3<float> const & rhs) noexcept;
+template ggm::Matrix3x4<float> & ggm::operator-= <float>(ggm::Matrix3x4<float> & lhs, ggm::Matrix3x4<float> const & rhs) noexcept;
+template ggm::Matrix4x1<float> & ggm::operator-= <float>(ggm::Matrix4x1<float> & lhs, ggm::Matrix4x1<float> const & rhs) noexcept;
+template ggm::Matrix4x2<float> & ggm::operator-= <float>(ggm::Matrix4x2<float> & lhs, ggm::Matrix4x2<float> const & rhs) noexcept;
+template ggm::Matrix4x3<float> & ggm::operator-= <float>(ggm::Matrix4x3<float> & lhs, ggm::Matrix4x3<float> const & rhs) noexcept;
+template ggm::Matrix4x4<float> & ggm::operator-= <float>(ggm::Matrix4x4<float> & lhs, ggm::Matrix4x4<float> const & rhs) noexcept;
 
 // =============================================================================
 
-template ggm::Matrix1x1<float> & ggm::operator*= <float>(ggm::Matrix1x1<float> & lhs, float const & rhs);
-template ggm::Matrix1x2<float> & ggm::operator*= <float>(ggm::Matrix1x2<float> & lhs, float const & rhs);
-template ggm::Matrix1x3<float> & ggm::operator*= <float>(ggm::Matrix1x3<float> & lhs, float const & rhs);
-template ggm::Matrix1x4<float> & ggm::operator*= <float>(ggm::Matrix1x4<float> & lhs, float const & rhs);
-template ggm::Matrix2x1<float> & ggm::operator*= <float>(ggm::Matrix2x1<float> & lhs, float const & rhs);
-template ggm::Matrix2x2<float> & ggm::operator*= <float>(ggm::Matrix2x2<float> & lhs, float const & rhs);
-template ggm::Matrix2x3<float> & ggm::operator*= <float>(ggm::Matrix2x3<float> & lhs, float const & rhs);
-template ggm::Matrix2x4<float> & ggm::operator*= <float>(ggm::Matrix2x4<float> & lhs, float const & rhs);
-template ggm::Matrix3x1<float> & ggm::operator*= <float>(ggm::Matrix3x1<float> & lhs, float const & rhs);
-template ggm::Matrix3x2<float> & ggm::operator*= <float>(ggm::Matrix3x2<float> & lhs, float const & rhs);
-template ggm::Matrix3x3<float> & ggm::operator*= <float>(ggm::Matrix3x3<float> & lhs, float const & rhs);
-template ggm::Matrix3x4<float> & ggm::operator*= <float>(ggm::Matrix3x4<float> & lhs, float const & rhs);
-template ggm::Matrix4x1<float> & ggm::operator*= <float>(ggm::Matrix4x1<float> & lhs, float const & rhs);
-template ggm::Matrix4x2<float> & ggm::operator*= <float>(ggm::Matrix4x2<float> & lhs, float const & rhs);
-template ggm::Matrix4x3<float> & ggm::operator*= <float>(ggm::Matrix4x3<float> & lhs, float const & rhs);
-template ggm::Matrix4x4<float> & ggm::operator*= <float>(ggm::Matrix4x4<float> & lhs, float const & rhs);
+template ggm::Matrix1x1<float> & ggm::operator*= <float>(ggm::Matrix1x1<float> & lhs, float const & rhs) noexcept;
+template ggm::Matrix1x2<float> & ggm::operator*= <float>(ggm::Matrix1x2<float> & lhs, float const & rhs) noexcept;
+template ggm::Matrix1x3<float> & ggm::operator*= <float>(ggm::Matrix1x3<float> & lhs, float const & rhs) noexcept;
+template ggm::Matrix1x4<float> & ggm::operator*= <float>(ggm::Matrix1x4<float> & lhs, float const & rhs) noexcept;
+template ggm::Matrix2x1<float> & ggm::operator*= <float>(ggm::Matrix2x1<float> & lhs, float const & rhs) noexcept;
+template ggm::Matrix2x2<float> & ggm::operator*= <float>(ggm::Matrix2x2<float> & lhs, float const & rhs) noexcept;
+template ggm::Matrix2x3<float> & ggm::operator*= <float>(ggm::Matrix2x3<float> & lhs, float const & rhs) noexcept;
+template ggm::Matrix2x4<float> & ggm::operator*= <float>(ggm::Matrix2x4<float> & lhs, float const & rhs) noexcept;
+template ggm::Matrix3x1<float> & ggm::operator*= <float>(ggm::Matrix3x1<float> & lhs, float const & rhs) noexcept;
+template ggm::Matrix3x2<float> & ggm::operator*= <float>(ggm::Matrix3x2<float> & lhs, float const & rhs) noexcept;
+template ggm::Matrix3x3<float> & ggm::operator*= <float>(ggm::Matrix3x3<float> & lhs, float const & rhs) noexcept;
+template ggm::Matrix3x4<float> & ggm::operator*= <float>(ggm::Matrix3x4<float> & lhs, float const & rhs) noexcept;
+template ggm::Matrix4x1<float> & ggm::operator*= <float>(ggm::Matrix4x1<float> & lhs, float const & rhs) noexcept;
+template ggm::Matrix4x2<float> & ggm::operator*= <float>(ggm::Matrix4x2<float> & lhs, float const & rhs) noexcept;
+template ggm::Matrix4x3<float> & ggm::operator*= <float>(ggm::Matrix4x3<float> & lhs, float const & rhs) noexcept;
+template ggm::Matrix4x4<float> & ggm::operator*= <float>(ggm::Matrix4x4<float> & lhs, float const & rhs) noexcept;
 
 // =============================================================================
 
-template ggm::Matrix1x1<float> & ggm::operator*= <float>(ggm::Matrix1x1<float> & lhs, ggm::Matrix1x1<float> const & rhs);
-template ggm::Matrix2x2<float> & ggm::operator*= <float>(ggm::Matrix2x2<float> & lhs, ggm::Matrix2x2<float> const & rhs);
-template ggm::Matrix3x3<float> & ggm::operator*= <float>(ggm::Matrix3x3<float> & lhs, ggm::Matrix3x3<float> const & rhs);
-template ggm::Matrix4x4<float> & ggm::operator*= <float>(ggm::Matrix4x4<float> & lhs, ggm::Matrix4x4<float> const & rhs);
+template ggm::Matrix1x1<float> & ggm::operator*= <float>(ggm::Matrix1x1<float> & lhs, ggm::Matrix1x1<float> const & rhs) noexcept;
+template ggm::Matrix2x2<float> & ggm::operator*= <float>(ggm::Matrix2x2<float> & lhs, ggm::Matrix2x2<float> const & rhs) noexcept;
+template ggm::Matrix3x3<float> & ggm::operator*= <float>(ggm::Matrix3x3<float> & lhs, ggm::Matrix3x3<float> const & rhs) noexcept;
+template ggm::Matrix4x4<float> & ggm::operator*= <float>(ggm::Matrix4x4<float> & lhs, ggm::Matrix4x4<float> const & rhs) noexcept;
 
 // =============================================================================
 
-template ggm::Matrix1x1<float> & ggm::operator/= <float>(ggm::Matrix1x1<float> & lhs, float const & rhs);
-template ggm::Matrix1x2<float> & ggm::operator/= <float>(ggm::Matrix1x2<float> & lhs, float const & rhs);
-template ggm::Matrix1x3<float> & ggm::operator/= <float>(ggm::Matrix1x3<float> & lhs, float const & rhs);
-template ggm::Matrix1x4<float> & ggm::operator/= <float>(ggm::Matrix1x4<float> & lhs, float const & rhs);
-template ggm::Matrix2x1<float> & ggm::operator/= <float>(ggm::Matrix2x1<float> & lhs, float const & rhs);
-template ggm::Matrix2x2<float> & ggm::operator/= <float>(ggm::Matrix2x2<float> & lhs, float const & rhs);
-template ggm::Matrix2x3<float> & ggm::operator/= <float>(ggm::Matrix2x3<float> & lhs, float const & rhs);
-template ggm::Matrix2x4<float> & ggm::operator/= <float>(ggm::Matrix2x4<float> & lhs, float const & rhs);
-template ggm::Matrix3x1<float> & ggm::operator/= <float>(ggm::Matrix3x1<float> & lhs, float const & rhs);
-template ggm::Matrix3x2<float> & ggm::operator/= <float>(ggm::Matrix3x2<float> & lhs, float const & rhs);
-template ggm::Matrix3x3<float> & ggm::operator/= <float>(ggm::Matrix3x3<float> & lhs, float const & rhs);
-template ggm::Matrix3x4<float> & ggm::operator/= <float>(ggm::Matrix3x4<float> & lhs, float const & rhs);
-template ggm::Matrix4x1<float> & ggm::operator/= <float>(ggm::Matrix4x1<float> & lhs, float const & rhs);
-template ggm::Matrix4x2<float> & ggm::operator/= <float>(ggm::Matrix4x2<float> & lhs, float const & rhs);
-template ggm::Matrix4x3<float> & ggm::operator/= <float>(ggm::Matrix4x3<float> & lhs, float const & rhs);
-template ggm::Matrix4x4<float> & ggm::operator/= <float>(ggm::Matrix4x4<float> & lhs, float const & rhs);
+template ggm::Matrix1x1<float> & ggm::operator/= <float>(ggm::Matrix1x1<float> & lhs, float const & rhs) noexcept;
+template ggm::Matrix1x2<float> & ggm::operator/= <float>(ggm::Matrix1x2<float> & lhs, float const & rhs) noexcept;
+template ggm::Matrix1x3<float> & ggm::operator/= <float>(ggm::Matrix1x3<float> & lhs, float const & rhs) noexcept;
+template ggm::Matrix1x4<float> & ggm::operator/= <float>(ggm::Matrix1x4<float> & lhs, float const & rhs) noexcept;
+template ggm::Matrix2x1<float> & ggm::operator/= <float>(ggm::Matrix2x1<float> & lhs, float const & rhs) noexcept;
+template ggm::Matrix2x2<float> & ggm::operator/= <float>(ggm::Matrix2x2<float> & lhs, float const & rhs) noexcept;
+template ggm::Matrix2x3<float> & ggm::operator/= <float>(ggm::Matrix2x3<float> & lhs, float const & rhs) noexcept;
+template ggm::Matrix2x4<float> & ggm::operator/= <float>(ggm::Matrix2x4<float> & lhs, float const & rhs) noexcept;
+template ggm::Matrix3x1<float> & ggm::operator/= <float>(ggm::Matrix3x1<float> & lhs, float const & rhs) noexcept;
+template ggm::Matrix3x2<float> & ggm::operator/= <float>(ggm::Matrix3x2<float> & lhs, float const & rhs) noexcept;
+template ggm::Matrix3x3<float> & ggm::operator/= <float>(ggm::Matrix3x3<float> & lhs, float const & rhs) noexcept;
+template ggm::Matrix3x4<float> & ggm::operator/= <float>(ggm::Matrix3x4<float> & lhs, float const & rhs) noexcept;
+template ggm::Matrix4x1<float> & ggm::operator/= <float>(ggm::Matrix4x1<float> & lhs, float const & rhs) noexcept;
+template ggm::Matrix4x2<float> & ggm::operator/= <float>(ggm::Matrix4x2<float> & lhs, float const & rhs) noexcept;
+template ggm::Matrix4x3<float> & ggm::operator/= <float>(ggm::Matrix4x3<float> & lhs, float const & rhs) noexcept;
+template ggm::Matrix4x4<float> & ggm::operator/= <float>(ggm::Matrix4x4<float> & lhs, float const & rhs) noexcept;
 
 // =============================================================================
 
-template ggm::Matrix1x1<float> ggm::operator+ <float>(ggm::Matrix1x1<float> const & value);
-template ggm::Matrix1x2<float> ggm::operator+ <float>(ggm::Matrix1x2<float> const & value);
-template ggm::Matrix1x3<float> ggm::operator+ <float>(ggm::Matrix1x3<float> const & value);
-template ggm::Matrix1x4<float> ggm::operator+ <float>(ggm::Matrix1x4<float> const & value);
-template ggm::Matrix2x1<float> ggm::operator+ <float>(ggm::Matrix2x1<float> const & value);
-template ggm::Matrix2x2<float> ggm::operator+ <float>(ggm::Matrix2x2<float> const & value);
-template ggm::Matrix2x3<float> ggm::operator+ <float>(ggm::Matrix2x3<float> const & value);
-template ggm::Matrix2x4<float> ggm::operator+ <float>(ggm::Matrix2x4<float> const & value);
-template ggm::Matrix3x1<float> ggm::operator+ <float>(ggm::Matrix3x1<float> const & value);
-template ggm::Matrix3x2<float> ggm::operator+ <float>(ggm::Matrix3x2<float> const & value);
-template ggm::Matrix3x3<float> ggm::operator+ <float>(ggm::Matrix3x3<float> const & value);
-template ggm::Matrix3x4<float> ggm::operator+ <float>(ggm::Matrix3x4<float> const & value);
-template ggm::Matrix4x1<float> ggm::operator+ <float>(ggm::Matrix4x1<float> const & value);
-template ggm::Matrix4x2<float> ggm::operator+ <float>(ggm::Matrix4x2<float> const & value);
-template ggm::Matrix4x3<float> ggm::operator+ <float>(ggm::Matrix4x3<float> const & value);
-template ggm::Matrix4x4<float> ggm::operator+ <float>(ggm::Matrix4x4<float> const & value);
+template ggm::Matrix1x1<float> ggm::operator+ <float>(ggm::Matrix1x1<float> const & value) noexcept;
+template ggm::Matrix1x2<float> ggm::operator+ <float>(ggm::Matrix1x2<float> const & value) noexcept;
+template ggm::Matrix1x3<float> ggm::operator+ <float>(ggm::Matrix1x3<float> const & value) noexcept;
+template ggm::Matrix1x4<float> ggm::operator+ <float>(ggm::Matrix1x4<float> const & value) noexcept;
+template ggm::Matrix2x1<float> ggm::operator+ <float>(ggm::Matrix2x1<float> const & value) noexcept;
+template ggm::Matrix2x2<float> ggm::operator+ <float>(ggm::Matrix2x2<float> const & value) noexcept;
+template ggm::Matrix2x3<float> ggm::operator+ <float>(ggm::Matrix2x3<float> const & value) noexcept;
+template ggm::Matrix2x4<float> ggm::operator+ <float>(ggm::Matrix2x4<float> const & value) noexcept;
+template ggm::Matrix3x1<float> ggm::operator+ <float>(ggm::Matrix3x1<float> const & value) noexcept;
+template ggm::Matrix3x2<float> ggm::operator+ <float>(ggm::Matrix3x2<float> const & value) noexcept;
+template ggm::Matrix3x3<float> ggm::operator+ <float>(ggm::Matrix3x3<float> const & value) noexcept;
+template ggm::Matrix3x4<float> ggm::operator+ <float>(ggm::Matrix3x4<float> const & value) noexcept;
+template ggm::Matrix4x1<float> ggm::operator+ <float>(ggm::Matrix4x1<float> const & value) noexcept;
+template ggm::Matrix4x2<float> ggm::operator+ <float>(ggm::Matrix4x2<float> const & value) noexcept;
+template ggm::Matrix4x3<float> ggm::operator+ <float>(ggm::Matrix4x3<float> const & value) noexcept;
+template ggm::Matrix4x4<float> ggm::operator+ <float>(ggm::Matrix4x4<float> const & value) noexcept;
 
 // =============================================================================
 
-template ggm::Matrix1x1<float> ggm::operator- <float>(ggm::Matrix1x1<float> const & value);
-template ggm::Matrix1x2<float> ggm::operator- <float>(ggm::Matrix1x2<float> const & value);
-template ggm::Matrix1x3<float> ggm::operator- <float>(ggm::Matrix1x3<float> const & value);
-template ggm::Matrix1x4<float> ggm::operator- <float>(ggm::Matrix1x4<float> const & value);
-template ggm::Matrix2x1<float> ggm::operator- <float>(ggm::Matrix2x1<float> const & value);
-template ggm::Matrix2x2<float> ggm::operator- <float>(ggm::Matrix2x2<float> const & value);
-template ggm::Matrix2x3<float> ggm::operator- <float>(ggm::Matrix2x3<float> const & value);
-template ggm::Matrix2x4<float> ggm::operator- <float>(ggm::Matrix2x4<float> const & value);
-template ggm::Matrix3x1<float> ggm::operator- <float>(ggm::Matrix3x1<float> const & value);
-template ggm::Matrix3x2<float> ggm::operator- <float>(ggm::Matrix3x2<float> const & value);
-template ggm::Matrix3x3<float> ggm::operator- <float>(ggm::Matrix3x3<float> const & value);
-template ggm::Matrix3x4<float> ggm::operator- <float>(ggm::Matrix3x4<float> const & value);
-template ggm::Matrix4x1<float> ggm::operator- <float>(ggm::Matrix4x1<float> const & value);
-template ggm::Matrix4x2<float> ggm::operator- <float>(ggm::Matrix4x2<float> const & value);
-template ggm::Matrix4x3<float> ggm::operator- <float>(ggm::Matrix4x3<float> const & value);
-template ggm::Matrix4x4<float> ggm::operator- <float>(ggm::Matrix4x4<float> const & value);
+template ggm::Matrix1x1<float> ggm::operator- <float>(ggm::Matrix1x1<float> const & value) noexcept;
+template ggm::Matrix1x2<float> ggm::operator- <float>(ggm::Matrix1x2<float> const & value) noexcept;
+template ggm::Matrix1x3<float> ggm::operator- <float>(ggm::Matrix1x3<float> const & value) noexcept;
+template ggm::Matrix1x4<float> ggm::operator- <float>(ggm::Matrix1x4<float> const & value) noexcept;
+template ggm::Matrix2x1<float> ggm::operator- <float>(ggm::Matrix2x1<float> const & value) noexcept;
+template ggm::Matrix2x2<float> ggm::operator- <float>(ggm::Matrix2x2<float> const & value) noexcept;
+template ggm::Matrix2x3<float> ggm::operator- <float>(ggm::Matrix2x3<float> const & value) noexcept;
+template ggm::Matrix2x4<float> ggm::operator- <float>(ggm::Matrix2x4<float> const & value) noexcept;
+template ggm::Matrix3x1<float> ggm::operator- <float>(ggm::Matrix3x1<float> const & value) noexcept;
+template ggm::Matrix3x2<float> ggm::operator- <float>(ggm::Matrix3x2<float> const & value) noexcept;
+template ggm::Matrix3x3<float> ggm::operator- <float>(ggm::Matrix3x3<float> const & value) noexcept;
+template ggm::Matrix3x4<float> ggm::operator- <float>(ggm::Matrix3x4<float> const & value) noexcept;
+template ggm::Matrix4x1<float> ggm::operator- <float>(ggm::Matrix4x1<float> const & value) noexcept;
+template ggm::Matrix4x2<float> ggm::operator- <float>(ggm::Matrix4x2<float> const & value) noexcept;
+template ggm::Matrix4x3<float> ggm::operator- <float>(ggm::Matrix4x3<float> const & value) noexcept;
+template ggm::Matrix4x4<float> ggm::operator- <float>(ggm::Matrix4x4<float> const & value) noexcept;
 
 // =============================================================================
 
-template ggm::Matrix1x1<float> ggm::operator+ <float>(ggm::Matrix1x1<float> const & lhs, ggm::Matrix1x1<float> const & rhs);
-template ggm::Matrix1x2<float> ggm::operator+ <float>(ggm::Matrix1x2<float> const & lhs, ggm::Matrix1x2<float> const & rhs);
-template ggm::Matrix1x3<float> ggm::operator+ <float>(ggm::Matrix1x3<float> const & lhs, ggm::Matrix1x3<float> const & rhs);
-template ggm::Matrix1x4<float> ggm::operator+ <float>(ggm::Matrix1x4<float> const & lhs, ggm::Matrix1x4<float> const & rhs);
-template ggm::Matrix2x1<float> ggm::operator+ <float>(ggm::Matrix2x1<float> const & lhs, ggm::Matrix2x1<float> const & rhs);
-template ggm::Matrix2x2<float> ggm::operator+ <float>(ggm::Matrix2x2<float> const & lhs, ggm::Matrix2x2<float> const & rhs);
-template ggm::Matrix2x3<float> ggm::operator+ <float>(ggm::Matrix2x3<float> const & lhs, ggm::Matrix2x3<float> const & rhs);
-template ggm::Matrix2x4<float> ggm::operator+ <float>(ggm::Matrix2x4<float> const & lhs, ggm::Matrix2x4<float> const & rhs);
-template ggm::Matrix3x1<float> ggm::operator+ <float>(ggm::Matrix3x1<float> const & lhs, ggm::Matrix3x1<float> const & rhs);
-template ggm::Matrix3x2<float> ggm::operator+ <float>(ggm::Matrix3x2<float> const & lhs, ggm::Matrix3x2<float> const & rhs);
-template ggm::Matrix3x3<float> ggm::operator+ <float>(ggm::Matrix3x3<float> const & lhs, ggm::Matrix3x3<float> const & rhs);
-template ggm::Matrix3x4<float> ggm::operator+ <float>(ggm::Matrix3x4<float> const & lhs, ggm::Matrix3x4<float> const & rhs);
-template ggm::Matrix4x1<float> ggm::operator+ <float>(ggm::Matrix4x1<float> const & lhs, ggm::Matrix4x1<float> const & rhs);
-template ggm::Matrix4x2<float> ggm::operator+ <float>(ggm::Matrix4x2<float> const & lhs, ggm::Matrix4x2<float> const & rhs);
-template ggm::Matrix4x3<float> ggm::operator+ <float>(ggm::Matrix4x3<float> const & lhs, ggm::Matrix4x3<float> const & rhs);
-template ggm::Matrix4x4<float> ggm::operator+ <float>(ggm::Matrix4x4<float> const & lhs, ggm::Matrix4x4<float> const & rhs);
+template ggm::Matrix1x1<float> ggm::operator+ <float>(ggm::Matrix1x1<float> const & lhs, ggm::Matrix1x1<float> const & rhs) noexcept;
+template ggm::Matrix1x2<float> ggm::operator+ <float>(ggm::Matrix1x2<float> const & lhs, ggm::Matrix1x2<float> const & rhs) noexcept;
+template ggm::Matrix1x3<float> ggm::operator+ <float>(ggm::Matrix1x3<float> const & lhs, ggm::Matrix1x3<float> const & rhs) noexcept;
+template ggm::Matrix1x4<float> ggm::operator+ <float>(ggm::Matrix1x4<float> const & lhs, ggm::Matrix1x4<float> const & rhs) noexcept;
+template ggm::Matrix2x1<float> ggm::operator+ <float>(ggm::Matrix2x1<float> const & lhs, ggm::Matrix2x1<float> const & rhs) noexcept;
+template ggm::Matrix2x2<float> ggm::operator+ <float>(ggm::Matrix2x2<float> const & lhs, ggm::Matrix2x2<float> const & rhs) noexcept;
+template ggm::Matrix2x3<float> ggm::operator+ <float>(ggm::Matrix2x3<float> const & lhs, ggm::Matrix2x3<float> const & rhs) noexcept;
+template ggm::Matrix2x4<float> ggm::operator+ <float>(ggm::Matrix2x4<float> const & lhs, ggm::Matrix2x4<float> const & rhs) noexcept;
+template ggm::Matrix3x1<float> ggm::operator+ <float>(ggm::Matrix3x1<float> const & lhs, ggm::Matrix3x1<float> const & rhs) noexcept;
+template ggm::Matrix3x2<float> ggm::operator+ <float>(ggm::Matrix3x2<float> const & lhs, ggm::Matrix3x2<float> const & rhs) noexcept;
+template ggm::Matrix3x3<float> ggm::operator+ <float>(ggm::Matrix3x3<float> const & lhs, ggm::Matrix3x3<float> const & rhs) noexcept;
+template ggm::Matrix3x4<float> ggm::operator+ <float>(ggm::Matrix3x4<float> const & lhs, ggm::Matrix3x4<float> const & rhs) noexcept;
+template ggm::Matrix4x1<float> ggm::operator+ <float>(ggm::Matrix4x1<float> const & lhs, ggm::Matrix4x1<float> const & rhs) noexcept;
+template ggm::Matrix4x2<float> ggm::operator+ <float>(ggm::Matrix4x2<float> const & lhs, ggm::Matrix4x2<float> const & rhs) noexcept;
+template ggm::Matrix4x3<float> ggm::operator+ <float>(ggm::Matrix4x3<float> const & lhs, ggm::Matrix4x3<float> const & rhs) noexcept;
+template ggm::Matrix4x4<float> ggm::operator+ <float>(ggm::Matrix4x4<float> const & lhs, ggm::Matrix4x4<float> const & rhs) noexcept;
 
 // =============================================================================
 
-template ggm::Matrix1x1<float> ggm::operator- <float>(ggm::Matrix1x1<float> const & lhs, ggm::Matrix1x1<float> const & rhs);
-template ggm::Matrix1x2<float> ggm::operator- <float>(ggm::Matrix1x2<float> const & lhs, ggm::Matrix1x2<float> const & rhs);
-template ggm::Matrix1x3<float> ggm::operator- <float>(ggm::Matrix1x3<float> const & lhs, ggm::Matrix1x3<float> const & rhs);
-template ggm::Matrix1x4<float> ggm::operator- <float>(ggm::Matrix1x4<float> const & lhs, ggm::Matrix1x4<float> const & rhs);
-template ggm::Matrix2x1<float> ggm::operator- <float>(ggm::Matrix2x1<float> const & lhs, ggm::Matrix2x1<float> const & rhs);
-template ggm::Matrix2x2<float> ggm::operator- <float>(ggm::Matrix2x2<float> const & lhs, ggm::Matrix2x2<float> const & rhs);
-template ggm::Matrix2x3<float> ggm::operator- <float>(ggm::Matrix2x3<float> const & lhs, ggm::Matrix2x3<float> const & rhs);
-template ggm::Matrix2x4<float> ggm::operator- <float>(ggm::Matrix2x4<float> const & lhs, ggm::Matrix2x4<float> const & rhs);
-template ggm::Matrix3x1<float> ggm::operator- <float>(ggm::Matrix3x1<float> const & lhs, ggm::Matrix3x1<float> const & rhs);
-template ggm::Matrix3x2<float> ggm::operator- <float>(ggm::Matrix3x2<float> const & lhs, ggm::Matrix3x2<float> const & rhs);
-template ggm::Matrix3x3<float> ggm::operator- <float>(ggm::Matrix3x3<float> const & lhs, ggm::Matrix3x3<float> const & rhs);
-template ggm::Matrix3x4<float> ggm::operator- <float>(ggm::Matrix3x4<float> const & lhs, ggm::Matrix3x4<float> const & rhs);
-template ggm::Matrix4x1<float> ggm::operator- <float>(ggm::Matrix4x1<float> const & lhs, ggm::Matrix4x1<float> const & rhs);
-template ggm::Matrix4x2<float> ggm::operator- <float>(ggm::Matrix4x2<float> const & lhs, ggm::Matrix4x2<float> const & rhs);
-template ggm::Matrix4x3<float> ggm::operator- <float>(ggm::Matrix4x3<float> const & lhs, ggm::Matrix4x3<float> const & rhs);
-template ggm::Matrix4x4<float> ggm::operator- <float>(ggm::Matrix4x4<float> const & lhs, ggm::Matrix4x4<float> const & rhs);
+template ggm::Matrix1x1<float> ggm::operator- <float>(ggm::Matrix1x1<float> const & lhs, ggm::Matrix1x1<float> const & rhs) noexcept;
+template ggm::Matrix1x2<float> ggm::operator- <float>(ggm::Matrix1x2<float> const & lhs, ggm::Matrix1x2<float> const & rhs) noexcept;
+template ggm::Matrix1x3<float> ggm::operator- <float>(ggm::Matrix1x3<float> const & lhs, ggm::Matrix1x3<float> const & rhs) noexcept;
+template ggm::Matrix1x4<float> ggm::operator- <float>(ggm::Matrix1x4<float> const & lhs, ggm::Matrix1x4<float> const & rhs) noexcept;
+template ggm::Matrix2x1<float> ggm::operator- <float>(ggm::Matrix2x1<float> const & lhs, ggm::Matrix2x1<float> const & rhs) noexcept;
+template ggm::Matrix2x2<float> ggm::operator- <float>(ggm::Matrix2x2<float> const & lhs, ggm::Matrix2x2<float> const & rhs) noexcept;
+template ggm::Matrix2x3<float> ggm::operator- <float>(ggm::Matrix2x3<float> const & lhs, ggm::Matrix2x3<float> const & rhs) noexcept;
+template ggm::Matrix2x4<float> ggm::operator- <float>(ggm::Matrix2x4<float> const & lhs, ggm::Matrix2x4<float> const & rhs) noexcept;
+template ggm::Matrix3x1<float> ggm::operator- <float>(ggm::Matrix3x1<float> const & lhs, ggm::Matrix3x1<float> const & rhs) noexcept;
+template ggm::Matrix3x2<float> ggm::operator- <float>(ggm::Matrix3x2<float> const & lhs, ggm::Matrix3x2<float> const & rhs) noexcept;
+template ggm::Matrix3x3<float> ggm::operator- <float>(ggm::Matrix3x3<float> const & lhs, ggm::Matrix3x3<float> const & rhs) noexcept;
+template ggm::Matrix3x4<float> ggm::operator- <float>(ggm::Matrix3x4<float> const & lhs, ggm::Matrix3x4<float> const & rhs) noexcept;
+template ggm::Matrix4x1<float> ggm::operator- <float>(ggm::Matrix4x1<float> const & lhs, ggm::Matrix4x1<float> const & rhs) noexcept;
+template ggm::Matrix4x2<float> ggm::operator- <float>(ggm::Matrix4x2<float> const & lhs, ggm::Matrix4x2<float> const & rhs) noexcept;
+template ggm::Matrix4x3<float> ggm::operator- <float>(ggm::Matrix4x3<float> const & lhs, ggm::Matrix4x3<float> const & rhs) noexcept;
+template ggm::Matrix4x4<float> ggm::operator- <float>(ggm::Matrix4x4<float> const & lhs, ggm::Matrix4x4<float> const & rhs) noexcept;
 
 // =============================================================================
 
-template bool ggm::operator== <float>(ggm::Matrix1x1<float> const & lhs, ggm::Matrix1x1<float> const & rhs);
-template bool ggm::operator== <float>(ggm::Matrix1x2<float> const & lhs, ggm::Matrix1x2<float> const & rhs);
-template bool ggm::operator== <float>(ggm::Matrix1x3<float> const & lhs, ggm::Matrix1x3<float> const & rhs);
-template bool ggm::operator== <float>(ggm::Matrix1x4<float> const & lhs, ggm::Matrix1x4<float> const & rhs);
-template bool ggm::operator== <float>(ggm::Matrix2x1<float> const & lhs, ggm::Matrix2x1<float> const & rhs);
-template bool ggm::operator== <float>(ggm::Matrix2x2<float> const & lhs, ggm::Matrix2x2<float> const & rhs);
-template bool ggm::operator== <float>(ggm::Matrix2x3<float> const & lhs, ggm::Matrix2x3<float> const & rhs);
-template bool ggm::operator== <float>(ggm::Matrix2x4<float> const & lhs, ggm::Matrix2x4<float> const & rhs);
-template bool ggm::operator== <float>(ggm::Matrix3x1<float> const & lhs, ggm::Matrix3x1<float> const & rhs);
-template bool ggm::operator== <float>(ggm::Matrix3x2<float> const & lhs, ggm::Matrix3x2<float> const & rhs);
-template bool ggm::operator== <float>(ggm::Matrix3x3<float> const & lhs, ggm::Matrix3x3<float> const & rhs);
-template bool ggm::operator== <float>(ggm::Matrix3x4<float> const & lhs, ggm::Matrix3x4<float> const & rhs);
-template bool ggm::operator== <float>(ggm::Matrix4x1<float> const & lhs, ggm::Matrix4x1<float> const & rhs);
-template bool ggm::operator== <float>(ggm::Matrix4x2<float> const & lhs, ggm::Matrix4x2<float> const & rhs);
-template bool ggm::operator== <float>(ggm::Matrix4x3<float> const & lhs, ggm::Matrix4x3<float> const & rhs);
-template bool ggm::operator== <float>(ggm::Matrix4x4<float> const & lhs, ggm::Matrix4x4<float> const & rhs);
+template bool ggm::operator== <float>(ggm::Matrix1x1<float> const & lhs, ggm::Matrix1x1<float> const & rhs) noexcept;
+template bool ggm::operator== <float>(ggm::Matrix1x2<float> const & lhs, ggm::Matrix1x2<float> const & rhs) noexcept;
+template bool ggm::operator== <float>(ggm::Matrix1x3<float> const & lhs, ggm::Matrix1x3<float> const & rhs) noexcept;
+template bool ggm::operator== <float>(ggm::Matrix1x4<float> const & lhs, ggm::Matrix1x4<float> const & rhs) noexcept;
+template bool ggm::operator== <float>(ggm::Matrix2x1<float> const & lhs, ggm::Matrix2x1<float> const & rhs) noexcept;
+template bool ggm::operator== <float>(ggm::Matrix2x2<float> const & lhs, ggm::Matrix2x2<float> const & rhs) noexcept;
+template bool ggm::operator== <float>(ggm::Matrix2x3<float> const & lhs, ggm::Matrix2x3<float> const & rhs) noexcept;
+template bool ggm::operator== <float>(ggm::Matrix2x4<float> const & lhs, ggm::Matrix2x4<float> const & rhs) noexcept;
+template bool ggm::operator== <float>(ggm::Matrix3x1<float> const & lhs, ggm::Matrix3x1<float> const & rhs) noexcept;
+template bool ggm::operator== <float>(ggm::Matrix3x2<float> const & lhs, ggm::Matrix3x2<float> const & rhs) noexcept;
+template bool ggm::operator== <float>(ggm::Matrix3x3<float> const & lhs, ggm::Matrix3x3<float> const & rhs) noexcept;
+template bool ggm::operator== <float>(ggm::Matrix3x4<float> const & lhs, ggm::Matrix3x4<float> const & rhs) noexcept;
+template bool ggm::operator== <float>(ggm::Matrix4x1<float> const & lhs, ggm::Matrix4x1<float> const & rhs) noexcept;
+template bool ggm::operator== <float>(ggm::Matrix4x2<float> const & lhs, ggm::Matrix4x2<float> const & rhs) noexcept;
+template bool ggm::operator== <float>(ggm::Matrix4x3<float> const & lhs, ggm::Matrix4x3<float> const & rhs) noexcept;
+template bool ggm::operator== <float>(ggm::Matrix4x4<float> const & lhs, ggm::Matrix4x4<float> const & rhs) noexcept;
 
 // =============================================================================
 
-template bool ggm::operator!= <float>(ggm::Matrix1x1<float> const & lhs, ggm::Matrix1x1<float> const & rhs);
-template bool ggm::operator!= <float>(ggm::Matrix1x2<float> const & lhs, ggm::Matrix1x2<float> const & rhs);
-template bool ggm::operator!= <float>(ggm::Matrix1x3<float> const & lhs, ggm::Matrix1x3<float> const & rhs);
-template bool ggm::operator!= <float>(ggm::Matrix1x4<float> const & lhs, ggm::Matrix1x4<float> const & rhs);
-template bool ggm::operator!= <float>(ggm::Matrix2x1<float> const & lhs, ggm::Matrix2x1<float> const & rhs);
-template bool ggm::operator!= <float>(ggm::Matrix2x2<float> const & lhs, ggm::Matrix2x2<float> const & rhs);
-template bool ggm::operator!= <float>(ggm::Matrix2x3<float> const & lhs, ggm::Matrix2x3<float> const & rhs);
-template bool ggm::operator!= <float>(ggm::Matrix2x4<float> const & lhs, ggm::Matrix2x4<float> const & rhs);
-template bool ggm::operator!= <float>(ggm::Matrix3x1<float> const & lhs, ggm::Matrix3x1<float> const & rhs);
-template bool ggm::operator!= <float>(ggm::Matrix3x2<float> const & lhs, ggm::Matrix3x2<float> const & rhs);
-template bool ggm::operator!= <float>(ggm::Matrix3x3<float> const & lhs, ggm::Matrix3x3<float> const & rhs);
-template bool ggm::operator!= <float>(ggm::Matrix3x4<float> const & lhs, ggm::Matrix3x4<float> const & rhs);
-template bool ggm::operator!= <float>(ggm::Matrix4x1<float> const & lhs, ggm::Matrix4x1<float> const & rhs);
-template bool ggm::operator!= <float>(ggm::Matrix4x2<float> const & lhs, ggm::Matrix4x2<float> const & rhs);
-template bool ggm::operator!= <float>(ggm::Matrix4x3<float> const & lhs, ggm::Matrix4x3<float> const & rhs);
-template bool ggm::operator!= <float>(ggm::Matrix4x4<float> const & lhs, ggm::Matrix4x4<float> const & rhs);
+template bool ggm::operator!= <float>(ggm::Matrix1x1<float> const & lhs, ggm::Matrix1x1<float> const & rhs) noexcept;
+template bool ggm::operator!= <float>(ggm::Matrix1x2<float> const & lhs, ggm::Matrix1x2<float> const & rhs) noexcept;
+template bool ggm::operator!= <float>(ggm::Matrix1x3<float> const & lhs, ggm::Matrix1x3<float> const & rhs) noexcept;
+template bool ggm::operator!= <float>(ggm::Matrix1x4<float> const & lhs, ggm::Matrix1x4<float> const & rhs) noexcept;
+template bool ggm::operator!= <float>(ggm::Matrix2x1<float> const & lhs, ggm::Matrix2x1<float> const & rhs) noexcept;
+template bool ggm::operator!= <float>(ggm::Matrix2x2<float> const & lhs, ggm::Matrix2x2<float> const & rhs) noexcept;
+template bool ggm::operator!= <float>(ggm::Matrix2x3<float> const & lhs, ggm::Matrix2x3<float> const & rhs) noexcept;
+template bool ggm::operator!= <float>(ggm::Matrix2x4<float> const & lhs, ggm::Matrix2x4<float> const & rhs) noexcept;
+template bool ggm::operator!= <float>(ggm::Matrix3x1<float> const & lhs, ggm::Matrix3x1<float> const & rhs) noexcept;
+template bool ggm::operator!= <float>(ggm::Matrix3x2<float> const & lhs, ggm::Matrix3x2<float> const & rhs) noexcept;
+template bool ggm::operator!= <float>(ggm::Matrix3x3<float> const & lhs, ggm::Matrix3x3<float> const & rhs) noexcept;
+template bool ggm::operator!= <float>(ggm::Matrix3x4<float> const & lhs, ggm::Matrix3x4<float> const & rhs) noexcept;
+template bool ggm::operator!= <float>(ggm::Matrix4x1<float> const & lhs, ggm::Matrix4x1<float> const & rhs) noexcept;
+template bool ggm::operator!= <float>(ggm::Matrix4x2<float> const & lhs, ggm::Matrix4x2<float> const & rhs) noexcept;
+template bool ggm::operator!= <float>(ggm::Matrix4x3<float> const & lhs, ggm::Matrix4x3<float> const & rhs) noexcept;
+template bool ggm::operator!= <float>(ggm::Matrix4x4<float> const & lhs, ggm::Matrix4x4<float> const & rhs) noexcept;
 
 // =============================================================================
 
-template ggm::Matrix1x1<float> ggm::operator*(float const & lhs, ggm::Matrix1x1<float> const & rhs);
-template ggm::Matrix1x2<float> ggm::operator*(float const & lhs, ggm::Matrix1x2<float> const & rhs);
-template ggm::Matrix1x3<float> ggm::operator*(float const & lhs, ggm::Matrix1x3<float> const & rhs);
-template ggm::Matrix1x4<float> ggm::operator*(float const & lhs, ggm::Matrix1x4<float> const & rhs);
+template ggm::Matrix1x1<float> ggm::operator* <float>(float const & lhs, ggm::Matrix1x1<float> const & rhs) noexcept;
+template ggm::Matrix1x2<float> ggm::operator* <float>(float const & lhs, ggm::Matrix1x2<float> const & rhs) noexcept;
+template ggm::Matrix1x3<float> ggm::operator* <float>(float const & lhs, ggm::Matrix1x3<float> const & rhs) noexcept;
+template ggm::Matrix1x4<float> ggm::operator* <float>(float const & lhs, ggm::Matrix1x4<float> const & rhs) noexcept;
 
-template ggm::Matrix2x1<float> ggm::operator*(float const & lhs, ggm::Matrix2x1<float> const & rhs);
-template ggm::Matrix2x2<float> ggm::operator*(float const & lhs, ggm::Matrix2x2<float> const & rhs);
-template ggm::Matrix2x3<float> ggm::operator*(float const & lhs, ggm::Matrix2x3<float> const & rhs);
-template ggm::Matrix2x4<float> ggm::operator*(float const & lhs, ggm::Matrix2x4<float> const & rhs);
+template ggm::Matrix2x1<float> ggm::operator* <float>(float const & lhs, ggm::Matrix2x1<float> const & rhs) noexcept;
+template ggm::Matrix2x2<float> ggm::operator* <float>(float const & lhs, ggm::Matrix2x2<float> const & rhs) noexcept;
+template ggm::Matrix2x3<float> ggm::operator* <float>(float const & lhs, ggm::Matrix2x3<float> const & rhs) noexcept;
+template ggm::Matrix2x4<float> ggm::operator* <float>(float const & lhs, ggm::Matrix2x4<float> const & rhs) noexcept;
 
-template ggm::Matrix3x1<float> ggm::operator*(float const & lhs, ggm::Matrix3x1<float> const & rhs);
-template ggm::Matrix3x2<float> ggm::operator*(float const & lhs, ggm::Matrix3x2<float> const & rhs);
-template ggm::Matrix3x3<float> ggm::operator*(float const & lhs, ggm::Matrix3x3<float> const & rhs);
-template ggm::Matrix3x4<float> ggm::operator*(float const & lhs, ggm::Matrix3x4<float> const & rhs);
+template ggm::Matrix3x1<float> ggm::operator* <float>(float const & lhs, ggm::Matrix3x1<float> const & rhs) noexcept;
+template ggm::Matrix3x2<float> ggm::operator* <float>(float const & lhs, ggm::Matrix3x2<float> const & rhs) noexcept;
+template ggm::Matrix3x3<float> ggm::operator* <float>(float const & lhs, ggm::Matrix3x3<float> const & rhs) noexcept;
+template ggm::Matrix3x4<float> ggm::operator* <float>(float const & lhs, ggm::Matrix3x4<float> const & rhs) noexcept;
 
-template ggm::Matrix4x1<float> ggm::operator*(float const & lhs, ggm::Matrix4x1<float> const & rhs);
-template ggm::Matrix4x2<float> ggm::operator*(float const & lhs, ggm::Matrix4x2<float> const & rhs);
-template ggm::Matrix4x3<float> ggm::operator*(float const & lhs, ggm::Matrix4x3<float> const & rhs);
-template ggm::Matrix4x4<float> ggm::operator*(float const & lhs, ggm::Matrix4x4<float> const & rhs);
-
-// =============================================================================
-
-template ggm::Matrix1x1<float> ggm::operator*(ggm::Matrix1x1<float> const & lhs, float const & rhs);
-template ggm::Matrix1x2<float> ggm::operator*(ggm::Matrix1x2<float> const & lhs, float const & rhs);
-template ggm::Matrix1x3<float> ggm::operator*(ggm::Matrix1x3<float> const & lhs, float const & rhs);
-template ggm::Matrix1x4<float> ggm::operator*(ggm::Matrix1x4<float> const & lhs, float const & rhs);
-
-template ggm::Matrix2x1<float> ggm::operator*(ggm::Matrix2x1<float> const & lhs, float const & rhs);
-template ggm::Matrix2x2<float> ggm::operator*(ggm::Matrix2x2<float> const & lhs, float const & rhs);
-template ggm::Matrix2x3<float> ggm::operator*(ggm::Matrix2x3<float> const & lhs, float const & rhs);
-template ggm::Matrix2x4<float> ggm::operator*(ggm::Matrix2x4<float> const & lhs, float const & rhs);
-
-template ggm::Matrix3x1<float> ggm::operator*(ggm::Matrix3x1<float> const & lhs, float const & rhs);
-template ggm::Matrix3x2<float> ggm::operator*(ggm::Matrix3x2<float> const & lhs, float const & rhs);
-template ggm::Matrix3x3<float> ggm::operator*(ggm::Matrix3x3<float> const & lhs, float const & rhs);
-template ggm::Matrix3x4<float> ggm::operator*(ggm::Matrix3x4<float> const & lhs, float const & rhs);
-
-template ggm::Matrix4x1<float> ggm::operator*(ggm::Matrix4x1<float> const & lhs, float const & rhs);
-template ggm::Matrix4x2<float> ggm::operator*(ggm::Matrix4x2<float> const & lhs, float const & rhs);
-template ggm::Matrix4x3<float> ggm::operator*(ggm::Matrix4x3<float> const & lhs, float const & rhs);
-template ggm::Matrix4x4<float> ggm::operator*(ggm::Matrix4x4<float> const & lhs, float const & rhs);
+template ggm::Matrix4x1<float> ggm::operator* <float>(float const & lhs, ggm::Matrix4x1<float> const & rhs) noexcept;
+template ggm::Matrix4x2<float> ggm::operator* <float>(float const & lhs, ggm::Matrix4x2<float> const & rhs) noexcept;
+template ggm::Matrix4x3<float> ggm::operator* <float>(float const & lhs, ggm::Matrix4x3<float> const & rhs) noexcept;
+template ggm::Matrix4x4<float> ggm::operator* <float>(float const & lhs, ggm::Matrix4x4<float> const & rhs) noexcept;
 
 // =============================================================================
 
-template ggm::Matrix1x1<float> ggm::operator*(ggm::Matrix1x1<float> const & lhs, ggm::Matrix1x1<float> const & rhs);
-template ggm::Matrix1x1<float> ggm::operator*(ggm::Matrix1x2<float> const & lhs, ggm::Matrix2x1<float> const & rhs);
-template ggm::Matrix1x1<float> ggm::operator*(ggm::Matrix1x3<float> const & lhs, ggm::Matrix3x1<float> const & rhs);
-template ggm::Matrix1x1<float> ggm::operator*(ggm::Matrix1x4<float> const & lhs, ggm::Matrix4x1<float> const & rhs);
+template ggm::Matrix1x1<float> ggm::operator* <float>(ggm::Matrix1x1<float> const & lhs, float const & rhs) noexcept;
+template ggm::Matrix1x2<float> ggm::operator* <float>(ggm::Matrix1x2<float> const & lhs, float const & rhs) noexcept;
+template ggm::Matrix1x3<float> ggm::operator* <float>(ggm::Matrix1x3<float> const & lhs, float const & rhs) noexcept;
+template ggm::Matrix1x4<float> ggm::operator* <float>(ggm::Matrix1x4<float> const & lhs, float const & rhs) noexcept;
 
-template ggm::Matrix1x2<float> ggm::operator*(ggm::Matrix1x1<float> const & lhs, ggm::Matrix1x2<float> const & rhs);
-template ggm::Matrix1x2<float> ggm::operator*(ggm::Matrix1x2<float> const & lhs, ggm::Matrix2x2<float> const & rhs);
-template ggm::Matrix1x2<float> ggm::operator*(ggm::Matrix1x3<float> const & lhs, ggm::Matrix3x2<float> const & rhs);
-template ggm::Matrix1x2<float> ggm::operator*(ggm::Matrix1x4<float> const & lhs, ggm::Matrix4x2<float> const & rhs);
+template ggm::Matrix2x1<float> ggm::operator* <float>(ggm::Matrix2x1<float> const & lhs, float const & rhs) noexcept;
+template ggm::Matrix2x2<float> ggm::operator* <float>(ggm::Matrix2x2<float> const & lhs, float const & rhs) noexcept;
+template ggm::Matrix2x3<float> ggm::operator* <float>(ggm::Matrix2x3<float> const & lhs, float const & rhs) noexcept;
+template ggm::Matrix2x4<float> ggm::operator* <float>(ggm::Matrix2x4<float> const & lhs, float const & rhs) noexcept;
 
-template ggm::Matrix1x3<float> ggm::operator*(ggm::Matrix1x1<float> const & lhs, ggm::Matrix1x3<float> const & rhs);
-template ggm::Matrix1x3<float> ggm::operator*(ggm::Matrix1x2<float> const & lhs, ggm::Matrix2x3<float> const & rhs);
-template ggm::Matrix1x3<float> ggm::operator*(ggm::Matrix1x3<float> const & lhs, ggm::Matrix3x3<float> const & rhs);
-template ggm::Matrix1x3<float> ggm::operator*(ggm::Matrix1x4<float> const & lhs, ggm::Matrix4x3<float> const & rhs);
+template ggm::Matrix3x1<float> ggm::operator* <float>(ggm::Matrix3x1<float> const & lhs, float const & rhs) noexcept;
+template ggm::Matrix3x2<float> ggm::operator* <float>(ggm::Matrix3x2<float> const & lhs, float const & rhs) noexcept;
+template ggm::Matrix3x3<float> ggm::operator* <float>(ggm::Matrix3x3<float> const & lhs, float const & rhs) noexcept;
+template ggm::Matrix3x4<float> ggm::operator* <float>(ggm::Matrix3x4<float> const & lhs, float const & rhs) noexcept;
 
-template ggm::Matrix1x4<float> ggm::operator*(ggm::Matrix1x1<float> const & lhs, ggm::Matrix1x4<float> const & rhs);
-template ggm::Matrix1x4<float> ggm::operator*(ggm::Matrix1x2<float> const & lhs, ggm::Matrix2x4<float> const & rhs);
-template ggm::Matrix1x4<float> ggm::operator*(ggm::Matrix1x3<float> const & lhs, ggm::Matrix3x4<float> const & rhs);
-template ggm::Matrix1x4<float> ggm::operator*(ggm::Matrix1x4<float> const & lhs, ggm::Matrix4x4<float> const & rhs);
-
-template ggm::Matrix2x1<float> ggm::operator*(ggm::Matrix2x1<float> const & lhs, ggm::Matrix1x1<float> const & rhs);
-template ggm::Matrix2x1<float> ggm::operator*(ggm::Matrix2x2<float> const & lhs, ggm::Matrix2x1<float> const & rhs);
-template ggm::Matrix2x1<float> ggm::operator*(ggm::Matrix2x3<float> const & lhs, ggm::Matrix3x1<float> const & rhs);
-template ggm::Matrix2x1<float> ggm::operator*(ggm::Matrix2x4<float> const & lhs, ggm::Matrix4x1<float> const & rhs);
-
-template ggm::Matrix2x2<float> ggm::operator*(ggm::Matrix2x1<float> const & lhs, ggm::Matrix1x2<float> const & rhs);
-template ggm::Matrix2x2<float> ggm::operator*(ggm::Matrix2x2<float> const & lhs, ggm::Matrix2x2<float> const & rhs);
-template ggm::Matrix2x2<float> ggm::operator*(ggm::Matrix2x3<float> const & lhs, ggm::Matrix3x2<float> const & rhs);
-template ggm::Matrix2x2<float> ggm::operator*(ggm::Matrix2x4<float> const & lhs, ggm::Matrix4x2<float> const & rhs);
-
-template ggm::Matrix2x3<float> ggm::operator*(ggm::Matrix2x1<float> const & lhs, ggm::Matrix1x3<float> const & rhs);
-template ggm::Matrix2x3<float> ggm::operator*(ggm::Matrix2x2<float> const & lhs, ggm::Matrix2x3<float> const & rhs);
-template ggm::Matrix2x3<float> ggm::operator*(ggm::Matrix2x3<float> const & lhs, ggm::Matrix3x3<float> const & rhs);
-template ggm::Matrix2x3<float> ggm::operator*(ggm::Matrix2x4<float> const & lhs, ggm::Matrix4x3<float> const & rhs);
-
-template ggm::Matrix2x4<float> ggm::operator*(ggm::Matrix2x1<float> const & lhs, ggm::Matrix1x4<float> const & rhs);
-template ggm::Matrix2x4<float> ggm::operator*(ggm::Matrix2x2<float> const & lhs, ggm::Matrix2x4<float> const & rhs);
-template ggm::Matrix2x4<float> ggm::operator*(ggm::Matrix2x3<float> const & lhs, ggm::Matrix3x4<float> const & rhs);
-template ggm::Matrix2x4<float> ggm::operator*(ggm::Matrix2x4<float> const & lhs, ggm::Matrix4x4<float> const & rhs);
-
-template ggm::Matrix3x1<float> ggm::operator*(ggm::Matrix3x1<float> const & lhs, ggm::Matrix1x1<float> const & rhs);
-template ggm::Matrix3x1<float> ggm::operator*(ggm::Matrix3x2<float> const & lhs, ggm::Matrix2x1<float> const & rhs);
-template ggm::Matrix3x1<float> ggm::operator*(ggm::Matrix3x3<float> const & lhs, ggm::Matrix3x1<float> const & rhs);
-template ggm::Matrix3x1<float> ggm::operator*(ggm::Matrix3x4<float> const & lhs, ggm::Matrix4x1<float> const & rhs);
-
-template ggm::Matrix3x2<float> ggm::operator*(ggm::Matrix3x1<float> const & lhs, ggm::Matrix1x2<float> const & rhs);
-template ggm::Matrix3x2<float> ggm::operator*(ggm::Matrix3x2<float> const & lhs, ggm::Matrix2x2<float> const & rhs);
-template ggm::Matrix3x2<float> ggm::operator*(ggm::Matrix3x3<float> const & lhs, ggm::Matrix3x2<float> const & rhs);
-template ggm::Matrix3x2<float> ggm::operator*(ggm::Matrix3x4<float> const & lhs, ggm::Matrix4x2<float> const & rhs);
-
-template ggm::Matrix3x3<float> ggm::operator*(ggm::Matrix3x1<float> const & lhs, ggm::Matrix1x3<float> const & rhs);
-template ggm::Matrix3x3<float> ggm::operator*(ggm::Matrix3x2<float> const & lhs, ggm::Matrix2x3<float> const & rhs);
-template ggm::Matrix3x3<float> ggm::operator*(ggm::Matrix3x3<float> const & lhs, ggm::Matrix3x3<float> const & rhs);
-template ggm::Matrix3x3<float> ggm::operator*(ggm::Matrix3x4<float> const & lhs, ggm::Matrix4x3<float> const & rhs);
-
-template ggm::Matrix3x4<float> ggm::operator*(ggm::Matrix3x1<float> const & lhs, ggm::Matrix1x4<float> const & rhs);
-template ggm::Matrix3x4<float> ggm::operator*(ggm::Matrix3x2<float> const & lhs, ggm::Matrix2x4<float> const & rhs);
-template ggm::Matrix3x4<float> ggm::operator*(ggm::Matrix3x3<float> const & lhs, ggm::Matrix3x4<float> const & rhs);
-template ggm::Matrix3x4<float> ggm::operator*(ggm::Matrix3x4<float> const & lhs, ggm::Matrix4x4<float> const & rhs);
-
-template ggm::Matrix4x1<float> ggm::operator*(ggm::Matrix4x1<float> const & lhs, ggm::Matrix1x1<float> const & rhs);
-template ggm::Matrix4x1<float> ggm::operator*(ggm::Matrix4x2<float> const & lhs, ggm::Matrix2x1<float> const & rhs);
-template ggm::Matrix4x1<float> ggm::operator*(ggm::Matrix4x3<float> const & lhs, ggm::Matrix3x1<float> const & rhs);
-template ggm::Matrix4x1<float> ggm::operator*(ggm::Matrix4x4<float> const & lhs, ggm::Matrix4x1<float> const & rhs);
-
-template ggm::Matrix4x2<float> ggm::operator*(ggm::Matrix4x1<float> const & lhs, ggm::Matrix1x2<float> const & rhs);
-template ggm::Matrix4x2<float> ggm::operator*(ggm::Matrix4x2<float> const & lhs, ggm::Matrix2x2<float> const & rhs);
-template ggm::Matrix4x2<float> ggm::operator*(ggm::Matrix4x3<float> const & lhs, ggm::Matrix3x2<float> const & rhs);
-template ggm::Matrix4x2<float> ggm::operator*(ggm::Matrix4x4<float> const & lhs, ggm::Matrix4x2<float> const & rhs);
-
-template ggm::Matrix4x3<float> ggm::operator*(ggm::Matrix4x1<float> const & lhs, ggm::Matrix1x3<float> const & rhs);
-template ggm::Matrix4x3<float> ggm::operator*(ggm::Matrix4x2<float> const & lhs, ggm::Matrix2x3<float> const & rhs);
-template ggm::Matrix4x3<float> ggm::operator*(ggm::Matrix4x3<float> const & lhs, ggm::Matrix3x3<float> const & rhs);
-template ggm::Matrix4x3<float> ggm::operator*(ggm::Matrix4x4<float> const & lhs, ggm::Matrix4x3<float> const & rhs);
-
-template ggm::Matrix4x4<float> ggm::operator*(ggm::Matrix4x1<float> const & lhs, ggm::Matrix1x4<float> const & rhs);
-template ggm::Matrix4x4<float> ggm::operator*(ggm::Matrix4x2<float> const & lhs, ggm::Matrix2x4<float> const & rhs);
-template ggm::Matrix4x4<float> ggm::operator*(ggm::Matrix4x3<float> const & lhs, ggm::Matrix3x4<float> const & rhs);
-template ggm::Matrix4x4<float> ggm::operator*(ggm::Matrix4x4<float> const & lhs, ggm::Matrix4x4<float> const & rhs);
+template ggm::Matrix4x1<float> ggm::operator* <float>(ggm::Matrix4x1<float> const & lhs, float const & rhs) noexcept;
+template ggm::Matrix4x2<float> ggm::operator* <float>(ggm::Matrix4x2<float> const & lhs, float const & rhs) noexcept;
+template ggm::Matrix4x3<float> ggm::operator* <float>(ggm::Matrix4x3<float> const & lhs, float const & rhs) noexcept;
+template ggm::Matrix4x4<float> ggm::operator* <float>(ggm::Matrix4x4<float> const & lhs, float const & rhs) noexcept;
 
 // =============================================================================
 
-template ggm::Matrix1x1<float> ggm::operator/(ggm::Matrix1x1<float> const & lhs, float const & rhs);
-template ggm::Matrix1x2<float> ggm::operator/(ggm::Matrix1x2<float> const & lhs, float const & rhs);
-template ggm::Matrix1x3<float> ggm::operator/(ggm::Matrix1x3<float> const & lhs, float const & rhs);
-template ggm::Matrix1x4<float> ggm::operator/(ggm::Matrix1x4<float> const & lhs, float const & rhs);
+template ggm::Matrix1x1<float> ggm::operator* <float>(ggm::Matrix1x1<float> const & lhs, ggm::Matrix1x1<float> const & rhs) noexcept;
+template ggm::Matrix1x1<float> ggm::operator* <float>(ggm::Matrix1x2<float> const & lhs, ggm::Matrix2x1<float> const & rhs) noexcept;
+template ggm::Matrix1x1<float> ggm::operator* <float>(ggm::Matrix1x3<float> const & lhs, ggm::Matrix3x1<float> const & rhs) noexcept;
+template ggm::Matrix1x1<float> ggm::operator* <float>(ggm::Matrix1x4<float> const & lhs, ggm::Matrix4x1<float> const & rhs) noexcept;
 
-template ggm::Matrix2x1<float> ggm::operator/(ggm::Matrix2x1<float> const & lhs, float const & rhs);
-template ggm::Matrix2x2<float> ggm::operator/(ggm::Matrix2x2<float> const & lhs, float const & rhs);
-template ggm::Matrix2x3<float> ggm::operator/(ggm::Matrix2x3<float> const & lhs, float const & rhs);
-template ggm::Matrix2x4<float> ggm::operator/(ggm::Matrix2x4<float> const & lhs, float const & rhs);
+template ggm::Matrix1x2<float> ggm::operator* <float>(ggm::Matrix1x1<float> const & lhs, ggm::Matrix1x2<float> const & rhs) noexcept;
+template ggm::Matrix1x2<float> ggm::operator* <float>(ggm::Matrix1x2<float> const & lhs, ggm::Matrix2x2<float> const & rhs) noexcept;
+template ggm::Matrix1x2<float> ggm::operator* <float>(ggm::Matrix1x3<float> const & lhs, ggm::Matrix3x2<float> const & rhs) noexcept;
+template ggm::Matrix1x2<float> ggm::operator* <float>(ggm::Matrix1x4<float> const & lhs, ggm::Matrix4x2<float> const & rhs) noexcept;
 
-template ggm::Matrix3x1<float> ggm::operator/(ggm::Matrix3x1<float> const & lhs, float const & rhs);
-template ggm::Matrix3x2<float> ggm::operator/(ggm::Matrix3x2<float> const & lhs, float const & rhs);
-template ggm::Matrix3x3<float> ggm::operator/(ggm::Matrix3x3<float> const & lhs, float const & rhs);
-template ggm::Matrix3x4<float> ggm::operator/(ggm::Matrix3x4<float> const & lhs, float const & rhs);
+template ggm::Matrix1x3<float> ggm::operator* <float>(ggm::Matrix1x1<float> const & lhs, ggm::Matrix1x3<float> const & rhs) noexcept;
+template ggm::Matrix1x3<float> ggm::operator* <float>(ggm::Matrix1x2<float> const & lhs, ggm::Matrix2x3<float> const & rhs) noexcept;
+template ggm::Matrix1x3<float> ggm::operator* <float>(ggm::Matrix1x3<float> const & lhs, ggm::Matrix3x3<float> const & rhs) noexcept;
+template ggm::Matrix1x3<float> ggm::operator* <float>(ggm::Matrix1x4<float> const & lhs, ggm::Matrix4x3<float> const & rhs) noexcept;
 
-template ggm::Matrix4x1<float> ggm::operator/(ggm::Matrix4x1<float> const & lhs, float const & rhs);
-template ggm::Matrix4x2<float> ggm::operator/(ggm::Matrix4x2<float> const & lhs, float const & rhs);
-template ggm::Matrix4x3<float> ggm::operator/(ggm::Matrix4x3<float> const & lhs, float const & rhs);
-template ggm::Matrix4x4<float> ggm::operator/(ggm::Matrix4x4<float> const & lhs, float const & rhs);
+template ggm::Matrix1x4<float> ggm::operator* <float>(ggm::Matrix1x1<float> const & lhs, ggm::Matrix1x4<float> const & rhs) noexcept;
+template ggm::Matrix1x4<float> ggm::operator* <float>(ggm::Matrix1x2<float> const & lhs, ggm::Matrix2x4<float> const & rhs) noexcept;
+template ggm::Matrix1x4<float> ggm::operator* <float>(ggm::Matrix1x3<float> const & lhs, ggm::Matrix3x4<float> const & rhs) noexcept;
+template ggm::Matrix1x4<float> ggm::operator* <float>(ggm::Matrix1x4<float> const & lhs, ggm::Matrix4x4<float> const & rhs) noexcept;
+
+template ggm::Matrix2x1<float> ggm::operator* <float>(ggm::Matrix2x1<float> const & lhs, ggm::Matrix1x1<float> const & rhs) noexcept;
+template ggm::Matrix2x1<float> ggm::operator* <float>(ggm::Matrix2x2<float> const & lhs, ggm::Matrix2x1<float> const & rhs) noexcept;
+template ggm::Matrix2x1<float> ggm::operator* <float>(ggm::Matrix2x3<float> const & lhs, ggm::Matrix3x1<float> const & rhs) noexcept;
+template ggm::Matrix2x1<float> ggm::operator* <float>(ggm::Matrix2x4<float> const & lhs, ggm::Matrix4x1<float> const & rhs) noexcept;
+
+template ggm::Matrix2x2<float> ggm::operator* <float>(ggm::Matrix2x1<float> const & lhs, ggm::Matrix1x2<float> const & rhs) noexcept;
+template ggm::Matrix2x2<float> ggm::operator* <float>(ggm::Matrix2x2<float> const & lhs, ggm::Matrix2x2<float> const & rhs) noexcept;
+template ggm::Matrix2x2<float> ggm::operator* <float>(ggm::Matrix2x3<float> const & lhs, ggm::Matrix3x2<float> const & rhs) noexcept;
+template ggm::Matrix2x2<float> ggm::operator* <float>(ggm::Matrix2x4<float> const & lhs, ggm::Matrix4x2<float> const & rhs) noexcept;
+
+template ggm::Matrix2x3<float> ggm::operator* <float>(ggm::Matrix2x1<float> const & lhs, ggm::Matrix1x3<float> const & rhs) noexcept;
+template ggm::Matrix2x3<float> ggm::operator* <float>(ggm::Matrix2x2<float> const & lhs, ggm::Matrix2x3<float> const & rhs) noexcept;
+template ggm::Matrix2x3<float> ggm::operator* <float>(ggm::Matrix2x3<float> const & lhs, ggm::Matrix3x3<float> const & rhs) noexcept;
+template ggm::Matrix2x3<float> ggm::operator* <float>(ggm::Matrix2x4<float> const & lhs, ggm::Matrix4x3<float> const & rhs) noexcept;
+
+template ggm::Matrix2x4<float> ggm::operator* <float>(ggm::Matrix2x1<float> const & lhs, ggm::Matrix1x4<float> const & rhs) noexcept;
+template ggm::Matrix2x4<float> ggm::operator* <float>(ggm::Matrix2x2<float> const & lhs, ggm::Matrix2x4<float> const & rhs) noexcept;
+template ggm::Matrix2x4<float> ggm::operator* <float>(ggm::Matrix2x3<float> const & lhs, ggm::Matrix3x4<float> const & rhs) noexcept;
+template ggm::Matrix2x4<float> ggm::operator* <float>(ggm::Matrix2x4<float> const & lhs, ggm::Matrix4x4<float> const & rhs) noexcept;
+
+template ggm::Matrix3x1<float> ggm::operator* <float>(ggm::Matrix3x1<float> const & lhs, ggm::Matrix1x1<float> const & rhs) noexcept;
+template ggm::Matrix3x1<float> ggm::operator* <float>(ggm::Matrix3x2<float> const & lhs, ggm::Matrix2x1<float> const & rhs) noexcept;
+template ggm::Matrix3x1<float> ggm::operator* <float>(ggm::Matrix3x3<float> const & lhs, ggm::Matrix3x1<float> const & rhs) noexcept;
+template ggm::Matrix3x1<float> ggm::operator* <float>(ggm::Matrix3x4<float> const & lhs, ggm::Matrix4x1<float> const & rhs) noexcept;
+
+template ggm::Matrix3x2<float> ggm::operator* <float>(ggm::Matrix3x1<float> const & lhs, ggm::Matrix1x2<float> const & rhs) noexcept;
+template ggm::Matrix3x2<float> ggm::operator* <float>(ggm::Matrix3x2<float> const & lhs, ggm::Matrix2x2<float> const & rhs) noexcept;
+template ggm::Matrix3x2<float> ggm::operator* <float>(ggm::Matrix3x3<float> const & lhs, ggm::Matrix3x2<float> const & rhs) noexcept;
+template ggm::Matrix3x2<float> ggm::operator* <float>(ggm::Matrix3x4<float> const & lhs, ggm::Matrix4x2<float> const & rhs) noexcept;
+
+template ggm::Matrix3x3<float> ggm::operator* <float>(ggm::Matrix3x1<float> const & lhs, ggm::Matrix1x3<float> const & rhs) noexcept;
+template ggm::Matrix3x3<float> ggm::operator* <float>(ggm::Matrix3x2<float> const & lhs, ggm::Matrix2x3<float> const & rhs) noexcept;
+template ggm::Matrix3x3<float> ggm::operator* <float>(ggm::Matrix3x3<float> const & lhs, ggm::Matrix3x3<float> const & rhs) noexcept;
+template ggm::Matrix3x3<float> ggm::operator* <float>(ggm::Matrix3x4<float> const & lhs, ggm::Matrix4x3<float> const & rhs) noexcept;
+
+template ggm::Matrix3x4<float> ggm::operator* <float>(ggm::Matrix3x1<float> const & lhs, ggm::Matrix1x4<float> const & rhs) noexcept;
+template ggm::Matrix3x4<float> ggm::operator* <float>(ggm::Matrix3x2<float> const & lhs, ggm::Matrix2x4<float> const & rhs) noexcept;
+template ggm::Matrix3x4<float> ggm::operator* <float>(ggm::Matrix3x3<float> const & lhs, ggm::Matrix3x4<float> const & rhs) noexcept;
+template ggm::Matrix3x4<float> ggm::operator* <float>(ggm::Matrix3x4<float> const & lhs, ggm::Matrix4x4<float> const & rhs) noexcept;
+
+template ggm::Matrix4x1<float> ggm::operator* <float>(ggm::Matrix4x1<float> const & lhs, ggm::Matrix1x1<float> const & rhs) noexcept;
+template ggm::Matrix4x1<float> ggm::operator* <float>(ggm::Matrix4x2<float> const & lhs, ggm::Matrix2x1<float> const & rhs) noexcept;
+template ggm::Matrix4x1<float> ggm::operator* <float>(ggm::Matrix4x3<float> const & lhs, ggm::Matrix3x1<float> const & rhs) noexcept;
+template ggm::Matrix4x1<float> ggm::operator* <float>(ggm::Matrix4x4<float> const & lhs, ggm::Matrix4x1<float> const & rhs) noexcept;
+
+template ggm::Matrix4x2<float> ggm::operator* <float>(ggm::Matrix4x1<float> const & lhs, ggm::Matrix1x2<float> const & rhs) noexcept;
+template ggm::Matrix4x2<float> ggm::operator* <float>(ggm::Matrix4x2<float> const & lhs, ggm::Matrix2x2<float> const & rhs) noexcept;
+template ggm::Matrix4x2<float> ggm::operator* <float>(ggm::Matrix4x3<float> const & lhs, ggm::Matrix3x2<float> const & rhs) noexcept;
+template ggm::Matrix4x2<float> ggm::operator* <float>(ggm::Matrix4x4<float> const & lhs, ggm::Matrix4x2<float> const & rhs) noexcept;
+
+template ggm::Matrix4x3<float> ggm::operator* <float>(ggm::Matrix4x1<float> const & lhs, ggm::Matrix1x3<float> const & rhs) noexcept;
+template ggm::Matrix4x3<float> ggm::operator* <float>(ggm::Matrix4x2<float> const & lhs, ggm::Matrix2x3<float> const & rhs) noexcept;
+template ggm::Matrix4x3<float> ggm::operator* <float>(ggm::Matrix4x3<float> const & lhs, ggm::Matrix3x3<float> const & rhs) noexcept;
+template ggm::Matrix4x3<float> ggm::operator* <float>(ggm::Matrix4x4<float> const & lhs, ggm::Matrix4x3<float> const & rhs) noexcept;
+
+template ggm::Matrix4x4<float> ggm::operator* <float>(ggm::Matrix4x1<float> const & lhs, ggm::Matrix1x4<float> const & rhs) noexcept;
+template ggm::Matrix4x4<float> ggm::operator* <float>(ggm::Matrix4x2<float> const & lhs, ggm::Matrix2x4<float> const & rhs) noexcept;
+template ggm::Matrix4x4<float> ggm::operator* <float>(ggm::Matrix4x3<float> const & lhs, ggm::Matrix3x4<float> const & rhs) noexcept;
+template ggm::Matrix4x4<float> ggm::operator* <float>(ggm::Matrix4x4<float> const & lhs, ggm::Matrix4x4<float> const & rhs) noexcept;
+
+// =============================================================================
+
+template ggm::Matrix1x1<float> ggm::operator/ <float>(ggm::Matrix1x1<float> const & lhs, float const & rhs) noexcept;
+template ggm::Matrix1x2<float> ggm::operator/ <float>(ggm::Matrix1x2<float> const & lhs, float const & rhs) noexcept;
+template ggm::Matrix1x3<float> ggm::operator/ <float>(ggm::Matrix1x3<float> const & lhs, float const & rhs) noexcept;
+template ggm::Matrix1x4<float> ggm::operator/ <float>(ggm::Matrix1x4<float> const & lhs, float const & rhs) noexcept;
+
+template ggm::Matrix2x1<float> ggm::operator/ <float>(ggm::Matrix2x1<float> const & lhs, float const & rhs) noexcept;
+template ggm::Matrix2x2<float> ggm::operator/ <float>(ggm::Matrix2x2<float> const & lhs, float const & rhs) noexcept;
+template ggm::Matrix2x3<float> ggm::operator/ <float>(ggm::Matrix2x3<float> const & lhs, float const & rhs) noexcept;
+template ggm::Matrix2x4<float> ggm::operator/ <float>(ggm::Matrix2x4<float> const & lhs, float const & rhs) noexcept;
+
+template ggm::Matrix3x1<float> ggm::operator/ <float>(ggm::Matrix3x1<float> const & lhs, float const & rhs) noexcept;
+template ggm::Matrix3x2<float> ggm::operator/ <float>(ggm::Matrix3x2<float> const & lhs, float const & rhs) noexcept;
+template ggm::Matrix3x3<float> ggm::operator/ <float>(ggm::Matrix3x3<float> const & lhs, float const & rhs) noexcept;
+template ggm::Matrix3x4<float> ggm::operator/ <float>(ggm::Matrix3x4<float> const & lhs, float const & rhs) noexcept;
+
+template ggm::Matrix4x1<float> ggm::operator/ <float>(ggm::Matrix4x1<float> const & lhs, float const & rhs) noexcept;
+template ggm::Matrix4x2<float> ggm::operator/ <float>(ggm::Matrix4x2<float> const & lhs, float const & rhs) noexcept;
+template ggm::Matrix4x3<float> ggm::operator/ <float>(ggm::Matrix4x3<float> const & lhs, float const & rhs) noexcept;
+template ggm::Matrix4x4<float> ggm::operator/ <float>(ggm::Matrix4x4<float> const & lhs, float const & rhs) noexcept;
+
+// =============================================================================
+
+template bool ggm::operator== <float>(ggm::Matrix1x1<float> const & lhs, ggm::Matrix1x1<float> const & rhs) noexcept;
+template bool ggm::operator== <float>(ggm::Matrix1x2<float> const & lhs, ggm::Matrix1x2<float> const & rhs) noexcept;
+template bool ggm::operator== <float>(ggm::Matrix1x3<float> const & lhs, ggm::Matrix1x3<float> const & rhs) noexcept;
+template bool ggm::operator== <float>(ggm::Matrix1x4<float> const & lhs, ggm::Matrix1x4<float> const & rhs) noexcept;
+
+template bool ggm::operator== <float>(ggm::Matrix2x1<float> const & lhs, ggm::Matrix2x1<float> const & rhs) noexcept;
+template bool ggm::operator== <float>(ggm::Matrix2x2<float> const & lhs, ggm::Matrix2x2<float> const & rhs) noexcept;
+template bool ggm::operator== <float>(ggm::Matrix2x3<float> const & lhs, ggm::Matrix2x3<float> const & rhs) noexcept;
+template bool ggm::operator== <float>(ggm::Matrix2x4<float> const & lhs, ggm::Matrix2x4<float> const & rhs) noexcept;
+
+template bool ggm::operator== <float>(ggm::Matrix3x1<float> const & lhs, ggm::Matrix3x1<float> const & rhs) noexcept;
+template bool ggm::operator== <float>(ggm::Matrix3x2<float> const & lhs, ggm::Matrix3x2<float> const & rhs) noexcept;
+template bool ggm::operator== <float>(ggm::Matrix3x3<float> const & lhs, ggm::Matrix3x3<float> const & rhs) noexcept;
+template bool ggm::operator== <float>(ggm::Matrix3x4<float> const & lhs, ggm::Matrix3x4<float> const & rhs) noexcept;
+
+template bool ggm::operator== <float>(ggm::Matrix4x1<float> const & lhs, ggm::Matrix4x1<float> const & rhs) noexcept;
+template bool ggm::operator== <float>(ggm::Matrix4x2<float> const & lhs, ggm::Matrix4x2<float> const & rhs) noexcept;
+template bool ggm::operator== <float>(ggm::Matrix4x3<float> const & lhs, ggm::Matrix4x3<float> const & rhs) noexcept;
+template bool ggm::operator== <float>(ggm::Matrix4x4<float> const & lhs, ggm::Matrix4x4<float> const & rhs) noexcept;
+
+// =============================================================================
+
+template bool ggm::operator!= <float>(ggm::Matrix1x1<float> const & lhs, ggm::Matrix1x1<float> const & rhs) noexcept;
+template bool ggm::operator!= <float>(ggm::Matrix1x2<float> const & lhs, ggm::Matrix1x2<float> const & rhs) noexcept;
+template bool ggm::operator!= <float>(ggm::Matrix1x3<float> const & lhs, ggm::Matrix1x3<float> const & rhs) noexcept;
+template bool ggm::operator!= <float>(ggm::Matrix1x4<float> const & lhs, ggm::Matrix1x4<float> const & rhs) noexcept;
+
+template bool ggm::operator!= <float>(ggm::Matrix2x1<float> const & lhs, ggm::Matrix2x1<float> const & rhs) noexcept;
+template bool ggm::operator!= <float>(ggm::Matrix2x2<float> const & lhs, ggm::Matrix2x2<float> const & rhs) noexcept;
+template bool ggm::operator!= <float>(ggm::Matrix2x3<float> const & lhs, ggm::Matrix2x3<float> const & rhs) noexcept;
+template bool ggm::operator!= <float>(ggm::Matrix2x4<float> const & lhs, ggm::Matrix2x4<float> const & rhs) noexcept;
+
+template bool ggm::operator!= <float>(ggm::Matrix3x1<float> const & lhs, ggm::Matrix3x1<float> const & rhs) noexcept;
+template bool ggm::operator!= <float>(ggm::Matrix3x2<float> const & lhs, ggm::Matrix3x2<float> const & rhs) noexcept;
+template bool ggm::operator!= <float>(ggm::Matrix3x3<float> const & lhs, ggm::Matrix3x3<float> const & rhs) noexcept;
+template bool ggm::operator!= <float>(ggm::Matrix3x4<float> const & lhs, ggm::Matrix3x4<float> const & rhs) noexcept;
+
+template bool ggm::operator!= <float>(ggm::Matrix4x1<float> const & lhs, ggm::Matrix4x1<float> const & rhs) noexcept;
+template bool ggm::operator!= <float>(ggm::Matrix4x2<float> const & lhs, ggm::Matrix4x2<float> const & rhs) noexcept;
+template bool ggm::operator!= <float>(ggm::Matrix4x3<float> const & lhs, ggm::Matrix4x3<float> const & rhs) noexcept;
+template bool ggm::operator!= <float>(ggm::Matrix4x4<float> const & lhs, ggm::Matrix4x4<float> const & rhs) noexcept;
+
+// =============================================================================
+
+template float ggm::determinant<float>(ggm::Matrix1x1<float> const & value) noexcept;
+template float ggm::determinant<float>(ggm::Matrix2x2<float> const & value) noexcept;
+template float ggm::determinant<float>(ggm::Matrix3x3<float> const & value) noexcept;
+template float ggm::determinant<float>(ggm::Matrix4x4<float> const & value) noexcept;
+
+// =============================================================================
+
+template bool ggm::is_invertible<float>(ggm::Matrix1x1<float> const & value, float const & epsilon) noexcept;
+template bool ggm::is_invertible<float>(ggm::Matrix2x2<float> const & value, float const & epsilon) noexcept;
+template bool ggm::is_invertible<float>(ggm::Matrix3x3<float> const & value, float const & epsilon) noexcept;
+template bool ggm::is_invertible<float>(ggm::Matrix4x4<float> const & value, float const & epsilon) noexcept;
+
+// =============================================================================
+
+template bool ggm::is_orthogonal<float>(ggm::Matrix1x1<float> const & value, float const & epsilon) noexcept;
+template bool ggm::is_orthogonal<float>(ggm::Matrix2x2<float> const & value, float const & epsilon) noexcept;
+template bool ggm::is_orthogonal<float>(ggm::Matrix3x3<float> const & value, float const & epsilon) noexcept;
+template bool ggm::is_orthogonal<float>(ggm::Matrix4x4<float> const & value, float const & epsilon) noexcept;
+
+// =============================================================================
+
+template ggm::Matrix1x1<float> ggm::inverse<float>(ggm::Matrix1x1<float> const & value, float const & epsilon) noexcept;
+template ggm::Matrix2x2<float> ggm::inverse<float>(ggm::Matrix2x2<float> const & value, float const & epsilon) noexcept;
+template ggm::Matrix3x3<float> ggm::inverse<float>(ggm::Matrix3x3<float> const & value, float const & epsilon) noexcept;
+template ggm::Matrix4x4<float> ggm::inverse<float>(ggm::Matrix4x4<float> const & value, float const & epsilon) noexcept;
+
+// =============================================================================
+
+template ggm::Matrix1x1<float> ggm::transpose<float>(ggm::Matrix1x1<float> const & lhs) noexcept;
+template ggm::Matrix1x2<float> ggm::transpose<float>(ggm::Matrix2x1<float> const & lhs) noexcept;
+template ggm::Matrix1x3<float> ggm::transpose<float>(ggm::Matrix3x1<float> const & lhs) noexcept;
+template ggm::Matrix1x4<float> ggm::transpose<float>(ggm::Matrix4x1<float> const & lhs) noexcept;
+
+template ggm::Matrix2x1<float> ggm::transpose<float>(ggm::Matrix1x2<float> const & lhs) noexcept;
+template ggm::Matrix2x2<float> ggm::transpose<float>(ggm::Matrix2x2<float> const & lhs) noexcept;
+template ggm::Matrix2x3<float> ggm::transpose<float>(ggm::Matrix3x2<float> const & lhs) noexcept;
+template ggm::Matrix2x4<float> ggm::transpose<float>(ggm::Matrix4x2<float> const & lhs) noexcept;
+
+template ggm::Matrix3x1<float> ggm::transpose<float>(ggm::Matrix1x3<float> const & lhs) noexcept;
+template ggm::Matrix3x2<float> ggm::transpose<float>(ggm::Matrix2x3<float> const & lhs) noexcept;
+template ggm::Matrix3x3<float> ggm::transpose<float>(ggm::Matrix3x3<float> const & lhs) noexcept;
+template ggm::Matrix3x4<float> ggm::transpose<float>(ggm::Matrix4x3<float> const & lhs) noexcept;
+
+template ggm::Matrix4x1<float> ggm::transpose<float>(ggm::Matrix1x4<float> const & lhs) noexcept;
+template ggm::Matrix4x2<float> ggm::transpose<float>(ggm::Matrix2x4<float> const & lhs) noexcept;
+template ggm::Matrix4x3<float> ggm::transpose<float>(ggm::Matrix3x4<float> const & lhs) noexcept;
+template ggm::Matrix4x4<float> ggm::transpose<float>(ggm::Matrix4x4<float> const & lhs) noexcept;
+
+// =============================================================================
+
+template float ggm::trace<float>(ggm::Matrix1x1<float> const & value) noexcept;
+template float ggm::trace<float>(ggm::Matrix2x2<float> const & value) noexcept;
+template float ggm::trace<float>(ggm::Matrix3x3<float> const & value) noexcept;
+template float ggm::trace<float>(ggm::Matrix4x4<float> const & value) noexcept;
+
+// =============================================================================
+
+template ggm::Matrix1x1<float> ggm::matrix_from_cols<float>(Matrix1x1<float> const & col0) noexcept;
+template ggm::Matrix1x2<float> ggm::matrix_from_cols<float>(Matrix1x1<float> const & col0, Matrix1x1<float> const & col1) noexcept;
+template ggm::Matrix1x3<float> ggm::matrix_from_cols<float>(Matrix1x1<float> const & col0, Matrix1x1<float> const & col1, Matrix1x1<float> const & col2) noexcept;
+template ggm::Matrix1x4<float> ggm::matrix_from_cols<float>(Matrix1x1<float> const & col0, Matrix1x1<float> const & col1, Matrix1x1<float> const & col2, Matrix1x1<float> const & col3) noexcept;
+
+template ggm::Matrix2x1<float> ggm::matrix_from_cols<float>(Matrix2x1<float> const & col0) noexcept;
+template ggm::Matrix2x2<float> ggm::matrix_from_cols<float>(Matrix2x1<float> const & col0, Matrix2x1<float> const & col1) noexcept;
+template ggm::Matrix2x3<float> ggm::matrix_from_cols<float>(Matrix2x1<float> const & col0, Matrix2x1<float> const & col1, Matrix2x1<float> const & col2) noexcept;
+template ggm::Matrix2x4<float> ggm::matrix_from_cols<float>(Matrix2x1<float> const & col0, Matrix2x1<float> const & col1, Matrix2x1<float> const & col2, Matrix2x1<float> const & col3) noexcept;
+
+template ggm::Matrix3x1<float> ggm::matrix_from_cols<float>(Matrix3x1<float> const & col0) noexcept;
+template ggm::Matrix3x2<float> ggm::matrix_from_cols<float>(Matrix3x1<float> const & col0, Matrix3x1<float> const & col1) noexcept;
+template ggm::Matrix3x3<float> ggm::matrix_from_cols<float>(Matrix3x1<float> const & col0, Matrix3x1<float> const & col1, Matrix3x1<float> const & col2) noexcept;
+template ggm::Matrix3x4<float> ggm::matrix_from_cols<float>(Matrix3x1<float> const & col0, Matrix3x1<float> const & col1, Matrix3x1<float> const & col2, Matrix3x1<float> const & col3) noexcept;
+
+template ggm::Matrix4x1<float> ggm::matrix_from_cols<float>(Matrix4x1<float> const & col0) noexcept;
+template ggm::Matrix4x2<float> ggm::matrix_from_cols<float>(Matrix4x1<float> const & col0, Matrix4x1<float> const & col1) noexcept;
+template ggm::Matrix4x3<float> ggm::matrix_from_cols<float>(Matrix4x1<float> const & col0, Matrix4x1<float> const & col1, Matrix4x1<float> const & col2) noexcept;
+template ggm::Matrix4x4<float> ggm::matrix_from_cols<float>(Matrix4x1<float> const & col0, Matrix4x1<float> const & col1, Matrix4x1<float> const & col2, Matrix4x1<float> const & col3) noexcept;
+
+// =============================================================================
+
+template ggm::Matrix1x1<float> ggm::matrix_from_rows<float>(Matrix1x1<float> const & row0) noexcept;
+template ggm::Matrix1x2<float> ggm::matrix_from_rows<float>(Matrix1x2<float> const & row0) noexcept;
+template ggm::Matrix1x3<float> ggm::matrix_from_rows<float>(Matrix1x3<float> const & row0) noexcept;
+template ggm::Matrix1x4<float> ggm::matrix_from_rows<float>(Matrix1x4<float> const & row0) noexcept;
+
+template ggm::Matrix2x1<float> ggm::matrix_from_rows<float>(Matrix1x1<float> const & row0, Matrix1x1<float> const & row1) noexcept;
+template ggm::Matrix2x2<float> ggm::matrix_from_rows<float>(Matrix1x2<float> const & row0, Matrix1x2<float> const & row1) noexcept;
+template ggm::Matrix2x3<float> ggm::matrix_from_rows<float>(Matrix1x3<float> const & row0, Matrix1x3<float> const & row1) noexcept;
+template ggm::Matrix2x4<float> ggm::matrix_from_rows<float>(Matrix1x4<float> const & row0, Matrix1x4<float> const & row1) noexcept;
+
+template ggm::Matrix3x1<float> ggm::matrix_from_rows<float>(Matrix1x1<float> const & row0, Matrix1x1<float> const & row1, Matrix1x1<float> const & row2) noexcept;
+template ggm::Matrix3x2<float> ggm::matrix_from_rows<float>(Matrix1x2<float> const & row0, Matrix1x2<float> const & row1, Matrix1x2<float> const & row2) noexcept;
+template ggm::Matrix3x3<float> ggm::matrix_from_rows<float>(Matrix1x3<float> const & row0, Matrix1x3<float> const & row1, Matrix1x3<float> const & row2) noexcept;
+template ggm::Matrix3x4<float> ggm::matrix_from_rows<float>(Matrix1x4<float> const & row0, Matrix1x4<float> const & row1, Matrix1x4<float> const & row2) noexcept;
+
+template ggm::Matrix4x1<float> ggm::matrix_from_rows<float>(Matrix1x1<float> const & row0, Matrix1x1<float> const & row1, Matrix1x1<float> const & row2, Matrix1x1<float> const & row3) noexcept;
+template ggm::Matrix4x2<float> ggm::matrix_from_rows<float>(Matrix1x2<float> const & row0, Matrix1x2<float> const & row1, Matrix1x2<float> const & row2, Matrix1x2<float> const & row3) noexcept;
+template ggm::Matrix4x3<float> ggm::matrix_from_rows<float>(Matrix1x3<float> const & row0, Matrix1x3<float> const & row1, Matrix1x3<float> const & row2, Matrix1x3<float> const & row3) noexcept;
+template ggm::Matrix4x4<float> ggm::matrix_from_rows<float>(Matrix1x4<float> const & row0, Matrix1x4<float> const & row1, Matrix1x4<float> const & row2, Matrix1x4<float> const & row3) noexcept;
+
+// =============================================================================
+
+template ggm::Matrix1x1<float> ggm::matrix_drop_col<0, float>(Matrix1x2<float> const & value) noexcept;
+template ggm::Matrix1x1<float> ggm::matrix_drop_col<1, float>(Matrix1x2<float> const & value) noexcept;
+template ggm::Matrix1x2<float> ggm::matrix_drop_col<0, float>(Matrix1x3<float> const & value) noexcept;
+template ggm::Matrix1x2<float> ggm::matrix_drop_col<1, float>(Matrix1x3<float> const & value) noexcept;
+template ggm::Matrix1x2<float> ggm::matrix_drop_col<2, float>(Matrix1x3<float> const & value) noexcept;
+template ggm::Matrix1x3<float> ggm::matrix_drop_col<0, float>(Matrix1x4<float> const & value) noexcept;
+template ggm::Matrix1x3<float> ggm::matrix_drop_col<1, float>(Matrix1x4<float> const & value) noexcept;
+template ggm::Matrix1x3<float> ggm::matrix_drop_col<2, float>(Matrix1x4<float> const & value) noexcept;
+template ggm::Matrix1x3<float> ggm::matrix_drop_col<3, float>(Matrix1x4<float> const & value) noexcept;
+
+template ggm::Matrix2x1<float> ggm::matrix_drop_col<0, float>(Matrix2x2<float> const & value) noexcept;
+template ggm::Matrix2x1<float> ggm::matrix_drop_col<1, float>(Matrix2x2<float> const & value) noexcept;
+template ggm::Matrix2x2<float> ggm::matrix_drop_col<0, float>(Matrix2x3<float> const & value) noexcept;
+template ggm::Matrix2x2<float> ggm::matrix_drop_col<1, float>(Matrix2x3<float> const & value) noexcept;
+template ggm::Matrix2x2<float> ggm::matrix_drop_col<2, float>(Matrix2x3<float> const & value) noexcept;
+template ggm::Matrix2x3<float> ggm::matrix_drop_col<0, float>(Matrix2x4<float> const & value) noexcept;
+template ggm::Matrix2x3<float> ggm::matrix_drop_col<1, float>(Matrix2x4<float> const & value) noexcept;
+template ggm::Matrix2x3<float> ggm::matrix_drop_col<2, float>(Matrix2x4<float> const & value) noexcept;
+template ggm::Matrix2x3<float> ggm::matrix_drop_col<3, float>(Matrix2x4<float> const & value) noexcept;
+
+template ggm::Matrix3x1<float> ggm::matrix_drop_col<0, float>(Matrix3x2<float> const & value) noexcept;
+template ggm::Matrix3x1<float> ggm::matrix_drop_col<1, float>(Matrix3x2<float> const & value) noexcept;
+template ggm::Matrix3x2<float> ggm::matrix_drop_col<0, float>(Matrix3x3<float> const & value) noexcept;
+template ggm::Matrix3x2<float> ggm::matrix_drop_col<1, float>(Matrix3x3<float> const & value) noexcept;
+template ggm::Matrix3x2<float> ggm::matrix_drop_col<2, float>(Matrix3x3<float> const & value) noexcept;
+template ggm::Matrix3x3<float> ggm::matrix_drop_col<0, float>(Matrix3x4<float> const & value) noexcept;
+template ggm::Matrix3x3<float> ggm::matrix_drop_col<1, float>(Matrix3x4<float> const & value) noexcept;
+template ggm::Matrix3x3<float> ggm::matrix_drop_col<2, float>(Matrix3x4<float> const & value) noexcept;
+template ggm::Matrix3x3<float> ggm::matrix_drop_col<3, float>(Matrix3x4<float> const & value) noexcept;
+
+template ggm::Matrix4x1<float> ggm::matrix_drop_col<0, float>(Matrix4x2<float> const & value) noexcept;
+template ggm::Matrix4x1<float> ggm::matrix_drop_col<1, float>(Matrix4x2<float> const & value) noexcept;
+template ggm::Matrix4x2<float> ggm::matrix_drop_col<0, float>(Matrix4x3<float> const & value) noexcept;
+template ggm::Matrix4x2<float> ggm::matrix_drop_col<1, float>(Matrix4x3<float> const & value) noexcept;
+template ggm::Matrix4x2<float> ggm::matrix_drop_col<2, float>(Matrix4x3<float> const & value) noexcept;
+template ggm::Matrix4x3<float> ggm::matrix_drop_col<0, float>(Matrix4x4<float> const & value) noexcept;
+template ggm::Matrix4x3<float> ggm::matrix_drop_col<1, float>(Matrix4x4<float> const & value) noexcept;
+template ggm::Matrix4x3<float> ggm::matrix_drop_col<2, float>(Matrix4x4<float> const & value) noexcept;
+template ggm::Matrix4x3<float> ggm::matrix_drop_col<3, float>(Matrix4x4<float> const & value) noexcept;
 
 // =============================================================================
 
