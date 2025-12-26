@@ -57,19 +57,18 @@
 /// functions:
 /// ----------
 ///
-/// Syntax                              | Description
-/// ------                              | -----------
-/// determinant(m)                      | calculate the determinant of square matrix
-/// is_invertible(m)                    | true if square matrix can be inverted, i.e. determinant != 0
-/// is_orthogonal(m)                    | true if square matrix rows and cols are orthonormal vectors
-/// inverse(m)                          | calculate inverse of square matrix
-/// transpose(m)                        | make matrix by turning rows into cols
-/// trace(m)                            | sum of square matrix diagonal elements
-/// matrix_from_cols(c0, ..., cN)       | create a matrix from the given column vectors
-/// matrix_from_rows(r0, ..., rN)       | create a matrix from the given row vectors
-/// matrix_drop_col<C>(m)               | create a submatrix by removing the specified col
-/// matrix_drop_row<R>(m)               | create a submatrix by removing the specified row
-/// matrix_drop_row_col<R, C>(m, r, c)  | create a submatrix by removing the specified row and col
+/// Syntax                        | Description
+/// ------                        | -----------
+/// determinant(m)                | calculate the determinant of square matrix
+/// is_invertible(m)              | true if square matrix can be inverted, i.e. determinant != 0
+/// is_orthogonal(m)              | true if square matrix rows and cols are orthonormal vectors
+/// inverse(m)                    | calculate inverse of square matrix
+/// transpose(m)                  | make matrix by turning rows into cols
+/// trace(m)                      | sum of square matrix diagonal elements
+/// matrix_from_cols(c0, ..., cN) | create a matrix from the given column vectors
+/// matrix_from_rows(r0, ..., rN) | create a matrix from the given row vectors
+/// matrix_drop_col<C>(m)         | create a submatrix by removing the specified col
+/// matrix_drop_row<R>(m)         | create a submatrix by removing the specified row
 ///
 /// comparisons:
 /// ------------
@@ -2472,71 +2471,6 @@ namespace ggm
     template <std::size_t RowIndex,
               typename T>
     constexpr Matrix3x4<T> matrix_drop_row(Matrix4x4<T> const & value) noexcept;
-
-    // =============================================================================
-
-    /// create a submatrix by removing the specified row and col
-    /// @relates Matrix1x1, Matrix2x2
-    template <std::size_t RowIndex,
-              std::size_t ColIndex,
-              typename T>
-    constexpr Matrix1x1<T> matrix_drop_row_col(Matrix2x2<T> const & value) noexcept;
-
-    /// create a submatrix by removing the specified row and col
-    /// @relates Matrix1x2, Matrix2x3
-    template <std::size_t RowIndex,
-              std::size_t ColIndex,
-              typename T>
-    constexpr Matrix1x2<T> matrix_drop_row_col(Matrix2x3<T> const & value) noexcept;
-
-    /// create a submatrix by removing the specified row and col
-    /// @relates Matrix1x3, Matrix2x4
-    template <std::size_t RowIndex,
-              std::size_t ColIndex,
-              typename T>
-    constexpr Matrix1x3<T> matrix_drop_row_col(Matrix2x4<T> const & value) noexcept;
-
-    /// create a submatrix by removing the specified row and col
-    /// @relates Matrix2x1, Matrix3x2
-    template <std::size_t RowIndex,
-              std::size_t ColIndex,
-              typename T>
-    constexpr Matrix2x1<T> matrix_drop_row_col(Matrix3x2<T> const & value) noexcept;
-
-    /// create a submatrix by removing the specified row and col
-    /// @relates Matrix2x2, Matrix3x3
-    template <std::size_t RowIndex,
-              std::size_t ColIndex,
-              typename T>
-    constexpr Matrix2x2<T> matrix_drop_row_col(Matrix3x3<T> const & value) noexcept;
-
-    /// create a submatrix by removing the specified row and col
-    /// @relates Matrix2x3, Matrix3x4
-    template <std::size_t RowIndex,
-              std::size_t ColIndex,
-              typename T>
-    constexpr Matrix2x3<T> matrix_drop_row_col(Matrix3x4<T> const & value) noexcept;
-
-    /// create a submatrix by removing the specified row and col
-    /// @relates Matrix3x1, Matrix4x2
-    template <std::size_t RowIndex,
-              std::size_t ColIndex,
-              typename T>
-    constexpr Matrix3x1<T> matrix_drop_row_col(Matrix4x2<T> const & value) noexcept;
-
-    /// create a submatrix by removing the specified row and col
-    /// @relates Matrix3x2, Matrix4x3
-    template <std::size_t RowIndex,
-              std::size_t ColIndex,
-              typename T>
-    constexpr Matrix3x2<T> matrix_drop_row_col(Matrix4x3<T> const & value) noexcept;
-
-    /// create a submatrix by removing the specified row and col
-    /// @relates Matrix3x3, Matrix4x4
-    template <std::size_t RowIndex,
-              std::size_t ColIndex,
-              typename T>
-    constexpr Matrix3x3<T> matrix_drop_row_col(Matrix4x4<T> const & value) noexcept;
 
     // =============================================================================
     // comparisons:
