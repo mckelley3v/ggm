@@ -6,5 +6,6 @@
 #include "ggm/Matrix/MatrixConstants.h"
 #include "ggm/Matrix/MatrixTypedefs.h"
 #include "ggm/Matrix/MatrixUtil.h"
+#include "ggm/Matrix/MatrixVectorUtil.h"
 
 #endif // GGM_MATRIX_ALL_H
