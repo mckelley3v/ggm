@@ -9847,4 +9847,2152 @@ constexpr ggm::Matrix3x4<T> ggm::matrix_drop_row(Matrix4x4<T> const & value) noe
 
 // =============================================================================
 
+constexpr bool ggm::all_of(Matrix1x1<bool> const & value) noexcept
+{
+    return value.m00;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::all_of(Matrix1x2<bool> const & value) noexcept
+{
+    return value.m00 &&
+           value.m01;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::all_of(Matrix1x3<bool> const & value) noexcept
+{
+    return value.m00 &&
+           value.m01 &&
+           value.m02;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::all_of(Matrix1x4<bool> const & value) noexcept
+{
+    return value.m00 &&
+           value.m01 &&
+           value.m02 &&
+           value.m03;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::all_of(Matrix2x1<bool> const & value) noexcept
+{
+    return value.m00 &&
+           value.m10;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::all_of(Matrix2x2<bool> const & value) noexcept
+{
+    return value.m00 &&
+           value.m01 &&
+           value.m10 &&
+           value.m11;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::all_of(Matrix2x3<bool> const & value) noexcept
+{
+    return value.m00 &&
+           value.m01 &&
+           value.m02 &&
+           value.m10 &&
+           value.m11 &&
+           value.m12;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::all_of(Matrix2x4<bool> const & value) noexcept
+{
+    return value.m00 &&
+           value.m01 &&
+           value.m02 &&
+           value.m03 &&
+           value.m10 &&
+           value.m11 &&
+           value.m12 &&
+           value.m13;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::all_of(Matrix3x1<bool> const & value) noexcept
+{
+    return value.m00 &&
+           value.m10 &&
+           value.m20;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::all_of(Matrix3x2<bool> const & value) noexcept
+{
+    return value.m00 &&
+           value.m01 &&
+           value.m10 &&
+           value.m11 &&
+           value.m20 &&
+           value.m21;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::all_of(Matrix3x3<bool> const & value) noexcept
+{
+    return value.m00 &&
+           value.m01 &&
+           value.m02 &&
+           value.m10 &&
+           value.m11 &&
+           value.m12 &&
+           value.m20 &&
+           value.m21 &&
+           value.m22;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::all_of(Matrix3x4<bool> const & value) noexcept
+{
+    return value.m00 &&
+           value.m01 &&
+           value.m02 &&
+           value.m03 &&
+           value.m10 &&
+           value.m11 &&
+           value.m12 &&
+           value.m13 &&
+           value.m20 &&
+           value.m21 &&
+           value.m22 &&
+           value.m23;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::all_of(Matrix4x1<bool> const & value) noexcept
+{
+    return value.m00 &&
+           value.m10 &&
+           value.m20 &&
+           value.m30;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::all_of(Matrix4x2<bool> const & value) noexcept
+{
+    return value.m00 &&
+           value.m01 &&
+           value.m10 &&
+           value.m11 &&
+           value.m20 &&
+           value.m21 &&
+           value.m30 &&
+           value.m31;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::all_of(Matrix4x3<bool> const & value) noexcept
+{
+    return value.m00 &&
+           value.m01 &&
+           value.m02 &&
+           value.m10 &&
+           value.m11 &&
+           value.m12 &&
+           value.m20 &&
+           value.m21 &&
+           value.m22 &&
+           value.m30 &&
+           value.m31 &&
+           value.m32;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::all_of(Matrix4x4<bool> const & value) noexcept
+{
+    return value.m00 &&
+           value.m01 &&
+           value.m02 &&
+           value.m03 &&
+           value.m10 &&
+           value.m11 &&
+           value.m12 &&
+           value.m13 &&
+           value.m20 &&
+           value.m21 &&
+           value.m22 &&
+           value.m23 &&
+           value.m30 &&
+           value.m31 &&
+           value.m32 &&
+           value.m33;
+}
+
+// =============================================================================
+
+constexpr bool ggm::any_of(Matrix1x1<bool> const & value) noexcept
+{
+    return value.m00;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::any_of(Matrix1x2<bool> const & value) noexcept
+{
+    return value.m00 ||
+           value.m01;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::any_of(Matrix1x3<bool> const & value) noexcept
+{
+    return value.m00 ||
+           value.m01 ||
+           value.m02;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::any_of(Matrix1x4<bool> const & value) noexcept
+{
+    return value.m00 ||
+           value.m01 ||
+           value.m02 ||
+           value.m03;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::any_of(Matrix2x1<bool> const & value) noexcept
+{
+    return value.m00 ||
+           value.m10;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::any_of(Matrix2x2<bool> const & value) noexcept
+{
+    return value.m00 ||
+           value.m01 ||
+           value.m10 ||
+           value.m11;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::any_of(Matrix2x3<bool> const & value) noexcept
+{
+    return value.m00 ||
+           value.m01 ||
+           value.m02 ||
+           value.m10 ||
+           value.m11 ||
+           value.m12;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::any_of(Matrix2x4<bool> const & value) noexcept
+{
+    return value.m00 ||
+           value.m01 ||
+           value.m02 ||
+           value.m03 ||
+           value.m10 ||
+           value.m11 ||
+           value.m12 ||
+           value.m13;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::any_of(Matrix3x1<bool> const & value) noexcept
+{
+    return value.m00 ||
+           value.m10 ||
+           value.m20;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::any_of(Matrix3x2<bool> const & value) noexcept
+{
+    return value.m00 ||
+           value.m01 ||
+           value.m10 ||
+           value.m11 ||
+           value.m20 ||
+           value.m21;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::any_of(Matrix3x3<bool> const & value) noexcept
+{
+    return value.m00 ||
+           value.m01 ||
+           value.m02 ||
+           value.m10 ||
+           value.m11 ||
+           value.m12 ||
+           value.m20 ||
+           value.m21 ||
+           value.m22;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::any_of(Matrix3x4<bool> const & value) noexcept
+{
+    return value.m00 ||
+           value.m01 ||
+           value.m02 ||
+           value.m03 ||
+           value.m10 ||
+           value.m11 ||
+           value.m12 ||
+           value.m13 ||
+           value.m20 ||
+           value.m21 ||
+           value.m22 ||
+           value.m23;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::any_of(Matrix4x1<bool> const & value) noexcept
+{
+    return value.m00 ||
+           value.m10 ||
+           value.m20 ||
+           value.m30;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::any_of(Matrix4x2<bool> const & value) noexcept
+{
+    return value.m00 ||
+           value.m01 ||
+           value.m10 ||
+           value.m11 ||
+           value.m20 ||
+           value.m21 ||
+           value.m30 ||
+           value.m31;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::any_of(Matrix4x3<bool> const & value) noexcept
+{
+    return value.m00 ||
+           value.m01 ||
+           value.m02 ||
+           value.m10 ||
+           value.m11 ||
+           value.m12 ||
+           value.m20 ||
+           value.m21 ||
+           value.m22 ||
+           value.m30 ||
+           value.m31 ||
+           value.m32;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::any_of(Matrix4x4<bool> const & value) noexcept
+{
+    return value.m00 ||
+           value.m01 ||
+           value.m02 ||
+           value.m03 ||
+           value.m10 ||
+           value.m11 ||
+           value.m12 ||
+           value.m13 ||
+           value.m20 ||
+           value.m21 ||
+           value.m22 ||
+           value.m23 ||
+           value.m30 ||
+           value.m31 ||
+           value.m32 ||
+           value.m33;
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Matrix1x1<bool> ggm::is_equal(Matrix1x1<T> const & lhs,
+                                             Matrix1x1<T> const & rhs) noexcept
+{
+    return Matrix1x1<bool>{
+        lhs.m00 == rhs.m00,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x2<bool> ggm::is_equal(Matrix1x2<T> const & lhs,
+                                             Matrix1x2<T> const & rhs) noexcept
+{
+    return Matrix1x2<bool>{
+        lhs.m00 == rhs.m00,
+        lhs.m01 == rhs.m01,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x3<bool> ggm::is_equal(Matrix1x3<T> const & lhs,
+                                             Matrix1x3<T> const & rhs) noexcept
+{
+    return Matrix1x3<bool>{
+        lhs.m00 == rhs.m00,
+        lhs.m01 == rhs.m01,
+        lhs.m02 == rhs.m02,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x4<bool> ggm::is_equal(Matrix1x4<T> const & lhs,
+                                             Matrix1x4<T> const & rhs) noexcept
+{
+    return Matrix1x4<bool>{
+        lhs.m00 == rhs.m00,
+        lhs.m01 == rhs.m01,
+        lhs.m02 == rhs.m02,
+        lhs.m03 == rhs.m03,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x1<bool> ggm::is_equal(Matrix2x1<T> const & lhs,
+                                             Matrix2x1<T> const & rhs) noexcept
+{
+    return Matrix2x1<bool>{
+        lhs.m00 == rhs.m00,
+        lhs.m10 == rhs.m10,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x2<bool> ggm::is_equal(Matrix2x2<T> const & lhs,
+                                             Matrix2x2<T> const & rhs) noexcept
+{
+    return Matrix2x2<bool>{
+        lhs.m00 == rhs.m00,
+        lhs.m01 == rhs.m01,
+        lhs.m10 == rhs.m10,
+        lhs.m11 == rhs.m11,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x3<bool> ggm::is_equal(Matrix2x3<T> const & lhs,
+                                             Matrix2x3<T> const & rhs) noexcept
+{
+    return Matrix2x3<bool>{
+        lhs.m00 == rhs.m00,
+        lhs.m01 == rhs.m01,
+        lhs.m02 == rhs.m02,
+        lhs.m10 == rhs.m10,
+        lhs.m11 == rhs.m11,
+        lhs.m12 == rhs.m12,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x4<bool> ggm::is_equal(Matrix2x4<T> const & lhs,
+                                             Matrix2x4<T> const & rhs) noexcept
+{
+    return Matrix2x4<bool>{
+        lhs.m00 == rhs.m00,
+        lhs.m01 == rhs.m01,
+        lhs.m02 == rhs.m02,
+        lhs.m03 == rhs.m03,
+        lhs.m10 == rhs.m10,
+        lhs.m11 == rhs.m11,
+        lhs.m12 == rhs.m12,
+        lhs.m13 == rhs.m13,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x1<bool> ggm::is_equal(Matrix3x1<T> const & lhs,
+                                             Matrix3x1<T> const & rhs) noexcept
+{
+    return Matrix3x1<bool>{
+        lhs.m00 == rhs.m00,
+        lhs.m10 == rhs.m10,
+        lhs.m20 == rhs.m20,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x2<bool> ggm::is_equal(Matrix3x2<T> const & lhs,
+                                             Matrix3x2<T> const & rhs) noexcept
+{
+    return Matrix3x2<bool>{
+        lhs.m00 == rhs.m00,
+        lhs.m01 == rhs.m01,
+        lhs.m10 == rhs.m10,
+        lhs.m11 == rhs.m11,
+        lhs.m20 == rhs.m20,
+        lhs.m21 == rhs.m21,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x3<bool> ggm::is_equal(Matrix3x3<T> const & lhs,
+                                             Matrix3x3<T> const & rhs) noexcept
+{
+    return Matrix3x3<bool>{
+        lhs.m00 == rhs.m00,
+        lhs.m01 == rhs.m01,
+        lhs.m02 == rhs.m02,
+        lhs.m10 == rhs.m10,
+        lhs.m11 == rhs.m11,
+        lhs.m12 == rhs.m12,
+        lhs.m20 == rhs.m20,
+        lhs.m21 == rhs.m21,
+        lhs.m22 == rhs.m22,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x4<bool> ggm::is_equal(Matrix3x4<T> const & lhs,
+                                             Matrix3x4<T> const & rhs) noexcept
+{
+    return Matrix3x4<bool>{
+        lhs.m00 == rhs.m00,
+        lhs.m01 == rhs.m01,
+        lhs.m02 == rhs.m02,
+        lhs.m03 == rhs.m03,
+        lhs.m10 == rhs.m10,
+        lhs.m11 == rhs.m11,
+        lhs.m12 == rhs.m12,
+        lhs.m13 == rhs.m13,
+        lhs.m20 == rhs.m20,
+        lhs.m21 == rhs.m21,
+        lhs.m22 == rhs.m22,
+        lhs.m23 == rhs.m23,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x1<bool> ggm::is_equal(Matrix4x1<T> const & lhs,
+                                             Matrix4x1<T> const & rhs) noexcept
+{
+    return Matrix4x1<bool>{
+        lhs.m00 == rhs.m00,
+        lhs.m10 == rhs.m10,
+        lhs.m20 == rhs.m20,
+        lhs.m30 == rhs.m30,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x2<bool> ggm::is_equal(Matrix4x2<T> const & lhs,
+                                             Matrix4x2<T> const & rhs) noexcept
+{
+    return Matrix4x2<bool>{
+        lhs.m00 == rhs.m00,
+        lhs.m01 == rhs.m01,
+        lhs.m10 == rhs.m10,
+        lhs.m11 == rhs.m11,
+        lhs.m20 == rhs.m20,
+        lhs.m21 == rhs.m21,
+        lhs.m30 == rhs.m30,
+        lhs.m31 == rhs.m31,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x3<bool> ggm::is_equal(Matrix4x3<T> const & lhs,
+                                             Matrix4x3<T> const & rhs) noexcept
+{
+    return Matrix4x3<bool>{
+        lhs.m00 == rhs.m00,
+        lhs.m01 == rhs.m01,
+        lhs.m02 == rhs.m02,
+        lhs.m10 == rhs.m10,
+        lhs.m11 == rhs.m11,
+        lhs.m12 == rhs.m12,
+        lhs.m20 == rhs.m20,
+        lhs.m21 == rhs.m21,
+        lhs.m22 == rhs.m22,
+        lhs.m30 == rhs.m30,
+        lhs.m31 == rhs.m31,
+        lhs.m32 == rhs.m32,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x4<bool> ggm::is_equal(Matrix4x4<T> const & lhs,
+                                             Matrix4x4<T> const & rhs) noexcept
+{
+    return Matrix4x4<bool>{
+        lhs.m00 == rhs.m00,
+        lhs.m01 == rhs.m01,
+        lhs.m02 == rhs.m02,
+        lhs.m03 == rhs.m03,
+        lhs.m10 == rhs.m10,
+        lhs.m11 == rhs.m11,
+        lhs.m12 == rhs.m12,
+        lhs.m13 == rhs.m13,
+        lhs.m20 == rhs.m20,
+        lhs.m21 == rhs.m21,
+        lhs.m22 == rhs.m22,
+        lhs.m23 == rhs.m23,
+        lhs.m30 == rhs.m30,
+        lhs.m31 == rhs.m31,
+        lhs.m32 == rhs.m32,
+        lhs.m33 == rhs.m33,
+    };
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Matrix1x1<bool> ggm::is_greater(Matrix1x1<T> const & lhs,
+                                               Matrix1x1<T> const & rhs) noexcept
+{
+    return Matrix1x1<bool>{
+        lhs.m00 > rhs.m00,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x2<bool> ggm::is_greater(Matrix1x2<T> const & lhs,
+                                               Matrix1x2<T> const & rhs) noexcept
+{
+    return Matrix1x2<bool>{
+        lhs.m00 > rhs.m00,
+        lhs.m01 > rhs.m01,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x3<bool> ggm::is_greater(Matrix1x3<T> const & lhs,
+                                               Matrix1x3<T> const & rhs) noexcept
+{
+    return Matrix1x3<bool>{
+        lhs.m00 > rhs.m00,
+        lhs.m01 > rhs.m01,
+        lhs.m02 > rhs.m02,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x4<bool> ggm::is_greater(Matrix1x4<T> const & lhs,
+                                               Matrix1x4<T> const & rhs) noexcept
+{
+    return Matrix1x4<bool>{
+        lhs.m00 > rhs.m00,
+        lhs.m01 > rhs.m01,
+        lhs.m02 > rhs.m02,
+        lhs.m03 > rhs.m03,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x1<bool> ggm::is_greater(Matrix2x1<T> const & lhs,
+                                               Matrix2x1<T> const & rhs) noexcept
+{
+    return Matrix2x1<bool>{
+        lhs.m00 > rhs.m00,
+        lhs.m10 > rhs.m10,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x2<bool> ggm::is_greater(Matrix2x2<T> const & lhs,
+                                               Matrix2x2<T> const & rhs) noexcept
+{
+    return Matrix2x2<bool>{
+        lhs.m00 > rhs.m00,
+        lhs.m01 > rhs.m01,
+        lhs.m10 > rhs.m10,
+        lhs.m11 > rhs.m11,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x3<bool> ggm::is_greater(Matrix2x3<T> const & lhs,
+                                               Matrix2x3<T> const & rhs) noexcept
+{
+    return Matrix2x3<bool>{
+        lhs.m00 > rhs.m00,
+        lhs.m01 > rhs.m01,
+        lhs.m02 > rhs.m02,
+        lhs.m10 > rhs.m10,
+        lhs.m11 > rhs.m11,
+        lhs.m12 > rhs.m12,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x4<bool> ggm::is_greater(Matrix2x4<T> const & lhs,
+                                               Matrix2x4<T> const & rhs) noexcept
+{
+    return Matrix2x4<bool>{
+        lhs.m00 > rhs.m00,
+        lhs.m01 > rhs.m01,
+        lhs.m02 > rhs.m02,
+        lhs.m03 > rhs.m03,
+        lhs.m10 > rhs.m10,
+        lhs.m11 > rhs.m11,
+        lhs.m12 > rhs.m12,
+        lhs.m13 > rhs.m13,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x1<bool> ggm::is_greater(Matrix3x1<T> const & lhs,
+                                               Matrix3x1<T> const & rhs) noexcept
+{
+    return Matrix3x1<bool>{
+        lhs.m00 > rhs.m00,
+        lhs.m10 > rhs.m10,
+        lhs.m20 > rhs.m20,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x2<bool> ggm::is_greater(Matrix3x2<T> const & lhs,
+                                               Matrix3x2<T> const & rhs) noexcept
+{
+    return Matrix3x2<bool>{
+        lhs.m00 > rhs.m00,
+        lhs.m01 > rhs.m01,
+        lhs.m10 > rhs.m10,
+        lhs.m11 > rhs.m11,
+        lhs.m20 > rhs.m20,
+        lhs.m21 > rhs.m21,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x3<bool> ggm::is_greater(Matrix3x3<T> const & lhs,
+                                               Matrix3x3<T> const & rhs) noexcept
+{
+    return Matrix3x3<bool>{
+        lhs.m00 > rhs.m00,
+        lhs.m01 > rhs.m01,
+        lhs.m02 > rhs.m02,
+        lhs.m10 > rhs.m10,
+        lhs.m11 > rhs.m11,
+        lhs.m12 > rhs.m12,
+        lhs.m20 > rhs.m20,
+        lhs.m21 > rhs.m21,
+        lhs.m22 > rhs.m22,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x4<bool> ggm::is_greater(Matrix3x4<T> const & lhs,
+                                               Matrix3x4<T> const & rhs) noexcept
+{
+    return Matrix3x4<bool>{
+        lhs.m00 > rhs.m00,
+        lhs.m01 > rhs.m01,
+        lhs.m02 > rhs.m02,
+        lhs.m03 > rhs.m03,
+        lhs.m10 > rhs.m10,
+        lhs.m11 > rhs.m11,
+        lhs.m12 > rhs.m12,
+        lhs.m13 > rhs.m13,
+        lhs.m20 > rhs.m20,
+        lhs.m21 > rhs.m21,
+        lhs.m22 > rhs.m22,
+        lhs.m23 > rhs.m23,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x1<bool> ggm::is_greater(Matrix4x1<T> const & lhs,
+                                               Matrix4x1<T> const & rhs) noexcept
+{
+    return Matrix4x1<bool>{
+        lhs.m00 > rhs.m00,
+        lhs.m10 > rhs.m10,
+        lhs.m20 > rhs.m20,
+        lhs.m30 > rhs.m30,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x2<bool> ggm::is_greater(Matrix4x2<T> const & lhs,
+                                               Matrix4x2<T> const & rhs) noexcept
+{
+    return Matrix4x2<bool>{
+        lhs.m00 > rhs.m00,
+        lhs.m01 > rhs.m01,
+        lhs.m10 > rhs.m10,
+        lhs.m11 > rhs.m11,
+        lhs.m20 > rhs.m20,
+        lhs.m21 > rhs.m21,
+        lhs.m30 > rhs.m30,
+        lhs.m31 > rhs.m31,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x3<bool> ggm::is_greater(Matrix4x3<T> const & lhs,
+                                               Matrix4x3<T> const & rhs) noexcept
+{
+    return Matrix4x3<bool>{
+        lhs.m00 > rhs.m00,
+        lhs.m01 > rhs.m01,
+        lhs.m02 > rhs.m02,
+        lhs.m10 > rhs.m10,
+        lhs.m11 > rhs.m11,
+        lhs.m12 > rhs.m12,
+        lhs.m20 > rhs.m20,
+        lhs.m21 > rhs.m21,
+        lhs.m22 > rhs.m22,
+        lhs.m30 > rhs.m30,
+        lhs.m31 > rhs.m31,
+        lhs.m32 > rhs.m32,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x4<bool> ggm::is_greater(Matrix4x4<T> const & lhs,
+                                               Matrix4x4<T> const & rhs) noexcept
+{
+    return Matrix4x4<bool>{
+        lhs.m00 > rhs.m00,
+        lhs.m01 > rhs.m01,
+        lhs.m02 > rhs.m02,
+        lhs.m03 > rhs.m03,
+        lhs.m10 > rhs.m10,
+        lhs.m11 > rhs.m11,
+        lhs.m12 > rhs.m12,
+        lhs.m13 > rhs.m13,
+        lhs.m20 > rhs.m20,
+        lhs.m21 > rhs.m21,
+        lhs.m22 > rhs.m22,
+        lhs.m23 > rhs.m23,
+        lhs.m30 > rhs.m30,
+        lhs.m31 > rhs.m31,
+        lhs.m32 > rhs.m32,
+        lhs.m33 > rhs.m33,
+    };
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Matrix1x1<bool> ggm::is_greater_equal(Matrix1x1<T> const & lhs,
+                                                     Matrix1x1<T> const & rhs) noexcept
+{
+    return Matrix1x1<bool>{
+        lhs.m00 >= rhs.m00,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x2<bool> ggm::is_greater_equal(Matrix1x2<T> const & lhs,
+                                                     Matrix1x2<T> const & rhs) noexcept
+{
+    return Matrix1x2<bool>{
+        lhs.m00 >= rhs.m00,
+        lhs.m01 >= rhs.m01,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x3<bool> ggm::is_greater_equal(Matrix1x3<T> const & lhs,
+                                                     Matrix1x3<T> const & rhs) noexcept
+{
+    return Matrix1x3<bool>{
+        lhs.m00 >= rhs.m00,
+        lhs.m01 >= rhs.m01,
+        lhs.m02 >= rhs.m02,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x4<bool> ggm::is_greater_equal(Matrix1x4<T> const & lhs,
+                                                     Matrix1x4<T> const & rhs) noexcept
+{
+    return Matrix1x4<bool>{
+        lhs.m00 >= rhs.m00,
+        lhs.m01 >= rhs.m01,
+        lhs.m02 >= rhs.m02,
+        lhs.m03 >= rhs.m03,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x1<bool> ggm::is_greater_equal(Matrix2x1<T> const & lhs,
+                                                     Matrix2x1<T> const & rhs) noexcept
+{
+    return Matrix2x1<bool>{
+        lhs.m00 >= rhs.m00,
+        lhs.m10 >= rhs.m10,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x2<bool> ggm::is_greater_equal(Matrix2x2<T> const & lhs,
+                                                     Matrix2x2<T> const & rhs) noexcept
+{
+    return Matrix2x2<bool>{
+        lhs.m00 >= rhs.m00,
+        lhs.m01 >= rhs.m01,
+        lhs.m10 >= rhs.m10,
+        lhs.m11 >= rhs.m11,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x3<bool> ggm::is_greater_equal(Matrix2x3<T> const & lhs,
+                                                     Matrix2x3<T> const & rhs) noexcept
+{
+    return Matrix2x3<bool>{
+        lhs.m00 >= rhs.m00,
+        lhs.m01 >= rhs.m01,
+        lhs.m02 >= rhs.m02,
+        lhs.m10 >= rhs.m10,
+        lhs.m11 >= rhs.m11,
+        lhs.m12 >= rhs.m12,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x4<bool> ggm::is_greater_equal(Matrix2x4<T> const & lhs,
+                                                     Matrix2x4<T> const & rhs) noexcept
+{
+    return Matrix2x4<bool>{
+        lhs.m00 >= rhs.m00,
+        lhs.m01 >= rhs.m01,
+        lhs.m02 >= rhs.m02,
+        lhs.m03 >= rhs.m03,
+        lhs.m10 >= rhs.m10,
+        lhs.m11 >= rhs.m11,
+        lhs.m12 >= rhs.m12,
+        lhs.m13 >= rhs.m13,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x1<bool> ggm::is_greater_equal(Matrix3x1<T> const & lhs,
+                                                     Matrix3x1<T> const & rhs) noexcept
+{
+    return Matrix3x1<bool>{
+        lhs.m00 >= rhs.m00,
+        lhs.m10 >= rhs.m10,
+        lhs.m20 >= rhs.m20,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x2<bool> ggm::is_greater_equal(Matrix3x2<T> const & lhs,
+                                                     Matrix3x2<T> const & rhs) noexcept
+{
+    return Matrix3x2<bool>{
+        lhs.m00 >= rhs.m00,
+        lhs.m01 >= rhs.m01,
+        lhs.m10 >= rhs.m10,
+        lhs.m11 >= rhs.m11,
+        lhs.m20 >= rhs.m20,
+        lhs.m21 >= rhs.m21,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x3<bool> ggm::is_greater_equal(Matrix3x3<T> const & lhs,
+                                                     Matrix3x3<T> const & rhs) noexcept
+{
+    return Matrix3x3<bool>{
+        lhs.m00 >= rhs.m00,
+        lhs.m01 >= rhs.m01,
+        lhs.m02 >= rhs.m02,
+        lhs.m10 >= rhs.m10,
+        lhs.m11 >= rhs.m11,
+        lhs.m12 >= rhs.m12,
+        lhs.m20 >= rhs.m20,
+        lhs.m21 >= rhs.m21,
+        lhs.m22 >= rhs.m22,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x4<bool> ggm::is_greater_equal(Matrix3x4<T> const & lhs,
+                                                     Matrix3x4<T> const & rhs) noexcept
+{
+    return Matrix3x4<bool>{
+        lhs.m00 >= rhs.m00,
+        lhs.m01 >= rhs.m01,
+        lhs.m02 >= rhs.m02,
+        lhs.m03 >= rhs.m03,
+        lhs.m10 >= rhs.m10,
+        lhs.m11 >= rhs.m11,
+        lhs.m12 >= rhs.m12,
+        lhs.m13 >= rhs.m13,
+        lhs.m20 >= rhs.m20,
+        lhs.m21 >= rhs.m21,
+        lhs.m22 >= rhs.m22,
+        lhs.m23 >= rhs.m23,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x1<bool> ggm::is_greater_equal(Matrix4x1<T> const & lhs,
+                                                     Matrix4x1<T> const & rhs) noexcept
+{
+    return Matrix4x1<bool>{
+        lhs.m00 >= rhs.m00,
+        lhs.m10 >= rhs.m10,
+        lhs.m20 >= rhs.m20,
+        lhs.m30 >= rhs.m30,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x2<bool> ggm::is_greater_equal(Matrix4x2<T> const & lhs,
+                                                     Matrix4x2<T> const & rhs) noexcept
+{
+    return Matrix4x2<bool>{
+        lhs.m00 >= rhs.m00,
+        lhs.m01 >= rhs.m01,
+        lhs.m10 >= rhs.m10,
+        lhs.m11 >= rhs.m11,
+        lhs.m20 >= rhs.m20,
+        lhs.m21 >= rhs.m21,
+        lhs.m30 >= rhs.m30,
+        lhs.m31 >= rhs.m31,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x3<bool> ggm::is_greater_equal(Matrix4x3<T> const & lhs,
+                                                     Matrix4x3<T> const & rhs) noexcept
+{
+    return Matrix4x3<bool>{
+        lhs.m00 >= rhs.m00,
+        lhs.m01 >= rhs.m01,
+        lhs.m02 >= rhs.m02,
+        lhs.m10 >= rhs.m10,
+        lhs.m11 >= rhs.m11,
+        lhs.m12 >= rhs.m12,
+        lhs.m20 >= rhs.m20,
+        lhs.m21 >= rhs.m21,
+        lhs.m22 >= rhs.m22,
+        lhs.m30 >= rhs.m30,
+        lhs.m31 >= rhs.m31,
+        lhs.m32 >= rhs.m32,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x4<bool> ggm::is_greater_equal(Matrix4x4<T> const & lhs,
+                                                     Matrix4x4<T> const & rhs) noexcept
+{
+    return Matrix4x4<bool>{
+        lhs.m00 >= rhs.m00,
+        lhs.m01 >= rhs.m01,
+        lhs.m02 >= rhs.m02,
+        lhs.m03 >= rhs.m03,
+        lhs.m10 >= rhs.m10,
+        lhs.m11 >= rhs.m11,
+        lhs.m12 >= rhs.m12,
+        lhs.m13 >= rhs.m13,
+        lhs.m20 >= rhs.m20,
+        lhs.m21 >= rhs.m21,
+        lhs.m22 >= rhs.m22,
+        lhs.m23 >= rhs.m23,
+        lhs.m30 >= rhs.m30,
+        lhs.m31 >= rhs.m31,
+        lhs.m32 >= rhs.m32,
+        lhs.m33 >= rhs.m33,
+    };
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Matrix1x1<bool> ggm::is_less(Matrix1x1<T> const & lhs,
+                                            Matrix1x1<T> const & rhs) noexcept
+{
+    return Matrix1x1<bool>{
+        lhs.m00 < rhs.m00,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x2<bool> ggm::is_less(Matrix1x2<T> const & lhs,
+                                            Matrix1x2<T> const & rhs) noexcept
+{
+    return Matrix1x2<bool>{
+        lhs.m00 < rhs.m00,
+        lhs.m01 < rhs.m01,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x3<bool> ggm::is_less(Matrix1x3<T> const & lhs,
+                                            Matrix1x3<T> const & rhs) noexcept
+{
+    return Matrix1x3<bool>{
+        lhs.m00 < rhs.m00,
+        lhs.m01 < rhs.m01,
+        lhs.m02 < rhs.m02,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x4<bool> ggm::is_less(Matrix1x4<T> const & lhs,
+                                            Matrix1x4<T> const & rhs) noexcept
+{
+    return Matrix1x4<bool>{
+        lhs.m00 < rhs.m00,
+        lhs.m01 < rhs.m01,
+        lhs.m02 < rhs.m02,
+        lhs.m03 < rhs.m03,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x1<bool> ggm::is_less(Matrix2x1<T> const & lhs,
+                                            Matrix2x1<T> const & rhs) noexcept
+{
+    return Matrix2x1<bool>{
+        lhs.m00 < rhs.m00,
+        lhs.m10 < rhs.m10,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x2<bool> ggm::is_less(Matrix2x2<T> const & lhs,
+                                            Matrix2x2<T> const & rhs) noexcept
+{
+    return Matrix2x2<bool>{
+        lhs.m00 < rhs.m00,
+        lhs.m01 < rhs.m01,
+        lhs.m10 < rhs.m10,
+        lhs.m11 < rhs.m11,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x3<bool> ggm::is_less(Matrix2x3<T> const & lhs,
+                                            Matrix2x3<T> const & rhs) noexcept
+{
+    return Matrix2x3<bool>{
+        lhs.m00 < rhs.m00,
+        lhs.m01 < rhs.m01,
+        lhs.m02 < rhs.m02,
+        lhs.m10 < rhs.m10,
+        lhs.m11 < rhs.m11,
+        lhs.m12 < rhs.m12,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x4<bool> ggm::is_less(Matrix2x4<T> const & lhs,
+                                            Matrix2x4<T> const & rhs) noexcept
+{
+    return Matrix2x4<bool>{
+        lhs.m00 < rhs.m00,
+        lhs.m01 < rhs.m01,
+        lhs.m02 < rhs.m02,
+        lhs.m03 < rhs.m03,
+        lhs.m10 < rhs.m10,
+        lhs.m11 < rhs.m11,
+        lhs.m12 < rhs.m12,
+        lhs.m13 < rhs.m13,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x1<bool> ggm::is_less(Matrix3x1<T> const & lhs,
+                                            Matrix3x1<T> const & rhs) noexcept
+{
+    return Matrix3x1<bool>{
+        lhs.m00 < rhs.m00,
+        lhs.m10 < rhs.m10,
+        lhs.m20 < rhs.m20,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x2<bool> ggm::is_less(Matrix3x2<T> const & lhs,
+                                            Matrix3x2<T> const & rhs) noexcept
+{
+    return Matrix3x2<bool>{
+        lhs.m00 < rhs.m00,
+        lhs.m01 < rhs.m01,
+        lhs.m10 < rhs.m10,
+        lhs.m11 < rhs.m11,
+        lhs.m20 < rhs.m20,
+        lhs.m21 < rhs.m21,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x3<bool> ggm::is_less(Matrix3x3<T> const & lhs,
+                                            Matrix3x3<T> const & rhs) noexcept
+{
+    return Matrix3x3<bool>{
+        lhs.m00 < rhs.m00,
+        lhs.m01 < rhs.m01,
+        lhs.m02 < rhs.m02,
+        lhs.m10 < rhs.m10,
+        lhs.m11 < rhs.m11,
+        lhs.m12 < rhs.m12,
+        lhs.m20 < rhs.m20,
+        lhs.m21 < rhs.m21,
+        lhs.m22 < rhs.m22,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x4<bool> ggm::is_less(Matrix3x4<T> const & lhs,
+                                            Matrix3x4<T> const & rhs) noexcept
+{
+    return Matrix3x4<bool>{
+        lhs.m00 < rhs.m00,
+        lhs.m01 < rhs.m01,
+        lhs.m02 < rhs.m02,
+        lhs.m03 < rhs.m03,
+        lhs.m10 < rhs.m10,
+        lhs.m11 < rhs.m11,
+        lhs.m12 < rhs.m12,
+        lhs.m13 < rhs.m13,
+        lhs.m20 < rhs.m20,
+        lhs.m21 < rhs.m21,
+        lhs.m22 < rhs.m22,
+        lhs.m23 < rhs.m23,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x1<bool> ggm::is_less(Matrix4x1<T> const & lhs,
+                                            Matrix4x1<T> const & rhs) noexcept
+{
+    return Matrix4x1<bool>{
+        lhs.m00 < rhs.m00,
+        lhs.m10 < rhs.m10,
+        lhs.m20 < rhs.m20,
+        lhs.m30 < rhs.m30,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x2<bool> ggm::is_less(Matrix4x2<T> const & lhs,
+                                            Matrix4x2<T> const & rhs) noexcept
+{
+    return Matrix4x2<bool>{
+        lhs.m00 < rhs.m00,
+        lhs.m01 < rhs.m01,
+        lhs.m10 < rhs.m10,
+        lhs.m11 < rhs.m11,
+        lhs.m20 < rhs.m20,
+        lhs.m21 < rhs.m21,
+        lhs.m30 < rhs.m30,
+        lhs.m31 < rhs.m31,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x3<bool> ggm::is_less(Matrix4x3<T> const & lhs,
+                                            Matrix4x3<T> const & rhs) noexcept
+{
+    return Matrix4x3<bool>{
+        lhs.m00 < rhs.m00,
+        lhs.m01 < rhs.m01,
+        lhs.m02 < rhs.m02,
+        lhs.m10 < rhs.m10,
+        lhs.m11 < rhs.m11,
+        lhs.m12 < rhs.m12,
+        lhs.m20 < rhs.m20,
+        lhs.m21 < rhs.m21,
+        lhs.m22 < rhs.m22,
+        lhs.m30 < rhs.m30,
+        lhs.m31 < rhs.m31,
+        lhs.m32 < rhs.m32,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x4<bool> ggm::is_less(Matrix4x4<T> const & lhs,
+                                            Matrix4x4<T> const & rhs) noexcept
+{
+    return Matrix4x4<bool>{
+        lhs.m00 < rhs.m00,
+        lhs.m01 < rhs.m01,
+        lhs.m02 < rhs.m02,
+        lhs.m03 < rhs.m03,
+        lhs.m10 < rhs.m10,
+        lhs.m11 < rhs.m11,
+        lhs.m12 < rhs.m12,
+        lhs.m13 < rhs.m13,
+        lhs.m20 < rhs.m20,
+        lhs.m21 < rhs.m21,
+        lhs.m22 < rhs.m22,
+        lhs.m23 < rhs.m23,
+        lhs.m30 < rhs.m30,
+        lhs.m31 < rhs.m31,
+        lhs.m32 < rhs.m32,
+        lhs.m33 < rhs.m33,
+    };
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Matrix1x1<bool> ggm::is_less_equal(Matrix1x1<T> const & lhs,
+                                                  Matrix1x1<T> const & rhs) noexcept
+{
+    return Matrix1x1<bool>{
+        lhs.m00 <= rhs.m00,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x2<bool> ggm::is_less_equal(Matrix1x2<T> const & lhs,
+                                                  Matrix1x2<T> const & rhs) noexcept
+{
+    return Matrix1x2<bool>{
+        lhs.m00 <= rhs.m00,
+        lhs.m01 <= rhs.m01,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x3<bool> ggm::is_less_equal(Matrix1x3<T> const & lhs,
+                                                  Matrix1x3<T> const & rhs) noexcept
+{
+    return Matrix1x3<bool>{
+        lhs.m00 <= rhs.m00,
+        lhs.m01 <= rhs.m01,
+        lhs.m02 <= rhs.m02,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x4<bool> ggm::is_less_equal(Matrix1x4<T> const & lhs,
+                                                  Matrix1x4<T> const & rhs) noexcept
+{
+    return Matrix1x4<bool>{
+        lhs.m00 <= rhs.m00,
+        lhs.m01 <= rhs.m01,
+        lhs.m02 <= rhs.m02,
+        lhs.m03 <= rhs.m03,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x1<bool> ggm::is_less_equal(Matrix2x1<T> const & lhs,
+                                                  Matrix2x1<T> const & rhs) noexcept
+{
+    return Matrix2x1<bool>{
+        lhs.m00 <= rhs.m00,
+        lhs.m10 <= rhs.m10,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x2<bool> ggm::is_less_equal(Matrix2x2<T> const & lhs,
+                                                  Matrix2x2<T> const & rhs) noexcept
+{
+    return Matrix2x2<bool>{
+        lhs.m00 <= rhs.m00,
+        lhs.m01 <= rhs.m01,
+        lhs.m10 <= rhs.m10,
+        lhs.m11 <= rhs.m11,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x3<bool> ggm::is_less_equal(Matrix2x3<T> const & lhs,
+                                                  Matrix2x3<T> const & rhs) noexcept
+{
+    return Matrix2x3<bool>{
+        lhs.m00 <= rhs.m00,
+        lhs.m01 <= rhs.m01,
+        lhs.m02 <= rhs.m02,
+        lhs.m10 <= rhs.m10,
+        lhs.m11 <= rhs.m11,
+        lhs.m12 <= rhs.m12,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x4<bool> ggm::is_less_equal(Matrix2x4<T> const & lhs,
+                                                  Matrix2x4<T> const & rhs) noexcept
+{
+    return Matrix2x4<bool>{
+        lhs.m00 <= rhs.m00,
+        lhs.m01 <= rhs.m01,
+        lhs.m02 <= rhs.m02,
+        lhs.m03 <= rhs.m03,
+        lhs.m10 <= rhs.m10,
+        lhs.m11 <= rhs.m11,
+        lhs.m12 <= rhs.m12,
+        lhs.m13 <= rhs.m13,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x1<bool> ggm::is_less_equal(Matrix3x1<T> const & lhs,
+                                                  Matrix3x1<T> const & rhs) noexcept
+{
+    return Matrix3x1<bool>{
+        lhs.m00 <= rhs.m00,
+        lhs.m10 <= rhs.m10,
+        lhs.m20 <= rhs.m20,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x2<bool> ggm::is_less_equal(Matrix3x2<T> const & lhs,
+                                                  Matrix3x2<T> const & rhs) noexcept
+{
+    return Matrix3x2<bool>{
+        lhs.m00 <= rhs.m00,
+        lhs.m01 <= rhs.m01,
+        lhs.m10 <= rhs.m10,
+        lhs.m11 <= rhs.m11,
+        lhs.m20 <= rhs.m20,
+        lhs.m21 <= rhs.m21,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x3<bool> ggm::is_less_equal(Matrix3x3<T> const & lhs,
+                                                  Matrix3x3<T> const & rhs) noexcept
+{
+    return Matrix3x3<bool>{
+        lhs.m00 <= rhs.m00,
+        lhs.m01 <= rhs.m01,
+        lhs.m02 <= rhs.m02,
+        lhs.m10 <= rhs.m10,
+        lhs.m11 <= rhs.m11,
+        lhs.m12 <= rhs.m12,
+        lhs.m20 <= rhs.m20,
+        lhs.m21 <= rhs.m21,
+        lhs.m22 <= rhs.m22,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x4<bool> ggm::is_less_equal(Matrix3x4<T> const & lhs,
+                                                  Matrix3x4<T> const & rhs) noexcept
+{
+    return Matrix3x4<bool>{
+        lhs.m00 <= rhs.m00,
+        lhs.m01 <= rhs.m01,
+        lhs.m02 <= rhs.m02,
+        lhs.m03 <= rhs.m03,
+        lhs.m10 <= rhs.m10,
+        lhs.m11 <= rhs.m11,
+        lhs.m12 <= rhs.m12,
+        lhs.m13 <= rhs.m13,
+        lhs.m20 <= rhs.m20,
+        lhs.m21 <= rhs.m21,
+        lhs.m22 <= rhs.m22,
+        lhs.m23 <= rhs.m23,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x1<bool> ggm::is_less_equal(Matrix4x1<T> const & lhs,
+                                                  Matrix4x1<T> const & rhs) noexcept
+{
+    return Matrix4x1<bool>{
+        lhs.m00 <= rhs.m00,
+        lhs.m10 <= rhs.m10,
+        lhs.m20 <= rhs.m20,
+        lhs.m30 <= rhs.m30,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x2<bool> ggm::is_less_equal(Matrix4x2<T> const & lhs,
+                                                  Matrix4x2<T> const & rhs) noexcept
+{
+    return Matrix4x2<bool>{
+        lhs.m00 <= rhs.m00,
+        lhs.m01 <= rhs.m01,
+        lhs.m10 <= rhs.m10,
+        lhs.m11 <= rhs.m11,
+        lhs.m20 <= rhs.m20,
+        lhs.m21 <= rhs.m21,
+        lhs.m30 <= rhs.m30,
+        lhs.m31 <= rhs.m31,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x3<bool> ggm::is_less_equal(Matrix4x3<T> const & lhs,
+                                                  Matrix4x3<T> const & rhs) noexcept
+{
+    return Matrix4x3<bool>{
+        lhs.m00 <= rhs.m00,
+        lhs.m01 <= rhs.m01,
+        lhs.m02 <= rhs.m02,
+        lhs.m10 <= rhs.m10,
+        lhs.m11 <= rhs.m11,
+        lhs.m12 <= rhs.m12,
+        lhs.m20 <= rhs.m20,
+        lhs.m21 <= rhs.m21,
+        lhs.m22 <= rhs.m22,
+        lhs.m30 <= rhs.m30,
+        lhs.m31 <= rhs.m31,
+        lhs.m32 <= rhs.m32,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x4<bool> ggm::is_less_equal(Matrix4x4<T> const & lhs,
+                                                  Matrix4x4<T> const & rhs) noexcept
+{
+    return Matrix4x4<bool>{
+        lhs.m00 <= rhs.m00,
+        lhs.m01 <= rhs.m01,
+        lhs.m02 <= rhs.m02,
+        lhs.m03 <= rhs.m03,
+        lhs.m10 <= rhs.m10,
+        lhs.m11 <= rhs.m11,
+        lhs.m12 <= rhs.m12,
+        lhs.m13 <= rhs.m13,
+        lhs.m20 <= rhs.m20,
+        lhs.m21 <= rhs.m21,
+        lhs.m22 <= rhs.m22,
+        lhs.m23 <= rhs.m23,
+        lhs.m30 <= rhs.m30,
+        lhs.m31 <= rhs.m31,
+        lhs.m32 <= rhs.m32,
+        lhs.m33 <= rhs.m33,
+    };
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Matrix1x1<bool> ggm::is_not_equal(Matrix1x1<T> const & lhs,
+                                                 Matrix1x1<T> const & rhs) noexcept
+{
+    return Matrix1x1<bool>{
+        lhs.m00 != rhs.m00,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x2<bool> ggm::is_not_equal(Matrix1x2<T> const & lhs,
+                                                 Matrix1x2<T> const & rhs) noexcept
+{
+    return Matrix1x2<bool>{
+        lhs.m00 != rhs.m00,
+        lhs.m01 != rhs.m01,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x3<bool> ggm::is_not_equal(Matrix1x3<T> const & lhs,
+                                                 Matrix1x3<T> const & rhs) noexcept
+{
+    return Matrix1x3<bool>{
+        lhs.m00 != rhs.m00,
+        lhs.m01 != rhs.m01,
+        lhs.m02 != rhs.m02,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix1x4<bool> ggm::is_not_equal(Matrix1x4<T> const & lhs,
+                                                 Matrix1x4<T> const & rhs) noexcept
+{
+    return Matrix1x4<bool>{
+        lhs.m00 != rhs.m00,
+        lhs.m01 != rhs.m01,
+        lhs.m02 != rhs.m02,
+        lhs.m03 != rhs.m03,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x1<bool> ggm::is_not_equal(Matrix2x1<T> const & lhs,
+                                                 Matrix2x1<T> const & rhs) noexcept
+{
+    return Matrix2x1<bool>{
+        lhs.m00 != rhs.m00,
+        lhs.m10 != rhs.m10,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x2<bool> ggm::is_not_equal(Matrix2x2<T> const & lhs,
+                                                 Matrix2x2<T> const & rhs) noexcept
+{
+    return Matrix2x2<bool>{
+        lhs.m00 != rhs.m00,
+        lhs.m01 != rhs.m01,
+        lhs.m10 != rhs.m10,
+        lhs.m11 != rhs.m11,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x3<bool> ggm::is_not_equal(Matrix2x3<T> const & lhs,
+                                                 Matrix2x3<T> const & rhs) noexcept
+{
+    return Matrix2x3<bool>{
+        lhs.m00 != rhs.m00,
+        lhs.m01 != rhs.m01,
+        lhs.m02 != rhs.m02,
+        lhs.m10 != rhs.m10,
+        lhs.m11 != rhs.m11,
+        lhs.m12 != rhs.m12,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x4<bool> ggm::is_not_equal(Matrix2x4<T> const & lhs,
+                                                 Matrix2x4<T> const & rhs) noexcept
+{
+    return Matrix2x4<bool>{
+        lhs.m00 != rhs.m00,
+        lhs.m01 != rhs.m01,
+        lhs.m02 != rhs.m02,
+        lhs.m03 != rhs.m03,
+        lhs.m10 != rhs.m10,
+        lhs.m11 != rhs.m11,
+        lhs.m12 != rhs.m12,
+        lhs.m13 != rhs.m13,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x1<bool> ggm::is_not_equal(Matrix3x1<T> const & lhs,
+                                                 Matrix3x1<T> const & rhs) noexcept
+{
+    return Matrix3x1<bool>{
+        lhs.m00 != rhs.m00,
+        lhs.m10 != rhs.m10,
+        lhs.m20 != rhs.m20,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x2<bool> ggm::is_not_equal(Matrix3x2<T> const & lhs,
+                                                 Matrix3x2<T> const & rhs) noexcept
+{
+    return Matrix3x2<bool>{
+        lhs.m00 != rhs.m00,
+        lhs.m01 != rhs.m01,
+        lhs.m10 != rhs.m10,
+        lhs.m11 != rhs.m11,
+        lhs.m20 != rhs.m20,
+        lhs.m21 != rhs.m21,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x3<bool> ggm::is_not_equal(Matrix3x3<T> const & lhs,
+                                                 Matrix3x3<T> const & rhs) noexcept
+{
+    return Matrix3x3<bool>{
+        lhs.m00 != rhs.m00,
+        lhs.m01 != rhs.m01,
+        lhs.m02 != rhs.m02,
+        lhs.m10 != rhs.m10,
+        lhs.m11 != rhs.m11,
+        lhs.m12 != rhs.m12,
+        lhs.m20 != rhs.m20,
+        lhs.m21 != rhs.m21,
+        lhs.m22 != rhs.m22,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x4<bool> ggm::is_not_equal(Matrix3x4<T> const & lhs,
+                                                 Matrix3x4<T> const & rhs) noexcept
+{
+    return Matrix3x4<bool>{
+        lhs.m00 != rhs.m00,
+        lhs.m01 != rhs.m01,
+        lhs.m02 != rhs.m02,
+        lhs.m03 != rhs.m03,
+        lhs.m10 != rhs.m10,
+        lhs.m11 != rhs.m11,
+        lhs.m12 != rhs.m12,
+        lhs.m13 != rhs.m13,
+        lhs.m20 != rhs.m20,
+        lhs.m21 != rhs.m21,
+        lhs.m22 != rhs.m22,
+        lhs.m23 != rhs.m23,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x1<bool> ggm::is_not_equal(Matrix4x1<T> const & lhs,
+                                                 Matrix4x1<T> const & rhs) noexcept
+{
+    return Matrix4x1<bool>{
+        lhs.m00 != rhs.m00,
+        lhs.m10 != rhs.m10,
+        lhs.m20 != rhs.m20,
+        lhs.m30 != rhs.m30,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x2<bool> ggm::is_not_equal(Matrix4x2<T> const & lhs,
+                                                 Matrix4x2<T> const & rhs) noexcept
+{
+    return Matrix4x2<bool>{
+        lhs.m00 != rhs.m00,
+        lhs.m01 != rhs.m01,
+        lhs.m10 != rhs.m10,
+        lhs.m11 != rhs.m11,
+        lhs.m20 != rhs.m20,
+        lhs.m21 != rhs.m21,
+        lhs.m30 != rhs.m30,
+        lhs.m31 != rhs.m31,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x3<bool> ggm::is_not_equal(Matrix4x3<T> const & lhs,
+                                                 Matrix4x3<T> const & rhs) noexcept
+{
+    return Matrix4x3<bool>{
+        lhs.m00 != rhs.m00,
+        lhs.m01 != rhs.m01,
+        lhs.m02 != rhs.m02,
+        lhs.m10 != rhs.m10,
+        lhs.m11 != rhs.m11,
+        lhs.m12 != rhs.m12,
+        lhs.m20 != rhs.m20,
+        lhs.m21 != rhs.m21,
+        lhs.m22 != rhs.m22,
+        lhs.m30 != rhs.m30,
+        lhs.m31 != rhs.m31,
+        lhs.m32 != rhs.m32,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x4<bool> ggm::is_not_equal(Matrix4x4<T> const & lhs,
+                                                 Matrix4x4<T> const & rhs) noexcept
+{
+    return Matrix4x4<bool>{
+        lhs.m00 != rhs.m00,
+        lhs.m01 != rhs.m01,
+        lhs.m02 != rhs.m02,
+        lhs.m03 != rhs.m03,
+        lhs.m10 != rhs.m10,
+        lhs.m11 != rhs.m11,
+        lhs.m12 != rhs.m12,
+        lhs.m13 != rhs.m13,
+        lhs.m20 != rhs.m20,
+        lhs.m21 != rhs.m21,
+        lhs.m22 != rhs.m22,
+        lhs.m23 != rhs.m23,
+        lhs.m30 != rhs.m30,
+        lhs.m31 != rhs.m31,
+        lhs.m32 != rhs.m32,
+        lhs.m33 != rhs.m33,
+    };
+}
+
+// =============================================================================
+
+constexpr bool ggm::none_of(Matrix1x1<bool> const & value) noexcept
+{
+    return !value.m00;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::none_of(Matrix1x2<bool> const & value) noexcept
+{
+    return !value.m00 &&
+           !value.m01;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::none_of(Matrix1x3<bool> const & value) noexcept
+{
+    return !value.m00 &&
+           !value.m01 &&
+           !value.m02;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::none_of(Matrix1x4<bool> const & value) noexcept
+{
+    return !value.m00 &&
+           !value.m01 &&
+           !value.m02 &&
+           !value.m03;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::none_of(Matrix2x1<bool> const & value) noexcept
+{
+    return !value.m00 &&
+           !value.m10;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::none_of(Matrix2x2<bool> const & value) noexcept
+{
+    return !value.m00 &&
+           !value.m01 &&
+           !value.m10 &&
+           !value.m11;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::none_of(Matrix2x3<bool> const & value) noexcept
+{
+    return !value.m00 &&
+           !value.m01 &&
+           !value.m02 &&
+           !value.m10 &&
+           !value.m11 &&
+           !value.m12;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::none_of(Matrix2x4<bool> const & value) noexcept
+{
+    return !value.m00 &&
+           !value.m01 &&
+           !value.m02 &&
+           !value.m03 &&
+           !value.m10 &&
+           !value.m11 &&
+           !value.m12 &&
+           !value.m13;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::none_of(Matrix3x1<bool> const & value) noexcept
+{
+    return !value.m00 &&
+           !value.m10 &&
+           !value.m20;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::none_of(Matrix3x2<bool> const & value) noexcept
+{
+    return !value.m00 &&
+           !value.m01 &&
+           !value.m10 &&
+           !value.m11 &&
+           !value.m20 &&
+           !value.m21;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::none_of(Matrix3x3<bool> const & value) noexcept
+{
+    return !value.m00 &&
+           !value.m01 &&
+           !value.m02 &&
+           !value.m10 &&
+           !value.m11 &&
+           !value.m12 &&
+           !value.m20 &&
+           !value.m21 &&
+           !value.m22;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::none_of(Matrix3x4<bool> const & value) noexcept
+{
+    return !value.m00 &&
+           !value.m01 &&
+           !value.m02 &&
+           !value.m03 &&
+           !value.m10 &&
+           !value.m11 &&
+           !value.m12 &&
+           !value.m13 &&
+           !value.m20 &&
+           !value.m21 &&
+           !value.m22 &&
+           !value.m23;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::none_of(Matrix4x1<bool> const & value) noexcept
+{
+    return !value.m00 &&
+           !value.m10 &&
+           !value.m20 &&
+           !value.m30;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::none_of(Matrix4x2<bool> const & value) noexcept
+{
+    return !value.m00 &&
+           !value.m01 &&
+           !value.m10 &&
+           !value.m11 &&
+           !value.m20 &&
+           !value.m21 &&
+           !value.m30 &&
+           !value.m31;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::none_of(Matrix4x3<bool> const & value) noexcept
+{
+    return !value.m00 &&
+           !value.m01 &&
+           !value.m02 &&
+           !value.m10 &&
+           !value.m11 &&
+           !value.m12 &&
+           !value.m20 &&
+           !value.m21 &&
+           !value.m22 &&
+           !value.m30 &&
+           !value.m31 &&
+           !value.m32;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::none_of(Matrix4x4<bool> const & value) noexcept
+{
+    return !value.m00 &&
+           !value.m01 &&
+           !value.m02 &&
+           !value.m03 &&
+           !value.m10 &&
+           !value.m11 &&
+           !value.m12 &&
+           !value.m13 &&
+           !value.m20 &&
+           !value.m21 &&
+           !value.m22 &&
+           !value.m23 &&
+           !value.m30 &&
+           !value.m31 &&
+           !value.m32 &&
+           !value.m33;
+}
+
+// =============================================================================
+
 #endif // GGM_MATRIX_UTIL_H
