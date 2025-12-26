@@ -9455,4 +9455,462 @@ constexpr ggm::Matrix4x3<T> ggm::matrix_drop_col(Matrix4x4<T> const & value) noe
 
 // =============================================================================
 
+template <std::size_t RowIndex,
+          typename T>
+constexpr ggm::Matrix1x1<T> ggm::matrix_drop_row(Matrix2x1<T> const & value) noexcept
+{
+    if constexpr (RowIndex == 0)
+    {
+        return Matrix1x1<T>{
+            value.m10,
+        };
+    }
+    else if constexpr (RowIndex == 1)
+    {
+        return Matrix1x1<T>{
+            value.m00,
+        };
+    }
+    else
+    {
+        static_assert(RowIndex < 2, "Invalid RowIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t RowIndex,
+          typename T>
+constexpr ggm::Matrix2x1<T> ggm::matrix_drop_row(Matrix3x1<T> const & value) noexcept
+{
+    if constexpr (RowIndex == 0)
+    {
+        return Matrix2x1<T>{
+            value.m10,
+            value.m20,
+        };
+    }
+    else if constexpr (RowIndex == 1)
+    {
+        return Matrix2x1<T>{
+            value.m00,
+            value.m20,
+        };
+    }
+    else if constexpr (RowIndex == 2)
+    {
+        return Matrix2x1<T>{
+            value.m00,
+            value.m10,
+        };
+    }
+    else
+    {
+        static_assert(RowIndex < 3, "Invalid RowIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t RowIndex,
+          typename T>
+constexpr ggm::Matrix3x1<T> ggm::matrix_drop_row(Matrix4x1<T> const & value) noexcept
+{
+    if constexpr (RowIndex == 0)
+    {
+        return Matrix3x1<T>{
+            value.m10,
+            value.m20,
+            value.m30,
+        };
+    }
+    else if constexpr (RowIndex == 1)
+    {
+        return Matrix3x1<T>{
+            value.m00,
+            value.m20,
+            value.m30,
+        };
+    }
+    else if constexpr (RowIndex == 2)
+    {
+        return Matrix3x1<T>{
+            value.m00,
+            value.m10,
+            value.m30,
+        };
+    }
+    else if constexpr (RowIndex == 3)
+    {
+        return Matrix3x1<T>{
+            value.m00,
+            value.m10,
+            value.m20,
+        };
+    }
+    else
+    {
+        static_assert(RowIndex < 4, "Invalid RowIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t RowIndex,
+          typename T>
+constexpr ggm::Matrix1x2<T> ggm::matrix_drop_row(Matrix2x2<T> const & value) noexcept
+{
+    if constexpr (RowIndex == 0)
+    {
+        return Matrix1x2<T>{
+            // clang-format off
+            value.m10, value.m11,
+            // clang-format on
+        };
+    }
+    else if constexpr (RowIndex == 1)
+    {
+        return Matrix1x2<T>{
+            // clang-format off
+            value.m00, value.m01,
+            // clang-format on
+        };
+    }
+    else
+    {
+        static_assert(RowIndex < 2, "Invalid RowIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t RowIndex,
+          typename T>
+constexpr ggm::Matrix2x2<T> ggm::matrix_drop_row(Matrix3x2<T> const & value) noexcept
+{
+    if constexpr (RowIndex == 0)
+    {
+        return Matrix2x2<T>{
+            // clang-format off
+            value.m10, value.m11,
+            value.m20, value.m21,
+            // clang-format on
+        };
+    }
+    else if constexpr (RowIndex == 1)
+    {
+        return Matrix2x2<T>{
+            // clang-format off
+            value.m00, value.m01,
+            value.m20, value.m21,
+            // clang-format on
+        };
+    }
+    else if constexpr (RowIndex == 2)
+    {
+        return Matrix2x2<T>{
+            // clang-format off
+            value.m00, value.m01,
+            value.m10, value.m11,
+            // clang-format on
+        };
+    }
+    else
+    {
+        static_assert(RowIndex < 3, "Invalid RowIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t RowIndex,
+          typename T>
+constexpr ggm::Matrix3x2<T> ggm::matrix_drop_row(Matrix4x2<T> const & value) noexcept
+{
+    if constexpr (RowIndex == 0)
+    {
+        return Matrix3x2<T>{
+            // clang-format off
+            value.m10, value.m11,
+            value.m20, value.m21,
+            value.m30, value.m31,
+            // clang-format on
+        };
+    }
+    else if constexpr (RowIndex == 1)
+    {
+        return Matrix3x2<T>{
+            // clang-format off
+            value.m00, value.m01,
+            value.m20, value.m21,
+            value.m30, value.m31,
+            // clang-format on
+        };
+    }
+    else if constexpr (RowIndex == 2)
+    {
+        return Matrix3x2<T>{
+            // clang-format off
+            value.m00, value.m01,
+            value.m10, value.m11,
+            value.m30, value.m31,
+            // clang-format on
+        };
+    }
+    else if constexpr (RowIndex == 3)
+    {
+        return Matrix3x2<T>{
+            // clang-format off
+            value.m00, value.m01,
+            value.m10, value.m11,
+            value.m20, value.m21,
+            // clang-format on
+        };
+    }
+    else
+    {
+        static_assert(RowIndex < 4, "Invalid RowIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t RowIndex,
+          typename T>
+constexpr ggm::Matrix1x3<T> ggm::matrix_drop_row(Matrix2x3<T> const & value) noexcept
+{
+    if constexpr (RowIndex == 0)
+    {
+        return Matrix1x3<T>{
+            // clang-format off
+            value.m10, value.m11, value.m12,
+            // clang-format on
+        };
+    }
+    else if constexpr (RowIndex == 1)
+    {
+        return Matrix1x3<T>{
+            // clang-format off
+            value.m00, value.m01, value.m02,
+            // clang-format on
+        };
+    }
+    else
+    {
+        static_assert(RowIndex < 2, "Invalid RowIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t RowIndex,
+          typename T>
+constexpr ggm::Matrix2x3<T> ggm::matrix_drop_row(Matrix3x3<T> const & value) noexcept
+{
+    if constexpr (RowIndex == 0)
+    {
+        return Matrix2x3<T>{
+            // clang-format off
+            value.m10, value.m11, value.m12,
+            value.m20, value.m21, value.m22,
+            // clang-format on
+        };
+    }
+    else if constexpr (RowIndex == 1)
+    {
+        return Matrix2x3<T>{
+            // clang-format off
+            value.m00, value.m01, value.m02,
+            value.m20, value.m21, value.m22,
+            // clang-format on
+        };
+    }
+    else if constexpr (RowIndex == 2)
+    {
+        return Matrix2x3<T>{
+            // clang-format off
+            value.m00, value.m01, value.m02,
+            value.m10, value.m11, value.m12,
+            // clang-format on
+        };
+    }
+    else
+    {
+        static_assert(RowIndex < 3, "Invalid RowIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t RowIndex,
+          typename T>
+constexpr ggm::Matrix3x3<T> ggm::matrix_drop_row(Matrix4x3<T> const & value) noexcept
+{
+    if constexpr (RowIndex == 0)
+    {
+        return Matrix3x3<T>{
+            // clang-format off
+            value.m10, value.m11, value.m12,
+            value.m20, value.m21, value.m22,
+            value.m30, value.m31, value.m32,
+            // clang-format on
+        };
+    }
+    else if constexpr (RowIndex == 1)
+    {
+        return Matrix3x3<T>{
+            // clang-format off
+            value.m00, value.m01, value.m02,
+            value.m20, value.m21, value.m22,
+            value.m30, value.m31, value.m32,
+            // clang-format on
+        };
+    }
+    else if constexpr (RowIndex == 2)
+    {
+        return Matrix3x3<T>{
+            // clang-format off
+            value.m00, value.m01, value.m02,
+            value.m10, value.m11, value.m12,
+            value.m30, value.m31, value.m32,
+            // clang-format on
+        };
+    }
+    else if constexpr (RowIndex == 3)
+    {
+        return Matrix3x3<T>{
+            // clang-format off
+            value.m00, value.m01, value.m02,
+            value.m10, value.m11, value.m12,
+            value.m20, value.m21, value.m22,
+            // clang-format on
+        };
+    }
+    else
+    {
+        static_assert(RowIndex < 4, "Invalid RowIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t RowIndex,
+          typename T>
+constexpr ggm::Matrix1x4<T> ggm::matrix_drop_row(Matrix2x4<T> const & value) noexcept
+{
+    if constexpr (RowIndex == 0)
+    {
+        return Matrix1x4<T>{
+            // clang-format off
+            value.m10, value.m11, value.m12, value.m13,
+            // clang-format on
+        };
+    }
+    else if constexpr (RowIndex == 1)
+    {
+        return Matrix1x4<T>{
+            // clang-format off
+            value.m00, value.m01, value.m02, value.m03,
+            // clang-format on
+        };
+    }
+    else
+    {
+        static_assert(RowIndex < 2, "Invalid RowIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t RowIndex,
+          typename T>
+constexpr ggm::Matrix2x4<T> ggm::matrix_drop_row(Matrix3x4<T> const & value) noexcept
+{
+    if constexpr (RowIndex == 0)
+    {
+        return Matrix2x4<T>{
+            // clang-format off
+            value.m10, value.m11, value.m12, value.m13,
+            value.m20, value.m21, value.m22, value.m23,
+            // clang-format on
+        };
+    }
+    else if constexpr (RowIndex == 1)
+    {
+        return Matrix2x4<T>{
+            // clang-format off
+            value.m00, value.m01, value.m02, value.m03,
+            value.m20, value.m21, value.m22, value.m23,
+            // clang-format on
+        };
+    }
+    else if constexpr (RowIndex == 2)
+    {
+        return Matrix2x4<T>{
+            // clang-format off
+            value.m00, value.m01, value.m02, value.m03,
+            value.m10, value.m11, value.m12, value.m13,
+            // clang-format on
+        };
+    }
+    else
+    {
+        static_assert(RowIndex < 3, "Invalid RowIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t RowIndex,
+          typename T>
+constexpr ggm::Matrix3x4<T> ggm::matrix_drop_row(Matrix4x4<T> const & value) noexcept
+{
+    if constexpr (RowIndex == 0)
+    {
+        return Matrix3x4<T>{
+            // clang-format off
+            value.m10, value.m11, value.m12, value.m13,
+            value.m20, value.m21, value.m22, value.m23,
+            value.m30, value.m31, value.m32, value.m33,
+            // clang-format on
+        };
+    }
+    else if constexpr (RowIndex == 1)
+    {
+        return Matrix3x4<T>{
+            // clang-format off
+            value.m00, value.m01, value.m02, value.m03,
+            value.m20, value.m21, value.m22, value.m23,
+            value.m30, value.m31, value.m32, value.m33,
+            // clang-format on
+        };
+    }
+    else if constexpr (RowIndex == 2)
+    {
+        return Matrix3x4<T>{
+            // clang-format off
+            value.m00, value.m01, value.m02, value.m03,
+            value.m10, value.m11, value.m12, value.m13,
+            value.m30, value.m31, value.m32, value.m33,
+            // clang-format on
+        };
+    }
+    else if constexpr (RowIndex == 3)
+    {
+        return Matrix3x4<T>{
+            // clang-format off
+            value.m00, value.m01, value.m02, value.m03,
+            value.m10, value.m11, value.m12, value.m13,
+            value.m20, value.m21, value.m22, value.m23,
+            // clang-format on
+        };
+    }
+    else
+    {
+        static_assert(RowIndex < 4, "Invalid RowIndex");
+    }
+}
+
+// =============================================================================
+
 #endif // GGM_MATRIX_UTIL_H

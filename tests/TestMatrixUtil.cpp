@@ -504,9 +504,11 @@ template ggm::Matrix4x4<float> ggm::matrix_from_rows<float>(Matrix1x4<float> con
 
 template ggm::Matrix1x1<float> ggm::matrix_drop_col<0, float>(Matrix1x2<float> const & value) noexcept;
 template ggm::Matrix1x1<float> ggm::matrix_drop_col<1, float>(Matrix1x2<float> const & value) noexcept;
+
 template ggm::Matrix1x2<float> ggm::matrix_drop_col<0, float>(Matrix1x3<float> const & value) noexcept;
 template ggm::Matrix1x2<float> ggm::matrix_drop_col<1, float>(Matrix1x3<float> const & value) noexcept;
 template ggm::Matrix1x2<float> ggm::matrix_drop_col<2, float>(Matrix1x3<float> const & value) noexcept;
+
 template ggm::Matrix1x3<float> ggm::matrix_drop_col<0, float>(Matrix1x4<float> const & value) noexcept;
 template ggm::Matrix1x3<float> ggm::matrix_drop_col<1, float>(Matrix1x4<float> const & value) noexcept;
 template ggm::Matrix1x3<float> ggm::matrix_drop_col<2, float>(Matrix1x4<float> const & value) noexcept;
@@ -514,9 +516,11 @@ template ggm::Matrix1x3<float> ggm::matrix_drop_col<3, float>(Matrix1x4<float> c
 
 template ggm::Matrix2x1<float> ggm::matrix_drop_col<0, float>(Matrix2x2<float> const & value) noexcept;
 template ggm::Matrix2x1<float> ggm::matrix_drop_col<1, float>(Matrix2x2<float> const & value) noexcept;
+
 template ggm::Matrix2x2<float> ggm::matrix_drop_col<0, float>(Matrix2x3<float> const & value) noexcept;
 template ggm::Matrix2x2<float> ggm::matrix_drop_col<1, float>(Matrix2x3<float> const & value) noexcept;
 template ggm::Matrix2x2<float> ggm::matrix_drop_col<2, float>(Matrix2x3<float> const & value) noexcept;
+
 template ggm::Matrix2x3<float> ggm::matrix_drop_col<0, float>(Matrix2x4<float> const & value) noexcept;
 template ggm::Matrix2x3<float> ggm::matrix_drop_col<1, float>(Matrix2x4<float> const & value) noexcept;
 template ggm::Matrix2x3<float> ggm::matrix_drop_col<2, float>(Matrix2x4<float> const & value) noexcept;
@@ -524,9 +528,11 @@ template ggm::Matrix2x3<float> ggm::matrix_drop_col<3, float>(Matrix2x4<float> c
 
 template ggm::Matrix3x1<float> ggm::matrix_drop_col<0, float>(Matrix3x2<float> const & value) noexcept;
 template ggm::Matrix3x1<float> ggm::matrix_drop_col<1, float>(Matrix3x2<float> const & value) noexcept;
+
 template ggm::Matrix3x2<float> ggm::matrix_drop_col<0, float>(Matrix3x3<float> const & value) noexcept;
 template ggm::Matrix3x2<float> ggm::matrix_drop_col<1, float>(Matrix3x3<float> const & value) noexcept;
 template ggm::Matrix3x2<float> ggm::matrix_drop_col<2, float>(Matrix3x3<float> const & value) noexcept;
+
 template ggm::Matrix3x3<float> ggm::matrix_drop_col<0, float>(Matrix3x4<float> const & value) noexcept;
 template ggm::Matrix3x3<float> ggm::matrix_drop_col<1, float>(Matrix3x4<float> const & value) noexcept;
 template ggm::Matrix3x3<float> ggm::matrix_drop_col<2, float>(Matrix3x4<float> const & value) noexcept;
@@ -534,13 +540,65 @@ template ggm::Matrix3x3<float> ggm::matrix_drop_col<3, float>(Matrix3x4<float> c
 
 template ggm::Matrix4x1<float> ggm::matrix_drop_col<0, float>(Matrix4x2<float> const & value) noexcept;
 template ggm::Matrix4x1<float> ggm::matrix_drop_col<1, float>(Matrix4x2<float> const & value) noexcept;
+
 template ggm::Matrix4x2<float> ggm::matrix_drop_col<0, float>(Matrix4x3<float> const & value) noexcept;
 template ggm::Matrix4x2<float> ggm::matrix_drop_col<1, float>(Matrix4x3<float> const & value) noexcept;
 template ggm::Matrix4x2<float> ggm::matrix_drop_col<2, float>(Matrix4x3<float> const & value) noexcept;
+
 template ggm::Matrix4x3<float> ggm::matrix_drop_col<0, float>(Matrix4x4<float> const & value) noexcept;
 template ggm::Matrix4x3<float> ggm::matrix_drop_col<1, float>(Matrix4x4<float> const & value) noexcept;
 template ggm::Matrix4x3<float> ggm::matrix_drop_col<2, float>(Matrix4x4<float> const & value) noexcept;
 template ggm::Matrix4x3<float> ggm::matrix_drop_col<3, float>(Matrix4x4<float> const & value) noexcept;
+
+// =============================================================================
+
+template ggm::Matrix1x1<float> ggm::matrix_drop_row<0, float>(Matrix2x1<float> const & value) noexcept;
+template ggm::Matrix1x1<float> ggm::matrix_drop_row<1, float>(Matrix2x1<float> const & value) noexcept;
+
+template ggm::Matrix2x1<float> ggm::matrix_drop_row<0, float>(Matrix3x1<float> const & value) noexcept;
+template ggm::Matrix2x1<float> ggm::matrix_drop_row<1, float>(Matrix3x1<float> const & value) noexcept;
+template ggm::Matrix2x1<float> ggm::matrix_drop_row<2, float>(Matrix3x1<float> const & value) noexcept;
+
+template ggm::Matrix3x1<float> ggm::matrix_drop_row<0, float>(Matrix4x1<float> const & value) noexcept;
+template ggm::Matrix3x1<float> ggm::matrix_drop_row<1, float>(Matrix4x1<float> const & value) noexcept;
+template ggm::Matrix3x1<float> ggm::matrix_drop_row<2, float>(Matrix4x1<float> const & value) noexcept;
+template ggm::Matrix3x1<float> ggm::matrix_drop_row<3, float>(Matrix4x1<float> const & value) noexcept;
+
+template ggm::Matrix1x2<float> ggm::matrix_drop_row<0, float>(Matrix2x2<float> const & value) noexcept;
+template ggm::Matrix1x2<float> ggm::matrix_drop_row<1, float>(Matrix2x2<float> const & value) noexcept;
+
+template ggm::Matrix2x2<float> ggm::matrix_drop_row<0, float>(Matrix3x2<float> const & value) noexcept;
+template ggm::Matrix2x2<float> ggm::matrix_drop_row<1, float>(Matrix3x2<float> const & value) noexcept;
+template ggm::Matrix2x2<float> ggm::matrix_drop_row<2, float>(Matrix3x2<float> const & value) noexcept;
+
+template ggm::Matrix3x2<float> ggm::matrix_drop_row<0, float>(Matrix4x2<float> const & value) noexcept;
+template ggm::Matrix3x2<float> ggm::matrix_drop_row<1, float>(Matrix4x2<float> const & value) noexcept;
+template ggm::Matrix3x2<float> ggm::matrix_drop_row<2, float>(Matrix4x2<float> const & value) noexcept;
+template ggm::Matrix3x2<float> ggm::matrix_drop_row<3, float>(Matrix4x2<float> const & value) noexcept;
+
+template ggm::Matrix1x3<float> ggm::matrix_drop_row<0, float>(Matrix2x3<float> const & value) noexcept;
+template ggm::Matrix1x3<float> ggm::matrix_drop_row<1, float>(Matrix2x3<float> const & value) noexcept;
+
+template ggm::Matrix2x3<float> ggm::matrix_drop_row<0, float>(Matrix3x3<float> const & value) noexcept;
+template ggm::Matrix2x3<float> ggm::matrix_drop_row<1, float>(Matrix3x3<float> const & value) noexcept;
+template ggm::Matrix2x3<float> ggm::matrix_drop_row<2, float>(Matrix3x3<float> const & value) noexcept;
+
+template ggm::Matrix3x3<float> ggm::matrix_drop_row<0, float>(Matrix4x3<float> const & value) noexcept;
+template ggm::Matrix3x3<float> ggm::matrix_drop_row<1, float>(Matrix4x3<float> const & value) noexcept;
+template ggm::Matrix3x3<float> ggm::matrix_drop_row<2, float>(Matrix4x3<float> const & value) noexcept;
+template ggm::Matrix3x3<float> ggm::matrix_drop_row<3, float>(Matrix4x3<float> const & value) noexcept;
+
+template ggm::Matrix1x4<float> ggm::matrix_drop_row<0, float>(Matrix2x4<float> const & value) noexcept;
+template ggm::Matrix1x4<float> ggm::matrix_drop_row<1, float>(Matrix2x4<float> const & value) noexcept;
+
+template ggm::Matrix2x4<float> ggm::matrix_drop_row<0, float>(Matrix3x4<float> const & value) noexcept;
+template ggm::Matrix2x4<float> ggm::matrix_drop_row<1, float>(Matrix3x4<float> const & value) noexcept;
+template ggm::Matrix2x4<float> ggm::matrix_drop_row<2, float>(Matrix3x4<float> const & value) noexcept;
+
+template ggm::Matrix3x4<float> ggm::matrix_drop_row<0, float>(Matrix4x4<float> const & value) noexcept;
+template ggm::Matrix3x4<float> ggm::matrix_drop_row<1, float>(Matrix4x4<float> const & value) noexcept;
+template ggm::Matrix3x4<float> ggm::matrix_drop_row<2, float>(Matrix4x4<float> const & value) noexcept;
+template ggm::Matrix3x4<float> ggm::matrix_drop_row<3, float>(Matrix4x4<float> const & value) noexcept;
 
 // =============================================================================
 
