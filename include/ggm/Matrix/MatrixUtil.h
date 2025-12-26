@@ -3310,21 +3310,68 @@ namespace ggm
 
     // =============================================================================
 
+    /// true if all bool elements are false
+    /// @relates Matrix1x1
     constexpr bool none_of(Matrix1x1<bool> const & value) noexcept;
+
+    /// true if all bool elements are false
+    /// @relates Matrix1x2
     constexpr bool none_of(Matrix1x2<bool> const & value) noexcept;
+
+    /// true if all bool elements are false
+    /// @relates Matrix1x3
     constexpr bool none_of(Matrix1x3<bool> const & value) noexcept;
+
+    /// true if all bool elements are false
+    /// @relates Matrix1x4
     constexpr bool none_of(Matrix1x4<bool> const & value) noexcept;
+
+    /// true if all bool elements are false
+    /// @relates Matrix2x1
     constexpr bool none_of(Matrix2x1<bool> const & value) noexcept;
+
+    /// true if all bool elements are false
+    /// @relates Matrix2x2
     constexpr bool none_of(Matrix2x2<bool> const & value) noexcept;
+
+    /// true if all bool elements are false
+    /// @relates Matrix2x3
     constexpr bool none_of(Matrix2x3<bool> const & value) noexcept;
+
+    /// true if all bool elements are false
+    /// @relates Matrix2x4
     constexpr bool none_of(Matrix2x4<bool> const & value) noexcept;
+
+    /// true if all bool elements are false
+    /// @relates Matrix3x1
     constexpr bool none_of(Matrix3x1<bool> const & value) noexcept;
+
+    /// true if all bool elements are false
+    /// @relates Matrix3x2
     constexpr bool none_of(Matrix3x2<bool> const & value) noexcept;
+
+    /// true if all bool elements are false
+    /// @relates Matrix3x3
     constexpr bool none_of(Matrix3x3<bool> const & value) noexcept;
+
+    /// true if all bool elements are false
+    /// @relates Matrix3x4
     constexpr bool none_of(Matrix3x4<bool> const & value) noexcept;
+
+    /// true if all bool elements are false
+    /// @relates Matrix4x1
     constexpr bool none_of(Matrix4x1<bool> const & value) noexcept;
+
+    /// true if all bool elements are false
+    /// @relates Matrix4x2
     constexpr bool none_of(Matrix4x2<bool> const & value) noexcept;
+
+    /// true if all bool elements are false
+    /// @relates Matrix4x3
     constexpr bool none_of(Matrix4x3<bool> const & value) noexcept;
+
+    /// true if all bool elements are false
+    /// @relates Matrix4x4
     constexpr bool none_of(Matrix4x4<bool> const & value) noexcept;
 
     // =============================================================================
