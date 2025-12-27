@@ -456,6 +456,19 @@ template float ggm::trace<float>(ggm::Matrix4x4<float> const & value) noexcept;
 
 // =============================================================================
 
+template constexpr ggm::Matrix2x2<float> ggm::matrix2x2_from_scale<float>(float const & scale) noexcept;
+template constexpr ggm::Matrix2x2<float> ggm::matrix2x2_from_scale<float>(float const & scaleX, float const & scaleY) noexcept;
+template constexpr ggm::Matrix2x3<float> ggm::matrix2x3_from_scale<float>(float const & scale) noexcept;
+template constexpr ggm::Matrix2x3<float> ggm::matrix2x3_from_scale<float>(float const & scaleX, float const & scaleY) noexcept;
+template constexpr ggm::Matrix3x3<float> ggm::matrix3x3_from_scale<float>(float const & scale) noexcept;
+template constexpr ggm::Matrix3x3<float> ggm::matrix3x3_from_scale<float>(float const & scaleX, float const & scaleY, float const & scaleZ) noexcept;
+template constexpr ggm::Matrix3x4<float> ggm::matrix3x4_from_scale<float>(float const & scale) noexcept;
+template constexpr ggm::Matrix3x4<float> ggm::matrix3x4_from_scale<float>(float const & scaleX, float const & scaleY, float const & scaleZ) noexcept;
+template constexpr ggm::Matrix4x4<float> ggm::matrix4x4_from_scale<float>(float const & scale) noexcept;
+template constexpr ggm::Matrix4x4<float> ggm::matrix4x4_from_scale<float>(float const & scaleX, float const & scaleY, float const & scaleZ, float const & scaleW) noexcept;
+
+// =============================================================================
+
 template ggm::Matrix1x1<float> ggm::matrix_from_cols<float>(Matrix1x1<float> const & col0) noexcept;
 template ggm::Matrix1x2<float> ggm::matrix_from_cols<float>(Matrix1x1<float> const & col0, Matrix1x1<float> const & col1) noexcept;
 template ggm::Matrix1x3<float> ggm::matrix_from_cols<float>(Matrix1x1<float> const & col0, Matrix1x1<float> const & col1, Matrix1x1<float> const & col2) noexcept;
