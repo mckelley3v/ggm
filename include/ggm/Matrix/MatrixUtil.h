@@ -2177,6 +2177,21 @@ namespace ggm
 
     // =============================================================================
 
+    /// create an affine matrix with the given translation as the col2 elements (identity as 2x2 elements)
+    /// @relates Matrix2x3
+    template <typename T>
+    constexpr Matrix2x3<T> matrix2x3_from_translation(T const & x,
+                                                      T const & y) noexcept;
+
+    /// create an affine matrix with the given translation as the col3 elements (identity as 3x3 elements)
+    /// @relates Matrix3x4
+    template <typename T>
+    constexpr Matrix3x4<T> matrix3x4_from_translation(T const & x,
+                                                      T const & y,
+                                                      T const & z) noexcept;
+
+    // =============================================================================
+
     /// create a matrix from the given column vectors
     /// @relates Matrix1x1
     template <typename T>
@@ -8706,6 +8721,36 @@ constexpr ggm::Matrix4x4<T> ggm::matrix4x4_from_scale(T const & scaleX,
           T{0}, scaleY,   T{0},   T{0},
           T{0},   T{0}, scaleZ,   T{0},
           T{0},   T{0},   T{0}, scaleW,
+        // clang-format on
+    };
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Matrix2x3<T> ggm::matrix2x3_from_translation(T const & x,
+                                                            T const & y) noexcept
+{
+    return Matrix2x3<T>{
+        // clang-format off
+        T{1}, T{0}, x,
+        T{0}, T{1}, y,
+        // clang-format on
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x4<T> ggm::matrix3x4_from_translation(T const & x,
+                                                            T const & y,
+                                                            T const & z) noexcept
+{
+    return Matrix3x4<T>{
+        // clang-format off
+        T{1}, T{0}, T{0}, x,
+        T{0}, T{1}, T{0}, y,
+        T{0}, T{0}, T{1}, z,
         // clang-format on
     };
 }
