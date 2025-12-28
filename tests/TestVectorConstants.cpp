@@ -1,4 +1,3 @@
-#include "ggm/Vector/Vector.h"
 #include "ggm/Vector/VectorConstants.h"
 #include "ggm/Vector/VectorUtil.h"
 

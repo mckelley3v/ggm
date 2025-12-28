@@ -1,4 +1,3 @@
-#include "ggm/Matrix/Matrix.h"
 #include "ggm/Matrix/MatrixConstants.h"
 #include "ggm/Matrix/MatrixUtil.h"
 

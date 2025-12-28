@@ -2129,17 +2129,6 @@ namespace ggm
     constexpr Matrix2x2<T> matrix2x2_from_scale(T const & scaleX,
                                                 T const & scaleY) noexcept;
 
-    /// create an affine matrix with the given scale as the diagonal elements
-    /// @relates Matrix2x3
-    template <typename T>
-    constexpr Matrix2x3<T> matrix2x3_from_scale(T const & scale) noexcept;
-
-    /// create an affine matrix with the given scale as the diagonal elements
-    /// @relates Matrix2x3
-    template <typename T>
-    constexpr Matrix2x3<T> matrix2x3_from_scale(T const & scaleX,
-                                                T const & scaleY) noexcept;
-
     /// create a square matrix with the given scale as the diagonal elements
     /// @relates Matrix3x3
     template <typename T>
@@ -2149,18 +2138,6 @@ namespace ggm
     /// @relates Matrix3x3
     template <typename T>
     constexpr Matrix3x3<T> matrix3x3_from_scale(T const & scaleX,
-                                                T const & scaleY,
-                                                T const & scaleZ) noexcept;
-
-    /// create a affine matrix with the given scale as the diagonal elements
-    /// @relates Matrix3x4
-    template <typename T>
-    constexpr Matrix3x4<T> matrix3x4_from_scale(T const & scale) noexcept;
-
-    /// create a affine matrix with the given scale as the diagonal elements
-    /// @relates Matrix3x4
-    template <typename T>
-    constexpr Matrix3x4<T> matrix3x4_from_scale(T const & scaleX,
                                                 T const & scaleY,
                                                 T const & scaleZ) noexcept;
 
@@ -2179,28 +2156,9 @@ namespace ggm
 
     // =============================================================================
 
-    /// create an affine matrix with the given translation as the col2 elements (identity as 2x2 elements)
-    /// @relates Matrix2x3
-    template <typename T>
-    constexpr Matrix2x3<T> matrix2x3_from_translation(T const & x,
-                                                      T const & y) noexcept;
-
-    /// create an affine matrix with the given translation as the col3 elements (identity as 3x3 elements)
-    /// @relates Matrix3x4
-    template <typename T>
-    constexpr Matrix3x4<T> matrix3x4_from_translation(T const & x,
-                                                      T const & y,
-                                                      T const & z) noexcept;
-
-    // =============================================================================
-
     /// create a square matrix with the given rotation angle
     template <typename T>
     inline Matrix2x2<T> matrix2x2_from_rotation(T const & angleRadians) noexcept;
-
-    /// create an affine matrix with the given rotation angle
-    template <typename T>
-    inline Matrix2x3<T> matrix2x3_from_rotation(T const & angleRadians) noexcept;
 
     // =============================================================================
 
@@ -2208,25 +2166,13 @@ namespace ggm
     template <typename T>
     constexpr Matrix2x2<T> matrix2x2_from_rotation90() noexcept;
 
-    /// create an affine matrix corresponding to a rotation of 90 degrees
-    template <typename T>
-    constexpr Matrix2x3<T> matrix2x3_from_rotation90() noexcept;
-
     /// create a square matrix corresponding to a rotation of 180 degrees
     template <typename T>
     constexpr Matrix2x2<T> matrix2x2_from_rotation180() noexcept;
 
-    /// create an affine matrix corresponding to a rotation of 180 degrees
-    template <typename T>
-    constexpr Matrix2x3<T> matrix2x3_from_rotation180() noexcept;
-
     /// create a square matrix corresponding to a rotation of 270 degrees
     template <typename T>
     constexpr Matrix2x2<T> matrix2x2_from_rotation270() noexcept;
-
-    /// create an affine matrix corresponding to a rotation of 270 degrees
-    template <typename T>
-    constexpr Matrix2x3<T> matrix2x3_from_rotation270() noexcept;
 
     // =============================================================================
 
@@ -8646,33 +8592,6 @@ constexpr ggm::Matrix2x2<T> ggm::matrix2x2_from_scale(T const & scaleX,
 // -----------------------------------------------------------------------------
 
 template <typename T>
-constexpr ggm::Matrix2x3<T> ggm::matrix2x3_from_scale(T const & scale) noexcept
-{
-    return Matrix2x3<T>{
-        // clang-format off
-        scale,  T{0}, T{0},
-         T{0}, scale, T{0},
-        // clang-format on
-    };
-}
-
-// -----------------------------------------------------------------------------
-
-template <typename T>
-constexpr ggm::Matrix2x3<T> ggm::matrix2x3_from_scale(T const & scaleX,
-                                                      T const & scaleY) noexcept
-{
-    return Matrix2x3<T>{
-        // clang-format off
-        scaleX,   T{0}, T{0},
-          T{0}, scaleY, T{0},
-        // clang-format on
-    };
-}
-
-// -----------------------------------------------------------------------------
-
-template <typename T>
 constexpr ggm::Matrix3x3<T> ggm::matrix3x3_from_scale(T const & scale) noexcept
 {
     return Matrix3x3<T>{
@@ -8696,36 +8615,6 @@ constexpr ggm::Matrix3x3<T> ggm::matrix3x3_from_scale(T const & scaleX,
         scaleX,   T{0},   T{0},
           T{0}, scaleY,   T{0},
           T{0},   T{0}, scaleZ,
-        // clang-format on
-    };
-}
-
-// -----------------------------------------------------------------------------
-
-template <typename T>
-constexpr ggm::Matrix3x4<T> ggm::matrix3x4_from_scale(T const & scale) noexcept
-{
-    return Matrix3x4<T>{
-        // clang-format off
-        scale,  T{0},  T{0}, T{0},
-         T{0}, scale,  T{0}, T{0},
-         T{0},  T{0}, scale, T{0},
-        // clang-format on
-    };
-}
-
-// -----------------------------------------------------------------------------
-
-template <typename T>
-constexpr ggm::Matrix3x4<T> ggm::matrix3x4_from_scale(T const & scaleX,
-                                                      T const & scaleY,
-                                                      T const & scaleZ) noexcept
-{
-    return Matrix3x4<T>{
-        // clang-format off
-        scaleX,   T{0},   T{0}, T{0},
-          T{0}, scaleY,   T{0}, T{0},
-          T{0},   T{0}, scaleZ, T{0},
         // clang-format on
     };
 }
@@ -8766,36 +8655,6 @@ constexpr ggm::Matrix4x4<T> ggm::matrix4x4_from_scale(T const & scaleX,
 // =============================================================================
 
 template <typename T>
-constexpr ggm::Matrix2x3<T> ggm::matrix2x3_from_translation(T const & x,
-                                                            T const & y) noexcept
-{
-    return Matrix2x3<T>{
-        // clang-format off
-        T{1}, T{0}, x,
-        T{0}, T{1}, y,
-        // clang-format on
-    };
-}
-
-// -----------------------------------------------------------------------------
-
-template <typename T>
-constexpr ggm::Matrix3x4<T> ggm::matrix3x4_from_translation(T const & x,
-                                                            T const & y,
-                                                            T const & z) noexcept
-{
-    return Matrix3x4<T>{
-        // clang-format off
-        T{1}, T{0}, T{0}, x,
-        T{0}, T{1}, T{0}, y,
-        T{0}, T{0}, T{1}, z,
-        // clang-format on
-    };
-}
-
-// =============================================================================
-
-template <typename T>
 inline ggm::Matrix2x2<T> ggm::matrix2x2_from_rotation(T const & angleRadians) noexcept
 {
     T const c = std::cos(angleRadians);
@@ -8805,22 +8664,6 @@ inline ggm::Matrix2x2<T> ggm::matrix2x2_from_rotation(T const & angleRadians) no
         // clang-format off
          c, s,
         -s, c,
-        // clang-format on
-    };
-}
-
-// -----------------------------------------------------------------------------
-
-template <typename T>
-inline ggm::Matrix2x3<T> ggm::matrix2x3_from_rotation(T const & angleRadians) noexcept
-{
-    T const c = std::cos(angleRadians);
-    T const s = std::sin(angleRadians);
-
-    return Matrix2x3<T>{
-        // clang-format off
-         c, s, T{0},
-        -s, c, T{0},
         // clang-format on
     };
 }
@@ -8841,19 +8684,6 @@ constexpr ggm::Matrix2x2<T> ggm::matrix2x2_from_rotation90() noexcept
 // -----------------------------------------------------------------------------
 
 template <typename T>
-constexpr ggm::Matrix2x3<T> ggm::matrix2x3_from_rotation90() noexcept
-{
-    return Matrix2x3<T>{
-        // clang-format off
-        T{0}, T{-1}, T{0},
-        T{1},  T{0}, T{0},
-        // clang-format on
-    };
-}
-
-// -----------------------------------------------------------------------------
-
-template <typename T>
 constexpr ggm::Matrix2x2<T> ggm::matrix2x2_from_rotation180() noexcept
 {
     return Matrix2x2<T>{
@@ -8867,38 +8697,12 @@ constexpr ggm::Matrix2x2<T> ggm::matrix2x2_from_rotation180() noexcept
 // -----------------------------------------------------------------------------
 
 template <typename T>
-constexpr ggm::Matrix2x3<T> ggm::matrix2x3_from_rotation180() noexcept
-{
-    return Matrix2x3<T>{
-        // clang-format off
-        T{-1},  T{0}, T{0},
-         T{0}, T{-1}, T{0},
-        // clang-format on
-    };
-}
-
-// -----------------------------------------------------------------------------
-
-template <typename T>
 constexpr ggm::Matrix2x2<T> ggm::matrix2x2_from_rotation270() noexcept
 {
     return Matrix2x2<T>{
         // clang-format off
          T{0}, T{1},
         T{-1}, T{0},
-        // clang-format on
-    };
-}
-
-// -----------------------------------------------------------------------------
-
-template <typename T>
-constexpr ggm::Matrix2x3<T> ggm::matrix2x3_from_rotation270() noexcept
-{
-    return Matrix2x3<T>{
-        // clang-format off
-         T{0}, T{1}, T{0},
-        T{-1}, T{0}, T{0},
         // clang-format on
     };
 }
