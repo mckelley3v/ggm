@@ -5,6 +5,8 @@
 #include "ggm/Matrix/Matrix.h"
 #include "ggm/Numeric/NumericUtil.h"
 
+#include <cmath>
+
 // =============================================================================
 /// @addtogroup Matrix
 /// @{
@@ -57,18 +59,20 @@
 /// functions:
 /// ----------
 ///
-/// Syntax                        | Description
-/// ------                        | -----------
-/// determinant(m)                | calculate the determinant of square matrix
-/// is_invertible(m)              | true if square matrix can be inverted, i.e. determinant != 0
-/// is_orthogonal(m)              | true if square matrix rows and cols are orthonormal vectors
-/// inverse(m)                    | calculate inverse of square matrix
-/// transpose(m)                  | make matrix by turning rows into cols
-/// trace(m)                      | sum of square matrix diagonal elements
-/// matrix_from_cols(c0, ..., cN) | create a matrix from the given column vectors
-/// matrix_from_rows(r0, ..., rN) | create a matrix from the given row vectors
-/// matrix_drop_col<C>(m)         | create a submatrix by removing the specified col
-/// matrix_drop_row<R>(m)         | create a submatrix by removing the specified row
+/// Syntax                            | Description
+/// ------                            | -----------
+/// s = determinant(m)                | calculate the determinant of square matrix
+/// b = is_invertible(m)              | true if square matrix can be inverted, i.e. determinant != 0
+/// b = is_orthogonal(m)              | true if square matrix rows and cols are orthonormal vectors
+/// m1 = inverse(m2)                  | calculate inverse of square matrix
+/// m1 = transpose(m2)                | make matrix by turning rows into cols
+/// s = trace(m)                      | sum of square matrix diagonal elements
+/// m = matrixNxN_from_scale(s)       | create a square matrix with the given scale as the diagonal elements
+/// m = matrixNxM_from_scale(s)       | create an affine matrix with the given scale as the diagonal elements
+/// m = matrix_from_cols(c0, ..., cN) | create a matrix from the given column vectors
+/// m = matrix_from_rows(r0, ..., rN) | create a matrix from the given row vectors
+/// m1 = matrix_drop_col<C>(m2)       | create a submatrix by removing the specified col
+/// m1 = matrix_drop_row<R>(m2)       | create a submatrix by removing the specified row
 ///
 /// comparisons:
 /// ------------
@@ -77,6 +81,7 @@
 /// ------  | -----------
 /// b = all_of(m);                | true if all bool elements are true
 /// b = any_of(m);                | true if any bool elements are true
+/// b = none_of(m);               | true if all bool elements are false
 /// b = is_close(m1, m2);         | element-wise is_close
 /// b = is_equal(m1, m2);         | element-wise ==
 /// b = is_greater(m1, m2);       | element-wise >
@@ -84,7 +89,6 @@
 /// b = is_less(m1, m2);          | element-wise <
 /// b = is_less_equal(m1, m2);    | element-wise <=
 /// b = is_not_equal(m1, m2);     | element-wise !=
-/// b = none_of(m);               | true if all bool elements are false
 ///
 /// @}
 // =============================================================================
@@ -2114,6 +2118,118 @@ namespace ggm
 
     // =============================================================================
 
+    /// create a square matrix with the given scale as the diagonal elements
+    /// @relates Matrix2x2
+    template <typename T>
+    constexpr Matrix2x2<T> matrix2x2_from_scale(T const & scale) noexcept;
+
+    /// create a square matrix with the given scale as the diagonal elements
+    /// @relates Matrix2x2
+    template <typename T>
+    constexpr Matrix2x2<T> matrix2x2_from_scale(T const & scaleX,
+                                                T const & scaleY) noexcept;
+
+    /// create an affine matrix with the given scale as the diagonal elements
+    /// @relates Matrix2x3
+    template <typename T>
+    constexpr Matrix2x3<T> matrix2x3_from_scale(T const & scale) noexcept;
+
+    /// create an affine matrix with the given scale as the diagonal elements
+    /// @relates Matrix2x3
+    template <typename T>
+    constexpr Matrix2x3<T> matrix2x3_from_scale(T const & scaleX,
+                                                T const & scaleY) noexcept;
+
+    /// create a square matrix with the given scale as the diagonal elements
+    /// @relates Matrix3x3
+    template <typename T>
+    constexpr Matrix3x3<T> matrix3x3_from_scale(T const & scale) noexcept;
+
+    /// create a square matrix with the given scale as the diagonal elements
+    /// @relates Matrix3x3
+    template <typename T>
+    constexpr Matrix3x3<T> matrix3x3_from_scale(T const & scaleX,
+                                                T const & scaleY,
+                                                T const & scaleZ) noexcept;
+
+    /// create a affine matrix with the given scale as the diagonal elements
+    /// @relates Matrix3x4
+    template <typename T>
+    constexpr Matrix3x4<T> matrix3x4_from_scale(T const & scale) noexcept;
+
+    /// create a affine matrix with the given scale as the diagonal elements
+    /// @relates Matrix3x4
+    template <typename T>
+    constexpr Matrix3x4<T> matrix3x4_from_scale(T const & scaleX,
+                                                T const & scaleY,
+                                                T const & scaleZ) noexcept;
+
+    /// create a square matrix with the given scale as the diagonal elements
+    /// @relates Matrix4x4
+    template <typename T>
+    constexpr Matrix4x4<T> matrix4x4_from_scale(T const & scale) noexcept;
+
+    /// create a square matrix with the given scale as the diagonal elements
+    /// @relates Matrix4x4
+    template <typename T>
+    constexpr Matrix4x4<T> matrix4x4_from_scale(T const & scaleX,
+                                                T const & scaleY,
+                                                T const & scaleZ,
+                                                T const & scaleW) noexcept;
+
+    // =============================================================================
+
+    /// create an affine matrix with the given translation as the col2 elements (identity as 2x2 elements)
+    /// @relates Matrix2x3
+    template <typename T>
+    constexpr Matrix2x3<T> matrix2x3_from_translation(T const & x,
+                                                      T const & y) noexcept;
+
+    /// create an affine matrix with the given translation as the col3 elements (identity as 3x3 elements)
+    /// @relates Matrix3x4
+    template <typename T>
+    constexpr Matrix3x4<T> matrix3x4_from_translation(T const & x,
+                                                      T const & y,
+                                                      T const & z) noexcept;
+
+    // =============================================================================
+
+    /// create a square matrix with the given rotation angle
+    template <typename T>
+    inline Matrix2x2<T> matrix2x2_from_rotation(T const & angleRadians) noexcept;
+
+    /// create an affine matrix with the given rotation angle
+    template <typename T>
+    inline Matrix2x3<T> matrix2x3_from_rotation(T const & angleRadians) noexcept;
+
+    // =============================================================================
+
+    /// create a square matrix corresponding to a rotation of 90 degrees
+    template <typename T>
+    constexpr Matrix2x2<T> matrix2x2_from_rotation90() noexcept;
+
+    /// create an affine matrix corresponding to a rotation of 90 degrees
+    template <typename T>
+    constexpr Matrix2x3<T> matrix2x3_from_rotation90() noexcept;
+
+    /// create a square matrix corresponding to a rotation of 180 degrees
+    template <typename T>
+    constexpr Matrix2x2<T> matrix2x2_from_rotation180() noexcept;
+
+    /// create an affine matrix corresponding to a rotation of 180 degrees
+    template <typename T>
+    constexpr Matrix2x3<T> matrix2x3_from_rotation180() noexcept;
+
+    /// create a square matrix corresponding to a rotation of 270 degrees
+    template <typename T>
+    constexpr Matrix2x2<T> matrix2x2_from_rotation270() noexcept;
+
+    /// create an affine matrix corresponding to a rotation of 270 degrees
+    template <typename T>
+    constexpr Matrix2x3<T> matrix2x3_from_rotation270() noexcept;
+
+    // =============================================================================
+
     /// create a matrix from the given column vectors
     /// @relates Matrix1x1
     template <typename T>
@@ -2608,117 +2724,183 @@ namespace ggm
 
     // =============================================================================
 
+    /// true if all bool elements are false
+    /// @relates Matrix1x1
+    constexpr bool none_of(Matrix1x1<bool> const & value) noexcept;
+
+    /// true if all bool elements are false
+    /// @relates Matrix1x2
+    constexpr bool none_of(Matrix1x2<bool> const & value) noexcept;
+
+    /// true if all bool elements are false
+    /// @relates Matrix1x3
+    constexpr bool none_of(Matrix1x3<bool> const & value) noexcept;
+
+    /// true if all bool elements are false
+    /// @relates Matrix1x4
+    constexpr bool none_of(Matrix1x4<bool> const & value) noexcept;
+
+    /// true if all bool elements are false
+    /// @relates Matrix2x1
+    constexpr bool none_of(Matrix2x1<bool> const & value) noexcept;
+
+    /// true if all bool elements are false
+    /// @relates Matrix2x2
+    constexpr bool none_of(Matrix2x2<bool> const & value) noexcept;
+
+    /// true if all bool elements are false
+    /// @relates Matrix2x3
+    constexpr bool none_of(Matrix2x3<bool> const & value) noexcept;
+
+    /// true if all bool elements are false
+    /// @relates Matrix2x4
+    constexpr bool none_of(Matrix2x4<bool> const & value) noexcept;
+
+    /// true if all bool elements are false
+    /// @relates Matrix3x1
+    constexpr bool none_of(Matrix3x1<bool> const & value) noexcept;
+
+    /// true if all bool elements are false
+    /// @relates Matrix3x2
+    constexpr bool none_of(Matrix3x2<bool> const & value) noexcept;
+
+    /// true if all bool elements are false
+    /// @relates Matrix3x3
+    constexpr bool none_of(Matrix3x3<bool> const & value) noexcept;
+
+    /// true if all bool elements are false
+    /// @relates Matrix3x4
+    constexpr bool none_of(Matrix3x4<bool> const & value) noexcept;
+
+    /// true if all bool elements are false
+    /// @relates Matrix4x1
+    constexpr bool none_of(Matrix4x1<bool> const & value) noexcept;
+
+    /// true if all bool elements are false
+    /// @relates Matrix4x2
+    constexpr bool none_of(Matrix4x2<bool> const & value) noexcept;
+
+    /// true if all bool elements are false
+    /// @relates Matrix4x3
+    constexpr bool none_of(Matrix4x3<bool> const & value) noexcept;
+
+    /// true if all bool elements are false
+    /// @relates Matrix4x4
+    constexpr bool none_of(Matrix4x4<bool> const & value) noexcept;
+
+    // =============================================================================
+
     /// element-wise is_close
     /// @relates Matrix1x1
     template <typename T>
-    Matrix1x1<bool> is_close(Matrix1x1<T> const & lhs,
-                             Matrix1x1<T> const & rhs,
-                             T const &            epsilon = DefaultTolerance<T>) noexcept;
+    inline Matrix1x1<bool> is_close(Matrix1x1<T> const & lhs,
+                                    Matrix1x1<T> const & rhs,
+                                    T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     /// element-wise is_close
     /// @relates Matrix1x2
     template <typename T>
-    Matrix1x2<bool> is_close(Matrix1x2<T> const & lhs,
-                             Matrix1x2<T> const & rhs,
-                             T const &            epsilon = DefaultTolerance<T>) noexcept;
+    inline Matrix1x2<bool> is_close(Matrix1x2<T> const & lhs,
+                                    Matrix1x2<T> const & rhs,
+                                    T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     /// element-wise is_close
     /// @relates Matrix1x3
     template <typename T>
-    Matrix1x3<bool> is_close(Matrix1x3<T> const & lhs,
-                             Matrix1x3<T> const & rhs,
-                             T const &            epsilon = DefaultTolerance<T>) noexcept;
+    inline Matrix1x3<bool> is_close(Matrix1x3<T> const & lhs,
+                                    Matrix1x3<T> const & rhs,
+                                    T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     /// element-wise is_close
     /// @relates Matrix1x4
     template <typename T>
-    Matrix1x4<bool> is_close(Matrix1x4<T> const & lhs,
-                             Matrix1x4<T> const & rhs,
-                             T const &            epsilon = DefaultTolerance<T>) noexcept;
+    inline Matrix1x4<bool> is_close(Matrix1x4<T> const & lhs,
+                                    Matrix1x4<T> const & rhs,
+                                    T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     /// element-wise is_close
     /// @relates Matrix2x1
     template <typename T>
-    Matrix2x1<bool> is_close(Matrix2x1<T> const & lhs,
-                             Matrix2x1<T> const & rhs,
-                             T const &            epsilon = DefaultTolerance<T>) noexcept;
+    inline Matrix2x1<bool> is_close(Matrix2x1<T> const & lhs,
+                                    Matrix2x1<T> const & rhs,
+                                    T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     /// element-wise is_close
     /// @relates Matrix2x2
     template <typename T>
-    Matrix2x2<bool> is_close(Matrix2x2<T> const & lhs,
-                             Matrix2x2<T> const & rhs,
-                             T const &            epsilon = DefaultTolerance<T>) noexcept;
+    inline Matrix2x2<bool> is_close(Matrix2x2<T> const & lhs,
+                                    Matrix2x2<T> const & rhs,
+                                    T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     /// element-wise is_close
     /// @relates Matrix2x3
     template <typename T>
-    Matrix2x3<bool> is_close(Matrix2x3<T> const & lhs,
-                             Matrix2x3<T> const & rhs,
-                             T const &            epsilon = DefaultTolerance<T>) noexcept;
+    inline Matrix2x3<bool> is_close(Matrix2x3<T> const & lhs,
+                                    Matrix2x3<T> const & rhs,
+                                    T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     /// element-wise is_close
     /// @relates Matrix2x4
     template <typename T>
-    Matrix2x4<bool> is_close(Matrix2x4<T> const & lhs,
-                             Matrix2x4<T> const & rhs,
-                             T const &            epsilon = DefaultTolerance<T>) noexcept;
+    inline Matrix2x4<bool> is_close(Matrix2x4<T> const & lhs,
+                                    Matrix2x4<T> const & rhs,
+                                    T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     /// element-wise is_close
     /// @relates Matrix3x1
     template <typename T>
-    Matrix3x1<bool> is_close(Matrix3x1<T> const & lhs,
-                             Matrix3x1<T> const & rhs,
-                             T const &            epsilon = DefaultTolerance<T>) noexcept;
+    inline Matrix3x1<bool> is_close(Matrix3x1<T> const & lhs,
+                                    Matrix3x1<T> const & rhs,
+                                    T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     /// element-wise is_close
     /// @relates Matrix3x2
     template <typename T>
-    Matrix3x2<bool> is_close(Matrix3x2<T> const & lhs,
-                             Matrix3x2<T> const & rhs,
-                             T const &            epsilon = DefaultTolerance<T>) noexcept;
+    inline Matrix3x2<bool> is_close(Matrix3x2<T> const & lhs,
+                                    Matrix3x2<T> const & rhs,
+                                    T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     /// element-wise is_close
     /// @relates Matrix3x3
     template <typename T>
-    Matrix3x3<bool> is_close(Matrix3x3<T> const & lhs,
-                             Matrix3x3<T> const & rhs,
-                             T const &            epsilon = DefaultTolerance<T>) noexcept;
+    inline Matrix3x3<bool> is_close(Matrix3x3<T> const & lhs,
+                                    Matrix3x3<T> const & rhs,
+                                    T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     /// element-wise is_close
     /// @relates Matrix3x4
     template <typename T>
-    Matrix3x4<bool> is_close(Matrix3x4<T> const & lhs,
-                             Matrix3x4<T> const & rhs,
-                             T const &            epsilon = DefaultTolerance<T>) noexcept;
+    inline Matrix3x4<bool> is_close(Matrix3x4<T> const & lhs,
+                                    Matrix3x4<T> const & rhs,
+                                    T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     /// element-wise is_close
     /// @relates Matrix4x1
     template <typename T>
-    Matrix4x1<bool> is_close(Matrix4x1<T> const & lhs,
-                             Matrix4x1<T> const & rhs,
-                             T const &            epsilon = DefaultTolerance<T>) noexcept;
+    inline Matrix4x1<bool> is_close(Matrix4x1<T> const & lhs,
+                                    Matrix4x1<T> const & rhs,
+                                    T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     /// element-wise is_close
     /// @relates Matrix4x2
     template <typename T>
-    Matrix4x2<bool> is_close(Matrix4x2<T> const & lhs,
-                             Matrix4x2<T> const & rhs,
-                             T const &            epsilon = DefaultTolerance<T>) noexcept;
+    inline Matrix4x2<bool> is_close(Matrix4x2<T> const & lhs,
+                                    Matrix4x2<T> const & rhs,
+                                    T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     /// element-wise is_close
     /// @relates Matrix4x3
     template <typename T>
-    Matrix4x3<bool> is_close(Matrix4x3<T> const & lhs,
-                             Matrix4x3<T> const & rhs,
-                             T const &            epsilon = DefaultTolerance<T>) noexcept;
+    inline Matrix4x3<bool> is_close(Matrix4x3<T> const & lhs,
+                                    Matrix4x3<T> const & rhs,
+                                    T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     /// element-wise is_close
     /// @relates Matrix4x4
     template <typename T>
-    Matrix4x4<bool> is_close(Matrix4x4<T> const & lhs,
-                             Matrix4x4<T> const & rhs,
-                             T const &            epsilon = DefaultTolerance<T>) noexcept;
+    inline Matrix4x4<bool> is_close(Matrix4x4<T> const & lhs,
+                                    Matrix4x4<T> const & rhs,
+                                    T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     // =============================================================================
 
@@ -3307,25 +3489,6 @@ namespace ggm
     template <typename T>
     constexpr Matrix4x4<bool> is_not_equal(Matrix4x4<T> const & lhs,
                                            Matrix4x4<T> const & rhs) noexcept;
-
-    // =============================================================================
-
-    constexpr bool none_of(Matrix1x1<bool> const & value) noexcept;
-    constexpr bool none_of(Matrix1x2<bool> const & value) noexcept;
-    constexpr bool none_of(Matrix1x3<bool> const & value) noexcept;
-    constexpr bool none_of(Matrix1x4<bool> const & value) noexcept;
-    constexpr bool none_of(Matrix2x1<bool> const & value) noexcept;
-    constexpr bool none_of(Matrix2x2<bool> const & value) noexcept;
-    constexpr bool none_of(Matrix2x3<bool> const & value) noexcept;
-    constexpr bool none_of(Matrix2x4<bool> const & value) noexcept;
-    constexpr bool none_of(Matrix3x1<bool> const & value) noexcept;
-    constexpr bool none_of(Matrix3x2<bool> const & value) noexcept;
-    constexpr bool none_of(Matrix3x3<bool> const & value) noexcept;
-    constexpr bool none_of(Matrix3x4<bool> const & value) noexcept;
-    constexpr bool none_of(Matrix4x1<bool> const & value) noexcept;
-    constexpr bool none_of(Matrix4x2<bool> const & value) noexcept;
-    constexpr bool none_of(Matrix4x3<bool> const & value) noexcept;
-    constexpr bool none_of(Matrix4x4<bool> const & value) noexcept;
 
     // =============================================================================
 } // namespace ggm
@@ -8456,6 +8619,293 @@ constexpr T ggm::trace(Matrix4x4<T> const & value) noexcept
 // =============================================================================
 
 template <typename T>
+constexpr ggm::Matrix2x2<T> ggm::matrix2x2_from_scale(T const & scale) noexcept
+{
+    return Matrix2x2<T>{
+        // clang-format off
+        scale,  T{0},
+         T{0}, scale,
+        // clang-format on
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x2<T> ggm::matrix2x2_from_scale(T const & scaleX,
+                                                      T const & scaleY) noexcept
+{
+    return Matrix2x2<T>{
+        // clang-format off
+        scaleX,   T{0},
+          T{0}, scaleY,
+        // clang-format on
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x3<T> ggm::matrix2x3_from_scale(T const & scale) noexcept
+{
+    return Matrix2x3<T>{
+        // clang-format off
+        scale,  T{0}, T{0},
+         T{0}, scale, T{0},
+        // clang-format on
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x3<T> ggm::matrix2x3_from_scale(T const & scaleX,
+                                                      T const & scaleY) noexcept
+{
+    return Matrix2x3<T>{
+        // clang-format off
+        scaleX,   T{0}, T{0},
+          T{0}, scaleY, T{0},
+        // clang-format on
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x3<T> ggm::matrix3x3_from_scale(T const & scale) noexcept
+{
+    return Matrix3x3<T>{
+        // clang-format off
+        scale,  T{0},  T{0},
+         T{0}, scale,  T{0},
+         T{0},  T{0}, scale,
+        // clang-format on
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x3<T> ggm::matrix3x3_from_scale(T const & scaleX,
+                                                      T const & scaleY,
+                                                      T const & scaleZ) noexcept
+{
+    return Matrix3x3<T>{
+        // clang-format off
+        scaleX,   T{0},   T{0},
+          T{0}, scaleY,   T{0},
+          T{0},   T{0}, scaleZ,
+        // clang-format on
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x4<T> ggm::matrix3x4_from_scale(T const & scale) noexcept
+{
+    return Matrix3x4<T>{
+        // clang-format off
+        scale,  T{0},  T{0}, T{0},
+         T{0}, scale,  T{0}, T{0},
+         T{0},  T{0}, scale, T{0},
+        // clang-format on
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x4<T> ggm::matrix3x4_from_scale(T const & scaleX,
+                                                      T const & scaleY,
+                                                      T const & scaleZ) noexcept
+{
+    return Matrix3x4<T>{
+        // clang-format off
+        scaleX,   T{0},   T{0}, T{0},
+          T{0}, scaleY,   T{0}, T{0},
+          T{0},   T{0}, scaleZ, T{0},
+        // clang-format on
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x4<T> ggm::matrix4x4_from_scale(T const & scale) noexcept
+{
+    return Matrix4x4<T>{
+        // clang-format off
+        scale,  T{0},  T{0},  T{0},
+         T{0}, scale,  T{0},  T{0},
+         T{0},  T{0}, scale,  T{0},
+         T{0},  T{0},  T{0}, scale,
+        // clang-format on
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix4x4<T> ggm::matrix4x4_from_scale(T const & scaleX,
+                                                      T const & scaleY,
+                                                      T const & scaleZ,
+                                                      T const & scaleW) noexcept
+{
+    return Matrix4x4<T>{
+        // clang-format off
+        scaleX,   T{0},   T{0},   T{0},
+          T{0}, scaleY,   T{0},   T{0},
+          T{0},   T{0}, scaleZ,   T{0},
+          T{0},   T{0},   T{0}, scaleW,
+        // clang-format on
+    };
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Matrix2x3<T> ggm::matrix2x3_from_translation(T const & x,
+                                                            T const & y) noexcept
+{
+    return Matrix2x3<T>{
+        // clang-format off
+        T{1}, T{0}, x,
+        T{0}, T{1}, y,
+        // clang-format on
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix3x4<T> ggm::matrix3x4_from_translation(T const & x,
+                                                            T const & y,
+                                                            T const & z) noexcept
+{
+    return Matrix3x4<T>{
+        // clang-format off
+        T{1}, T{0}, T{0}, x,
+        T{0}, T{1}, T{0}, y,
+        T{0}, T{0}, T{1}, z,
+        // clang-format on
+    };
+}
+
+// =============================================================================
+
+template <typename T>
+inline ggm::Matrix2x2<T> ggm::matrix2x2_from_rotation(T const & angleRadians) noexcept
+{
+    T const c = std::cos(angleRadians);
+    T const s = std::sin(angleRadians);
+
+    return Matrix2x2<T>{
+        // clang-format off
+         c, s,
+        -s, c,
+        // clang-format on
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+inline ggm::Matrix2x3<T> ggm::matrix2x3_from_rotation(T const & angleRadians) noexcept
+{
+    T const c = std::cos(angleRadians);
+    T const s = std::sin(angleRadians);
+
+    return Matrix2x3<T>{
+        // clang-format off
+         c, s, T{0},
+        -s, c, T{0},
+        // clang-format on
+    };
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Matrix2x2<T> ggm::matrix2x2_from_rotation90() noexcept
+{
+    return Matrix2x2<T>{
+        // clang-format off
+        T{0}, T{-1},
+        T{1},  T{0},
+        // clang-format on
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x3<T> ggm::matrix2x3_from_rotation90() noexcept
+{
+    return Matrix2x3<T>{
+        // clang-format off
+        T{0}, T{-1}, T{0},
+        T{1},  T{0}, T{0},
+        // clang-format on
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x2<T> ggm::matrix2x2_from_rotation180() noexcept
+{
+    return Matrix2x2<T>{
+        // clang-format off
+        T{-1},  T{0},
+         T{0}, T{-1},
+        // clang-format on
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x3<T> ggm::matrix2x3_from_rotation180() noexcept
+{
+    return Matrix2x3<T>{
+        // clang-format off
+        T{-1},  T{0}, T{0},
+         T{0}, T{-1}, T{0},
+        // clang-format on
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x2<T> ggm::matrix2x2_from_rotation270() noexcept
+{
+    return Matrix2x2<T>{
+        // clang-format off
+         T{0}, T{1},
+        T{-1}, T{0},
+        // clang-format on
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x3<T> ggm::matrix2x3_from_rotation270() noexcept
+{
+    return Matrix2x3<T>{
+        // clang-format off
+         T{0}, T{1}, T{0},
+        T{-1}, T{0}, T{0},
+        // clang-format on
+    };
+}
+
+// =============================================================================
+
+template <typename T>
 constexpr ggm::Matrix1x1<T> ggm::matrix_from_cols(Matrix1x1<T> const & col0) noexcept
 {
     return Matrix1x1<T>{
@@ -10239,6 +10689,478 @@ constexpr bool ggm::any_of(Matrix4x4<bool> const & value) noexcept
 
 // =============================================================================
 
+constexpr bool ggm::none_of(Matrix1x1<bool> const & value) noexcept
+{
+    return !value.m00;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::none_of(Matrix1x2<bool> const & value) noexcept
+{
+    return !value.m00 &&
+           !value.m01;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::none_of(Matrix1x3<bool> const & value) noexcept
+{
+    return !value.m00 &&
+           !value.m01 &&
+           !value.m02;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::none_of(Matrix1x4<bool> const & value) noexcept
+{
+    return !value.m00 &&
+           !value.m01 &&
+           !value.m02 &&
+           !value.m03;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::none_of(Matrix2x1<bool> const & value) noexcept
+{
+    return !value.m00 &&
+           !value.m10;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::none_of(Matrix2x2<bool> const & value) noexcept
+{
+    return !value.m00 &&
+           !value.m01 &&
+           !value.m10 &&
+           !value.m11;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::none_of(Matrix2x3<bool> const & value) noexcept
+{
+    return !value.m00 &&
+           !value.m01 &&
+           !value.m02 &&
+           !value.m10 &&
+           !value.m11 &&
+           !value.m12;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::none_of(Matrix2x4<bool> const & value) noexcept
+{
+    return !value.m00 &&
+           !value.m01 &&
+           !value.m02 &&
+           !value.m03 &&
+           !value.m10 &&
+           !value.m11 &&
+           !value.m12 &&
+           !value.m13;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::none_of(Matrix3x1<bool> const & value) noexcept
+{
+    return !value.m00 &&
+           !value.m10 &&
+           !value.m20;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::none_of(Matrix3x2<bool> const & value) noexcept
+{
+    return !value.m00 &&
+           !value.m01 &&
+           !value.m10 &&
+           !value.m11 &&
+           !value.m20 &&
+           !value.m21;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::none_of(Matrix3x3<bool> const & value) noexcept
+{
+    return !value.m00 &&
+           !value.m01 &&
+           !value.m02 &&
+           !value.m10 &&
+           !value.m11 &&
+           !value.m12 &&
+           !value.m20 &&
+           !value.m21 &&
+           !value.m22;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::none_of(Matrix3x4<bool> const & value) noexcept
+{
+    return !value.m00 &&
+           !value.m01 &&
+           !value.m02 &&
+           !value.m03 &&
+           !value.m10 &&
+           !value.m11 &&
+           !value.m12 &&
+           !value.m13 &&
+           !value.m20 &&
+           !value.m21 &&
+           !value.m22 &&
+           !value.m23;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::none_of(Matrix4x1<bool> const & value) noexcept
+{
+    return !value.m00 &&
+           !value.m10 &&
+           !value.m20 &&
+           !value.m30;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::none_of(Matrix4x2<bool> const & value) noexcept
+{
+    return !value.m00 &&
+           !value.m01 &&
+           !value.m10 &&
+           !value.m11 &&
+           !value.m20 &&
+           !value.m21 &&
+           !value.m30 &&
+           !value.m31;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::none_of(Matrix4x3<bool> const & value) noexcept
+{
+    return !value.m00 &&
+           !value.m01 &&
+           !value.m02 &&
+           !value.m10 &&
+           !value.m11 &&
+           !value.m12 &&
+           !value.m20 &&
+           !value.m21 &&
+           !value.m22 &&
+           !value.m30 &&
+           !value.m31 &&
+           !value.m32;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::none_of(Matrix4x4<bool> const & value) noexcept
+{
+    return !value.m00 &&
+           !value.m01 &&
+           !value.m02 &&
+           !value.m03 &&
+           !value.m10 &&
+           !value.m11 &&
+           !value.m12 &&
+           !value.m13 &&
+           !value.m20 &&
+           !value.m21 &&
+           !value.m22 &&
+           !value.m23 &&
+           !value.m30 &&
+           !value.m31 &&
+           !value.m32 &&
+           !value.m33;
+}
+
+// =============================================================================
+
+template <typename T>
+inline ggm::Matrix1x1<bool> ggm::is_close(Matrix1x1<T> const & lhs,
+                                          Matrix1x1<T> const & rhs,
+                                          T const &            epsilon) noexcept
+{
+    return Matrix1x1<bool>{
+        is_close(lhs.m00, rhs.m00, epsilon),
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+inline ggm::Matrix1x2<bool> ggm::is_close(Matrix1x2<T> const & lhs,
+                                          Matrix1x2<T> const & rhs,
+                                          T const &            epsilon) noexcept
+{
+    return Matrix1x2<bool>{
+        is_close(lhs.m00, rhs.m00, epsilon),
+        is_close(lhs.m01, rhs.m01, epsilon),
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+inline ggm::Matrix1x3<bool> ggm::is_close(Matrix1x3<T> const & lhs,
+                                          Matrix1x3<T> const & rhs,
+                                          T const &            epsilon) noexcept
+{
+    return Matrix1x3<bool>{
+        is_close(lhs.m00, rhs.m00, epsilon),
+        is_close(lhs.m01, rhs.m01, epsilon),
+        is_close(lhs.m02, rhs.m02, epsilon),
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+inline ggm::Matrix1x4<bool> ggm::is_close(Matrix1x4<T> const & lhs,
+                                          Matrix1x4<T> const & rhs,
+                                          T const &            epsilon) noexcept
+{
+    return Matrix1x4<bool>{
+        is_close(lhs.m00, rhs.m00, epsilon),
+        is_close(lhs.m01, rhs.m01, epsilon),
+        is_close(lhs.m02, rhs.m02, epsilon),
+        is_close(lhs.m03, rhs.m03, epsilon),
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+inline ggm::Matrix2x1<bool> ggm::is_close(Matrix2x1<T> const & lhs,
+                                          Matrix2x1<T> const & rhs,
+                                          T const &            epsilon) noexcept
+{
+    return Matrix2x1<bool>{
+        is_close(lhs.m00, rhs.m00, epsilon),
+        is_close(lhs.m10, rhs.m10, epsilon),
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+inline ggm::Matrix2x2<bool> ggm::is_close(Matrix2x2<T> const & lhs,
+                                          Matrix2x2<T> const & rhs,
+                                          T const &            epsilon) noexcept
+{
+    return Matrix2x2<bool>{
+        is_close(lhs.m00, rhs.m00, epsilon),
+        is_close(lhs.m01, rhs.m01, epsilon),
+        is_close(lhs.m10, rhs.m10, epsilon),
+        is_close(lhs.m11, rhs.m11, epsilon),
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+inline ggm::Matrix2x3<bool> ggm::is_close(Matrix2x3<T> const & lhs,
+                                          Matrix2x3<T> const & rhs,
+                                          T const &            epsilon) noexcept
+{
+    return Matrix2x3<bool>{
+        is_close(lhs.m00, rhs.m00, epsilon),
+        is_close(lhs.m01, rhs.m01, epsilon),
+        is_close(lhs.m02, rhs.m02, epsilon),
+        is_close(lhs.m10, rhs.m10, epsilon),
+        is_close(lhs.m11, rhs.m11, epsilon),
+        is_close(lhs.m12, rhs.m12, epsilon),
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+inline ggm::Matrix2x4<bool> ggm::is_close(Matrix2x4<T> const & lhs,
+                                          Matrix2x4<T> const & rhs,
+                                          T const &            epsilon) noexcept
+{
+    return Matrix2x4<bool>{
+        is_close(lhs.m00, rhs.m00, epsilon),
+        is_close(lhs.m01, rhs.m01, epsilon),
+        is_close(lhs.m02, rhs.m02, epsilon),
+        is_close(lhs.m03, rhs.m03, epsilon),
+        is_close(lhs.m10, rhs.m10, epsilon),
+        is_close(lhs.m11, rhs.m11, epsilon),
+        is_close(lhs.m12, rhs.m12, epsilon),
+        is_close(lhs.m13, rhs.m13, epsilon),
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+inline ggm::Matrix3x1<bool> ggm::is_close(Matrix3x1<T> const & lhs,
+                                          Matrix3x1<T> const & rhs,
+                                          T const &            epsilon) noexcept
+{
+    return Matrix3x1<bool>{
+        is_close(lhs.m00, rhs.m00, epsilon),
+        is_close(lhs.m10, rhs.m10, epsilon),
+        is_close(lhs.m20, rhs.m20, epsilon),
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+inline ggm::Matrix3x2<bool> ggm::is_close(Matrix3x2<T> const & lhs,
+                                          Matrix3x2<T> const & rhs,
+                                          T const &            epsilon) noexcept
+{
+    return Matrix3x2<bool>{
+        is_close(lhs.m00, rhs.m00, epsilon),
+        is_close(lhs.m01, rhs.m01, epsilon),
+        is_close(lhs.m10, rhs.m10, epsilon),
+        is_close(lhs.m11, rhs.m11, epsilon),
+        is_close(lhs.m20, rhs.m20, epsilon),
+        is_close(lhs.m21, rhs.m21, epsilon),
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+inline ggm::Matrix3x3<bool> ggm::is_close(Matrix3x3<T> const & lhs,
+                                          Matrix3x3<T> const & rhs,
+                                          T const &            epsilon) noexcept
+{
+    return Matrix3x3<bool>{
+        is_close(lhs.m00, rhs.m00, epsilon),
+        is_close(lhs.m01, rhs.m01, epsilon),
+        is_close(lhs.m02, rhs.m02, epsilon),
+        is_close(lhs.m10, rhs.m10, epsilon),
+        is_close(lhs.m11, rhs.m11, epsilon),
+        is_close(lhs.m12, rhs.m12, epsilon),
+        is_close(lhs.m20, rhs.m20, epsilon),
+        is_close(lhs.m21, rhs.m21, epsilon),
+        is_close(lhs.m22, rhs.m22, epsilon),
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+inline ggm::Matrix3x4<bool> ggm::is_close(Matrix3x4<T> const & lhs,
+                                          Matrix3x4<T> const & rhs,
+                                          T const &            epsilon) noexcept
+{
+    return Matrix3x4<bool>{
+        is_close(lhs.m00, rhs.m00, epsilon),
+        is_close(lhs.m01, rhs.m01, epsilon),
+        is_close(lhs.m02, rhs.m02, epsilon),
+        is_close(lhs.m03, rhs.m03, epsilon),
+        is_close(lhs.m10, rhs.m10, epsilon),
+        is_close(lhs.m11, rhs.m11, epsilon),
+        is_close(lhs.m12, rhs.m12, epsilon),
+        is_close(lhs.m13, rhs.m13, epsilon),
+        is_close(lhs.m20, rhs.m20, epsilon),
+        is_close(lhs.m21, rhs.m21, epsilon),
+        is_close(lhs.m22, rhs.m22, epsilon),
+        is_close(lhs.m23, rhs.m23, epsilon),
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+inline ggm::Matrix4x1<bool> ggm::is_close(Matrix4x1<T> const & lhs,
+                                          Matrix4x1<T> const & rhs,
+                                          T const &            epsilon) noexcept
+{
+    return Matrix4x1<bool>{
+        is_close(lhs.m00, rhs.m00, epsilon),
+        is_close(lhs.m10, rhs.m10, epsilon),
+        is_close(lhs.m20, rhs.m20, epsilon),
+        is_close(lhs.m30, rhs.m30, epsilon),
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+inline ggm::Matrix4x2<bool> ggm::is_close(Matrix4x2<T> const & lhs,
+                                          Matrix4x2<T> const & rhs,
+                                          T const &            epsilon) noexcept
+{
+    return Matrix4x2<bool>{
+        is_close(lhs.m00, rhs.m00, epsilon),
+        is_close(lhs.m01, rhs.m01, epsilon),
+        is_close(lhs.m10, rhs.m10, epsilon),
+        is_close(lhs.m11, rhs.m11, epsilon),
+        is_close(lhs.m20, rhs.m20, epsilon),
+        is_close(lhs.m21, rhs.m21, epsilon),
+        is_close(lhs.m30, rhs.m30, epsilon),
+        is_close(lhs.m31, rhs.m31, epsilon),
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+inline ggm::Matrix4x3<bool> ggm::is_close(Matrix4x3<T> const & lhs,
+                                          Matrix4x3<T> const & rhs,
+                                          T const &            epsilon) noexcept
+{
+    return Matrix4x3<bool>{
+        is_close(lhs.m00, rhs.m00, epsilon),
+        is_close(lhs.m01, rhs.m01, epsilon),
+        is_close(lhs.m02, rhs.m02, epsilon),
+        is_close(lhs.m10, rhs.m10, epsilon),
+        is_close(lhs.m11, rhs.m11, epsilon),
+        is_close(lhs.m12, rhs.m12, epsilon),
+        is_close(lhs.m20, rhs.m20, epsilon),
+        is_close(lhs.m21, rhs.m21, epsilon),
+        is_close(lhs.m22, rhs.m22, epsilon),
+        is_close(lhs.m30, rhs.m30, epsilon),
+        is_close(lhs.m31, rhs.m31, epsilon),
+        is_close(lhs.m32, rhs.m32, epsilon),
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+inline ggm::Matrix4x4<bool> ggm::is_close(Matrix4x4<T> const & lhs,
+                                          Matrix4x4<T> const & rhs,
+                                          T const &            epsilon) noexcept
+{
+    return Matrix4x4<bool>{
+        is_close(lhs.m00, rhs.m00, epsilon),
+        is_close(lhs.m01, rhs.m01, epsilon),
+        is_close(lhs.m02, rhs.m02, epsilon),
+        is_close(lhs.m03, rhs.m03, epsilon),
+        is_close(lhs.m10, rhs.m10, epsilon),
+        is_close(lhs.m11, rhs.m11, epsilon),
+        is_close(lhs.m12, rhs.m12, epsilon),
+        is_close(lhs.m13, rhs.m13, epsilon),
+        is_close(lhs.m20, rhs.m20, epsilon),
+        is_close(lhs.m21, rhs.m21, epsilon),
+        is_close(lhs.m22, rhs.m22, epsilon),
+        is_close(lhs.m23, rhs.m23, epsilon),
+        is_close(lhs.m30, rhs.m30, epsilon),
+        is_close(lhs.m31, rhs.m31, epsilon),
+        is_close(lhs.m32, rhs.m32, epsilon),
+        is_close(lhs.m33, rhs.m33, epsilon),
+    };
+}
+
+// =============================================================================
+
 template <typename T>
 constexpr ggm::Matrix1x1<bool> ggm::is_equal(Matrix1x1<T> const & lhs,
                                              Matrix1x1<T> const & rhs) noexcept
@@ -11795,202 +12717,6 @@ constexpr ggm::Matrix4x4<bool> ggm::is_not_equal(Matrix4x4<T> const & lhs,
         lhs.m32 != rhs.m32,
         lhs.m33 != rhs.m33,
     };
-}
-
-// =============================================================================
-
-constexpr bool ggm::none_of(Matrix1x1<bool> const & value) noexcept
-{
-    return !value.m00;
-}
-
-// -----------------------------------------------------------------------------
-
-constexpr bool ggm::none_of(Matrix1x2<bool> const & value) noexcept
-{
-    return !value.m00 &&
-           !value.m01;
-}
-
-// -----------------------------------------------------------------------------
-
-constexpr bool ggm::none_of(Matrix1x3<bool> const & value) noexcept
-{
-    return !value.m00 &&
-           !value.m01 &&
-           !value.m02;
-}
-
-// -----------------------------------------------------------------------------
-
-constexpr bool ggm::none_of(Matrix1x4<bool> const & value) noexcept
-{
-    return !value.m00 &&
-           !value.m01 &&
-           !value.m02 &&
-           !value.m03;
-}
-
-// -----------------------------------------------------------------------------
-
-constexpr bool ggm::none_of(Matrix2x1<bool> const & value) noexcept
-{
-    return !value.m00 &&
-           !value.m10;
-}
-
-// -----------------------------------------------------------------------------
-
-constexpr bool ggm::none_of(Matrix2x2<bool> const & value) noexcept
-{
-    return !value.m00 &&
-           !value.m01 &&
-           !value.m10 &&
-           !value.m11;
-}
-
-// -----------------------------------------------------------------------------
-
-constexpr bool ggm::none_of(Matrix2x3<bool> const & value) noexcept
-{
-    return !value.m00 &&
-           !value.m01 &&
-           !value.m02 &&
-           !value.m10 &&
-           !value.m11 &&
-           !value.m12;
-}
-
-// -----------------------------------------------------------------------------
-
-constexpr bool ggm::none_of(Matrix2x4<bool> const & value) noexcept
-{
-    return !value.m00 &&
-           !value.m01 &&
-           !value.m02 &&
-           !value.m03 &&
-           !value.m10 &&
-           !value.m11 &&
-           !value.m12 &&
-           !value.m13;
-}
-
-// -----------------------------------------------------------------------------
-
-constexpr bool ggm::none_of(Matrix3x1<bool> const & value) noexcept
-{
-    return !value.m00 &&
-           !value.m10 &&
-           !value.m20;
-}
-
-// -----------------------------------------------------------------------------
-
-constexpr bool ggm::none_of(Matrix3x2<bool> const & value) noexcept
-{
-    return !value.m00 &&
-           !value.m01 &&
-           !value.m10 &&
-           !value.m11 &&
-           !value.m20 &&
-           !value.m21;
-}
-
-// -----------------------------------------------------------------------------
-
-constexpr bool ggm::none_of(Matrix3x3<bool> const & value) noexcept
-{
-    return !value.m00 &&
-           !value.m01 &&
-           !value.m02 &&
-           !value.m10 &&
-           !value.m11 &&
-           !value.m12 &&
-           !value.m20 &&
-           !value.m21 &&
-           !value.m22;
-}
-
-// -----------------------------------------------------------------------------
-
-constexpr bool ggm::none_of(Matrix3x4<bool> const & value) noexcept
-{
-    return !value.m00 &&
-           !value.m01 &&
-           !value.m02 &&
-           !value.m03 &&
-           !value.m10 &&
-           !value.m11 &&
-           !value.m12 &&
-           !value.m13 &&
-           !value.m20 &&
-           !value.m21 &&
-           !value.m22 &&
-           !value.m23;
-}
-
-// -----------------------------------------------------------------------------
-
-constexpr bool ggm::none_of(Matrix4x1<bool> const & value) noexcept
-{
-    return !value.m00 &&
-           !value.m10 &&
-           !value.m20 &&
-           !value.m30;
-}
-
-// -----------------------------------------------------------------------------
-
-constexpr bool ggm::none_of(Matrix4x2<bool> const & value) noexcept
-{
-    return !value.m00 &&
-           !value.m01 &&
-           !value.m10 &&
-           !value.m11 &&
-           !value.m20 &&
-           !value.m21 &&
-           !value.m30 &&
-           !value.m31;
-}
-
-// -----------------------------------------------------------------------------
-
-constexpr bool ggm::none_of(Matrix4x3<bool> const & value) noexcept
-{
-    return !value.m00 &&
-           !value.m01 &&
-           !value.m02 &&
-           !value.m10 &&
-           !value.m11 &&
-           !value.m12 &&
-           !value.m20 &&
-           !value.m21 &&
-           !value.m22 &&
-           !value.m30 &&
-           !value.m31 &&
-           !value.m32;
-}
-
-// -----------------------------------------------------------------------------
-
-constexpr bool ggm::none_of(Matrix4x4<bool> const & value) noexcept
-{
-    return !value.m00 &&
-           !value.m01 &&
-           !value.m02 &&
-           !value.m03 &&
-           !value.m10 &&
-           !value.m11 &&
-           !value.m12 &&
-           !value.m13 &&
-           !value.m20 &&
-           !value.m21 &&
-           !value.m22 &&
-           !value.m23 &&
-           !value.m30 &&
-           !value.m31 &&
-           !value.m32 &&
-           !value.m33;
 }
 
 // =============================================================================

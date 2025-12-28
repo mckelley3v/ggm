@@ -54,10 +54,12 @@ TEMPLATE_TEST_CASE("Matrix::TestMatrixConstants::Identity", /*tags*/ "", GGM_NUM
 {
     using namespace ggm;
 
+    typedef Matrix1x1<TestType> Matrix1x1;
     typedef Matrix2x2<TestType> Matrix2x2;
     typedef Matrix3x3<TestType> Matrix3x3;
     typedef Matrix4x4<TestType> Matrix4x4;
 
+    STATIC_CHECK(Identity<Matrix1x1> == Matrix1x1{ TestType(1) });
     STATIC_CHECK(Identity<Matrix2x2> == Matrix2x2{ TestType(1), TestType(0), TestType(0), TestType(1) });
     STATIC_CHECK(Identity<Matrix3x3> == Matrix3x3{ TestType(1), TestType(0), TestType(0), TestType(0), TestType(1), TestType(0), TestType(0), TestType(0), TestType(1) });
     STATIC_CHECK(Identity<Matrix4x4> == Matrix4x4{ TestType(1), TestType(0), TestType(0), TestType(0), TestType(0), TestType(1), TestType(0), TestType(0), TestType(0), TestType(0), TestType(1), TestType(0), TestType(0), TestType(0), TestType(0), TestType(1) });

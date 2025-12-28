@@ -76,6 +76,9 @@ namespace ggm
     // -----------------------------------------------------------------------------
 
     template <typename T>
+    inline constexpr Matrix1x1<T> Identity<Matrix1x1<T>> = { T{ 1 } };
+
+    template <typename T>
     inline constexpr Matrix2x2<T> Identity<Matrix2x2<T>> = { T{ 1 }, T{ 0 }, T{ 0 }, T{ 1 } };
 
     template <typename T>

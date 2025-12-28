@@ -93,6 +93,7 @@
 /// ------                      | -----------
 /// b = all_of(v);              | true if all bool elements are true
 /// b = any_of(v);              | true if any bool elements are true
+/// b = none_of(v);             | true if all bool elements are false
 /// b = is_close(u, v);         | element-wise is_close
 /// b = is_equal(u, v);         | element-wise ==
 /// b = is_greater(u, v);       | element-wise >
@@ -100,7 +101,6 @@
 /// b = is_less(u, v);          | element-wise <
 /// b = is_less_equal(u, v);    | element-wise <=
 /// b = is_not_equal(u, v);     | element-wise !=
-/// b = none_of(v);             | true if all bool elements are false
 ///
 /// @}
 // =============================================================================
@@ -1112,6 +1112,20 @@ namespace ggm
 
     // =============================================================================
 
+    /// true if all bool elements are false
+    /// @relates Vector2D
+    constexpr bool none_of(Vector2D<bool> const & value) noexcept;
+
+    /// true if all bool elements are false
+    /// @relates Vector3D
+    constexpr bool none_of(Vector3D<bool> const & value) noexcept;
+
+    /// true if all bool elements are false
+    /// @relates Vector4D
+    constexpr bool none_of(Vector4D<bool> const & value) noexcept;
+
+    // =============================================================================
+
     /// element-wise is_close
     /// @relates Vector2D
     template <typename T>
@@ -1252,20 +1266,6 @@ namespace ggm
     template <typename T>
     constexpr Vector4D<bool> is_not_equal(Vector4D<T> const & lhs,
                                           Vector4D<T> const & rhs) noexcept;
-
-    // =============================================================================
-
-    /// true if all bool elements are false
-    /// @relates Vector2D
-    constexpr bool none_of(Vector2D<bool> const & value) noexcept;
-
-    /// true if all bool elements are false
-    /// @relates Vector3D
-    constexpr bool none_of(Vector3D<bool> const & value) noexcept;
-
-    /// true if all bool elements are false
-    /// @relates Vector4D
-    constexpr bool none_of(Vector4D<bool> const & value) noexcept;
 
     // =============================================================================
 } // namespace ggm
@@ -3276,6 +3276,33 @@ constexpr bool ggm::any_of(Vector4D<bool> const & value) noexcept
 
 // =============================================================================
 
+constexpr bool ggm::none_of(Vector2D<bool> const & value) noexcept
+{
+    return !value.x &&
+           !value.y;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::none_of(Vector3D<bool> const & value) noexcept
+{
+    return !value.x &&
+           !value.y &&
+           !value.z;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::none_of(Vector4D<bool> const & value) noexcept
+{
+    return !value.x &&
+           !value.y &&
+           !value.z &&
+           !value.w;
+}
+
+// =============================================================================
+
 template <typename T>
 inline ggm::Vector2D<bool> ggm::is_close(Vector2D<T> const & lhs,
                                          Vector2D<T> const & rhs,
@@ -3548,33 +3575,6 @@ constexpr ggm::Vector4D<bool> ggm::is_not_equal(Vector4D<T> const & lhs,
         lhs.z != rhs.z,
         lhs.w != rhs.w,
     };
-}
-
-// =============================================================================
-
-constexpr bool ggm::none_of(Vector2D<bool> const & value) noexcept
-{
-    return !value.x &&
-           !value.y;
-}
-
-// -----------------------------------------------------------------------------
-
-constexpr bool ggm::none_of(Vector3D<bool> const & value) noexcept
-{
-    return !value.x &&
-           !value.y &&
-           !value.z;
-}
-
-// -----------------------------------------------------------------------------
-
-constexpr bool ggm::none_of(Vector4D<bool> const & value) noexcept
-{
-    return !value.x &&
-           !value.y &&
-           !value.z &&
-           !value.w;
 }
 
 // =============================================================================

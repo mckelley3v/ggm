@@ -102,6 +102,7 @@ if (GGM_ENABLE_UNIT_TESTS)
         "tests/TestMatrix.cpp"
         "tests/TestMatrixConstants.cpp"
         "tests/TestMatrixUtil.cpp"
+        "tests/TestMatrixVectorUtil.cpp"
         "tests/TestNumericConstants.cpp"
         "tests/TestNumericUtil.cpp"
         "tests/TestTransform.cpp"
