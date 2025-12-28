@@ -2204,6 +2204,32 @@ namespace ggm
 
     // =============================================================================
 
+    /// create a square matrix corresponding to a rotation of 90 degrees
+    template <typename T>
+    constexpr Matrix2x2<T> matrix2x2_from_rotation90() noexcept;
+
+    /// create an affine matrix corresponding to a rotation of 90 degrees
+    template <typename T>
+    constexpr Matrix2x3<T> matrix2x3_from_rotation90() noexcept;
+
+    /// create a square matrix corresponding to a rotation of 180 degrees
+    template <typename T>
+    constexpr Matrix2x2<T> matrix2x2_from_rotation180() noexcept;
+
+    /// create an affine matrix corresponding to a rotation of 180 degrees
+    template <typename T>
+    constexpr Matrix2x3<T> matrix2x3_from_rotation180() noexcept;
+
+    /// create a square matrix corresponding to a rotation of 270 degrees
+    template <typename T>
+    constexpr Matrix2x2<T> matrix2x2_from_rotation270() noexcept;
+
+    /// create an affine matrix corresponding to a rotation of 270 degrees
+    template <typename T>
+    constexpr Matrix2x3<T> matrix2x3_from_rotation270() noexcept;
+
+    // =============================================================================
+
     /// create a matrix from the given column vectors
     /// @relates Matrix1x1
     template <typename T>
@@ -8795,6 +8821,84 @@ inline ggm::Matrix2x3<T> ggm::matrix2x3_from_rotation(T const & angleRadians) no
         // clang-format off
          c, s, T{0},
         -s, c, T{0},
+        // clang-format on
+    };
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Matrix2x2<T> ggm::matrix2x2_from_rotation90() noexcept
+{
+    return Matrix2x2<T>{
+        // clang-format off
+        T{0}, T{-1},
+        T{1},  T{0},
+        // clang-format on
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x3<T> ggm::matrix2x3_from_rotation90() noexcept
+{
+    return Matrix2x3<T>{
+        // clang-format off
+        T{0}, T{-1}, T{0},
+        T{1},  T{0}, T{0},
+        // clang-format on
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x2<T> ggm::matrix2x2_from_rotation180() noexcept
+{
+    return Matrix2x2<T>{
+        // clang-format off
+        T{-1},  T{0},
+         T{0}, T{-1},
+        // clang-format on
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x3<T> ggm::matrix2x3_from_rotation180() noexcept
+{
+    return Matrix2x3<T>{
+        // clang-format off
+        T{-1},  T{0}, T{0},
+         T{0}, T{-1}, T{0},
+        // clang-format on
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x2<T> ggm::matrix2x2_from_rotation270() noexcept
+{
+    return Matrix2x2<T>{
+        // clang-format off
+         T{0}, T{1},
+        T{-1}, T{0},
+        // clang-format on
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Matrix2x3<T> ggm::matrix2x3_from_rotation270() noexcept
+{
+    return Matrix2x3<T>{
+        // clang-format off
+         T{0}, T{1}, T{0},
+        T{-1}, T{0}, T{0},
         // clang-format on
     };
 }
