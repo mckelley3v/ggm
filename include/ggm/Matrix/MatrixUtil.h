@@ -5,6 +5,8 @@
 #include "ggm/Matrix/Matrix.h"
 #include "ggm/Numeric/NumericUtil.h"
 
+#include <cmath>
+
 // =============================================================================
 /// @addtogroup Matrix
 /// @{
@@ -2189,6 +2191,16 @@ namespace ggm
     constexpr Matrix3x4<T> matrix3x4_from_translation(T const & x,
                                                       T const & y,
                                                       T const & z) noexcept;
+
+    // =============================================================================
+
+    /// create a square matrix with the given rotation angle
+    template <typename T>
+    inline Matrix2x2<T> matrix2x2_from_rotation(T const & angleRadians) noexcept;
+
+    /// create an affine matrix with the given rotation angle
+    template <typename T>
+    inline Matrix2x3<T> matrix2x3_from_rotation(T const & angleRadians) noexcept;
 
     // =============================================================================
 
@@ -8751,6 +8763,38 @@ constexpr ggm::Matrix3x4<T> ggm::matrix3x4_from_translation(T const & x,
         T{1}, T{0}, T{0}, x,
         T{0}, T{1}, T{0}, y,
         T{0}, T{0}, T{1}, z,
+        // clang-format on
+    };
+}
+
+// =============================================================================
+
+template <typename T>
+inline ggm::Matrix2x2<T> ggm::matrix2x2_from_rotation(T const & angleRadians) noexcept
+{
+    T const c = std::cos(angleRadians);
+    T const s = std::sin(angleRadians);
+
+    return Matrix2x2<T>{
+        // clang-format off
+         c, s,
+        -s, c,
+        // clang-format on
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+inline ggm::Matrix2x3<T> ggm::matrix2x3_from_rotation(T const & angleRadians) noexcept
+{
+    T const c = std::cos(angleRadians);
+    T const s = std::sin(angleRadians);
+
+    return Matrix2x3<T>{
+        // clang-format off
+         c, s, T{0},
+        -s, c, T{0},
         // clang-format on
     };
 }
