@@ -38,15 +38,16 @@ C++ graphics and game 3D math library.
   | Matrix3x1\<T\> | Matrix3x2\<T\> | Matrix3x3\<T\> | Matrix3x4\<T\> |
   | Matrix4x1\<T\> | Matrix4x2\<T\> | Matrix4x3\<T\> | Matrix4x4\<T\> |
 
-* | File                                                                 | Description                                      |
-  | -------------------------------------------------------------------- | ------------------------------------------------ |
-  | [ggm/MatrixAll.h](include/ggm/MatrixAll.h)                           | Top-level header file for all of /ggm/Matrix/    |
-  |                                                                      |                                                  |
-  | [ggm/Matrix/Matrix.h](include/ggm/Matrix/Matrix.h)                   | Minimal definition of matrix types               |
-  | [ggm/Matrix/MatrixFwd.h](include/ggm/Matrix/MatrixFwd.h)             | Forward declaration of matrix types              |
-  | [ggm/Matrix/MatrixUtil.h](include/ggm/Matrix/MatrixUtil.h)           | Definition of matrix operators and utilities     |
-  | [ggm/Matrix/MatrixTypedefs.h](include/ggm/Matrix/MatrixTypedefs.h)   | Typedefs of common matrix types, e.g. Matrix4x4f |
-  | [ggm/Matrix/MatrixConstants.h](include/ggm/Matrix/MatrixConstants.h) | Definitions of common matrix constants           |
+* | File                                                                   | Description                                         |
+  | ---------------------------------------------------------------------- | --------------------------------------------------- |
+  | [ggm/MatrixAll.h](include/ggm/MatrixAll.h)                             | Top-level header file for all of /ggm/Matrix/       |
+  |                                                                        |                                                     |
+  | [ggm/Matrix/Matrix.h](include/ggm/Matrix/Matrix.h)                     | Minimal definition of matrix types                  |
+  | [ggm/Matrix/MatrixConstants.h](include/ggm/Matrix/MatrixConstants.h)   | Definitions of common matrix constants              |
+  | [ggm/Matrix/MatrixFwd.h](include/ggm/Matrix/MatrixFwd.h)               | Forward declaration of matrix types                 |
+  | [ggm/Matrix/MatrixTypedefs.h](include/ggm/Matrix/MatrixTypedefs.h)     | Typedefs of common matrix types, e.g. Matrix4x4f    |
+  | [ggm/Matrix/MatrixUtil.h](include/ggm/Matrix/MatrixUtil.h)             | Definition of matrix operators and utilities        |
+  | [ggm/Matrix/MatrixVectorUtil.h](include/ggm/Matrix/MatrixVectorUtil.h) | Definition of matrix-vector operators and utilities |
 
 ### Implementation design
 * Goals:
