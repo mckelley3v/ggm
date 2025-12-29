@@ -20,6 +20,7 @@
 /// m1 += m2;     | matrix addition assignment
 /// m1 -= m2;     | matrix subtraction assignment
 /// m  *= s;      | matrix-scalar multiplication assignment
+/// m1 *= m2;     | matrix multiplication assignment
 /// m  /= s;      | matrix-scalar division assignment
 /// m1 = +m2;     | element-wise unary plus
 /// m1 = -m2;     | matrix negation
@@ -59,20 +60,27 @@
 /// functions:
 /// ----------
 ///
-/// Syntax                            | Description
-/// ------                            | -----------
-/// s = determinant(m)                | calculate the determinant of square matrix
-/// b = is_invertible(m)              | true if square matrix can be inverted, i.e. determinant != 0
-/// b = is_orthogonal(m)              | true if square matrix rows and cols are orthonormal vectors
-/// m1 = inverse(m2)                  | calculate inverse of square matrix
-/// m1 = transpose(m2)                | make matrix by turning rows into cols
-/// s = trace(m)                      | sum of square matrix diagonal elements
-/// m = matrixNxN_from_scale(s)       | create a square matrix with the given scale as the diagonal elements
-/// m = matrixNxM_from_scale(s)       | create an affine matrix with the given scale as the diagonal elements
-/// m = matrix_from_cols(c0, ..., cN) | create a matrix from the given column vectors
-/// m = matrix_from_rows(r0, ..., rN) | create a matrix from the given row vectors
-/// m1 = matrix_drop_col<C>(m2)       | create a submatrix by removing the specified col
-/// m1 = matrix_drop_row<R>(m2)       | create a submatrix by removing the specified row
+/// Syntax                                       | Description
+/// ------                                       | -----------
+/// s = determinant(m)                           | calculate the determinant of square matrix
+/// b = is_invertible(m)                         | true if square matrix can be inverted, i.e. determinant != 0
+/// b = is_orthogonal(m)                         | true if square matrix rows and cols are orthonormal vectors
+/// m1 = inverse(m2)                             | calculate inverse of square matrix
+/// m1 = transpose(m2)                           | make matrix by turning rows into cols
+/// m = matrixNxN_from_scale(s)                  | create a square matrix with the given scale as the diagonal elements
+/// m = matrix2x2_from_rotation(s)               | create a square matrix with the given rotation angle (radians)
+/// m = matrix2x2_from_rotation90()              | create a square matrix for a 90 degree rotation
+/// m = matrix2x2_from_rotation180()             | create a square matrix for a 180 degree rotation
+/// m = matrix2x2_from_rotation270()             | create a square matrix for a 270 degree rotation
+/// m = matrix3x3_from_scale(s)                  | create a square matrix with the given scale as the diagonal elements
+/// m = matrix3x3_from_rotation_x(s)             | create a square matrix for the given rotation angle (radians) around the x-axis
+/// m = matrix3x3_from_rotation_y(s)             | create a square matrix for the given rotation angle (radians) around the y-axis
+/// m = matrix3x3_from_rotation_z(s)             | create a square matrix for the given rotation angle (radians) around the z-axis
+/// m = matrix3x3_from_rotation_axis_angle(v, s) | create a square matrix for the given rotation angle (radians) around the specfied axis
+/// m = matrix_from_cols(c0, ..., cN)            | create a matrix from the given column vectors
+/// m = matrix_from_rows(r0, ..., rN)            | create a matrix from the given row vectors
+/// m1 = matrix_drop_col<C>(m2)                  | create a submatrix by removing the specified col
+/// m1 = matrix_drop_row<R>(m2)                  | create a submatrix by removing the specified row
 ///
 /// comparisons:
 /// ------------
@@ -2096,28 +2104,6 @@ namespace ggm
 
     // =============================================================================
 
-    /// the sum of the diagonal elements
-    /// @relates Matrix1x1
-    template <typename T>
-    constexpr T trace(Matrix1x1<T> const & value) noexcept;
-
-    /// the sum of the diagonal elements
-    /// @relates Matrix2x2
-    template <typename T>
-    constexpr T trace(Matrix2x2<T> const & value) noexcept;
-
-    /// the sum of the diagonal elements
-    /// @relates Matrix3x3
-    template <typename T>
-    constexpr T trace(Matrix3x3<T> const & value) noexcept;
-
-    /// the sum of the diagonal elements
-    /// @relates Matrix4x4
-    template <typename T>
-    constexpr T trace(Matrix4x4<T> const & value) noexcept;
-
-    // =============================================================================
-
     /// create a square matrix with the given scale as the diagonal elements
     /// @relates Matrix2x2
     template <typename T>
@@ -2162,15 +2148,15 @@ namespace ggm
 
     // =============================================================================
 
-    /// create a square matrix corresponding to a rotation of 90 degrees
+    /// create a square matrix for a 90 degree rotation
     template <typename T>
     constexpr Matrix2x2<T> matrix2x2_from_rotation90() noexcept;
 
-    /// create a square matrix corresponding to a rotation of 180 degrees
+    /// create a square matrix for a 180 degree rotation
     template <typename T>
     constexpr Matrix2x2<T> matrix2x2_from_rotation180() noexcept;
 
-    /// create a square matrix corresponding to a rotation of 270 degrees
+    /// create a square matrix for a 270 degree rotation
     template <typename T>
     constexpr Matrix2x2<T> matrix2x2_from_rotation270() noexcept;
 
@@ -8528,38 +8514,6 @@ constexpr ggm::Matrix4x4<T> ggm::transpose(Matrix4x4<T> const & value) noexcept
         value.m03, value.m13, value.m23, value.m33,
         // clang-format on
     };
-}
-
-// =============================================================================
-
-template <typename T>
-constexpr T ggm::trace(Matrix1x1<T> const & value) noexcept
-{
-    return value.m00;
-}
-
-// -----------------------------------------------------------------------------
-
-template <typename T>
-constexpr T ggm::trace(Matrix2x2<T> const & value) noexcept
-{
-    return value.m00 + value.m11;
-}
-
-// -----------------------------------------------------------------------------
-
-template <typename T>
-constexpr T ggm::trace(Matrix3x3<T> const & value) noexcept
-{
-    return value.m00 + value.m11 + value.m22;
-}
-
-// -----------------------------------------------------------------------------
-
-template <typename T>
-constexpr T ggm::trace(Matrix4x4<T> const & value) noexcept
-{
-    return value.m00 + value.m11 + value.m22 + value.m33;
 }
 
 // =============================================================================

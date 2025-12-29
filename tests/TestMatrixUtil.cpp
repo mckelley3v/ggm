@@ -449,13 +449,6 @@ template ggm::Matrix4x4<float> ggm::transpose<float>(ggm::Matrix4x4<float> const
 
 // =============================================================================
 
-template float ggm::trace<float>(ggm::Matrix1x1<float> const & value) noexcept;
-template float ggm::trace<float>(ggm::Matrix2x2<float> const & value) noexcept;
-template float ggm::trace<float>(ggm::Matrix3x3<float> const & value) noexcept;
-template float ggm::trace<float>(ggm::Matrix4x4<float> const & value) noexcept;
-
-// =============================================================================
-
 template ggm::Matrix2x2<float> ggm::matrix2x2_from_scale<float>(float const & scale) noexcept;
 template ggm::Matrix2x2<float> ggm::matrix2x2_from_scale<float>(float const & scaleX, float const & scaleY) noexcept;
 template ggm::Matrix3x3<float> ggm::matrix3x3_from_scale<float>(float const & scale) noexcept;
