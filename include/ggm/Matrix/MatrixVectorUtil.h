@@ -39,8 +39,8 @@
 /// comparisons:
 /// ------------
 ///
-/// Syntax  | Description
-/// ------  | -----------
+/// Syntax                      | Description
+/// ------                      | -----------
 /// b = is_close(v, m);         | element-wise is_close
 /// b = is_close(m, v);         | element-wise is_close
 /// b = is_equal(v, m);         | element-wise ==
