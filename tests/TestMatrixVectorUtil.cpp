@@ -85,6 +85,72 @@ template ggm::Matrix4x4<float> ggm::matrix_from_rows(ggm::Vector4D<float> const 
 
 // =============================================================================
 
+template ggm::Vector2D<float> ggm::vector_from_col<0, float>(ggm::Matrix2x1<float> const & mat) noexcept;
+template ggm::Vector2D<float> ggm::vector_from_col<0, float>(ggm::Matrix2x2<float> const & mat) noexcept;
+template ggm::Vector2D<float> ggm::vector_from_col<1, float>(ggm::Matrix2x2<float> const & mat) noexcept;
+template ggm::Vector2D<float> ggm::vector_from_col<0, float>(ggm::Matrix2x3<float> const & mat) noexcept;
+template ggm::Vector2D<float> ggm::vector_from_col<1, float>(ggm::Matrix2x3<float> const & mat) noexcept;
+template ggm::Vector2D<float> ggm::vector_from_col<2, float>(ggm::Matrix2x3<float> const & mat) noexcept;
+template ggm::Vector2D<float> ggm::vector_from_col<0, float>(ggm::Matrix2x4<float> const & mat) noexcept;
+template ggm::Vector2D<float> ggm::vector_from_col<1, float>(ggm::Matrix2x4<float> const & mat) noexcept;
+template ggm::Vector2D<float> ggm::vector_from_col<2, float>(ggm::Matrix2x4<float> const & mat) noexcept;
+template ggm::Vector2D<float> ggm::vector_from_col<3, float>(ggm::Matrix2x4<float> const & mat) noexcept;
+template ggm::Vector3D<float> ggm::vector_from_col<0, float>(ggm::Matrix3x1<float> const & mat) noexcept;
+template ggm::Vector3D<float> ggm::vector_from_col<0, float>(ggm::Matrix3x2<float> const & mat) noexcept;
+template ggm::Vector3D<float> ggm::vector_from_col<1, float>(ggm::Matrix3x2<float> const & mat) noexcept;
+template ggm::Vector3D<float> ggm::vector_from_col<0, float>(ggm::Matrix3x3<float> const & mat) noexcept;
+template ggm::Vector3D<float> ggm::vector_from_col<1, float>(ggm::Matrix3x3<float> const & mat) noexcept;
+template ggm::Vector3D<float> ggm::vector_from_col<2, float>(ggm::Matrix3x3<float> const & mat) noexcept;
+template ggm::Vector3D<float> ggm::vector_from_col<0, float>(ggm::Matrix3x4<float> const & mat) noexcept;
+template ggm::Vector3D<float> ggm::vector_from_col<1, float>(ggm::Matrix3x4<float> const & mat) noexcept;
+template ggm::Vector3D<float> ggm::vector_from_col<2, float>(ggm::Matrix3x4<float> const & mat) noexcept;
+template ggm::Vector3D<float> ggm::vector_from_col<3, float>(ggm::Matrix3x4<float> const & mat) noexcept;
+template ggm::Vector4D<float> ggm::vector_from_col<0, float>(ggm::Matrix4x1<float> const & mat) noexcept;
+template ggm::Vector4D<float> ggm::vector_from_col<0, float>(ggm::Matrix4x2<float> const & mat) noexcept;
+template ggm::Vector4D<float> ggm::vector_from_col<1, float>(ggm::Matrix4x2<float> const & mat) noexcept;
+template ggm::Vector4D<float> ggm::vector_from_col<0, float>(ggm::Matrix4x3<float> const & mat) noexcept;
+template ggm::Vector4D<float> ggm::vector_from_col<1, float>(ggm::Matrix4x3<float> const & mat) noexcept;
+template ggm::Vector4D<float> ggm::vector_from_col<2, float>(ggm::Matrix4x3<float> const & mat) noexcept;
+template ggm::Vector4D<float> ggm::vector_from_col<0, float>(ggm::Matrix4x4<float> const & mat) noexcept;
+template ggm::Vector4D<float> ggm::vector_from_col<1, float>(ggm::Matrix4x4<float> const & mat) noexcept;
+template ggm::Vector4D<float> ggm::vector_from_col<2, float>(ggm::Matrix4x4<float> const & mat) noexcept;
+template ggm::Vector4D<float> ggm::vector_from_col<3, float>(ggm::Matrix4x4<float> const & mat) noexcept;
+
+// =============================================================================
+
+template ggm::Vector2D<float> ggm::vector_from_row<0, float>(ggm::Matrix1x2<float> const & mat) noexcept;
+template ggm::Vector2D<float> ggm::vector_from_row<0, float>(ggm::Matrix2x2<float> const & mat) noexcept;
+template ggm::Vector2D<float> ggm::vector_from_row<1, float>(ggm::Matrix2x2<float> const & mat) noexcept;
+template ggm::Vector2D<float> ggm::vector_from_row<0, float>(ggm::Matrix3x2<float> const & mat) noexcept;
+template ggm::Vector2D<float> ggm::vector_from_row<1, float>(ggm::Matrix3x2<float> const & mat) noexcept;
+template ggm::Vector2D<float> ggm::vector_from_row<2, float>(ggm::Matrix3x2<float> const & mat) noexcept;
+template ggm::Vector2D<float> ggm::vector_from_row<0, float>(ggm::Matrix4x2<float> const & mat) noexcept;
+template ggm::Vector2D<float> ggm::vector_from_row<1, float>(ggm::Matrix4x2<float> const & mat) noexcept;
+template ggm::Vector2D<float> ggm::vector_from_row<2, float>(ggm::Matrix4x2<float> const & mat) noexcept;
+template ggm::Vector2D<float> ggm::vector_from_row<3, float>(ggm::Matrix4x2<float> const & mat) noexcept;
+template ggm::Vector3D<float> ggm::vector_from_row<0, float>(ggm::Matrix1x3<float> const & mat) noexcept;
+template ggm::Vector3D<float> ggm::vector_from_row<0, float>(ggm::Matrix2x3<float> const & mat) noexcept;
+template ggm::Vector3D<float> ggm::vector_from_row<1, float>(ggm::Matrix2x3<float> const & mat) noexcept;
+template ggm::Vector3D<float> ggm::vector_from_row<0, float>(ggm::Matrix3x3<float> const & mat) noexcept;
+template ggm::Vector3D<float> ggm::vector_from_row<1, float>(ggm::Matrix3x3<float> const & mat) noexcept;
+template ggm::Vector3D<float> ggm::vector_from_row<2, float>(ggm::Matrix3x3<float> const & mat) noexcept;
+template ggm::Vector3D<float> ggm::vector_from_row<0, float>(ggm::Matrix4x3<float> const & mat) noexcept;
+template ggm::Vector3D<float> ggm::vector_from_row<1, float>(ggm::Matrix4x3<float> const & mat) noexcept;
+template ggm::Vector3D<float> ggm::vector_from_row<2, float>(ggm::Matrix4x3<float> const & mat) noexcept;
+template ggm::Vector3D<float> ggm::vector_from_row<3, float>(ggm::Matrix4x3<float> const & mat) noexcept;
+template ggm::Vector4D<float> ggm::vector_from_row<0, float>(ggm::Matrix1x4<float> const & mat) noexcept;
+template ggm::Vector4D<float> ggm::vector_from_row<0, float>(ggm::Matrix2x4<float> const & mat) noexcept;
+template ggm::Vector4D<float> ggm::vector_from_row<1, float>(ggm::Matrix2x4<float> const & mat) noexcept;
+template ggm::Vector4D<float> ggm::vector_from_row<0, float>(ggm::Matrix3x4<float> const & mat) noexcept;
+template ggm::Vector4D<float> ggm::vector_from_row<1, float>(ggm::Matrix3x4<float> const & mat) noexcept;
+template ggm::Vector4D<float> ggm::vector_from_row<2, float>(ggm::Matrix3x4<float> const & mat) noexcept;
+template ggm::Vector4D<float> ggm::vector_from_row<0, float>(ggm::Matrix4x4<float> const & mat) noexcept;
+template ggm::Vector4D<float> ggm::vector_from_row<1, float>(ggm::Matrix4x4<float> const & mat) noexcept;
+template ggm::Vector4D<float> ggm::vector_from_row<2, float>(ggm::Matrix4x4<float> const & mat) noexcept;
+template ggm::Vector4D<float> ggm::vector_from_row<3, float>(ggm::Matrix4x4<float> const & mat) noexcept;
+
+// =============================================================================
+
 template ggm::Vector2D<bool> ggm::is_close(ggm::Vector2D<float> const & lhs, ggm::Matrix1x2<float> const & rhs, float const & epsilon = DefaultTolerance<float>) noexcept;
 template ggm::Vector2D<bool> ggm::is_close(ggm::Matrix1x2<float> const & lhs, ggm::Vector2D<float> const & rhs, float const & epsilon = DefaultTolerance<float>) noexcept;
 template ggm::Vector3D<bool> ggm::is_close(ggm::Vector3D<float> const & lhs, ggm::Matrix1x3<float> const & rhs, float const & epsilon = DefaultTolerance<float>) noexcept;

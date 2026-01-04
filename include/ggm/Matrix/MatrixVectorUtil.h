@@ -31,10 +31,12 @@
 /// functions:
 /// ----------
 ///
-/// Syntax                        | Description
-/// ------                        | -----------
-/// matrix_from_cols(v0, ..., vN) | create a matrix from the given column vectors
-/// matrix_from_rows(v0, ..., vN) | create a matrix from the given row vectors
+/// Syntax                            | Description
+/// ------                            | -----------
+/// m = matrix_from_cols(v0, ..., vN) | create a matrix from the given column vectors
+/// m = matrix_from_rows(v0, ..., vN) | create a matrix from the given row vectors
+/// v = vector_from_col<C>(m);        | create a vector from the given matrix column
+/// v = vector_from_row<R>(m);        | create a vector from the given matrix row
 ///
 /// comparisons:
 /// ------------
@@ -472,6 +474,178 @@ namespace ggm
                                             Vector4D<T> const & row1,
                                             Vector4D<T> const & row2,
                                             Vector4D<T> const & row3) noexcept;
+
+    // =============================================================================
+
+    /// create a vector from the given matrix column
+    /// @relates Vector2D
+    /// @relates Matrix2x1
+    template <std::size_t ColIndex,
+              typename T>
+    constexpr Vector2D<T> vector_from_col(Matrix2x1<T> const & m) noexcept;
+
+    /// create a vector from the given matrix column
+    /// @relates Vector2D
+    /// @relates Matrix2x2
+    template <std::size_t ColIndex,
+              typename T>
+    constexpr Vector2D<T> vector_from_col(Matrix2x2<T> const & m) noexcept;
+
+    /// create a vector from the given matrix column
+    /// @relates Vector2D
+    /// @relates Matrix2x3
+    template <std::size_t ColIndex,
+              typename T>
+    constexpr Vector2D<T> vector_from_col(Matrix2x3<T> const & m) noexcept;
+
+    /// create a vector from the given matrix column
+    /// @relates Vector2D
+    /// @relates Matrix2x4
+    template <std::size_t ColIndex,
+              typename T>
+    constexpr Vector2D<T> vector_from_col(Matrix2x4<T> const & m) noexcept;
+
+    /// create a vector from the given matrix column
+    /// @relates Vector3D
+    /// @relates Matrix3x1
+    template <std::size_t ColIndex,
+              typename T>
+    constexpr Vector3D<T> vector_from_col(Matrix3x1<T> const & m) noexcept;
+
+    /// create a vector from the given matrix column
+    /// @relates Vector3D
+    /// @relates Matrix3x2
+    template <std::size_t ColIndex,
+              typename T>
+    constexpr Vector3D<T> vector_from_col(Matrix3x2<T> const & m) noexcept;
+
+    /// create a vector from the given matrix column
+    /// @relates Vector3D
+    /// @relates Matrix3x3
+    template <std::size_t ColIndex,
+              typename T>
+    constexpr Vector3D<T> vector_from_col(Matrix3x3<T> const & m) noexcept;
+
+    /// create a vector from the given matrix column
+    /// @relates Vector3D
+    /// @relates Matrix3x4
+    template <std::size_t ColIndex,
+              typename T>
+    constexpr Vector3D<T> vector_from_col(Matrix3x4<T> const & m) noexcept;
+
+    /// create a vector from the given matrix column
+    /// @relates Vector4D
+    /// @relates Matrix4x1
+    template <std::size_t ColIndex,
+              typename T>
+    constexpr Vector4D<T> vector_from_col(Matrix4x1<T> const & m) noexcept;
+
+    /// create a vector from the given matrix column
+    /// @relates Vector4D
+    /// @relates Matrix4x2
+    template <std::size_t ColIndex,
+              typename T>
+    constexpr Vector4D<T> vector_from_col(Matrix4x2<T> const & m) noexcept;
+
+    /// create a vector from the given matrix column
+    /// @relates Vector4D
+    /// @relates Matrix4x3
+    template <std::size_t ColIndex,
+              typename T>
+    constexpr Vector4D<T> vector_from_col(Matrix4x3<T> const & m) noexcept;
+
+    /// create a vector from the given matrix column
+    /// @relates Vector4D
+    /// @relates Matrix4x4
+    template <std::size_t ColIndex,
+              typename T>
+    constexpr Vector4D<T> vector_from_col(Matrix4x4<T> const & m) noexcept;
+
+    // =============================================================================
+
+    /// create a vector from the given matrix row
+    /// @relates Vector2D
+    /// @relates Matrix1x2
+    template <std::size_t RowIndex,
+              typename T>
+    constexpr Vector2D<T> vector_from_row(Matrix1x2<T> const & m) noexcept;
+
+    /// create a vector from the given matrix row
+    /// @relates Vector2D
+    /// @relates Matrix2x2
+    template <std::size_t RowIndex,
+              typename T>
+    constexpr Vector2D<T> vector_from_row(Matrix2x2<T> const & m) noexcept;
+
+    /// create a vector from the given matrix row
+    /// @relates Vector2D
+    /// @relates Matrix3x2
+    template <std::size_t RowIndex,
+              typename T>
+    constexpr Vector2D<T> vector_from_row(Matrix3x2<T> const & m) noexcept;
+
+    /// create a vector from the given matrix row
+    /// @relates Vector2D
+    /// @relates Matrix4x2
+    template <std::size_t RowIndex,
+              typename T>
+    constexpr Vector2D<T> vector_from_row(Matrix4x2<T> const & m) noexcept;
+
+    /// create a vector from the given matrix row
+    /// @relates Vector3D
+    /// @relates Matrix1x3
+    template <std::size_t RowIndex,
+              typename T>
+    constexpr Vector3D<T> vector_from_row(Matrix1x3<T> const & m) noexcept;
+
+    /// create a vector from the given matrix row
+    /// @relates Vector3D
+    /// @relates Matrix2x3
+    template <std::size_t RowIndex,
+              typename T>
+    constexpr Vector3D<T> vector_from_row(Matrix2x3<T> const & m) noexcept;
+
+    /// create a vector from the given matrix row
+    /// @relates Vector3D
+    /// @relates Matrix3x3
+    template <std::size_t RowIndex,
+              typename T>
+    constexpr Vector3D<T> vector_from_row(Matrix3x3<T> const & m) noexcept;
+
+    /// create a vector from the given matrix row
+    /// @relates Vector3D
+    /// @relates Matrix4x3
+    template <std::size_t RowIndex,
+              typename T>
+    constexpr Vector3D<T> vector_from_row(Matrix4x3<T> const & m) noexcept;
+
+    /// create a vector from the given matrix row
+    /// @relates Vector4D
+    /// @relates Matrix1x4
+    template <std::size_t RowIndex,
+              typename T>
+    constexpr Vector4D<T> vector_from_row(Matrix1x4<T> const & m) noexcept;
+
+    /// create a vector from the given matrix row
+    /// @relates Vector4D
+    /// @relates Matrix2x4
+    template <std::size_t RowIndex,
+              typename T>
+    constexpr Vector4D<T> vector_from_row(Matrix2x4<T> const & m) noexcept;
+
+    /// create a vector from the given matrix row
+    /// @relates Vector4D
+    /// @relates Matrix3x4
+    template <std::size_t RowIndex,
+              typename T>
+    constexpr Vector4D<T> vector_from_row(Matrix3x4<T> const & m) noexcept;
+
+    /// create a vector from the given matrix row
+    /// @relates Vector4D
+    /// @relates Matrix4x4
+    template <std::size_t RowIndex,
+              typename T>
+    constexpr Vector4D<T> vector_from_row(Matrix4x4<T> const & m) noexcept;
 
     // =============================================================================
 
@@ -1530,6 +1704,774 @@ constexpr ggm::Matrix4x4<T> ggm::matrix_from_rows(Vector4D<T> const & row0,
         row3.x, row3.y, row3.z, row3.w,
         // clang-format on
     };
+}
+
+// =============================================================================
+
+template <std::size_t ColIndex,
+          typename T>
+constexpr ggm::Vector2D<T> ggm::vector_from_col(Matrix2x1<T> const & m) noexcept
+{
+    if constexpr (ColIndex == 0)
+    {
+        return Vector2D<T>{
+            m.m00,
+            m.m10,
+        };
+    }
+    else
+    {
+        static_assert(ColIndex < 1, "Invalid ColIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t ColIndex,
+          typename T>
+constexpr ggm::Vector2D<T> ggm::vector_from_col(Matrix2x2<T> const & m) noexcept
+{
+    if constexpr (ColIndex == 0)
+    {
+        return Vector2D<T>{
+            m.m00,
+            m.m10,
+        };
+    }
+    else if constexpr (ColIndex == 1)
+    {
+        return Vector2D<T>{
+            m.m01,
+            m.m11,
+        };
+    }
+    else
+    {
+        static_assert(ColIndex < 2, "Invalid ColIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t ColIndex,
+          typename T>
+constexpr ggm::Vector2D<T> ggm::vector_from_col(Matrix2x3<T> const & m) noexcept
+{
+    if constexpr (ColIndex == 0)
+    {
+        return Vector2D<T>{
+            m.m00,
+            m.m10,
+        };
+    }
+    else if constexpr (ColIndex == 1)
+    {
+        return Vector2D<T>{
+            m.m01,
+            m.m11,
+        };
+    }
+    else if constexpr (ColIndex == 2)
+    {
+        return Vector2D<T>{
+            m.m02,
+            m.m12,
+        };
+    }
+    else
+    {
+        static_assert(ColIndex < 3, "Invalid ColIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t ColIndex,
+          typename T>
+constexpr ggm::Vector2D<T> ggm::vector_from_col(Matrix2x4<T> const & m) noexcept
+{
+    if constexpr (ColIndex == 0)
+    {
+        return Vector2D<T>{
+            m.m00,
+            m.m10,
+        };
+    }
+    else if constexpr (ColIndex == 1)
+    {
+        return Vector2D<T>{
+            m.m01,
+            m.m11,
+        };
+    }
+    else if constexpr (ColIndex == 2)
+    {
+        return Vector2D<T>{
+            m.m02,
+            m.m12,
+        };
+    }
+    else if constexpr (ColIndex == 3)
+    {
+        return Vector2D<T>{
+            m.m03,
+            m.m13,
+        };
+    }
+    else
+    {
+        static_assert(ColIndex < 4, "Invalid ColIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t ColIndex,
+          typename T>
+constexpr ggm::Vector3D<T> ggm::vector_from_col(Matrix3x1<T> const & m) noexcept
+{
+    if constexpr (ColIndex == 0)
+    {
+        return Vector3D<T>{
+            m.m00,
+            m.m10,
+            m.m20,
+        };
+    }
+    else
+    {
+        static_assert(ColIndex < 1, "Invalid ColIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t ColIndex,
+          typename T>
+constexpr ggm::Vector3D<T> ggm::vector_from_col(Matrix3x2<T> const & m) noexcept
+{
+    if constexpr (ColIndex == 0)
+    {
+        return Vector3D<T>{
+            m.m00,
+            m.m10,
+            m.m20,
+        };
+    }
+    else if constexpr (ColIndex == 1)
+    {
+        return Vector3D<T>{
+            m.m01,
+            m.m11,
+            m.m21,
+        };
+    }
+    else
+    {
+        static_assert(ColIndex < 2, "Invalid ColIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t ColIndex,
+          typename T>
+constexpr ggm::Vector3D<T> ggm::vector_from_col(Matrix3x3<T> const & m) noexcept
+{
+    if constexpr (ColIndex == 0)
+    {
+        return Vector3D<T>{
+            m.m00,
+            m.m10,
+            m.m20,
+        };
+    }
+    else if constexpr (ColIndex == 1)
+    {
+        return Vector3D<T>{
+            m.m01,
+            m.m11,
+            m.m21,
+        };
+    }
+    else if constexpr (ColIndex == 2)
+    {
+        return Vector3D<T>{
+            m.m02,
+            m.m12,
+            m.m22,
+        };
+    }
+    else
+    {
+        static_assert(ColIndex < 3, "Invalid ColIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t ColIndex,
+          typename T>
+constexpr ggm::Vector3D<T> ggm::vector_from_col(Matrix3x4<T> const & m) noexcept
+{
+    if constexpr (ColIndex == 0)
+    {
+        return Vector3D<T>{
+            m.m00,
+            m.m10,
+            m.m20,
+        };
+    }
+    else if constexpr (ColIndex == 1)
+    {
+        return Vector3D<T>{
+            m.m01,
+            m.m11,
+            m.m21,
+        };
+    }
+    else if constexpr (ColIndex == 2)
+    {
+        return Vector3D<T>{
+            m.m02,
+            m.m12,
+            m.m22,
+        };
+    }
+    else if constexpr (ColIndex == 3)
+    {
+        return Vector3D<T>{
+            m.m03,
+            m.m13,
+            m.m23,
+        };
+    }
+    else
+    {
+        static_assert(ColIndex < 4, "Invalid ColIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t ColIndex,
+          typename T>
+constexpr ggm::Vector4D<T> ggm::vector_from_col(Matrix4x1<T> const & m) noexcept
+{
+    if constexpr (ColIndex == 0)
+    {
+        return Vector4D<T>{
+            m.m00,
+            m.m10,
+            m.m20,
+            m.m30,
+        };
+    }
+    else
+    {
+        static_assert(ColIndex < 1, "Invalid ColIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t ColIndex,
+          typename T>
+constexpr ggm::Vector4D<T> ggm::vector_from_col(Matrix4x2<T> const & m) noexcept
+{
+    if constexpr (ColIndex == 0)
+    {
+        return Vector4D<T>{
+            m.m00,
+            m.m10,
+            m.m20,
+            m.m30,
+        };
+    }
+    else if constexpr (ColIndex == 1)
+    {
+        return Vector4D<T>{
+            m.m01,
+            m.m11,
+            m.m21,
+            m.m31,
+        };
+    }
+    else
+    {
+        static_assert(ColIndex < 2, "Invalid ColIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t ColIndex,
+          typename T>
+constexpr ggm::Vector4D<T> ggm::vector_from_col(Matrix4x3<T> const & m) noexcept
+{
+    if constexpr (ColIndex == 0)
+    {
+        return Vector4D<T>{
+            m.m00,
+            m.m10,
+            m.m20,
+            m.m30,
+        };
+    }
+    else if constexpr (ColIndex == 1)
+    {
+        return Vector4D<T>{
+            m.m01,
+            m.m11,
+            m.m21,
+            m.m31,
+        };
+    }
+    else if constexpr (ColIndex == 2)
+    {
+        return Vector4D<T>{
+            m.m02,
+            m.m12,
+            m.m22,
+            m.m32,
+        };
+    }
+    else
+    {
+        static_assert(ColIndex < 3, "Invalid ColIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t ColIndex,
+          typename T>
+constexpr ggm::Vector4D<T> ggm::vector_from_col(Matrix4x4<T> const & m) noexcept
+{
+    if constexpr (ColIndex == 0)
+    {
+        return Vector4D<T>{
+            m.m00,
+            m.m10,
+            m.m20,
+            m.m30,
+        };
+    }
+    else if constexpr (ColIndex == 1)
+    {
+        return Vector4D<T>{
+            m.m01,
+            m.m11,
+            m.m21,
+            m.m31,
+        };
+    }
+    else if constexpr (ColIndex == 2)
+    {
+        return Vector4D<T>{
+            m.m02,
+            m.m12,
+            m.m22,
+            m.m32,
+        };
+    }
+    else if constexpr (ColIndex == 3)
+    {
+        return Vector4D<T>{
+            m.m03,
+            m.m13,
+            m.m23,
+            m.m33,
+        };
+    }
+    else
+    {
+        static_assert(ColIndex < 4, "Invalid ColIndex");
+    }
+}
+
+// =============================================================================
+
+template <std::size_t RowIndex,
+          typename T>
+constexpr ggm::Vector2D<T> ggm::vector_from_row(Matrix1x2<T> const & m) noexcept
+{
+    if constexpr (RowIndex == 0)
+    {
+        return Vector2D<T>{
+            m.m00,
+            m.m01,
+        };
+    }
+    else
+    {
+        static_assert(RowIndex < 1, "Invalid RowIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t RowIndex,
+          typename T>
+constexpr ggm::Vector2D<T> ggm::vector_from_row(Matrix2x2<T> const & m) noexcept
+{
+    if constexpr (RowIndex == 0)
+    {
+        return Vector2D<T>{
+            m.m00,
+            m.m01,
+        };
+    }
+    else if constexpr (RowIndex == 1)
+    {
+        return Vector2D<T>{
+            m.m10,
+            m.m11,
+        };
+    }
+    else
+    {
+        static_assert(RowIndex < 2, "Invalid RowIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t RowIndex,
+          typename T>
+constexpr ggm::Vector2D<T> ggm::vector_from_row(Matrix3x2<T> const & m) noexcept
+{
+    if constexpr (RowIndex == 0)
+    {
+        return Vector2D<T>{
+            m.m00,
+            m.m01,
+        };
+    }
+    else if constexpr (RowIndex == 1)
+    {
+        return Vector2D<T>{
+            m.m10,
+            m.m11,
+        };
+    }
+    else if constexpr (RowIndex == 2)
+    {
+        return Vector2D<T>{
+            m.m20,
+            m.m21,
+        };
+    }
+    else
+    {
+        static_assert(RowIndex < 3, "Invalid RowIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t RowIndex,
+          typename T>
+constexpr ggm::Vector2D<T> ggm::vector_from_row(Matrix4x2<T> const & m) noexcept
+{
+    if constexpr (RowIndex == 0)
+    {
+        return Vector2D<T>{
+            m.m00,
+            m.m01,
+        };
+    }
+    else if constexpr (RowIndex == 1)
+    {
+        return Vector2D<T>{
+            m.m10,
+            m.m11,
+        };
+    }
+    else if constexpr (RowIndex == 2)
+    {
+        return Vector2D<T>{
+            m.m20,
+            m.m21,
+        };
+    }
+    else if constexpr (RowIndex == 3)
+    {
+        return Vector2D<T>{
+            m.m30,
+            m.m31,
+        };
+    }
+    else
+    {
+        static_assert(RowIndex < 4, "Invalid RowIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t RowIndex,
+          typename T>
+constexpr ggm::Vector3D<T> ggm::vector_from_row(Matrix1x3<T> const & m) noexcept
+{
+    if constexpr (RowIndex == 0)
+    {
+        return Vector3D<T>{
+            m.m00,
+            m.m01,
+            m.m02,
+        };
+    }
+    else
+    {
+        static_assert(RowIndex < 1, "Invalid RowIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t RowIndex,
+          typename T>
+constexpr ggm::Vector3D<T> ggm::vector_from_row(Matrix2x3<T> const & m) noexcept
+{
+    if constexpr (RowIndex == 0)
+    {
+        return Vector3D<T>{
+            m.m00,
+            m.m01,
+            m.m02,
+        };
+    }
+    else if constexpr (RowIndex == 1)
+    {
+        return Vector3D<T>{
+            m.m10,
+            m.m11,
+            m.m12,
+        };
+    }
+    else
+    {
+        static_assert(RowIndex < 2, "Invalid RowIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t RowIndex,
+          typename T>
+constexpr ggm::Vector3D<T> ggm::vector_from_row(Matrix3x3<T> const & m) noexcept
+{
+    if constexpr (RowIndex == 0)
+    {
+        return Vector3D<T>{
+            m.m00,
+            m.m01,
+            m.m02,
+        };
+    }
+    else if constexpr (RowIndex == 1)
+    {
+        return Vector3D<T>{
+            m.m10,
+            m.m11,
+            m.m12,
+        };
+    }
+    else if constexpr (RowIndex == 2)
+    {
+        return Vector3D<T>{
+            m.m20,
+            m.m21,
+            m.m22,
+        };
+    }
+    else
+    {
+        static_assert(RowIndex < 3, "Invalid RowIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t RowIndex,
+          typename T>
+constexpr ggm::Vector3D<T> ggm::vector_from_row(Matrix4x3<T> const & m) noexcept
+{
+    if constexpr (RowIndex == 0)
+    {
+        return Vector3D<T>{
+            m.m00,
+            m.m01,
+            m.m02,
+        };
+    }
+    else if constexpr (RowIndex == 1)
+    {
+        return Vector3D<T>{
+            m.m10,
+            m.m11,
+            m.m12,
+        };
+    }
+    else if constexpr (RowIndex == 2)
+    {
+        return Vector3D<T>{
+            m.m20,
+            m.m21,
+            m.m22,
+        };
+    }
+    else if constexpr (RowIndex == 3)
+    {
+        return Vector3D<T>{
+            m.m30,
+            m.m31,
+            m.m32,
+        };
+    }
+    else
+    {
+        static_assert(RowIndex < 4, "Invalid RowIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t RowIndex,
+          typename T>
+constexpr ggm::Vector4D<T> ggm::vector_from_row(Matrix1x4<T> const & m) noexcept
+{
+    if constexpr (RowIndex == 0)
+    {
+        return Vector4D<T>{
+            m.m00,
+            m.m01,
+            m.m02,
+            m.m03,
+        };
+    }
+    else
+    {
+        static_assert(RowIndex < 1, "Invalid RowIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t RowIndex,
+          typename T>
+constexpr ggm::Vector4D<T> ggm::vector_from_row(Matrix2x4<T> const & m) noexcept
+{
+    if constexpr (RowIndex == 0)
+    {
+        return Vector4D<T>{
+            m.m00,
+            m.m01,
+            m.m02,
+            m.m03,
+        };
+    }
+    else if constexpr (RowIndex == 1)
+    {
+        return Vector4D<T>{
+            m.m10,
+            m.m11,
+            m.m12,
+            m.m13,
+        };
+    }
+    else
+    {
+        static_assert(RowIndex < 2, "Invalid RowIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t RowIndex,
+          typename T>
+constexpr ggm::Vector4D<T> ggm::vector_from_row(Matrix3x4<T> const & m) noexcept
+{
+    if constexpr (RowIndex == 0)
+    {
+        return Vector4D<T>{
+            m.m00,
+            m.m01,
+            m.m02,
+            m.m03,
+        };
+    }
+    else if constexpr (RowIndex == 1)
+    {
+        return Vector4D<T>{
+            m.m10,
+            m.m11,
+            m.m12,
+            m.m13,
+        };
+    }
+    else if constexpr (RowIndex == 2)
+    {
+        return Vector4D<T>{
+            m.m20,
+            m.m21,
+            m.m22,
+            m.m23,
+        };
+    }
+    else
+    {
+        static_assert(RowIndex < 3, "Invalid RowIndex");
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+template <std::size_t RowIndex,
+          typename T>
+constexpr ggm::Vector4D<T> ggm::vector_from_row(Matrix4x4<T> const & m) noexcept
+{
+    if constexpr (RowIndex == 0)
+    {
+        return Vector4D<T>{
+            m.m00,
+            m.m01,
+            m.m02,
+            m.m03,
+        };
+    }
+    else if constexpr (RowIndex == 1)
+    {
+        return Vector4D<T>{
+            m.m10,
+            m.m11,
+            m.m12,
+            m.m13,
+        };
+    }
+    else if constexpr (RowIndex == 2)
+    {
+        return Vector4D<T>{
+            m.m20,
+            m.m21,
+            m.m22,
+            m.m23,
+        };
+    }
+    else if constexpr (RowIndex == 3)
+    {
+        return Vector4D<T>{
+            m.m30,
+            m.m31,
+            m.m32,
+            m.m33,
+        };
+    }
+    else
+    {
+        static_assert(RowIndex < 4, "Invalid RowIndex");
+    }
 }
 
 // =============================================================================
