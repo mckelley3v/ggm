@@ -1948,78 +1948,78 @@ namespace ggm
     /// true if square matrix can be inverted, i.e. determinant != 0
     /// @relates Matrix1x1
     template <typename T>
-    constexpr bool is_invertible(Matrix1x1<T> const & value,
-                                 T const &            epsilon = DefaultTolerance<T>) noexcept;
+    inline bool is_invertible(Matrix1x1<T> const & value,
+                              T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     /// true if square matrix can be inverted, i.e. determinant != 0
     /// @relates Matrix2x2
     template <typename T>
-    constexpr bool is_invertible(Matrix2x2<T> const & value,
-                                 T const &            epsilon = DefaultTolerance<T>) noexcept;
+    inline bool is_invertible(Matrix2x2<T> const & value,
+                              T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     /// true if square matrix can be inverted, i.e. determinant != 0
     /// @relates Matrix3x3
     template <typename T>
-    constexpr bool is_invertible(Matrix3x3<T> const & value,
-                                 T const &            epsilon = DefaultTolerance<T>) noexcept;
+    inline bool is_invertible(Matrix3x3<T> const & value,
+                              T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     /// true if square matrix can be inverted, i.e. determinant != 0
     /// @relates Matrix4x4
     template <typename T>
-    constexpr bool is_invertible(Matrix4x4<T> const & value,
-                                 T const &            epsilon = DefaultTolerance<T>) noexcept;
+    inline bool is_invertible(Matrix4x4<T> const & value,
+                              T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     // =============================================================================
 
     /// true if square matrix rows and cols are orthonormal vectors
     /// @relates Matrix1x1
     template <typename T>
-    constexpr bool is_orthogonal(Matrix1x1<T> const & value,
-                                 T const &            epsilon = DefaultTolerance<T>) noexcept;
+    inline bool is_orthogonal(Matrix1x1<T> const & value,
+                              T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     /// true if square matrix rows and cols are orthonormal vectors
     /// @relates Matrix2x2
     template <typename T>
-    constexpr bool is_orthogonal(Matrix2x2<T> const & value,
-                                 T const &            epsilon = DefaultTolerance<T>) noexcept;
+    inline bool is_orthogonal(Matrix2x2<T> const & value,
+                              T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     /// true if square matrix rows and cols are orthonormal vectors
     /// @relates Matrix3x3
     template <typename T>
-    constexpr bool is_orthogonal(Matrix3x3<T> const & value,
-                                 T const &            epsilon = DefaultTolerance<T>) noexcept;
+    inline bool is_orthogonal(Matrix3x3<T> const & value,
+                              T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     /// true if square matrix rows and cols are orthonormal vectors
     /// @relates Matrix4x4
     template <typename T>
-    constexpr bool is_orthogonal(Matrix4x4<T> const & value,
-                                 T const &            epsilon = DefaultTolerance<T>) noexcept;
+    inline bool is_orthogonal(Matrix4x4<T> const & value,
+                              T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     // =============================================================================
 
     /// calculate inverse of square matrix
     /// @relates Matrix1x1
     template <typename T>
-    constexpr Matrix1x1<T> inverse(Matrix1x1<T> const & value,
-                                   T const &            epsilon = DefaultTolerance<T>) noexcept;
+    inline Matrix1x1<T> inverse(Matrix1x1<T> const & value,
+                                T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     /// calculate inverse of square matrix
     /// @relates Matrix2x2
     template <typename T>
-    constexpr Matrix2x2<T> inverse(Matrix2x2<T> const & value,
-                                   T const &            epsilon = DefaultTolerance<T>) noexcept;
+    inline Matrix2x2<T> inverse(Matrix2x2<T> const & value,
+                                T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     /// calculate inverse of square matrix
     /// @relates Matrix3x3
     template <typename T>
-    constexpr Matrix3x3<T> inverse(Matrix3x3<T> const & value,
-                                   T const &            epsilon = DefaultTolerance<T>) noexcept;
+    inline Matrix3x3<T> inverse(Matrix3x3<T> const & value,
+                                T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     /// calculate inverse of square matrix
     /// @relates Matrix4x4
     template <typename T>
-    constexpr Matrix4x4<T> inverse(Matrix4x4<T> const & value,
-                                   T const &            epsilon = DefaultTolerance<T>) noexcept;
+    inline Matrix4x4<T> inverse(Matrix4x4<T> const & value,
+                                T const &            epsilon = DefaultTolerance<T>) noexcept;
 
     // =============================================================================
     /// return the transpose of the matrix
@@ -8027,8 +8027,8 @@ constexpr T ggm::determinant(Matrix4x4<T> const & value) noexcept
 // =============================================================================
 
 template <typename T>
-constexpr bool ggm::is_invertible(Matrix1x1<T> const & value,
-                                  T const &            epsilon) noexcept
+inline bool ggm::is_invertible(Matrix1x1<T> const & value,
+                               T const &            epsilon) noexcept
 {
     return !is_close(determinant(value), T{ 0 }, epsilon);
 }
@@ -8036,8 +8036,8 @@ constexpr bool ggm::is_invertible(Matrix1x1<T> const & value,
 // -----------------------------------------------------------------------------
 
 template <typename T>
-constexpr bool ggm::is_invertible(Matrix2x2<T> const & value,
-                                  T const &            epsilon) noexcept
+inline bool ggm::is_invertible(Matrix2x2<T> const & value,
+                               T const &            epsilon) noexcept
 {
     return !is_close(determinant(value), T{ 0 }, epsilon);
 }
@@ -8045,8 +8045,8 @@ constexpr bool ggm::is_invertible(Matrix2x2<T> const & value,
 // -----------------------------------------------------------------------------
 
 template <typename T>
-constexpr bool ggm::is_invertible(Matrix3x3<T> const & value,
-                                  T const &            epsilon) noexcept
+inline bool ggm::is_invertible(Matrix3x3<T> const & value,
+                               T const &            epsilon) noexcept
 {
     return !is_close(determinant(value), T{ 0 }, epsilon);
 }
@@ -8054,8 +8054,8 @@ constexpr bool ggm::is_invertible(Matrix3x3<T> const & value,
 // -----------------------------------------------------------------------------
 
 template <typename T>
-constexpr bool ggm::is_invertible(Matrix4x4<T> const & value,
-                                  T const &            epsilon) noexcept
+inline bool ggm::is_invertible(Matrix4x4<T> const & value,
+                               T const &            epsilon) noexcept
 {
     return !is_close(determinant(value), T{ 0 }, epsilon);
 }
@@ -8063,8 +8063,8 @@ constexpr bool ggm::is_invertible(Matrix4x4<T> const & value,
 // =============================================================================
 
 template <typename T>
-constexpr bool ggm::is_orthogonal(Matrix1x1<T> const & value,
-                                  T const &            epsilon) noexcept
+inline bool ggm::is_orthogonal(Matrix1x1<T> const & value,
+                               T const &            epsilon) noexcept
 {
     // check if value * transpose(value) == identity:
     //
@@ -8078,8 +8078,8 @@ constexpr bool ggm::is_orthogonal(Matrix1x1<T> const & value,
 // -----------------------------------------------------------------------------
 
 template <typename T>
-constexpr bool ggm::is_orthogonal(Matrix2x2<T> const & value,
-                                  T const &            epsilon) noexcept
+inline bool ggm::is_orthogonal(Matrix2x2<T> const & value,
+                               T const &            epsilon) noexcept
 {
     // check if value * transpose(value) == identity:
     //
@@ -8099,8 +8099,8 @@ constexpr bool ggm::is_orthogonal(Matrix2x2<T> const & value,
 // -----------------------------------------------------------------------------
 
 template <typename T>
-constexpr bool ggm::is_orthogonal(Matrix3x3<T> const & value,
-                                  T const &            epsilon) noexcept
+inline bool ggm::is_orthogonal(Matrix3x3<T> const & value,
+                               T const &            epsilon) noexcept
 {
     // check if value * transpose(value) == identity:
     //
@@ -8132,8 +8132,8 @@ constexpr bool ggm::is_orthogonal(Matrix3x3<T> const & value,
 // -----------------------------------------------------------------------------
 
 template <typename T>
-constexpr bool ggm::is_orthogonal(Matrix4x4<T> const & value,
-                                  T const &            epsilon) noexcept
+inline bool ggm::is_orthogonal(Matrix4x4<T> const & value,
+                               T const &            epsilon) noexcept
 {
     // check if value * transpose(value) == identity:
     //
@@ -8180,8 +8180,8 @@ constexpr bool ggm::is_orthogonal(Matrix4x4<T> const & value,
 // =============================================================================
 
 template <typename T>
-constexpr ggm::Matrix1x1<T> ggm::inverse(Matrix1x1<T> const & value,
-                                         T const &            epsilon) noexcept
+inline ggm::Matrix1x1<T> ggm::inverse(Matrix1x1<T> const & value,
+                                      T const &            epsilon) noexcept
 {
     T const det = value.m00;
 
@@ -8195,8 +8195,8 @@ constexpr ggm::Matrix1x1<T> ggm::inverse(Matrix1x1<T> const & value,
 // -----------------------------------------------------------------------------
 
 template <typename T>
-constexpr ggm::Matrix2x2<T> ggm::inverse(Matrix2x2<T> const & value,
-                                         T const &            epsilon) noexcept
+inline ggm::Matrix2x2<T> ggm::inverse(Matrix2x2<T> const & value,
+                                      T const &            epsilon) noexcept
 {
     T const det = value.m00 * value.m11 - value.m01 * value.m10;
 
@@ -8213,8 +8213,8 @@ constexpr ggm::Matrix2x2<T> ggm::inverse(Matrix2x2<T> const & value,
 // -----------------------------------------------------------------------------
 
 template <typename T>
-constexpr ggm::Matrix3x3<T> ggm::inverse(Matrix3x3<T> const & value,
-                                         T const &            epsilon) noexcept
+inline ggm::Matrix3x3<T> ggm::inverse(Matrix3x3<T> const & value,
+                                      T const &            epsilon) noexcept
 {
     T const detMinor00 = value.m11 * value.m22 - value.m12 * value.m21;
     T const detMinor01 = value.m10 * value.m22 - value.m12 * value.m20;
@@ -8248,8 +8248,8 @@ constexpr ggm::Matrix3x3<T> ggm::inverse(Matrix3x3<T> const & value,
 // -----------------------------------------------------------------------------
 
 template <typename T>
-constexpr ggm::Matrix4x4<T> ggm::inverse(Matrix4x4<T> const & value,
-                                         T const &            epsilon) noexcept
+inline ggm::Matrix4x4<T> ggm::inverse(Matrix4x4<T> const & value,
+                                      T const &            epsilon) noexcept
 {
     T const detSubMinor01 = value.m22 * value.m33 - value.m23 * value.m32;
     T const detSubMinor02 = value.m21 * value.m33 - value.m23 * value.m31;
