@@ -10,6 +10,61 @@
 // explicitly instantiate templates to confirm they compile without error:
 // =============================================================================
 
+template ggm::Transform2D<float> & ggm::operator*= <float>(ggm::Transform2D<float> & lhs, float const & rhs) noexcept;
+template ggm::Transform3D<float> & ggm::operator*= <float>(ggm::Transform3D<float> & lhs, float const & rhs) noexcept;
+
+// =============================================================================
+
+template ggm::Transform2D<float> & ggm::operator/= <float>(ggm::Transform2D<float> & lhs, float const & rhs) noexcept;
+template ggm::Transform3D<float> & ggm::operator/= <float>(ggm::Transform3D<float> & lhs, float const & rhs) noexcept;
+
+// =============================================================================
+
+template ggm::Transform2D<float> & ggm::operator/= <float>(ggm::Transform2D<float> & lhs, float const & rhs) noexcept;
+template ggm::Transform3D<float> & ggm::operator/= <float>(ggm::Transform3D<float> & lhs, float const & rhs) noexcept;
+
+// =============================================================================
+
+template ggm::Transform2D<float> ggm::operator+ <float>(ggm::Transform2D<float> const & value) noexcept;
+template ggm::Transform3D<float> ggm::operator+ <float>(ggm::Transform3D<float> const & value) noexcept;
+
+// =============================================================================
+
+template ggm::Transform2D<float> ggm::operator- <float>(ggm::Transform2D<float> const & value) noexcept;
+template ggm::Transform3D<float> ggm::operator- <float>(ggm::Transform3D<float> const & value) noexcept;
+
+// =============================================================================
+
+template ggm::Transform2D<float> ggm::operator* <float>(float const & lhs, ggm::Transform2D<float> const & rhs) noexcept;
+template ggm::Transform3D<float> ggm::operator* <float>(float const & lhs, ggm::Transform3D<float> const & rhs) noexcept;
+
+// =============================================================================
+
+template ggm::Transform2D<float> ggm::operator* <float>(ggm::Transform2D<float> const & lhs, float const & rhs) noexcept;
+template ggm::Transform3D<float> ggm::operator* <float>(ggm::Transform3D<float> const & lhs, float const & rhs) noexcept;
+
+// =============================================================================
+
+template ggm::Transform2D<float> ggm::operator* <float>(ggm::Transform2D<float> const & lhs, ggm::Transform2D<float> const & rhs) noexcept;
+template ggm::Transform3D<float> ggm::operator* <float>(ggm::Transform3D<float> const & lhs, ggm::Transform3D<float> const & rhs) noexcept;
+
+// =============================================================================
+
+template ggm::Transform2D<float> ggm::operator/ <float>(ggm::Transform2D<float> const & lhs, float const & rhs) noexcept;
+template ggm::Transform3D<float> ggm::operator/ <float>(ggm::Transform3D<float> const & lhs, float const & rhs) noexcept;
+
+// =============================================================================
+
+template bool ggm::operator== <float>(ggm::Transform2D<float> const & lhs, ggm::Transform2D<float> const & rhs) noexcept;
+template bool ggm::operator== <float>(ggm::Transform3D<float> const & lhs, ggm::Transform3D<float> const & rhs) noexcept;
+
+// =============================================================================
+
+template bool ggm::operator!= <float>(ggm::Transform2D<float> const & lhs, ggm::Transform2D<float> const & rhs) noexcept;
+template bool ggm::operator!= <float>(ggm::Transform3D<float> const & lhs, ggm::Transform3D<float> const & rhs) noexcept;
+
+// =============================================================================
+
 template ggm::Transform2D<float> ggm::transform2D_from_scale<float>(float const & scale) noexcept;
 template ggm::Transform2D<float> ggm::transform2D_from_scale<float>(float const & scaleX, float const & scaleY) noexcept;
 template ggm::Transform3D<float> ggm::transform3D_from_scale<float>(float const & scale) noexcept;

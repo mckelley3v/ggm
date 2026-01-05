@@ -18,8 +18,8 @@
 /// Syntax        | Description
 /// ------        | -----------
 /// m  *= s;      | matrix-scalar multiplication assignment
-/// m  /= s;      | matrix-scalar division assignment
 /// m1 *= m2;     | matrix multiplication assignment (transform concatentation)
+/// m  /= s;      | matrix-scalar division assignment
 /// m1 = +m2;     | element-wise unary plus
 /// m1 = -m2;     | matrix negation
 /// m1 = s * m2;  | scalar-matrix multiplication
@@ -230,6 +230,20 @@ namespace ggm
     /// @relates Transform3D
     template <typename T>
     constexpr bool operator==(Transform3D<T> const & lhs,
+                              Transform3D<T> const & rhs) noexcept;
+
+    // =============================================================================
+
+    /// matrix inequality
+    /// @relates Transform2D
+    template <typename T>
+    constexpr bool operator!=(Transform2D<T> const & lhs,
+                              Transform2D<T> const & rhs) noexcept;
+
+    /// matrix inequality
+    /// @relates Transform3D
+    template <typename T>
+    constexpr bool operator!=(Transform3D<T> const & lhs,
                               Transform3D<T> const & rhs) noexcept;
 
     // =============================================================================
@@ -558,6 +572,415 @@ namespace ggm
 
 // =============================================================================
 // implementation:
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Transform2D<T> & ggm::operator*=(Transform2D<T> & lhs,
+                                                T const &        rhs) noexcept
+{
+    lhs.m00 *= rhs;
+    lhs.m01 *= rhs;
+    lhs.m02 *= rhs;
+    lhs.m10 *= rhs;
+    lhs.m11 *= rhs;
+    lhs.m12 *= rhs;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Transform3D<T> & ggm::operator*=(Transform3D<T> & lhs,
+                                                T const &        rhs) noexcept
+{
+    lhs.m00 *= rhs;
+    lhs.m01 *= rhs;
+    lhs.m02 *= rhs;
+    lhs.m03 *= rhs;
+    lhs.m10 *= rhs;
+    lhs.m11 *= rhs;
+    lhs.m12 *= rhs;
+    lhs.m13 *= rhs;
+    lhs.m20 *= rhs;
+    lhs.m21 *= rhs;
+    lhs.m22 *= rhs;
+    lhs.m23 *= rhs;
+    return lhs;
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Transform2D<T> & ggm::operator*=(Transform2D<T> &       lhs,
+                                                Transform2D<T> const & rhs) noexcept
+{
+    return lhs = lhs * rhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Transform3D<T> & ggm::operator*=(Transform3D<T> &       lhs,
+                                                Transform3D<T> const & rhs) noexcept
+{
+    return lhs = lhs * rhs;
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Transform2D<T> & ggm::operator/=(Transform2D<T> & lhs,
+                                                T const &        rhs) noexcept
+{
+    lhs.m00 /= rhs;
+    lhs.m01 /= rhs;
+    lhs.m02 /= rhs;
+    lhs.m10 /= rhs;
+    lhs.m11 /= rhs;
+    lhs.m12 /= rhs;
+    return lhs;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Transform3D<T> & ggm::operator/=(Transform3D<T> & lhs,
+                                                T const &        rhs) noexcept
+{
+    lhs.m00 /= rhs;
+    lhs.m01 /= rhs;
+    lhs.m02 /= rhs;
+    lhs.m03 /= rhs;
+    lhs.m10 /= rhs;
+    lhs.m11 /= rhs;
+    lhs.m12 /= rhs;
+    lhs.m13 /= rhs;
+    lhs.m20 /= rhs;
+    lhs.m21 /= rhs;
+    lhs.m22 /= rhs;
+    lhs.m23 /= rhs;
+    return lhs;
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Transform2D<T> ggm::operator+(Transform2D<T> const & value) noexcept
+{
+    return Transform2D<T>{
+        +value.m00,
+        +value.m01,
+        +value.m02,
+        +value.m10,
+        +value.m11,
+        +value.m12,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Transform3D<T> ggm::operator+(Transform3D<T> const & value) noexcept
+{
+    return Transform3D<T>{
+        +value.m00,
+        +value.m01,
+        +value.m02,
+        +value.m03,
+        +value.m10,
+        +value.m11,
+        +value.m12,
+        +value.m13,
+        +value.m20,
+        +value.m21,
+        +value.m22,
+        +value.m23,
+    };
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Transform2D<T> ggm::operator-(Transform2D<T> const & value) noexcept
+{
+    return Transform2D<T>{
+        -value.m00,
+        -value.m01,
+        -value.m02,
+        -value.m10,
+        -value.m11,
+        -value.m12,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Transform3D<T> ggm::operator-(Transform3D<T> const & value) noexcept
+{
+    return Transform3D<T>{
+        -value.m00,
+        -value.m01,
+        -value.m02,
+        -value.m03,
+        -value.m10,
+        -value.m11,
+        -value.m12,
+        -value.m13,
+        -value.m20,
+        -value.m21,
+        -value.m22,
+        -value.m23,
+    };
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Transform2D<T> ggm::operator*(T const &              lhs,
+                                             Transform2D<T> const & rhs) noexcept
+{
+    return Transform2D<T>{
+        lhs * rhs.m00,
+        lhs * rhs.m01,
+        lhs * rhs.m02,
+        lhs * rhs.m10,
+        lhs * rhs.m11,
+        lhs * rhs.m12,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Transform3D<T> ggm::operator*(T const &              lhs,
+                                             Transform3D<T> const & rhs) noexcept
+{
+    return Transform3D<T>{
+        lhs * rhs.m00,
+        lhs * rhs.m01,
+        lhs * rhs.m02,
+        lhs * rhs.m03,
+        lhs * rhs.m10,
+        lhs * rhs.m11,
+        lhs * rhs.m12,
+        lhs * rhs.m13,
+        lhs * rhs.m20,
+        lhs * rhs.m21,
+        lhs * rhs.m22,
+        lhs * rhs.m23,
+    };
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Transform2D<T> ggm::operator*(Transform2D<T> const & lhs,
+                                             T const &              rhs) noexcept
+{
+    return Transform2D<T>{
+        lhs.m00 * rhs,
+        lhs.m01 * rhs,
+        lhs.m02 * rhs,
+        lhs.m10 * rhs,
+        lhs.m11 * rhs,
+        lhs.m12 * rhs,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Transform3D<T> ggm::operator*(Transform3D<T> const & lhs,
+                                             T const &              rhs) noexcept
+{
+    return Transform3D<T>{
+        lhs.m00 * rhs,
+        lhs.m01 * rhs,
+        lhs.m02 * rhs,
+        lhs.m03 * rhs,
+        lhs.m10 * rhs,
+        lhs.m11 * rhs,
+        lhs.m12 * rhs,
+        lhs.m13 * rhs,
+        lhs.m20 * rhs,
+        lhs.m21 * rhs,
+        lhs.m22 * rhs,
+        lhs.m23 * rhs,
+    };
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Transform2D<T> ggm::operator*(Transform2D<T> const & lhs,
+                                             Transform2D<T> const & rhs) noexcept
+{
+    //               lhs                           rhs
+    //        col0  col1  col2              col0  col1  col2
+    // | row0: m00   m01   m02  |   | row0:  m00   m01   m02 |
+    // | row1: m10   m11   m12  | * | row1:  m10   m11   m12 |
+    // | row2:  0     0     1   |   | row2:   0     0     1  |
+    //
+    //   | dot(lhs.row0, rhs.col0)  dot(lhs.row0, rhs.col1)  dot(lhs.row0, rhs.col2) |
+    // = | dot(lhs.row1, rhs.col0)  dot(lhs.row1, rhs.col1)  dot(lhs.row1, rhs.col2) |
+    //   |            0                        0                        1            |
+
+    return Transform2D<T>{
+        // row0:
+        (lhs.m00 * rhs.m00) + (lhs.m01 * rhs.m10),
+        (lhs.m00 * rhs.m01) + (lhs.m01 * rhs.m11),
+        (lhs.m00 * rhs.m02) + (lhs.m01 * rhs.m12) + lhs.m02,
+        // row1:
+        (lhs.m10 * rhs.m00) + (lhs.m11 * rhs.m10),
+        (lhs.m10 * rhs.m01) + (lhs.m11 * rhs.m11),
+        (lhs.m10 * rhs.m02) + (lhs.m11 * rhs.m12) + lhs.m12,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Transform3D<T> ggm::operator*(Transform3D<T> const & lhs,
+                                             Transform3D<T> const & rhs) noexcept
+{
+    //                lhs                            rhs
+    //        col0  col1  col2  col3             col0  col1  col2  col3
+    // | row0: m00   m01   m02   m03 |   | row0:  m00   m01   m02   m03 |
+    // | row1: m10   m11   m12   m13 | * | row1:  m10   m11   m12   m13 |
+    // | row2: m20   m21   m22   m23 |   | row2:  m20   m21   m22   m23 |
+    // | row3:  0     0     0     1  |   | row3:   0     0     0     1  |
+    //
+    //   | dot(lhs.row0, rhs.col0)  dot(lhs.row0, rhs.col1)  dot(lhs.row0, rhs.col2)  dot(lhs.row0, rhs.col3) |
+    // = | dot(lhs.row1, rhs.col0)  dot(lhs.row1, rhs.col1)  dot(lhs.row1, rhs.col2)  dot(lhs.row1, rhs.col3) |
+    //   | dot(lhs.row2, rhs.col0)  dot(lhs.row2, rhs.col1)  dot(lhs.row2, rhs.col2)  dot(lhs.row2, rhs.col3) |
+    //   |            0                        0                        0                        1            |
+
+    return Transform3D<T>{
+        // row0:
+        (lhs.m00 * rhs.m00) + (lhs.m01 * rhs.m10) + (lhs.m02 * rhs.m20),
+        (lhs.m00 * rhs.m01) + (lhs.m01 * rhs.m11) + (lhs.m02 * rhs.m21),
+        (lhs.m00 * rhs.m02) + (lhs.m01 * rhs.m12) + (lhs.m02 * rhs.m22),
+        (lhs.m00 * rhs.m03) + (lhs.m01 * rhs.m13) + (lhs.m02 * rhs.m23) + lhs.m03,
+        // row1:
+        (lhs.m10 * rhs.m00) + (lhs.m11 * rhs.m10) + (lhs.m12 * rhs.m20),
+        (lhs.m10 * rhs.m01) + (lhs.m11 * rhs.m11) + (lhs.m12 * rhs.m21),
+        (lhs.m10 * rhs.m02) + (lhs.m11 * rhs.m12) + (lhs.m12 * rhs.m22),
+        (lhs.m10 * rhs.m03) + (lhs.m11 * rhs.m13) + (lhs.m12 * rhs.m23) + lhs.m13,
+        // row2:
+        (lhs.m20 * rhs.m00) + (lhs.m21 * rhs.m10) + (lhs.m22 * rhs.m20),
+        (lhs.m20 * rhs.m01) + (lhs.m21 * rhs.m11) + (lhs.m22 * rhs.m21),
+        (lhs.m20 * rhs.m02) + (lhs.m21 * rhs.m12) + (lhs.m22 * rhs.m22),
+        (lhs.m20 * rhs.m03) + (lhs.m21 * rhs.m13) + (lhs.m22 * rhs.m23) + lhs.m23,
+    };
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Transform2D<T> ggm::operator/(Transform2D<T> const & lhs,
+                                             T const &              rhs) noexcept
+{
+    return Transform2D<T>{
+        lhs.m00 / rhs,
+        lhs.m01 / rhs,
+        lhs.m02 / rhs,
+        lhs.m10 / rhs,
+        lhs.m11 / rhs,
+        lhs.m12 / rhs,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Transform3D<T> ggm::operator/(Transform3D<T> const & lhs,
+                                             T const &              rhs) noexcept
+{
+    return Transform3D<T>{
+        lhs.m00 / rhs,
+        lhs.m01 / rhs,
+        lhs.m02 / rhs,
+        lhs.m03 / rhs,
+        lhs.m10 / rhs,
+        lhs.m11 / rhs,
+        lhs.m12 / rhs,
+        lhs.m13 / rhs,
+        lhs.m20 / rhs,
+        lhs.m21 / rhs,
+        lhs.m22 / rhs,
+        lhs.m23 / rhs,
+    };
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr bool ggm::operator==(Transform2D<T> const & lhs,
+                               Transform2D<T> const & rhs) noexcept
+{
+    return (lhs.m00 == rhs.m00) &&
+           (lhs.m01 == rhs.m01) &&
+           (lhs.m02 == rhs.m02) &&
+           (lhs.m10 == rhs.m10) &&
+           (lhs.m11 == rhs.m11) &&
+           (lhs.m12 == rhs.m12);
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr bool ggm::operator==(Transform3D<T> const & lhs,
+                               Transform3D<T> const & rhs) noexcept
+{
+    return (lhs.m00 == rhs.m00) &&
+           (lhs.m01 == rhs.m01) &&
+           (lhs.m02 == rhs.m02) &&
+           (lhs.m03 == rhs.m03) &&
+           (lhs.m10 == rhs.m10) &&
+           (lhs.m11 == rhs.m11) &&
+           (lhs.m12 == rhs.m12) &&
+           (lhs.m13 == rhs.m13) &&
+           (lhs.m20 == rhs.m20) &&
+           (lhs.m21 == rhs.m21) &&
+           (lhs.m22 == rhs.m22) &&
+           (lhs.m23 == rhs.m23);
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr bool ggm::operator!=(Transform2D<T> const & lhs,
+                               Transform2D<T> const & rhs) noexcept
+{
+    return (lhs.m00 != rhs.m00) &&
+           (lhs.m01 != rhs.m01) &&
+           (lhs.m02 != rhs.m02) &&
+           (lhs.m10 != rhs.m10) &&
+           (lhs.m11 != rhs.m11) &&
+           (lhs.m12 != rhs.m12);
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr bool ggm::operator!=(Transform3D<T> const & lhs,
+                               Transform3D<T> const & rhs) noexcept
+{
+    return (lhs.m00 != rhs.m00) &&
+           (lhs.m01 != rhs.m01) &&
+           (lhs.m02 != rhs.m02) &&
+           (lhs.m03 != rhs.m03) &&
+           (lhs.m10 != rhs.m10) &&
+           (lhs.m11 != rhs.m11) &&
+           (lhs.m12 != rhs.m12) &&
+           (lhs.m13 != rhs.m13) &&
+           (lhs.m20 != rhs.m20) &&
+           (lhs.m21 != rhs.m21) &&
+           (lhs.m22 != rhs.m22) &&
+           (lhs.m23 != rhs.m23);
+}
+
 // =============================================================================
 
 template <typename T>
