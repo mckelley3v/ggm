@@ -65,6 +65,26 @@ template bool ggm::operator!= <float>(ggm::Transform3D<float> const & lhs, ggm::
 
 // =============================================================================
 
+template float ggm::determinant<float>(ggm::Transform2D<float> const & value) noexcept;
+template float ggm::determinant<float>(ggm::Transform3D<float> const & value) noexcept;
+
+// =============================================================================
+
+template bool ggm::is_invertible<float>(ggm::Transform2D<float> const & value, float const & epsilon) noexcept;
+template bool ggm::is_invertible<float>(ggm::Transform3D<float> const & value, float const & epsilon) noexcept;
+
+// =============================================================================
+
+template bool ggm::is_orthogonal<float>(ggm::Transform2D<float> const & value, float const & epsilon) noexcept;
+template bool ggm::is_orthogonal<float>(ggm::Transform3D<float> const & value, float const & epsilon) noexcept;
+
+// =============================================================================
+
+template ggm::Transform2D<float> ggm::inverse<float>(ggm::Transform2D<float> const & value, float const & epsilon) noexcept;
+template ggm::Transform3D<float> ggm::inverse<float>(ggm::Transform3D<float> const & value, float const & epsilon) noexcept;
+
+// =============================================================================
+
 template ggm::Transform2D<float> ggm::transform2D_from_scale<float>(float const & scale) noexcept;
 template ggm::Transform2D<float> ggm::transform2D_from_scale<float>(float const & scaleX, float const & scaleY) noexcept;
 template ggm::Transform3D<float> ggm::transform3D_from_scale<float>(float const & scale) noexcept;

@@ -2,6 +2,7 @@
 #ifndef GGM_TRANSFORM_UTIL_H
 #define GGM_TRANSFORM_UTIL_H
 
+#include "ggm/Numeric/NumericUtil.h"
 #include "ggm/Transform/Transform.h"
 #include "ggm/Vector/Vector.h"
 
@@ -263,42 +264,42 @@ namespace ggm
     /// true if matrix2x2 submatrix can be inverted, i.e. determinant != 0
     /// @relates Transform2D
     template <typename T>
-    constexpr bool is_invertible(Transform2D<T> const & value,
-                                 T const &              epsilon = DefaultTolerance<T>) noexcept;
+    inline bool is_invertible(Transform2D<T> const & value,
+                              T const &              epsilon = DefaultTolerance<T>) noexcept;
 
     /// true if matrix3x3 submatrix can be inverted, i.e. determinant != 0
     /// @relates Transform3D
     template <typename T>
-    constexpr bool is_invertible(Transform3D<T> const & value,
-                                 T const &              epsilon = DefaultTolerance<T>) noexcept;
+    inline bool is_invertible(Transform3D<T> const & value,
+                              T const &              epsilon = DefaultTolerance<T>) noexcept;
 
     // =============================================================================
 
     /// true if matrix2x2 submatrix rows and cols are orthonormal vectors
     /// @relates Transform2D
     template <typename T>
-    constexpr bool is_orthogonal(Transform2D<T> const & value,
-                                 T const &              epsilon = DefaultTolerance<T>) noexcept;
+    inline bool is_orthogonal(Transform2D<T> const & value,
+                              T const &              epsilon = DefaultTolerance<T>) noexcept;
 
     /// true if matrix3x3 submatrix rows and cols are orthonormal vectors
     /// @relates Transform3D
     template <typename T>
-    constexpr bool is_orthogonal(Transform3D<T> const & value,
-                                 T const &              epsilon = DefaultTolerance<T>) noexcept;
+    inline bool is_orthogonal(Transform3D<T> const & value,
+                              T const &              epsilon = DefaultTolerance<T>) noexcept;
 
     // =============================================================================
 
     /// calculate inverse as if matrix3x3
     /// @relates Transform2D
     template <typename T>
-    constexpr Transform2D<T> inverse(Transform2D<T> const & value,
-                                     T const &              epsilon = DefaultTolerance<T>) noexcept;
+    inline Transform2D<T> inverse(Transform2D<T> const & value,
+                                  T const &              epsilon = DefaultTolerance<T>) noexcept;
 
     /// calculate inverse as if matrix4x4
     /// @relates Transform3D
     template <typename T>
-    constexpr Transform3D<T> inverse(Transform3D<T> const & value,
-                                     T const &              epsilon = DefaultTolerance<T>) noexcept;
+    inline Transform3D<T> inverse(Transform3D<T> const & value,
+                                  T const &              epsilon = DefaultTolerance<T>) noexcept;
 
     // =============================================================================
 
@@ -979,6 +980,180 @@ constexpr bool ggm::operator!=(Transform3D<T> const & lhs,
            (lhs.m21 != rhs.m21) &&
            (lhs.m22 != rhs.m22) &&
            (lhs.m23 != rhs.m23);
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr T ggm::determinant(Transform2D<T> const & value) noexcept
+{
+    // | m00 m01 m02 |    | m00 m01 |
+    // | m10 m11 m12 | == | m10 m11 |
+    // |  0   0   1  |
+
+    return value.m00 * value.m11 - value.m01 * value.m10;
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr T ggm::determinant(Transform3D<T> const & value) noexcept
+{
+    // | m00 m01 m02 m03 |     | m00 m01 m02 |
+    // | m10 m11 m12 m13 | ==  | m10 m11 m12 |
+    // | m20 m21 m22 m23 |     | m20 m21 m22 |
+    // |  0   0   0   1  |
+
+    T const detMinor00 = value.m11 * value.m22 - value.m12 * value.m21;
+    T const detMinor01 = value.m10 * value.m22 - value.m12 * value.m20;
+    T const detMinor02 = value.m11 * value.m21 - value.m11 * value.m20;
+
+    return value.m00 * detMinor00 -
+           value.m01 * detMinor01 +
+           value.m02 * detMinor02;
+}
+
+// =============================================================================
+
+template <typename T>
+inline bool ggm::is_invertible(Transform2D<T> const & value,
+                               T const &              epsilon) noexcept
+{
+    return !is_close(determinant(value), T{ 0 }, epsilon);
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+inline bool ggm::is_invertible(Transform3D<T> const & value,
+                               T const &              epsilon) noexcept
+{
+    return !is_close(determinant(value), T{ 0 }, epsilon);
+}
+
+// =============================================================================
+
+template <typename T>
+inline bool ggm::is_orthogonal(Transform2D<T> const & value,
+                               T const &              epsilon) noexcept
+{
+    // check if value * transpose(value) == identity:
+    //
+    // { m00  m01 } * { m00  m10 } == { 1  0 }
+    // { m10  m11 }   { m01  m11 }    { 0  1 }
+    //
+    // i00: dot(row0: {m00, m01}, col0: {m00, m01}) == 1
+    // i01: dot(row0: {m00, m01}, col1: {m10, m11}) == 0
+    // i10: dot(row1: {m10, m11}, col0: {m00, m01}) == 0 (duplicates i01)
+    // i11: dot(row1: {m10, m11}, col1: {m10, m11}) == 1
+
+    return is_close(value.m00 * value.m00 + value.m01 * value.m01, T{ 1 }, epsilon) &&
+           is_close(value.m00 * value.m10 + value.m01 * value.m11, T{ 0 }, epsilon) &&
+           is_close(value.m10 * value.m10 + value.m11 * value.m11, T{ 1 }, epsilon);
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+inline bool ggm::is_orthogonal(Transform3D<T> const & value,
+                               T const &              epsilon) noexcept
+{
+    // check if value * transpose(value) == identity:
+    //
+    // { m00 m01 m02 }   { m00 m10 m20 }    { 1 0 0 }
+    // { m10 m11 m12 } * { m01 m11 m21 } == { 0 1 0 }
+    // { m20 m21 m22 }   { m02 m12 m22 }    { 0 0 1 }
+    //
+    // i00: dot(row0: {m00 m01 m02}, col0: {m00 m01 m02}) == 1
+    // i01: dot(row0: {m00 m01 m02}, col1: {m10 m11 m12}) == 0
+    // i02: dot(row0: {m00 m01 m02}, col2: {m20 m21 m22}) == 0
+    // i10: dot(row1: {m10 m11 m12}, col0: {m00 m01 m02}) == 0
+    // i11: dot(row1: {m10 m11 m12}, col1: {m10 m11 m12}) == 1
+    // i12: dot(row1: {m10 m11 m12}, col2: {m20 m21 m22}) == 0
+    // i20: dot(row2: {m20 m21 m22}, col0: {m00 m01 m02}) == 0
+    // i21: dot(row2: {m20 m21 m22}, col1: {m10 m11 m12}) == 0
+    // i22: dot(row2: {m20 m21 m22}, col2: {m20 m21 m22}) == 1
+
+    return is_close(value.m00 * value.m00 + value.m01 * value.m01 + value.m02 * value.m02, T{ 1 }, epsilon) &&
+           is_close(value.m00 * value.m10 + value.m01 * value.m11 + value.m02 * value.m12, T{ 0 }, epsilon) &&
+           is_close(value.m00 * value.m20 + value.m01 * value.m21 + value.m02 * value.m22, T{ 0 }, epsilon) &&
+           is_close(value.m10 * value.m00 + value.m11 * value.m01 + value.m12 * value.m02, T{ 0 }, epsilon) &&
+           is_close(value.m10 * value.m10 + value.m11 * value.m11 + value.m12 * value.m12, T{ 1 }, epsilon) &&
+           is_close(value.m10 * value.m20 + value.m11 * value.m21 + value.m12 * value.m22, T{ 0 }, epsilon) &&
+           is_close(value.m20 * value.m00 + value.m21 * value.m01 + value.m22 * value.m02, T{ 0 }, epsilon) &&
+           is_close(value.m20 * value.m10 + value.m21 * value.m11 + value.m22 * value.m12, T{ 0 }, epsilon) &&
+           is_close(value.m20 * value.m20 + value.m21 * value.m21 + value.m22 * value.m22, T{ 1 }, epsilon);
+}
+
+// =============================================================================
+
+template <typename T>
+inline ggm::Transform2D<T> ggm::inverse(Transform2D<T> const & value,
+                                        T const &              epsilon) noexcept
+{
+    T const detMinor20 = value.m01 * value.m12 - value.m02 * value.m11;
+    T const detMinor21 = value.m00 * value.m12 - value.m02 * value.m10;
+
+    T const det = value.m00 * value.m11 - value.m01 * value.m10;
+
+    T const invDet = reciprocal(det, T{ 0 }, epsilon);
+
+    return Transform2D<T>{
+        /*.m00 = */ +value.m11 * invDet,
+        /*.m01 = */ -value.m01 * invDet,
+        /*.m02 = */ +detMinor20 * invDet,
+        /*.m10 = */ -value.m10 * invDet,
+        /*.m11 = */ +value.m00 * invDet,
+        /*.m12 = */ -detMinor21 * invDet,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+inline ggm::Transform3D<T> ggm::inverse(Transform3D<T> const & value,
+                                        T const &              epsilon) noexcept
+{
+    T const detSubMinor07 = value.m02 * value.m13 - value.m03 * value.m12;
+    T const detSubMinor08 = value.m01 * value.m13 - value.m03 * value.m11;
+    T const detSubMinor09 = value.m01 * value.m12 - value.m02 * value.m11;
+    T const detSubMinor10 = value.m00 * value.m13 - value.m03 * value.m10;
+    T const detSubMinor11 = value.m00 * value.m12 - value.m02 * value.m10;
+    T const detSubMinor12 = value.m00 * value.m11 - value.m01 * value.m10;
+
+    T const detMinor00 = value.m11 * value.m22 - value.m12 * value.m21;
+    T const detMinor01 = value.m10 * value.m22 - value.m12 * value.m20;
+    T const detMinor02 = value.m10 * value.m21 - value.m11 * value.m20;
+    T const detMinor10 = value.m01 * value.m22 - value.m02 * value.m21;
+    T const detMinor11 = value.m00 * value.m22 - value.m02 * value.m20;
+    T const detMinor12 = value.m00 * value.m21 - value.m01 * value.m20;
+    T const detMinor20 = detSubMinor09;
+    T const detMinor21 = detSubMinor11;
+    T const detMinor22 = detSubMinor12;
+    T const detMinor30 = value.m21 * detSubMinor07 - value.m22 * detSubMinor08 + value.m23 * detSubMinor09;
+    T const detMinor31 = value.m20 * detSubMinor07 - value.m22 * detSubMinor10 + value.m23 * detSubMinor11;
+    T const detMinor32 = value.m20 * detSubMinor08 - value.m21 * detSubMinor10 + value.m23 * detSubMinor12;
+
+    T const det = value.m00 * detMinor00 -
+                  value.m01 * detMinor01 +
+                  value.m02 * detMinor02;
+
+    T const invDet = reciprocal(det, T{ 0 }, epsilon);
+
+    return Transform3D<T>{
+        /*.m00 = */ +detMinor00 * invDet,
+        /*.m01 = */ -detMinor10 * invDet,
+        /*.m02 = */ +detMinor20 * invDet,
+        /*.m03 = */ -detMinor30 * invDet,
+        /*.m10 = */ -detMinor01 * invDet,
+        /*.m11 = */ +detMinor11 * invDet,
+        /*.m12 = */ -detMinor21 * invDet,
+        /*.m13 = */ +detMinor31 * invDet,
+        /*.m20 = */ +detMinor02 * invDet,
+        /*.m21 = */ -detMinor12 * invDet,
+        /*.m22 = */ +detMinor22 * invDet,
+        /*.m23 = */ -detMinor32 * invDet,
+    };
 }
 
 // =============================================================================
