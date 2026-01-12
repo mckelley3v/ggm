@@ -2,6 +2,7 @@
 #ifndef GGM_TRANSFORM_UTIL_H
 #define GGM_TRANSFORM_UTIL_H
 
+#include "ggm/Numeric/NumericConstants.h"
 #include "ggm/Numeric/NumericUtil.h"
 #include "ggm/Transform/Transform.h"
 #include "ggm/Vector/Vector.h"
@@ -384,20 +385,15 @@ namespace ggm
     /// create an transform matrix with the given translation as the col2 elements (identity as 2x2 elements)
     /// @relates Transform2D
     template <typename T>
-    constexpr Transform2D<T> transform2D_from_translation(Vector2D<T> const & translationXY) noexcept;
+    constexpr Transform2D<T> transform2D_from_translation(T const & translationX,
+                                                          T const & translationY) noexcept;
 
     /// create an transform matrix with the given translation as the col2 elements (identity as 2x2 elements)
     /// @relates Transform2D
     template <typename T>
-    constexpr Transform2D<T> transform2D_from_translation(T const & translationX,
-                                                          T const & translationY) noexcept;
+    constexpr Transform2D<T> transform2D_from_translation(Vector2D<T> const & translationXY) noexcept;
 
     // -----------------------------------------------------------------------------
-
-    /// create an transform matrix with the given translation as the col3 elements (identity as 3x3 elements)
-    /// @relates Transform3D
-    template <typename T>
-    constexpr Transform3D<T> transform3D_from_translation(Vector3D<T> const & translationXYZ) noexcept;
 
     /// create an transform matrix with the given translation as the col3 elements (identity as 3x3 elements)
     /// @relates Transform3D
@@ -405,6 +401,11 @@ namespace ggm
     constexpr Transform3D<T> transform3D_from_translation(T const & translationX,
                                                           T const & translationY,
                                                           T const & translationZ) noexcept;
+
+    /// create an transform matrix with the given translation as the col3 elements (identity as 3x3 elements)
+    /// @relates Transform3D
+    template <typename T>
+    constexpr Transform3D<T> transform3D_from_translation(Vector3D<T> const & translationXYZ) noexcept;
 
     // =============================================================================
 
@@ -1186,6 +1187,19 @@ constexpr ggm::Transform2D<T> ggm::transform2D_from_scale(T const & scaleX,
 // -----------------------------------------------------------------------------
 
 template <typename T>
+constexpr ggm::Transform2D<T> ggm::transform2D_from_scale(Vector2D<T> const & scaleXY) noexcept
+{
+    return Transform2D<T>{
+        // clang-format off
+        scaleXY.x,      T{0}, T{0},
+          T{0},    scaleXY.y, T{0},
+        // clang-format on
+    };
+}
+
+// =============================================================================
+
+template <typename T>
 constexpr ggm::Transform3D<T> ggm::transform3D_from_scale(T const & scale) noexcept
 {
     return Transform3D<T>{
@@ -1193,6 +1207,20 @@ constexpr ggm::Transform3D<T> ggm::transform3D_from_scale(T const & scale) noexc
         scale,  T{0},  T{0}, T{0},
          T{0}, scale,  T{0}, T{0},
          T{0},  T{0}, scale, T{0},
+        // clang-format on
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Transform3D<T> ggm::transform3D_from_scale(Vector3D<T> const & scaleXYZ) noexcept
+{
+    return Transform3D<T>{
+        // clang-format off
+        scaleXYZ.x,       T{0},       T{0}, T{0},
+         T{0},      scaleXYZ.y,       T{0}, T{0},
+         T{0},       T{0},      scaleXYZ.z, T{0},
         // clang-format on
     };
 }
@@ -1268,7 +1296,7 @@ constexpr ggm::Transform2D<T> ggm::transform2D_from_rotation270() noexcept
     };
 }
 
-// -----------------------------------------------------------------------------
+// =============================================================================
 
 template <typename T>
 inline ggm::Transform3D<T> ggm::transform3D_from_rotation_x(T const & angleRadians) noexcept
@@ -1370,6 +1398,19 @@ constexpr ggm::Transform2D<T> ggm::transform2D_from_translation(T const & x,
 // -----------------------------------------------------------------------------
 
 template <typename T>
+constexpr ggm::Transform2D<T> ggm::transform2D_from_translation(Vector2D<T> const & translationXY) noexcept
+{
+    return Transform2D<T>{
+        // clang-format off
+        T{1}, T{0}, translationXY.x,
+        T{0}, T{1}, translationXY.y,
+        // clang-format on
+    };
+}
+
+// =============================================================================
+
+template <typename T>
 constexpr ggm::Transform3D<T> ggm::transform3D_from_translation(T const & x,
                                                                 T const & y,
                                                                 T const & z) noexcept
@@ -1379,6 +1420,20 @@ constexpr ggm::Transform3D<T> ggm::transform3D_from_translation(T const & x,
         T{1}, T{0}, T{0}, x,
         T{0}, T{1}, T{0}, y,
         T{0}, T{0}, T{1}, z,
+        // clang-format on
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Transform3D<T> ggm::transform3D_from_translation(Vector3D<T> const & translationXYZ) noexcept
+{
+    return Transform3D<T>{
+        // clang-format off
+        T{1}, T{0}, T{0}, translationXYZ.x,
+        T{0}, T{1}, T{0}, translationXYZ.y,
+        T{0}, T{0}, T{1}, translationXYZ.z,
         // clang-format on
     };
 }
@@ -1442,6 +1497,399 @@ constexpr ggm::Transform3D<T> ggm::transform3D_from_rows(Vector4D<T> const & row
         row1.x, row1.y, row1.z, row1.w,
         row2.x, row2.y, row2.z, row2.w,
         // clang-format on
+    };
+}
+
+// =============================================================================
+
+constexpr bool ggm::all_of(Transform2D<bool> const & value) noexcept
+{
+    return value.m00 &&
+           value.m01 &&
+           value.m02 &&
+           value.m10 &&
+           value.m11 &&
+           value.m12;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::all_of(Transform3D<bool> const & value) noexcept
+{
+    return value.m00 &&
+           value.m01 &&
+           value.m02 &&
+           value.m03 &&
+           value.m10 &&
+           value.m11 &&
+           value.m12 &&
+           value.m13 &&
+           value.m20 &&
+           value.m21 &&
+           value.m22 &&
+           value.m23;
+}
+
+// =============================================================================
+
+constexpr bool ggm::any_of(Transform2D<bool> const & value) noexcept
+{
+    return value.m00 ||
+           value.m01 ||
+           value.m02 ||
+           value.m10 ||
+           value.m11 ||
+           value.m12;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::any_of(Transform3D<bool> const & value) noexcept
+{
+    return value.m00 ||
+           value.m01 ||
+           value.m02 ||
+           value.m03 ||
+           value.m10 ||
+           value.m11 ||
+           value.m12 ||
+           value.m13 ||
+           value.m20 ||
+           value.m21 ||
+           value.m22 ||
+           value.m23;
+}
+
+// =============================================================================
+
+constexpr bool ggm::none_of(Transform2D<bool> const & value) noexcept
+{
+    return !value.m00 &&
+           !value.m01 &&
+           !value.m02 &&
+           !value.m10 &&
+           !value.m11 &&
+           !value.m12;
+}
+
+// -----------------------------------------------------------------------------
+
+constexpr bool ggm::none_of(Transform3D<bool> const & value) noexcept
+{
+    return !value.m00 &&
+           !value.m01 &&
+           !value.m02 &&
+           !value.m03 &&
+           !value.m10 &&
+           !value.m11 &&
+           !value.m12 &&
+           !value.m13 &&
+           !value.m20 &&
+           !value.m21 &&
+           !value.m22 &&
+           !value.m23;
+}
+
+// =============================================================================
+
+template <typename T>
+inline ggm::Transform2D<bool> ggm::is_close(Transform2D<T> const & lhs,
+                                            Transform2D<T> const & rhs,
+                                            T const &              epsilon) noexcept
+{
+    return Transform2D<bool>{
+        // row0:
+        is_close(lhs.m00, rhs.m00, epsilon),
+        is_close(lhs.m01, rhs.m01, epsilon),
+        is_close(lhs.m02, rhs.m02, epsilon),
+        // row1:
+        is_close(lhs.m10, rhs.m10, epsilon),
+        is_close(lhs.m11, rhs.m11, epsilon),
+        is_close(lhs.m12, rhs.m12, epsilon),
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+inline ggm::Transform3D<bool> ggm::is_close(Transform3D<T> const & lhs,
+                                            Transform3D<T> const & rhs,
+                                            T const &              epsilon) noexcept
+{
+    return Transform3D<bool>{
+        // row0:
+        is_close(lhs.m00, rhs.m00, epsilon),
+        is_close(lhs.m01, rhs.m01, epsilon),
+        is_close(lhs.m02, rhs.m02, epsilon),
+        is_close(lhs.m03, rhs.m03, epsilon),
+        // row1:
+        is_close(lhs.m10, rhs.m10, epsilon),
+        is_close(lhs.m11, rhs.m11, epsilon),
+        is_close(lhs.m12, rhs.m12, epsilon),
+        is_close(lhs.m13, rhs.m13, epsilon),
+        // row2:
+        is_close(lhs.m20, rhs.m20, epsilon),
+        is_close(lhs.m21, rhs.m21, epsilon),
+        is_close(lhs.m22, rhs.m22, epsilon),
+        is_close(lhs.m23, rhs.m23, epsilon),
+    };
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Transform2D<bool> ggm::is_equal(Transform2D<T> const & lhs,
+                                               Transform2D<T> const & rhs) noexcept
+{
+    return Transform2D<bool>{
+        // row0:
+        lhs.m00 == rhs.m00,
+        lhs.m01 == rhs.m01,
+        lhs.m02 == rhs.m02,
+        // row1:
+        lhs.m10 == rhs.m10,
+        lhs.m11 == rhs.m11,
+        lhs.m12 == rhs.m12,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Transform3D<bool> ggm::is_equal(Transform3D<T> const & lhs,
+                                               Transform3D<T> const & rhs) noexcept
+{
+    return Transform3D<bool>{
+        // row0:
+        lhs.m00 == rhs.m00,
+        lhs.m01 == rhs.m01,
+        lhs.m02 == rhs.m02,
+        lhs.m03 == rhs.m03,
+        // row1:
+        lhs.m10 == rhs.m10,
+        lhs.m11 == rhs.m11,
+        lhs.m12 == rhs.m12,
+        lhs.m13 == rhs.m13,
+        // row2:
+        lhs.m20 == rhs.m20,
+        lhs.m21 == rhs.m21,
+        lhs.m22 == rhs.m22,
+        lhs.m23 == rhs.m23,
+    };
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Transform2D<bool> ggm::is_greater(Transform2D<T> const & lhs,
+                                                 Transform2D<T> const & rhs) noexcept
+{
+    return Transform2D<bool>{
+        // row0:
+        lhs.m00 > rhs.m00,
+        lhs.m01 > rhs.m01,
+        lhs.m02 > rhs.m02,
+        // row1:
+        lhs.m10 > rhs.m10,
+        lhs.m11 > rhs.m11,
+        lhs.m12 > rhs.m12,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Transform3D<bool> ggm::is_greater(Transform3D<T> const & lhs,
+                                                 Transform3D<T> const & rhs) noexcept
+{
+    return Transform3D<bool>{
+        // row0:
+        lhs.m00 > rhs.m00,
+        lhs.m01 > rhs.m01,
+        lhs.m02 > rhs.m02,
+        lhs.m03 > rhs.m03,
+        // row1:
+        lhs.m10 > rhs.m10,
+        lhs.m11 > rhs.m11,
+        lhs.m12 > rhs.m12,
+        lhs.m13 > rhs.m13,
+        // row2:
+        lhs.m20 > rhs.m20,
+        lhs.m21 > rhs.m21,
+        lhs.m22 > rhs.m22,
+        lhs.m23 > rhs.m23,
+    };
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Transform2D<bool> ggm::is_greater_equal(Transform2D<T> const & lhs,
+                                                       Transform2D<T> const & rhs) noexcept
+{
+    return Transform2D<bool>{
+        // row0:
+        lhs.m00 >= rhs.m00,
+        lhs.m01 >= rhs.m01,
+        lhs.m02 >= rhs.m02,
+        // row1:
+        lhs.m10 >= rhs.m10,
+        lhs.m11 >= rhs.m11,
+        lhs.m12 >= rhs.m12,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Transform3D<bool> ggm::is_greater_equal(Transform3D<T> const & lhs,
+                                                       Transform3D<T> const & rhs) noexcept
+{
+    return Transform3D<bool>{
+        // row0:
+        lhs.m00 >= rhs.m00,
+        lhs.m01 >= rhs.m01,
+        lhs.m02 >= rhs.m02,
+        lhs.m03 >= rhs.m03,
+        // row1:
+        lhs.m10 >= rhs.m10,
+        lhs.m11 >= rhs.m11,
+        lhs.m12 >= rhs.m12,
+        lhs.m13 >= rhs.m13,
+        // row2:
+        lhs.m20 >= rhs.m20,
+        lhs.m21 >= rhs.m21,
+        lhs.m22 >= rhs.m22,
+        lhs.m23 >= rhs.m23,
+    };
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Transform2D<bool> ggm::is_less(Transform2D<T> const & lhs,
+                                              Transform2D<T> const & rhs) noexcept
+{
+    return Transform2D<bool>{
+        // row0:
+        lhs.m00 < rhs.m00,
+        lhs.m01 < rhs.m01,
+        lhs.m02 < rhs.m02,
+        // row1:
+        lhs.m10 < rhs.m10,
+        lhs.m11 < rhs.m11,
+        lhs.m12 < rhs.m12,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Transform3D<bool> ggm::is_less(Transform3D<T> const & lhs,
+                                              Transform3D<T> const & rhs) noexcept
+{
+    return Transform3D<bool>{
+        // row0:
+        lhs.m00 < rhs.m00,
+        lhs.m01 < rhs.m01,
+        lhs.m02 < rhs.m02,
+        lhs.m03 < rhs.m03,
+        // row1:
+        lhs.m10 < rhs.m10,
+        lhs.m11 < rhs.m11,
+        lhs.m12 < rhs.m12,
+        lhs.m13 < rhs.m13,
+        // row2:
+        lhs.m20 < rhs.m20,
+        lhs.m21 < rhs.m21,
+        lhs.m22 < rhs.m22,
+        lhs.m23 < rhs.m23,
+    };
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Transform2D<bool> ggm::is_less_equal(Transform2D<T> const & lhs,
+                                                    Transform2D<T> const & rhs) noexcept
+{
+    return Transform2D<bool>{
+        // row0:
+        lhs.m00 <= rhs.m00,
+        lhs.m01 <= rhs.m01,
+        lhs.m02 <= rhs.m02,
+        // row1:
+        lhs.m10 <= rhs.m10,
+        lhs.m11 <= rhs.m11,
+        lhs.m12 <= rhs.m12,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Transform3D<bool> ggm::is_less_equal(Transform3D<T> const & lhs,
+                                                    Transform3D<T> const & rhs) noexcept
+{
+    return Transform3D<bool>{
+        // row0:
+        lhs.m00 <= rhs.m00,
+        lhs.m01 <= rhs.m01,
+        lhs.m02 <= rhs.m02,
+        lhs.m03 <= rhs.m03,
+        // row1:
+        lhs.m10 <= rhs.m10,
+        lhs.m11 <= rhs.m11,
+        lhs.m12 <= rhs.m12,
+        lhs.m13 <= rhs.m13,
+        // row2:
+        lhs.m20 <= rhs.m20,
+        lhs.m21 <= rhs.m21,
+        lhs.m22 <= rhs.m22,
+        lhs.m23 <= rhs.m23,
+    };
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::Transform2D<bool> ggm::is_not_equal(Transform2D<T> const & lhs,
+                                                   Transform2D<T> const & rhs) noexcept
+{
+    return Transform2D<bool>{
+        // row0:
+        lhs.m00 != rhs.m00,
+        lhs.m01 != rhs.m01,
+        lhs.m02 != rhs.m02,
+        // row1:
+        lhs.m10 != rhs.m10,
+        lhs.m11 != rhs.m11,
+        lhs.m12 != rhs.m12,
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Transform3D<bool> ggm::is_not_equal(Transform3D<T> const & lhs,
+                                                   Transform3D<T> const & rhs) noexcept
+{
+    return Transform3D<bool>{
+        // row0:
+        lhs.m00 != rhs.m00,
+        lhs.m01 != rhs.m01,
+        lhs.m02 != rhs.m02,
+        lhs.m03 != rhs.m03,
+        // row1:
+        lhs.m10 != rhs.m10,
+        lhs.m11 != rhs.m11,
+        lhs.m12 != rhs.m12,
+        lhs.m13 != rhs.m13,
+        // row2:
+        lhs.m20 != rhs.m20,
+        lhs.m21 != rhs.m21,
+        lhs.m22 != rhs.m22,
+        lhs.m23 != rhs.m23,
     };
 }
 
