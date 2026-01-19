@@ -4,6 +4,10 @@
 
 #include "ggm/Matrix/Matrix.h"
 #include "ggm/Matrix/MatrixConstants.h"
+#include "ggm/Matrix/MatrixTransform.h"
+#include "ggm/Matrix/MatrixTransformConstants.h"
+#include "ggm/Matrix/MatrixTransformTypedefs.h"
+#include "ggm/Matrix/MatrixTransformUtil.h"
 #include "ggm/Matrix/MatrixTypedefs.h"
 #include "ggm/Matrix/MatrixUtil.h"
 #include "ggm/Matrix/MatrixVectorUtil.h"

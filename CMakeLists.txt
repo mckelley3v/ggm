@@ -54,6 +54,7 @@ endif()
 add_library(
     ggm
     STATIC
+        "include/ggm/ggm.h"
         "include/ggm/ConstantsUtil.h"
         "include/ggm/Matrix/Matrix.h"
         "include/ggm/Matrix/MatrixConstants.h"
