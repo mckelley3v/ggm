@@ -1,5 +1,5 @@
-#include "ggm/Transform/MatrixTransform.h"
-#include "ggm/Transform/MatrixTransformUtil.h"
+#include "ggm/Matrix/MatrixTransform.h"
+#include "ggm/Matrix/MatrixTransformUtil.h"
 
 #include "TestUtils/Types.h"
 

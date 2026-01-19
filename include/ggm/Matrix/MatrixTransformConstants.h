@@ -3,7 +3,7 @@
 #define GGM_MATRIX_TRANSFORM_CONSTANTS_H
 
 #include "ggm/ConstantsUtil.h"
-#include "ggm/Transform/MatrixTransform.h"
+#include "ggm/Matrix/MatrixTransform.h"
 
 namespace ggm
 {

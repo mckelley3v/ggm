@@ -2,9 +2,9 @@
 #ifndef GGM_MATRIX_TRANSFORM_UTIL_H
 #define GGM_MATRIX_TRANSFORM_UTIL_H
 
+#include "ggm/Matrix/MatrixTransform.h"
 #include "ggm/Numeric/NumericConstants.h"
 #include "ggm/Numeric/NumericUtil.h"
-#include "ggm/Transform/MatrixTransform.h"
 #include "ggm/Vector/Vector.h"
 
 #include <cmath>
