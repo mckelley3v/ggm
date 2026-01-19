@@ -18,9 +18,9 @@ TEMPLATE_TEST_CASE("Vector::TestVectorConstants::Zero", /*tags*/ "", GGM_NUMERIC
     typedef Vector3D<TestType> Vector3D;
     typedef Vector4D<TestType> Vector4D;
 
-    STATIC_CHECK(Zero<Vector2D> == Vector2D{ TestType(0), TestType(0) });
-    STATIC_CHECK(Zero<Vector3D> == Vector3D{ TestType(0), TestType(0), TestType(0) });
-    STATIC_CHECK(Zero<Vector4D> == Vector4D{ TestType(0), TestType(0), TestType(0), TestType(0) });
+    STATIC_CHECK(Vector2D_Zero<TestType> == Vector2D{ TestType(0), TestType(0) });
+    STATIC_CHECK(Vector3D_Zero<TestType> == Vector3D{ TestType(0), TestType(0), TestType(0) });
+    STATIC_CHECK(Vector4D_Zero<TestType> == Vector4D{ TestType(0), TestType(0), TestType(0), TestType(0) });
 }
 
 // =============================================================================
@@ -33,9 +33,9 @@ TEMPLATE_TEST_CASE("Vector::TestVectorConstants::Ones", /*tags*/ "", GGM_NUMERIC
     typedef Vector3D<TestType> Vector3D;
     typedef Vector4D<TestType> Vector4D;
 
-    STATIC_CHECK(Ones<Vector2D> == Vector2D{ TestType(1), TestType(1) });
-    STATIC_CHECK(Ones<Vector3D> == Vector3D{ TestType(1), TestType(1), TestType(1) });
-    STATIC_CHECK(Ones<Vector4D> == Vector4D{ TestType(1), TestType(1), TestType(1), TestType(1) });
+    STATIC_CHECK(Vector2D_Ones<TestType> == Vector2D{ TestType(1), TestType(1) });
+    STATIC_CHECK(Vector3D_Ones<TestType> == Vector3D{ TestType(1), TestType(1), TestType(1) });
+    STATIC_CHECK(Vector4D_Ones<TestType> == Vector4D{ TestType(1), TestType(1), TestType(1), TestType(1) });
 }
 
 // =============================================================================
@@ -48,9 +48,9 @@ TEMPLATE_TEST_CASE("Vector::TestVectorConstants::AxisX", /*tags*/ "", GGM_NUMERI
     typedef Vector3D<TestType> Vector3D;
     typedef Vector4D<TestType> Vector4D;
 
-    STATIC_CHECK(AxisX<Vector2D> == Vector2D{ TestType(1), TestType(0) });
-    STATIC_CHECK(AxisX<Vector3D> == Vector3D{ TestType(1), TestType(0), TestType(0) });
-    STATIC_CHECK(AxisX<Vector4D> == Vector4D{ TestType(1), TestType(0), TestType(0), TestType(0) });
+    STATIC_CHECK(Vector2D_AxisX<TestType> == Vector2D{ TestType(1), TestType(0) });
+    STATIC_CHECK(Vector3D_AxisX<TestType> == Vector3D{ TestType(1), TestType(0), TestType(0) });
+    STATIC_CHECK(Vector4D_AxisX<TestType> == Vector4D{ TestType(1), TestType(0), TestType(0), TestType(0) });
 }
 
 // =============================================================================
@@ -63,9 +63,9 @@ TEMPLATE_TEST_CASE("Vector::TestVectorConstants::AxisY", /*tags*/ "", GGM_NUMERI
     typedef Vector3D<TestType> Vector3D;
     typedef Vector4D<TestType> Vector4D;
 
-    STATIC_CHECK(AxisY<Vector2D> == Vector2D{ TestType(0), TestType(1) });
-    STATIC_CHECK(AxisY<Vector3D> == Vector3D{ TestType(0), TestType(1), TestType(0) });
-    STATIC_CHECK(AxisY<Vector4D> == Vector4D{ TestType(0), TestType(1), TestType(0), TestType(0) });
+    STATIC_CHECK(Vector2D_AxisY<TestType> == Vector2D{ TestType(0), TestType(1) });
+    STATIC_CHECK(Vector3D_AxisY<TestType> == Vector3D{ TestType(0), TestType(1), TestType(0) });
+    STATIC_CHECK(Vector4D_AxisY<TestType> == Vector4D{ TestType(0), TestType(1), TestType(0), TestType(0) });
 }
 
 // =============================================================================
@@ -77,8 +77,8 @@ TEMPLATE_TEST_CASE("Vector::TestVectorConstants::AxisZ", /*tags*/ "", GGM_NUMERI
     typedef Vector3D<TestType> Vector3D;
     typedef Vector4D<TestType> Vector4D;
 
-    STATIC_CHECK(AxisZ<Vector3D> == Vector3D{ TestType(0), TestType(0), TestType(1) });
-    STATIC_CHECK(AxisZ<Vector4D> == Vector4D{ TestType(0), TestType(0), TestType(1), TestType(0) });
+    STATIC_CHECK(Vector3D_AxisZ<TestType> == Vector3D{ TestType(0), TestType(0), TestType(1) });
+    STATIC_CHECK(Vector4D_AxisZ<TestType> == Vector4D{ TestType(0), TestType(0), TestType(1), TestType(0) });
 }
 
 // =============================================================================
@@ -89,7 +89,7 @@ TEMPLATE_TEST_CASE("Vector::TestVectorConstants::AxisW", /*tags*/ "", GGM_NUMERI
 
     typedef Vector4D<TestType> Vector4D;
 
-    STATIC_CHECK(AxisW<Vector4D> == Vector4D{ TestType(0), TestType(0), TestType(0), TestType(1) });
+    STATIC_CHECK(Vector4D_AxisW<TestType> == Vector4D{ TestType(0), TestType(0), TestType(0), TestType(1) });
 }
 
 // =============================================================================

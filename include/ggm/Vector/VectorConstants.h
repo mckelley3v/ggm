@@ -2,7 +2,6 @@
 #ifndef GGM_VECTOR_CONSTANTS_H
 #define GGM_VECTOR_CONSTANTS_H
 
-#include "ggm/ConstantsUtil.h"
 #include "ggm/Vector/Vector.h"
 
 // =============================================================================
@@ -15,12 +14,21 @@
 ///
 /// Syntax            | Description
 /// ------            | -----------
-/// Zero<VectorType>  | constant for { T{0}, T{0}, T{0}, T{0} }
-/// Ones<VectorType>  | constant for { T{1}, T{1}, T{1}, T{1} }
-/// AxisX<VectorType> | constant for { T{1}, T{0}, T{0}, T{0} }
-/// AxisY<VectorType> | constant for { T{0}, T{1}, T{0}, T{0} }
-/// AxisZ<VectorType> | constant for { T{0}, T{0}, T{1}, T{0} }
-/// AxisW<VectorType> | constant for { T{0}, T{0}, T{0}, T{1} }
+/// Vector2D_Zero<T>  | constant for Vector2D<T>{ T{0}, T{0} }
+/// Vector3D_Zero<T>  | constant for Vector3D<T>{ T{0}, T{0}, T{0} }
+/// Vector4D_Zero<T>  | constant for Vector4D<T>{ T{0}, T{0}, T{0}, T{0} }
+/// Vector2D_Ones<T>  | constant for Vector2D<T>{ T{1}, T{1} }
+/// Vector3D_Ones<T>  | constant for Vector3D<T>{ T{1}, T{1}, T{1} }
+/// Vector4D_Ones<T>  | constant for Vector4D<T>{ T{1}, T{1}, T{1}, T{1} }
+/// Vector2D_AxisX<T> | constant for Vector2D<T>{ T{1}, T{0} }
+/// Vector3D_AxisX<T> | constant for Vector3D<T>{ T{1}, T{0}, T{0} }
+/// Vector4D_AxisX<T> | constant for Vector4D<T>{ T{1}, T{0}, T{0}, T{0} }
+/// Vector2D_AxisY<T> | constant for Vector2D<T>{ T{0}, T{1} }
+/// Vector3D_AxisY<T> | constant for Vector3D<T>{ T{0}, T{1}, T{0} }
+/// Vector4D_AxisY<T> | constant for Vector4D<T>{ T{0}, T{1}, T{0}, T{0} }
+/// Vector3D_AxisZ<T> | constant for Vector3D<T>{ T{0}, T{0}, T{1} }
+/// Vector4D_AxisZ<T> | constant for Vector4D<T>{ T{0}, T{0}, T{1}, T{0} }
+/// Vector4D_AxisW<T> | constant for Vector4D<T>{ T{0}, T{0}, T{0}, T{1} }
 /// @}
 // =============================================================================
 
@@ -31,112 +39,87 @@ namespace ggm
     /// Vector constant for {0, 0}
     /// @relates Vector2D
     template <typename T>
-    inline constexpr Vector2D<T> Zero<Vector2D<T>> = { T{ 0 }, T{ 0 } };
+    inline constexpr Vector2D<T> Vector2D_Zero = { T{ 0 }, T{ 0 } };
 
     /// Vector constant for {0, 0, 0}
     /// @relates Vector3D
     template <typename T>
-    inline constexpr Vector3D<T> Zero<Vector3D<T>> = { T{ 0 }, T{ 0 }, T{ 0 } };
+    inline constexpr Vector3D<T> Vector3D_Zero = { T{ 0 }, T{ 0 }, T{ 0 } };
 
     /// Vector constant for {0, 0, 0, 0}
     /// @relates Vector4D
     template <typename T>
-    inline constexpr Vector4D<T> Zero<Vector4D<T>> = { T{ 0 }, T{ 0 }, T{ 0 }, T{ 0 } };
+    inline constexpr Vector4D<T> Vector4D_Zero = { T{ 0 }, T{ 0 }, T{ 0 }, T{ 0 } };
 
     // =============================================================================
-
-    template <typename T>
-    inline constexpr T Ones = undefined_constant<T>();
-
-    // ----------------------------------------------------------------------------------------------
 
     /// Vector constant for {1, 1}
     /// @relates Vector2D
     template <typename T>
-    inline constexpr Vector2D<T> Ones<Vector2D<T>> = { T{ 1 }, T{ 1 } };
+    inline constexpr Vector2D<T> Vector2D_Ones = { T{ 1 }, T{ 1 } };
 
     /// Vector constant for {1, 1, 1}
     /// @relates Vector3D
     template <typename T>
-    inline constexpr Vector3D<T> Ones<Vector3D<T>> = { T{ 1 }, T{ 1 }, T{ 1 } };
+    inline constexpr Vector3D<T> Vector3D_Ones = { T{ 1 }, T{ 1 }, T{ 1 } };
 
     /// Vector constant for {1, 1, 1, 1}
     /// @relates Vector4D
     template <typename T>
-    inline constexpr Vector4D<T> Ones<Vector4D<T>> = { T{ 1 }, T{ 1 }, T{ 1 }, T{ 1 } };
+    inline constexpr Vector4D<T> Vector4D_Ones = { T{ 1 }, T{ 1 }, T{ 1 }, T{ 1 } };
 
     // =============================================================================
-
-    template <typename T>
-    inline constexpr T AxisX = undefined_constant<T>();
-
-    // ----------------------------------------------------------------------------------------------
 
     /// Vector constant for X-axis
     /// @relates Vector2D
     template <typename T>
-    inline constexpr Vector2D<T> AxisX<Vector2D<T>> = { T{ 1 }, T{ 0 } };
+    inline constexpr Vector2D<T> Vector2D_AxisX = { T{ 1 }, T{ 0 } };
 
     /// Vector constant for X-axis
     /// @relates Vector3D
     template <typename T>
-    inline constexpr Vector3D<T> AxisX<Vector3D<T>> = { T{ 1 }, T{ 0 }, T{ 0 } };
+    inline constexpr Vector3D<T> Vector3D_AxisX = { T{ 1 }, T{ 0 }, T{ 0 } };
 
     /// Vector constant for X-axis
     /// @relates Vector4D
     template <typename T>
-    inline constexpr Vector4D<T> AxisX<Vector4D<T>> = { T{ 1 }, T{ 0 }, T{ 0 }, T{ 0 } };
+    inline constexpr Vector4D<T> Vector4D_AxisX = { T{ 1 }, T{ 0 }, T{ 0 }, T{ 0 } };
 
     // =============================================================================
-
-    template <typename T>
-    inline constexpr T AxisY = undefined_constant<T>();
-
-    // ----------------------------------------------------------------------------------------------
 
     /// Vector constant for X-axis
     /// @relates Vector2D
     template <typename T>
-    inline constexpr Vector2D<T> AxisY<Vector2D<T>> = { T{ 0 }, T{ 1 } };
+    inline constexpr Vector2D<T> Vector2D_AxisY = { T{ 0 }, T{ 1 } };
 
     /// Vector constant for X-axis
     /// @relates Vector3D
     template <typename T>
-    inline constexpr Vector3D<T> AxisY<Vector3D<T>> = { T{ 0 }, T{ 1 }, T{ 0 } };
+    inline constexpr Vector3D<T> Vector3D_AxisY = { T{ 0 }, T{ 1 }, T{ 0 } };
 
     /// Vector constant for X-axis
     /// @relates Vector4D
     template <typename T>
-    inline constexpr Vector4D<T> AxisY<Vector4D<T>> = { T{ 0 }, T{ 1 }, T{ 0 }, T{ 0 } };
+    inline constexpr Vector4D<T> Vector4D_AxisY = { T{ 0 }, T{ 1 }, T{ 0 }, T{ 0 } };
 
     // =============================================================================
-
-    template <typename T>
-    inline constexpr T AxisZ = undefined_constant<T>();
-
-    // ----------------------------------------------------------------------------------------------
 
     /// Vector constant for X-axis
     /// @relates Vector3D
     template <typename T>
-    inline constexpr Vector3D<T> AxisZ<Vector3D<T>> = { T{ 0 }, T{ 0 }, T{ 1 } };
+    inline constexpr Vector3D<T> Vector3D_AxisZ = { T{ 0 }, T{ 0 }, T{ 1 } };
 
     /// Vector constant for X-axis
     /// @relates Vector4D
     template <typename T>
-    inline constexpr Vector4D<T> AxisZ<Vector4D<T>> = { T{ 0 }, T{ 0 }, T{ 1 }, T{ 0 } };
+    inline constexpr Vector4D<T> Vector4D_AxisZ = { T{ 0 }, T{ 0 }, T{ 1 }, T{ 0 } };
 
     // =============================================================================
 
-    template <typename T>
-    inline constexpr T AxisW = undefined_constant<T>();
-
-    // ----------------------------------------------------------------------------------------------
-
     /// Vector constant for X-axis
     /// @relates Vector4D
     template <typename T>
-    inline constexpr Vector4D<T> AxisW<Vector4D<T>> = { T{ 0 }, T{ 0 }, T{ 0 }, T{ 1 } };
+    inline constexpr Vector4D<T> Vector4D_AxisW = { T{ 0 }, T{ 0 }, T{ 0 }, T{ 1 } };
 
     // =============================================================================
 } // namespace ggm
