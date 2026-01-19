@@ -7,14 +7,24 @@
 namespace ggm
 {
     // =============================================================================
+    // Transform types are typdefs of Matrix types, so forward declare the required types first
+    // =============================================================================
+
+    template <typename T>
+    struct Matrix2x3;
+
+    template <typename T>
+    struct Matrix3x4;
+
+    // =============================================================================
     // Forward declarations for Transform{N}x{M} types:
     // =============================================================================
 
     template <typename T>
-    struct Transform2D;
+    using Transform2D = Matrix2x3<T>;
 
     template <typename T>
-    struct Transform3D;
+    using Transform3D = Matrix3x4<T>;
 
     // =============================================================================
 } // namespace ggm

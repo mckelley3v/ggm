@@ -10,58 +10,13 @@
 // explicitly instantiate templates to confirm they compile without error:
 // =============================================================================
 
-template ggm::Transform2D<float> & ggm::operator*= <float>(Transform2D<float> & lhs, float const & rhs) noexcept;
-template ggm::Transform3D<float> & ggm::operator*= <float>(Transform3D<float> & lhs, float const & rhs) noexcept;
+template ggm::Transform2D<float> ggm::transform<float>(Transform2D<float> const & lhs, Transform2D<float> const & rhs) noexcept;
+template ggm::Transform3D<float> ggm::transform<float>(Transform3D<float> const & lhs, Transform3D<float> const & rhs) noexcept;
 
 // =============================================================================
 
-template ggm::Transform2D<float> & ggm::operator/= <float>(Transform2D<float> & lhs, float const & rhs) noexcept;
-template ggm::Transform3D<float> & ggm::operator/= <float>(Transform3D<float> & lhs, float const & rhs) noexcept;
-
-// =============================================================================
-
-template ggm::Transform2D<float> & ggm::operator/= <float>(Transform2D<float> & lhs, float const & rhs) noexcept;
-template ggm::Transform3D<float> & ggm::operator/= <float>(Transform3D<float> & lhs, float const & rhs) noexcept;
-
-// =============================================================================
-
-template ggm::Transform2D<float> ggm::operator+ <float>(Transform2D<float> const & value) noexcept;
-template ggm::Transform3D<float> ggm::operator+ <float>(Transform3D<float> const & value) noexcept;
-
-// =============================================================================
-
-template ggm::Transform2D<float> ggm::operator- <float>(Transform2D<float> const & value) noexcept;
-template ggm::Transform3D<float> ggm::operator- <float>(Transform3D<float> const & value) noexcept;
-
-// =============================================================================
-
-template ggm::Transform2D<float> ggm::operator* <float>(float const & lhs, Transform2D<float> const & rhs) noexcept;
-template ggm::Transform3D<float> ggm::operator* <float>(float const & lhs, Transform3D<float> const & rhs) noexcept;
-
-// =============================================================================
-
-template ggm::Transform2D<float> ggm::operator* <float>(Transform2D<float> const & lhs, float const & rhs) noexcept;
-template ggm::Transform3D<float> ggm::operator* <float>(Transform3D<float> const & lhs, float const & rhs) noexcept;
-
-// =============================================================================
-
-template ggm::Transform2D<float> ggm::operator* <float>(Transform2D<float> const & lhs, Transform2D<float> const & rhs) noexcept;
-template ggm::Transform3D<float> ggm::operator* <float>(Transform3D<float> const & lhs, Transform3D<float> const & rhs) noexcept;
-
-// =============================================================================
-
-template ggm::Transform2D<float> ggm::operator/ <float>(Transform2D<float> const & lhs, float const & rhs) noexcept;
-template ggm::Transform3D<float> ggm::operator/ <float>(Transform3D<float> const & lhs, float const & rhs) noexcept;
-
-// =============================================================================
-
-template bool ggm::operator== <float>(Transform2D<float> const & lhs, Transform2D<float> const & rhs) noexcept;
-template bool ggm::operator== <float>(Transform3D<float> const & lhs, Transform3D<float> const & rhs) noexcept;
-
-// =============================================================================
-
-template bool ggm::operator!= <float>(Transform2D<float> const & lhs, Transform2D<float> const & rhs) noexcept;
-template bool ggm::operator!= <float>(Transform3D<float> const & lhs, Transform3D<float> const & rhs) noexcept;
+template ggm::Matrix3x3<float> ggm::matrix3x3_from_transform2D(Transform2D<float> const & value) noexcept;
+template ggm::Matrix4x4<float> ggm::matrix4x4_from_transform3D(Transform3D<float> const & value) noexcept;
 
 // =============================================================================
 
@@ -82,6 +37,11 @@ template bool ggm::is_orthogonal<float>(Transform3D<float> const & value, float 
 
 template ggm::Transform2D<float> ggm::inverse<float>(Transform2D<float> const & value, float const & epsilon) noexcept;
 template ggm::Transform3D<float> ggm::inverse<float>(Transform3D<float> const & value, float const & epsilon) noexcept;
+
+// =============================================================================
+
+template ggm::Transform2D<float> ggm::transform2D_from_matrix(Matrix3x3<float> const & value) noexcept;
+template ggm::Transform3D<float> ggm::transform3D_from_matrix(Matrix4x4<float> const & value) noexcept;
 
 // =============================================================================
 
@@ -118,51 +78,5 @@ template ggm::Transform2D<float> ggm::transform2D_from_translation<float>(Vector
 
 template ggm::Transform3D<float> ggm::transform3D_from_translation<float>(float const & x, float const & y, float const & z) noexcept;
 template ggm::Transform3D<float> ggm::transform3D_from_translation<float>(Vector3D<float> const & translationXYZ) noexcept;
-
-// =============================================================================
-
-template ggm::Transform2D<float> ggm::transform2D_from_cols<float>(Vector2D<float> const & col0, Vector2D<float> const & col1, Vector2D<float> const & col2) noexcept;
-template ggm::Transform3D<float> ggm::transform3D_from_cols<float>(Vector3D<float> const & col0, Vector3D<float> const & col1, Vector3D<float> const & col2, Vector3D<float> const & col3) noexcept;
-
-// =============================================================================
-
-template ggm::Transform2D<float> ggm::transform2D_from_rows<float>(Vector3D<float> const & row0, Vector3D<float> const & row1) noexcept;
-template ggm::Transform3D<float> ggm::transform3D_from_rows<float>(Vector4D<float> const & row0, Vector4D<float> const & row1, Vector4D<float> const & row2) noexcept;
-
-// =============================================================================
-
-template ggm::Transform2D<bool> ggm::is_close(Transform2D<float> const & lhs, Transform2D<float> const & rhs, float const & epsilon) noexcept;
-template ggm::Transform3D<bool> ggm::is_close(Transform3D<float> const & lhs, Transform3D<float> const & rhs, float const & epsilon) noexcept;
-
-// =============================================================================
-
-template ggm::Transform2D<bool> ggm::is_equal(Transform2D<float> const & lhs, Transform2D<float> const & rhs) noexcept;
-template ggm::Transform3D<bool> ggm::is_equal(Transform3D<float> const & lhs,
-                                              Transform3D<float> const & rhs) noexcept;
-
-// =============================================================================
-
-template ggm::Transform2D<bool> ggm::is_greater(Transform2D<float> const & lhs, Transform2D<float> const & rhs) noexcept;
-template ggm::Transform3D<bool> ggm::is_greater(Transform3D<float> const & lhs, Transform3D<float> const & rhs) noexcept;
-
-// =============================================================================
-
-template ggm::Transform2D<bool> ggm::is_greater_equal(Transform2D<float> const & lhs, Transform2D<float> const & rhs) noexcept;
-template ggm::Transform3D<bool> ggm::is_greater_equal(Transform3D<float> const & lhs, Transform3D<float> const & rhs) noexcept;
-
-// =============================================================================
-
-template ggm::Transform2D<bool> ggm::is_less(Transform2D<float> const & lhs, Transform2D<float> const & rhs) noexcept;
-template ggm::Transform3D<bool> ggm::is_less(Transform3D<float> const & lhs, Transform3D<float> const & rhs) noexcept;
-
-// =============================================================================
-
-template ggm::Transform2D<bool> ggm::is_less_equal(Transform2D<float> const & lhs, Transform2D<float> const & rhs) noexcept;
-template ggm::Transform3D<bool> ggm::is_less_equal(Transform3D<float> const & lhs, Transform3D<float> const & rhs) noexcept;
-
-// =============================================================================
-
-template ggm::Transform2D<bool> ggm::is_not_equal(Transform2D<float> const & lhs, Transform2D<float> const & rhs) noexcept;
-template ggm::Transform3D<bool> ggm::is_not_equal(Transform3D<float> const & lhs, Transform3D<float> const & rhs) noexcept;
 
 // =============================================================================
