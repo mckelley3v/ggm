@@ -1,9 +1,9 @@
 #pragma once
-#ifndef GGM_TRANSFORM_CONSTANTS_H
-#define GGM_TRANSFORM_CONSTANTS_H
+#ifndef GGM_MATRIX_TRANSFORM_CONSTANTS_H
+#define GGM_MATRIX_TRANSFORM_CONSTANTS_H
 
 #include "ggm/ConstantsUtil.h"
-#include "ggm/Transform/Transform.h"
+#include "ggm/Transform/MatrixTransform.h"
 
 namespace ggm
 {
@@ -36,4 +36,4 @@ namespace ggm
 
 // =============================================================================
 
-#endif // GGM_TRANSFORM_CONSTANTS_H
+#endif // GGM_MATRIX_TRANSFORM_CONSTANTS_H

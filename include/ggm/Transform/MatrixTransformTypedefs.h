@@ -1,8 +1,8 @@
 #pragma once
-#ifndef GGM_TRANSFORM_TYPEDEFS_H
-#define GGM_TRANSFORM_TYPEDEFS_H
+#ifndef GGM_MATRIX_TRANSFORM_TYPEDEFS_H
+#define GGM_MATRIX_TRANSFORM_TYPEDEFS_H
 
-#include "ggm/Transform/TransformFwd.h"
+#include "ggm/Transform/MatrixTransformFwd.h"
 
 #include <cstddef>
 #include <cstdint>
@@ -69,4 +69,4 @@ namespace ggm
 
 // =============================================================================
 
-#endif // GGM_TRANSFORM_TYPEDEFS_H
+#endif // GGM_MATRIX_TRANSFORM_TYPEDEFS_H

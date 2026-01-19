@@ -1,23 +1,15 @@
 #pragma once
-#ifndef GGM_TRANSFORM_FWD_H
-#define GGM_TRANSFORM_FWD_H
+#ifndef GGM_MATRIX_TRANSFORM_H
+#define GGM_MATRIX_TRANSFORM_H
+
+#include "ggm/Matrix/Matrix.h"
 
 // =============================================================================
 
 namespace ggm
 {
     // =============================================================================
-    // Transform types are typdefs of Matrix types, so forward declare the required types first
-    // =============================================================================
-
-    template <typename T>
-    struct Matrix2x3;
-
-    template <typename T>
-    struct Matrix3x4;
-
-    // =============================================================================
-    // Forward declarations for Transform{N}x{M} types:
+    // Transform types are typdefs of Matrix types:
     // =============================================================================
 
     template <typename T>
@@ -31,4 +23,4 @@ namespace ggm
 
 // =============================================================================
 
-#endif // GGM_TRANSFORM_FWD_H
+#endif // GGM_MATRIX_TRANSFORM_H

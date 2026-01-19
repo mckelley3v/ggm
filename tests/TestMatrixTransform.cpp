@@ -1,5 +1,5 @@
-#include "ggm/Transform/Transform.h"
-#include "ggm/Transform/TransformTypedefs.h"
+#include "ggm/Transform/MatrixTransform.h"
+#include "ggm/Transform/MatrixTransformTypedefs.h"
 
 #include "TestUtils/Types.h"
 
@@ -8,11 +8,11 @@
 
 #include <type_traits>
 
-TEMPLATE_TEST_CASE("Transform::TestTransform::Transform2D", /*tags*/ "", GGM_TEST_TYPES())
+TEMPLATE_TEST_CASE("MatrixTransform::TestMatrixTransform::Transform2D", /*tags*/ "", GGM_TEST_TYPES())
 {
     using namespace ggm;
 
-    //STATIC_CHECK(std::is_trivially_default_constructible_v<Transform2D<TestType>>);
+    STATIC_CHECK(std::is_trivially_default_constructible_v<Transform2D<TestType>>);
     STATIC_CHECK(std::is_trivially_move_constructible_v<Transform2D<TestType>>);
     STATIC_CHECK(std::is_trivially_copy_constructible_v<Transform2D<TestType>>);
     STATIC_CHECK(std::is_trivially_move_assignable_v<Transform2D<TestType>>);
@@ -30,11 +30,11 @@ TEMPLATE_TEST_CASE("Transform::TestTransform::Transform2D", /*tags*/ "", GGM_TES
     STATIC_CHECK(offsetof(Transform2D<TestType>, m12) == 5 * sizeof(TestType));
 }
 
-TEMPLATE_TEST_CASE("Transform::TestTransform::Transform3D", /*tags*/ "", GGM_TEST_TYPES())
+TEMPLATE_TEST_CASE("MatrixTransform::TestMatrixTransform::Transform3D", /*tags*/ "", GGM_TEST_TYPES())
 {
     using namespace ggm;
 
-    //STATIC_CHECK(std::is_trivially_default_constructible_v<Transform3D<TestType>>);
+    STATIC_CHECK(std::is_trivially_default_constructible_v<Transform3D<TestType>>);
     STATIC_CHECK(std::is_trivially_move_constructible_v<Transform3D<TestType>>);
     STATIC_CHECK(std::is_trivially_copy_constructible_v<Transform3D<TestType>>);
     STATIC_CHECK(std::is_trivially_move_assignable_v<Transform3D<TestType>>);

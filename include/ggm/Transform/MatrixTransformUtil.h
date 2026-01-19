@@ -1,10 +1,10 @@
 #pragma once
-#ifndef GGM_TRANSFORM_UTIL_H
-#define GGM_TRANSFORM_UTIL_H
+#ifndef GGM_MATRIX_TRANSFORM_UTIL_H
+#define GGM_MATRIX_TRANSFORM_UTIL_H
 
 #include "ggm/Numeric/NumericConstants.h"
 #include "ggm/Numeric/NumericUtil.h"
-#include "ggm/Transform/Transform.h"
+#include "ggm/Transform/MatrixTransform.h"
 #include "ggm/Vector/Vector.h"
 
 #include <cmath>
@@ -842,4 +842,4 @@ constexpr ggm::Transform3D<T> ggm::transform3D_from_translation(Vector3D<T> cons
 
 // =============================================================================
 
-#endif // GGM_TRANSFORM_UTIL_H
+#endif // GGM_MATRIX_TRANSFORM_UTIL_H
