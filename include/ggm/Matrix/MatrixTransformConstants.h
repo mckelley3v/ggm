@@ -10,12 +10,12 @@ namespace ggm
     // =============================================================================
 
     template <typename T>
-    inline constexpr T TransformIdentity = undefined_constant<T>();
+    inline constexpr T MatrixTransformIdentity = undefined_constant<T>();
 
     // -----------------------------------------------------------------------------
 
     template <typename T>
-    inline constexpr Transform2D<T> TransformIdentity<Transform2D<T>> = {
+    inline constexpr MatrixTransform2D<T> MatrixTransformIdentity<MatrixTransform2D<T>> = {
         // clang-format off
         T{ 1 }, T{ 0 }, T{ 0 },
         T{ 0 }, T{ 1 }, T{ 0 },
@@ -23,7 +23,7 @@ namespace ggm
     };
 
     template <typename T>
-    inline constexpr Transform3D<T> TransformIdentity<Transform3D<T>> = {
+    inline constexpr MatrixTransform3D<T> MatrixTransformIdentity<MatrixTransform3D<T>> = {
         // clang-format off
         T{ 1 }, T{ 0 }, T{ 0 }, T{ 0 },
         T{ 0 }, T{ 1 }, T{ 0 }, T{ 0 },

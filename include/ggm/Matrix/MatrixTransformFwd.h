@@ -17,14 +17,14 @@ namespace ggm
     struct Matrix3x4;
 
     // =============================================================================
-    // Forward declarations for Transform{N}x{M} types:
+    // Forward declarations for MatrixTransform{N}D types:
     // =============================================================================
 
     template <typename T>
-    using Transform2D = Matrix2x3<T>;
+    using MatrixTransform2D = Matrix2x3<T>;
 
     template <typename T>
-    using Transform3D = Matrix3x4<T>;
+    using MatrixTransform3D = Matrix3x4<T>;
 
     // =============================================================================
 } // namespace ggm
