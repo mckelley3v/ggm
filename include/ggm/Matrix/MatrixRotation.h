@@ -9,7 +9,7 @@
 namespace ggm
 {
     // =============================================================================
-    // Rotation types are typdefs of Matrix types:
+    /// @defgroup MatrixRotation rotation matrices for 2D and 3D types (typedefs of Matrix types)
     // =============================================================================
 
     template <typename T>

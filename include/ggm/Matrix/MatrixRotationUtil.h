@@ -9,7 +9,7 @@
 #include <cmath>
 
 // =============================================================================
-/// @addtogroup Rotation
+/// @addtogroup MatrixRotation
 /// @{
 /// @details
 ///

@@ -12,7 +12,7 @@
 #include <cmath>
 
 // =============================================================================
-/// @addtogroup Transform
+/// @addtogroup MatrixTransform
 /// @{
 /// @details
 ///
