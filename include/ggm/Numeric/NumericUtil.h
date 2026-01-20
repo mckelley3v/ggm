@@ -336,31 +336,31 @@ namespace ggm
     /// @returns 1 / value if value is not 0, else defaultValue
     // =============================================================================
 
-    constexpr float       reciprocal(short const value,
-                                     float const defaultValue = 0.0f) noexcept;
-    constexpr float       reciprocal(unsigned short const value,
-                                     float const          defaultValue = 0.0f) noexcept;
-    constexpr float       reciprocal(int const   value,
-                                     float const defaultValue = 0.0f) noexcept;
-    constexpr float       reciprocal(unsigned int const value,
-                                     float const        defaultValue = 0.0f) noexcept;
-    constexpr float       reciprocal(long const  value,
-                                     float const defaultValue = 0.0f) noexcept;
-    constexpr float       reciprocal(unsigned long const value,
-                                     float const         defaultValue = 0.0f) noexcept;
-    constexpr double      reciprocal(long long const value,
-                                     double const    defaultValue = 0.0) noexcept;
-    constexpr double      reciprocal(unsigned long long const value,
-                                     double const             defaultValue = 0.0) noexcept;
-    constexpr float       reciprocal(float const value,
-                                     float const defaultValue = 0.0f,
-                                     float const epsilon      = DefaultTolerance<float>) noexcept;
-    constexpr double      reciprocal(double const value,
-                                     double const defaultValue = 0.0,
-                                     double const epsilon      = DefaultTolerance<double>) noexcept;
-    constexpr long double reciprocal(long double const value,
-                                     long double const defaultValue = 0.0l,
-                                     long double const epsilon      = DefaultTolerance<long double>) noexcept;
+    constexpr float    reciprocal(short const value,
+                                  float const defaultValue = 0.0f) noexcept;
+    constexpr float    reciprocal(unsigned short const value,
+                                  float const          defaultValue = 0.0f) noexcept;
+    constexpr float    reciprocal(int const   value,
+                                  float const defaultValue = 0.0f) noexcept;
+    constexpr float    reciprocal(unsigned int const value,
+                                  float const        defaultValue = 0.0f) noexcept;
+    constexpr float    reciprocal(long const  value,
+                                  float const defaultValue = 0.0f) noexcept;
+    constexpr float    reciprocal(unsigned long const value,
+                                  float const         defaultValue = 0.0f) noexcept;
+    constexpr double   reciprocal(long long const value,
+                                  double const    defaultValue = 0.0) noexcept;
+    constexpr double   reciprocal(unsigned long long const value,
+                                  double const             defaultValue = 0.0) noexcept;
+    inline float       reciprocal(float const value,
+                                  float const defaultValue = 0.0f,
+                                  float const epsilon      = DefaultTolerance<float>) noexcept;
+    inline double      reciprocal(double const value,
+                                  double const defaultValue = 0.0,
+                                  double const epsilon      = DefaultTolerance<double>) noexcept;
+    inline long double reciprocal(long double const value,
+                                  long double const defaultValue = 0.0l,
+                                  long double const epsilon      = DefaultTolerance<long double>) noexcept;
 
     // =============================================================================
     /// A safe reciprocal square-root function.
@@ -1308,27 +1308,27 @@ constexpr double ggm::reciprocal(unsigned long long const value,
 
 // -----------------------------------------------------------------------------
 
-constexpr float ggm::reciprocal(float const value,
-                                float const defaultValue,
-                                float const epsilon) noexcept
+inline float ggm::reciprocal(float const value,
+                             float const defaultValue,
+                             float const epsilon) noexcept
 {
     return is_close(value, 0.0f, epsilon) ? defaultValue : 1.0f / value;
 }
 
 // -----------------------------------------------------------------------------
 
-constexpr double ggm::reciprocal(double const value,
-                                 double const defaultValue,
-                                 double const epsilon) noexcept
+inline double ggm::reciprocal(double const value,
+                              double const defaultValue,
+                              double const epsilon) noexcept
 {
     return is_close(value, 0.0, epsilon) ? defaultValue : 1.0 / value;
 }
 
 // -----------------------------------------------------------------------------
 
-constexpr long double ggm::reciprocal(long double const value,
-                                      long double const defaultValue,
-                                      long double const epsilon) noexcept
+inline long double ggm::reciprocal(long double const value,
+                                   long double const defaultValue,
+                                   long double const epsilon) noexcept
 {
     return is_close(value, 0.0l, epsilon) ? defaultValue : 1.0l / value;
 }
