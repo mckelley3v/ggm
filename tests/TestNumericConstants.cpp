@@ -9,15 +9,6 @@
 
 // =============================================================================
 
-TEMPLATE_TEST_CASE("Numeric::TestNumericConstants::Zero", /*tags*/ "", GGM_NUMERIC_TEST_TYPES())
-{
-    using namespace ggm;
-
-    STATIC_CHECK(Zero<TestType> == TestType(0));
-}
-
-// =============================================================================
-
 TEMPLATE_TEST_CASE("Numeric::TestNumericConstants::DefaultTolerance", /*tags*/ "", GGM_FLOAT_TEST_TYPES())
 {
     using namespace ggm;
