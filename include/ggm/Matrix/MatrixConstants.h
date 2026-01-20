@@ -2,7 +2,6 @@
 #ifndef GGM_MATRIX_CONSTANTS_H
 #define GGM_MATRIX_CONSTANTS_H
 
-#include "ggm/ConstantsUtil.h"
 #include "ggm/Matrix/Matrix.h"
 
 // =============================================================================
@@ -13,10 +12,10 @@
 /// constants:
 /// ----------
 ///
-/// Syntax               | Description
-/// ------               | -----------
-/// Zero<MatrixType>     | constant for all zeroes
-/// Identity<MatrixType> | constant for ones down diagonal, zeroes elsewhere
+/// Syntax                | Description
+/// ------                | -----------
+/// MatrixNxM_Zero<T>     | constant for all zeroes
+/// MatrixNxN_Identity<T> | constant for ones down diagonal, zeroes elsewhere
 /// @}
 // =============================================================================
 
@@ -25,39 +24,39 @@ namespace ggm
     // =============================================================================
 
     template <typename T>
-    inline constexpr Matrix1x1<T> Zero<Matrix1x1<T>> = {
+    inline constexpr Matrix1x1<T> Matrix1x1_Zero = {
         T{ 0 },
     };
 
     template <typename T>
-    inline constexpr Matrix1x2<T> Zero<Matrix1x2<T>> = {
+    inline constexpr Matrix1x2<T> Matrix1x2_Zero = {
         // clang-format off
         T{ 0 }, T{ 0 },
         // clang-format on
     };
 
     template <typename T>
-    inline constexpr Matrix1x3<T> Zero<Matrix1x3<T>> = {
+    inline constexpr Matrix1x3<T> Matrix1x3_Zero = {
         // clang-format off
         T{ 0 }, T{ 0 }, T{ 0 },
         // clang-format on
     };
 
     template <typename T>
-    inline constexpr Matrix1x4<T> Zero<Matrix1x4<T>> = {
+    inline constexpr Matrix1x4<T> Matrix1x4_Zero = {
         // clang-format off
         T{ 0 }, T{ 0 }, T{ 0 }, T{ 0 },
         // clang-format on
     };
 
     template <typename T>
-    inline constexpr Matrix2x1<T> Zero<Matrix2x1<T>> = {
+    inline constexpr Matrix2x1<T> Matrix2x1_Zero = {
         T{ 0 },
         T{ 0 },
     };
 
     template <typename T>
-    inline constexpr Matrix2x2<T> Zero<Matrix2x2<T>> = {
+    inline constexpr Matrix2x2<T> Matrix2x2_Zero = {
         // clang-format off
         T{ 0 }, T{ 0 },
         T{ 0 }, T{ 0 },
@@ -65,7 +64,7 @@ namespace ggm
     };
 
     template <typename T>
-    inline constexpr Matrix2x3<T> Zero<Matrix2x3<T>> = {
+    inline constexpr Matrix2x3<T> Matrix2x3_Zero = {
         // clang-format off
         T{ 0 }, T{ 0 }, T{ 0 },
         T{ 0 }, T{ 0 }, T{ 0 },
@@ -73,49 +72,49 @@ namespace ggm
     };
 
     template <typename T>
-    inline constexpr Matrix2x4<T> Zero<Matrix2x4<T>> = {
-        // clang-format off
-        T{ 0 }, T{ 0 }, T{ 0 }, T{ 0 },
-        T{ 0 }, T{ 0 }, T{ 0 }, T{ 0 },
-        // clang-format on
-    };
-
-    template <typename T>
-    inline constexpr Matrix3x1<T> Zero<Matrix3x1<T>> = {
-        T{ 0 },
-        T{ 0 },
-        T{ 0 },
-    };
-
-    template <typename T>
-    inline constexpr Matrix3x2<T> Zero<Matrix3x2<T>> = {
-        // clang-format off
-        T{ 0 }, T{ 0 },
-        T{ 0 }, T{ 0 },
-        T{ 0 }, T{ 0 },
-        // clang-format on
-    };
-
-    template <typename T>
-    inline constexpr Matrix3x3<T> Zero<Matrix3x3<T>> = {
-        // clang-format off
-        T{ 0 }, T{ 0 }, T{ 0 },
-        T{ 0 }, T{ 0 }, T{ 0 },
-        T{ 0 }, T{ 0 }, T{ 0 },
-        // clang-format on
-    };
-
-    template <typename T>
-    inline constexpr Matrix3x4<T> Zero<Matrix3x4<T>> = {
+    inline constexpr Matrix2x4<T> Matrix2x4_Zero = {
         // clang-format off
         T{ 0 }, T{ 0 }, T{ 0 }, T{ 0 },
         T{ 0 }, T{ 0 }, T{ 0 }, T{ 0 },
+        // clang-format on
+    };
+
+    template <typename T>
+    inline constexpr Matrix3x1<T> Matrix3x1_Zero = {
+        T{ 0 },
+        T{ 0 },
+        T{ 0 },
+    };
+
+    template <typename T>
+    inline constexpr Matrix3x2<T> Matrix3x2_Zero = {
+        // clang-format off
+        T{ 0 }, T{ 0 },
+        T{ 0 }, T{ 0 },
+        T{ 0 }, T{ 0 },
+        // clang-format on
+    };
+
+    template <typename T>
+    inline constexpr Matrix3x3<T> Matrix3x3_Zero = {
+        // clang-format off
+        T{ 0 }, T{ 0 }, T{ 0 },
+        T{ 0 }, T{ 0 }, T{ 0 },
+        T{ 0 }, T{ 0 }, T{ 0 },
+        // clang-format on
+    };
+
+    template <typename T>
+    inline constexpr Matrix3x4<T> Matrix3x4_Zero = {
+        // clang-format off
+        T{ 0 }, T{ 0 }, T{ 0 }, T{ 0 },
+        T{ 0 }, T{ 0 }, T{ 0 }, T{ 0 },
         T{ 0 }, T{ 0 }, T{ 0 }, T{ 0 },
         // clang-format on
     };
 
     template <typename T>
-    inline constexpr Matrix4x1<T> Zero<Matrix4x1<T>> = {
+    inline constexpr Matrix4x1<T> Matrix4x1_Zero = {
         T{ 0 },
         T{ 0 },
         T{ 0 },
@@ -123,7 +122,7 @@ namespace ggm
     };
 
     template <typename T>
-    inline constexpr Matrix4x2<T> Zero<Matrix4x2<T>> = {
+    inline constexpr Matrix4x2<T> Matrix4x2_Zero = {
         // clang-format off
         T{ 0 }, T{ 0 },
         T{ 0 }, T{ 0 },
@@ -133,7 +132,7 @@ namespace ggm
     };
 
     template <typename T>
-    inline constexpr Matrix4x3<T> Zero<Matrix4x3<T>> = {
+    inline constexpr Matrix4x3<T> Matrix4x3_Zero = {
         // clang-format off
         T{ 0 }, T{ 0 }, T{ 0 },
         T{ 0 }, T{ 0 }, T{ 0 },
@@ -143,7 +142,7 @@ namespace ggm
     };
 
     template <typename T>
-    inline constexpr Matrix4x4<T> Zero<Matrix4x4<T>> = {
+    inline constexpr Matrix4x4<T> Matrix4x4_Zero = {
         // clang-format off
         T{ 0 }, T{ 0 }, T{ 0 }, T{ 0 },
         T{ 0 }, T{ 0 }, T{ 0 }, T{ 0 },
@@ -155,17 +154,12 @@ namespace ggm
     // =============================================================================
 
     template <typename T>
-    inline constexpr T Identity = undefined_constant<T>();
-
-    // -----------------------------------------------------------------------------
-
-    template <typename T>
-    inline constexpr Matrix1x1<T> Identity<Matrix1x1<T>> = {
+    inline constexpr Matrix1x1<T> Matrix1x1_Identity = {
         T{ 1 },
     };
 
     template <typename T>
-    inline constexpr Matrix2x2<T> Identity<Matrix2x2<T>> = {
+    inline constexpr Matrix2x2<T> Matrix2x2_Identity = {
         // clang-format off
         T{ 1 }, T{ 0 },
         T{ 0 }, T{ 1 },
@@ -173,7 +167,7 @@ namespace ggm
     };
 
     template <typename T>
-    inline constexpr Matrix3x3<T> Identity<Matrix3x3<T>> = {
+    inline constexpr Matrix3x3<T> Matrix3x3_Identity = {
         // clang-format off
         T{ 1 }, T{ 0 }, T{ 0 },
         T{ 0 }, T{ 1 }, T{ 0 },
@@ -182,7 +176,7 @@ namespace ggm
     };
 
     template <typename T>
-    inline constexpr Matrix4x4<T> Identity<Matrix4x4<T>> = {
+    inline constexpr Matrix4x4<T> Matrix4x4_Identity = {
         // clang-format off
         T{ 1 }, T{ 0 }, T{ 0 }, T{ 0 },
         T{ 0 }, T{ 1 }, T{ 0 }, T{ 0 },

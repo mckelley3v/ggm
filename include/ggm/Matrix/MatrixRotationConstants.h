@@ -2,7 +2,6 @@
 #ifndef GGM_MATRIX_ROTATION_CONSTANTS_H
 #define GGM_MATRIX_ROTATION_CONSTANTS_H
 
-#include "ggm/ConstantsUtil.h"
 #include "ggm/Matrix/MatrixRotation.h"
 
 namespace ggm
@@ -10,12 +9,7 @@ namespace ggm
     // =============================================================================
 
     template <typename T>
-    inline constexpr T MatrixRotationIdentity = undefined_constant<T>();
-
-    // -----------------------------------------------------------------------------
-
-    template <typename T>
-    inline constexpr MatrixRotation2D<T> MatrixRotationIdentity<MatrixRotation2D<T>> = {
+    inline constexpr MatrixRotation2D<T> MatrixRotation2D_Identity = {
         // clang-format off
         T{ 1 }, T{ 0 },
         T{ 0 }, T{ 1 },
@@ -23,7 +17,7 @@ namespace ggm
     };
 
     template <typename T>
-    inline constexpr MatrixRotation3D<T> MatrixRotationIdentity<MatrixRotation3D<T>> = {
+    inline constexpr MatrixRotation3D<T> MatrixRotation3D_Identity = {
         // clang-format off
         T{ 1 }, T{ 0 }, T{ 0 },
         T{ 0 }, T{ 1 }, T{ 0 },

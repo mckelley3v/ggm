@@ -2,7 +2,6 @@
 #ifndef GGM_MATRIX_TRANSFORM_CONSTANTS_H
 #define GGM_MATRIX_TRANSFORM_CONSTANTS_H
 
-#include "ggm/ConstantsUtil.h"
 #include "ggm/Matrix/MatrixTransform.h"
 
 namespace ggm
@@ -10,12 +9,7 @@ namespace ggm
     // =============================================================================
 
     template <typename T>
-    inline constexpr T MatrixTransformIdentity = undefined_constant<T>();
-
-    // -----------------------------------------------------------------------------
-
-    template <typename T>
-    inline constexpr MatrixTransform2D<T> MatrixTransformIdentity<MatrixTransform2D<T>> = {
+    inline constexpr MatrixTransform2D<T> MatrixTransform2D_Identity = {
         // clang-format off
         T{ 1 }, T{ 0 }, T{ 0 },
         T{ 0 }, T{ 1 }, T{ 0 },
@@ -23,7 +17,7 @@ namespace ggm
     };
 
     template <typename T>
-    inline constexpr MatrixTransform3D<T> MatrixTransformIdentity<MatrixTransform3D<T>> = {
+    inline constexpr MatrixTransform3D<T> MatrixTransform3D_Identity = {
         // clang-format off
         T{ 1 }, T{ 0 }, T{ 0 }, T{ 0 },
         T{ 0 }, T{ 1 }, T{ 0 }, T{ 0 },
