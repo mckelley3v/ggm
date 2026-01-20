@@ -30,7 +30,7 @@ C++ graphics and game 3D math library.
     * no: ```v.dot(u)```
 
 ---
-## Matrix
+## Matrix - generic mathematical matrix type for 1x1 through 4x4
 * | Matrix         |                |                |                |
   | -------------- | -------------- | -------------- | -------------- |
   | Matrix1x1\<T\> | Matrix1x2\<T\> | Matrix1x3\<T\> | Matrix1x4\<T\> |
@@ -49,6 +49,34 @@ C++ graphics and game 3D math library.
   | [ggm/Matrix/MatrixUtil.h](include/ggm/Matrix/MatrixUtil.h)             | Definition of matrix operators and utilities        |
   | [ggm/Matrix/MatrixVectorUtil.h](include/ggm/Matrix/MatrixVectorUtil.h) | Definition of matrix-vector operators and utilities |
 
+## RotationMatrix - specialized typedefs and utilties for 2D and 3D rotation matrices
+* | RotationMatrix        |
+  | --------------------- |
+  | RotationMatrix2D\<T\> |
+  | RotationMatrix3D\<T\> |
+
+* | File                                                                                   | Description                                                      |
+  | -------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+  | [ggm/Matrix/MatrixRotation.h](include/ggm/Matrix/MatrixRotation.h)                     | Minimal definition of rotation matrix types                      |
+  | [ggm/Matrix/MatrixRotationConstants.h](include/ggm/Matrix/MatrixRotationConstants.h)   | Definitions of common rotation matrix constants                  |
+  | [ggm/Matrix/MatrixRotationFwd.h](include/ggm/Matrix/MatrixRotationFwd.h)               | Forward declaration of rotation matrix types                     |
+  | [ggm/Matrix/MatrixRotationTypedefs.h](include/ggm/Matrix/MatrixRotationTypedefs.h)     | Typedefs of common rotation matrix types, e.g. RotationMatrix3Df |
+  | [ggm/Matrix/MatrixRotationUtil.h](include/ggm/Matrix/MatrixRotationUtil.h)             | Definition of rotation matrix utilities                          |
+
+## TransformMatrix - specialized typedefs and utilities for 2D and 3D transform matrices
+* | TransformMatrix        |
+  | ---------------------- |
+  | TransformMatrix2D\<T\> |
+  | TransformMatrix3D\<T\> |
+
+* | File                                                                                     | Description                                                        |
+  | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+  | [ggm/Matrix/MatrixTransform.h](include/ggm/Matrix/MatrixTransform.h)                     | Minimal definition of transform matrix types                       |
+  | [ggm/Matrix/MatrixTransformConstants.h](include/ggm/Matrix/MatrixTransformConstants.h)   | Definitions of common transform matrix constants                   |
+  | [ggm/Matrix/MatrixTransformFwd.h](include/ggm/Matrix/MatrixTransformFwd.h)               | Forward declaration of transform matrix types                      |
+  | [ggm/Matrix/MatrixTransformTypedefs.h](include/ggm/Matrix/MatrixTransformTypedefs.h)     | Typedefs of common transform matrix types, e.g. TransformMatrix3Df |
+  | [ggm/Matrix/MatrixTransformUtil.h](include/ggm/Matrix/MatrixTransformUtil.h)             | Definition of transform matrix utilities                           |
+
 ### Implementation design
 * Goals:
   * compatibility with GPU for int, float types
@@ -58,34 +86,12 @@ C++ graphics and game 3D math library.
 
 ---
 ## Numeric
-* | Function                     | Description                                                                                      |
-  | ---------------------------- | ------------------------------------------------------------------------------------------------ |
-  | y = abs(x);                  | Compute the absolute value.                                                                      |
-  | y = ceil(x);                 | Compute the least integral value &ge; value.                                                     |
-  | y = clamp(x, min, max);      | Clamp value to [minValue, maxValue].                                                             |
-  | y = floor(x);                | Compute the greatest integral value &le; value.                                                  |
-  | y = fract(x);                | The fractional component of value, i.e. value - floor(value).                                    |
-  | y = inverse_lerp(x0, x1, x); | Inverse of linear interpolation.                                                                 |
-  | b = is_close(x, y, k);       | Compare floating point numbers to each other for approximate equality with specified epsilon.    |
-  | y = lerp(x0, x1, t);         | Linear interpolation between two values.                                                         |
-  | y = linear_step(e0, e1, v);  | Linearly interpolate from 0 to 1 as value progresses from edge0 to edge1.                        |
-  | z = max(x, y)                | Get the minimum of two numbers                                                                   |
-  | z = max_of(a, b, c, ...)     | Get the minimum of a set of numbers                                                              |
-  | z = min(x, y)                | Get the minimum of two numbers                                                                   |
-  | z = min_of(a, b, c, ...)     | Get the minimum of a set of numbers                                                              |
-  | y = reciprocal(x, def);      | A safe reciprocal function.                                                                      |
-  | y = reciprocal_sqrt(x, def); | A safe reciprocal square-root function.                                                          |
-  | y = repeat(x, min, max);     | Wraps value to [minValue, endValue).                                                             |
-  | y = saturate(x);             | Clamp value to [0, 1].                                                                           |
-  | y = smooth_step(e0, e1, x);  | Hermite cubic interpolation from 0 to 1 as value progresses from edge0 to edge1.                 |
-  | y = trunc(x);                | Compute greatest integral value s.t. abs(trunc(value)) &le; abs(value), i.e. round towards zero. |
-
-* | File                                                             | Description                                    |
-  | ---------------------------------------------------------------- | ---------------------------------------------- |
-  | [ggm/NumericAll.h](include/ggm/NumericAll.h)                     | Top-level header file for all of /ggm/Numeric/ |
-  |                                                                  |                                                |
-  | [ggm/Numeric/NumericUtil.h](include/ggm/NumericUtil.h)           | Definition of numeric utilities                |
-  | [ggm/Numeric/NumericConstants.h](include/ggm/NumericConstants.h) | Definitions of common numeric constants        |
+* | File                                                                     | Description                                    |
+  | ------------------------------------------------------------------------ | ---------------------------------------------- |
+  | [ggm/NumericAll.h](include/ggm/NumericAll.h)                             | Top-level header file for all of /ggm/Numeric/ |
+  |                                                                          |                                                |
+  | [ggm/Numeric/NumericUtil.h](include/ggm/Numeric/NumericUtil.h)           | Definition of numeric utilities                |
+  | [ggm/Numeric/NumericConstants.h](include/ggm/Numeric/NumericConstants.h) | Definitions of common numeric constants        |
 
 ### Implementation design
 * Duplicates with standard library exist due to:
