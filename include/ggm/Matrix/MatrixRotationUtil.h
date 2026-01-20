@@ -13,8 +13,7 @@
 /// @{
 /// @details
 ///
-/// operators:
-/// ----------
+/// Functions for creating and manipulating rotation matrices.
 ///
 /// functions:
 /// ----------

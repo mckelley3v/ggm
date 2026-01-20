@@ -411,12 +411,12 @@ template ggm::Matrix4x4<float> ggm::transpose<float>(Matrix4x4<float> const & lh
 
 // =============================================================================
 
-template ggm::Matrix2x2<float> ggm::matrix2x2_from_scale<float>(float const & scale) noexcept;
-template ggm::Matrix2x2<float> ggm::matrix2x2_from_scale<float>(float const & scaleX, float const & scaleY) noexcept;
-template ggm::Matrix3x3<float> ggm::matrix3x3_from_scale<float>(float const & scale) noexcept;
-template ggm::Matrix3x3<float> ggm::matrix3x3_from_scale<float>(float const & scaleX, float const & scaleY, float const & scaleZ) noexcept;
-template ggm::Matrix4x4<float> ggm::matrix4x4_from_scale<float>(float const & scale) noexcept;
-template ggm::Matrix4x4<float> ggm::matrix4x4_from_scale<float>(float const & scaleX, float const & scaleY, float const & scaleZ, float const & scaleW) noexcept;
+template ggm::Matrix2x2<float> ggm::matrix2x2_from_diagonal<float>(float const & diagonal) noexcept;
+template ggm::Matrix2x2<float> ggm::matrix2x2_from_diagonal<float>(float const & diagonal00, float const & diagonal11) noexcept;
+template ggm::Matrix3x3<float> ggm::matrix3x3_from_diagonal<float>(float const & diagonal) noexcept;
+template ggm::Matrix3x3<float> ggm::matrix3x3_from_diagonal<float>(float const & diagonal00, float const & diagonal11, float const & diagonal22) noexcept;
+template ggm::Matrix4x4<float> ggm::matrix4x4_from_diagonal<float>(float const & diagonal) noexcept;
+template ggm::Matrix4x4<float> ggm::matrix4x4_from_diagonal<float>(float const & diagonal00, float const & diagonal11, float const & diagonal22, float const & diagonal33) noexcept;
 
 // =============================================================================
 

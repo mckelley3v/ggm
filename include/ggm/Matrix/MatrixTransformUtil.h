@@ -16,18 +16,14 @@
 /// @{
 /// @details
 ///
-/// operators:
-/// ----------
-///
-/// Syntax                  | Description
-/// ------                  | -----------
-/// t1 = transform(t2, t3); | transform concatentation: matrix-matrix multiplication
+/// Functions for creating and manipulating game and graphics transform matrices.
 ///
 /// functions:
 /// ----------
 ///
 /// Syntax                                                    | Description
 /// ------                                                    | -----------
+/// t1 = transform(t2, t3);                                   | transform concatentation: matrix-matrix multiplication
 /// m = matrix3x3_from_transform2D(t)                         | expand the MatrixTransform2D to a Matrix3x3 with {0, 0, 1} as the 3rd row
 /// m = matrix4x4_from_transform3D(t)                         | expand the MatrixTransform3D to a Matrix4x4 with {0, 0, 0, 1} as the 4th row
 /// s = determinant(t)                                        | calculate the determinant of matrix2x2|matrix3x3 submatrix
