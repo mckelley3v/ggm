@@ -1,6 +1,6 @@
 #pragma once
-#ifndef GGM_TRANSFORM_H
-#define GGM_TRANSFORM_H
+#ifndef GGM_MATRIX_ROTATION_H
+#define GGM_MATRIX_ROTATION_H
 
 #include "ggm/Matrix/Matrix.h"
 
@@ -9,18 +9,18 @@
 namespace ggm
 {
     // =============================================================================
-    // Transform types are typdefs of Matrix types:
+    // Rotation types are typdefs of Matrix types:
     // =============================================================================
 
     template <typename T>
-    using Transform2D = Matrix2x3<T>;
+    using MatrixRotation2D = Matrix2x2<T>;
 
     template <typename T>
-    using Transform3D = Matrix3x4<T>;
+    using MatrixRotation3D = Matrix3x3<T>;
 
     // =============================================================================
 } // namespace ggm
 
 // =============================================================================
 
-#endif // GGM_TRANSFORM_H
+#endif // GGM_MATRIX_ROTATION_H
