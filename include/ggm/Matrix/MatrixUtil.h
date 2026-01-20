@@ -68,15 +68,7 @@
 /// m1 = inverse(m2)                             | calculate inverse of square matrix
 /// m1 = transpose(m2)                           | make matrix by turning rows into cols
 /// m = matrixNxN_from_scale(s)                  | create a square matrix with the given scale as the diagonal elements
-/// m = matrix2x2_from_rotation(s)               | create a square matrix with the given rotation angle (radians)
-/// m = matrix2x2_from_rotation90()              | create a square matrix for a 90 degree rotation
-/// m = matrix2x2_from_rotation180()             | create a square matrix for a 180 degree rotation
-/// m = matrix2x2_from_rotation270()             | create a square matrix for a 270 degree rotation
 /// m = matrix3x3_from_scale(s)                  | create a square matrix with the given scale as the diagonal elements
-/// m = matrix3x3_from_rotation_x(s)             | create a square matrix for the given rotation angle (radians) around the x-axis
-/// m = matrix3x3_from_rotation_y(s)             | create a square matrix for the given rotation angle (radians) around the y-axis
-/// m = matrix3x3_from_rotation_z(s)             | create a square matrix for the given rotation angle (radians) around the z-axis
-/// m = matrix3x3_from_rotation_axis_angle(v, s) | create a square matrix for the given rotation angle (radians) around the specfied axis
 /// m = matrix_from_cols(c0, ..., cN)            | create a matrix from the given column vectors
 /// m = matrix_from_rows(r0, ..., rN)            | create a matrix from the given row vectors
 /// m1 = matrix_drop_col<C>(m2)                  | create a submatrix by removing the specified col
@@ -2139,26 +2131,6 @@ namespace ggm
                                                 T const & scaleY,
                                                 T const & scaleZ,
                                                 T const & scaleW) noexcept;
-
-    // =============================================================================
-
-    /// create a square matrix with the given rotation angle
-    template <typename T>
-    inline Matrix2x2<T> matrix2x2_from_rotation(T const & angleRadians) noexcept;
-
-    // =============================================================================
-
-    /// create a square matrix for a 90 degree rotation
-    template <typename T>
-    constexpr Matrix2x2<T> matrix2x2_from_rotation90() noexcept;
-
-    /// create a square matrix for a 180 degree rotation
-    template <typename T>
-    constexpr Matrix2x2<T> matrix2x2_from_rotation180() noexcept;
-
-    /// create a square matrix for a 270 degree rotation
-    template <typename T>
-    constexpr Matrix2x2<T> matrix2x2_from_rotation270() noexcept;
 
     // =============================================================================
 
@@ -8602,61 +8574,6 @@ constexpr ggm::Matrix4x4<T> ggm::matrix4x4_from_scale(T const & scaleX,
           T{0}, scaleY,   T{0},   T{0},
           T{0},   T{0}, scaleZ,   T{0},
           T{0},   T{0},   T{0}, scaleW,
-        // clang-format on
-    };
-}
-
-// =============================================================================
-
-template <typename T>
-inline ggm::Matrix2x2<T> ggm::matrix2x2_from_rotation(T const & angleRadians) noexcept
-{
-    T const c = std::cos(angleRadians);
-    T const s = std::sin(angleRadians);
-
-    return Matrix2x2<T>{
-        // clang-format off
-         c, s,
-        -s, c,
-        // clang-format on
-    };
-}
-
-// =============================================================================
-
-template <typename T>
-constexpr ggm::Matrix2x2<T> ggm::matrix2x2_from_rotation90() noexcept
-{
-    return Matrix2x2<T>{
-        // clang-format off
-        T{0}, T{-1},
-        T{1},  T{0},
-        // clang-format on
-    };
-}
-
-// -----------------------------------------------------------------------------
-
-template <typename T>
-constexpr ggm::Matrix2x2<T> ggm::matrix2x2_from_rotation180() noexcept
-{
-    return Matrix2x2<T>{
-        // clang-format off
-        T{-1},  T{0},
-         T{0}, T{-1},
-        // clang-format on
-    };
-}
-
-// -----------------------------------------------------------------------------
-
-template <typename T>
-constexpr ggm::Matrix2x2<T> ggm::matrix2x2_from_rotation270() noexcept
-{
-    return Matrix2x2<T>{
-        // clang-format off
-         T{0}, T{1},
-        T{-1}, T{0},
         // clang-format on
     };
 }

@@ -3,6 +3,7 @@
 #define GGM_MATRIX_TRANSFORM_UTIL_H
 
 #include "ggm/Matrix/Matrix.h"
+#include "ggm/Matrix/MatrixRotation.h"
 #include "ggm/Matrix/MatrixTransform.h"
 #include "ggm/Numeric/NumericConstants.h"
 #include "ggm/Numeric/NumericUtil.h"
@@ -25,28 +26,22 @@
 /// functions:
 /// ----------
 ///
-/// Syntax                                         | Description
-/// ------                                         | -----------
-/// m = matrix3x3_from_transform2D(t)              | expand the MatrixTransform2D to a Matrix3x3 with {0, 0, 1} as the 3rd row
-/// m = matrix4x4_from_transform3D(t)              | expand the MatrixTransform3D to a Matrix4x4 with {0, 0, 0, 1} as the 4th row
-/// s = determinant(t)                             | calculate the determinant of matrix2x2|matrix3x3 submatrix
-/// b = is_invertible(t)                           | true if matrix2x2|matrix3x3 submatrix can be inverted, i.e. determinant != 0
-/// b = is_orthogonal(t)                           | true if matrix2x2|matrix3x3 submatrix rows and cols are orthonormal vectors
-/// t1 = inverse(t2)                               | calculate inverse as if matrix3x3|matrix4x4
-/// t = transform2D_from_matrix(m)                 | create a MatrixTransform2D from a Matrix3x3 (drops the 3rd row)
-/// t = transform3D_from_matrix(m)                 | create a MatrixTransform3D from a Matrix4x4 (drops the 4th row)
-/// t = transform2D_from_scale(s)                  | create a transform matrix with the given scale as the diagonal elements
-/// t = transform3D_from_scale(s)                  | create a transform matrix with the given scale as the diagonal elements
-/// t = transform2D_from_rotation(s)               | create a transform matrix with the given rotation angle (radians)
-/// t = transform2D_from_rotation90()              | create a transform matrix for a 90 degree rotation
-/// t = transform2D_from_rotation180()             | create a transform matrix for a 180 degree rotation
-/// t = transform2D_from_rotation270()             | create a transform matrix for a 270 degree rotation
-/// t = transform3D_from_rotation_x(s)             | create a transform matrix for the given rotation angle (radians) around the x-axis
-/// t = transform3D_from_rotation_y(s)             | create a transform matrix for the given rotation angle (radians) around the y-axis
-/// t = transform3D_from_rotation_z(s)             | create a transform matrix for the given rotation angle (radians) around the z-axis
-/// t = transform3D_from_rotation_axis_angle(v, s) | create a transform matrix for the given rotation angle (radians) around the specfied axis
-/// t = transform2D_from_translation(x, y)         | create a transform matrix with the given translation
-/// t = transform3D_from_translation(x, y, z)      | create a transform matrix with the given translation
+/// Syntax                                                    | Description
+/// ------                                                    | -----------
+/// m = matrix3x3_from_transform2D(t)                         | expand the MatrixTransform2D to a Matrix3x3 with {0, 0, 1} as the 3rd row
+/// m = matrix4x4_from_transform3D(t)                         | expand the MatrixTransform3D to a Matrix4x4 with {0, 0, 0, 1} as the 4th row
+/// s = determinant(t)                                        | calculate the determinant of matrix2x2|matrix3x3 submatrix
+/// b = is_invertible(t)                                      | true if matrix2x2|matrix3x3 submatrix can be inverted, i.e. determinant != 0
+/// b = is_orthogonal(t)                                      | true if matrix2x2|matrix3x3 submatrix rows and cols are orthonormal vectors
+/// t1 = inverse(t2)                                          | calculate inverse as if matrix3x3|matrix4x4
+/// t = transform2D_from_scale(s)                             | create a transform matrix with the given scale as the diagonal elements
+/// t = transform3D_from_scale(s)                             | create a transform matrix with the given scale as the diagonal elements
+/// t = transform2D_from_rotation(r)                          | create a transform matrix from the given rotation matrix
+/// t = transform3D_from_rotation(r)                          | create a transform matrix from the given rotation matrix
+/// t = transform2D_from_translation(t)                       | create a transform matrix with the given translation
+/// t = transform3D_from_translation(t)                       | create a transform matrix with the given translation
+/// t = transform2D_from_translation_rotation_scale(s, r, t); | create a transform matrix with the given translation, rotation, and scale
+/// t = transform3D_from_translation_rotation_scale(s, r, t); | create a transform matrix with the given translation, rotation, and scale
 ///
 /// @}
 // =============================================================================
@@ -57,13 +52,15 @@ namespace ggm
 
     /// matrix-matrix multiplication (transform concatentation)
     /// @details
-    /// equivalent to transform2D_from_matrix(matrix3x3_from_transform2D(lhs) * matrix3x3_from_transform2D(rhs))
+    /// equivalent to matrix_drop_row<2>(matrix3x3_from_transform2D(lhs) * matrix3x3_from_transform2D(rhs))
     /// @relates MatrixTransform2D
     template <typename T>
     constexpr MatrixTransform2D<T> transform(MatrixTransform2D<T> const & lhs,
                                              MatrixTransform2D<T> const & rhs) noexcept;
 
     /// matrix-matrix multiplication (transform concatentation)
+    /// @details
+    /// equivalent to matrix_drop_row<3>(matrix4x4_from_transform3D(lhs) * matrix4x4_from_transform3D(rhs))
     /// @relates MatrixTransform3D
     template <typename T>
     constexpr MatrixTransform3D<T> transform(MatrixTransform3D<T> const & lhs,
@@ -141,22 +138,6 @@ namespace ggm
 
     // =============================================================================
 
-    /// create a MatrixTransform2D from a Matrix3x3 (drops the 3rd row)
-    /// @relates Matrix3x3
-    /// @relates MatrixTransform2D
-    template <typename T>
-    constexpr MatrixTransform2D<T> transform2D_from_matrix(Matrix3x3<T> const & value) noexcept;
-
-    // -----------------------------------------------------------------------------
-
-    /// create a MatrixTransform3D from a Matrix4x4 (drops the 4th row)
-    /// @relates Matrix4x4
-    /// @relates MatrixTransform3D
-    template <typename T>
-    constexpr MatrixTransform3D<T> transform3D_from_matrix(Matrix4x4<T> const & value) noexcept;
-
-    // =============================================================================
-
     /// create an transform matrix with the given scale as the diagonal elements
     /// @relates MatrixTransform2D
     template <typename T>
@@ -165,7 +146,7 @@ namespace ggm
     /// create an transform matrix with the given scale as the diagonal elements
     /// @relates MatrixTransform2D
     template <typename T>
-    constexpr MatrixTransform2D<T> transform2D_from_scale(Vector2D<T> const & scaleXY) noexcept;
+    constexpr MatrixTransform2D<T> transform2D_from_scale(Vector2D<T> const & scale) noexcept;
 
     /// create an transform matrix with the given scale as the diagonal elements
     /// @relates MatrixTransform2D
@@ -183,7 +164,7 @@ namespace ggm
     /// create a transform matrix with the given scale as the diagonal elements
     /// @relates MatrixTransform3D
     template <typename T>
-    constexpr MatrixTransform3D<T> transform3D_from_scale(Vector3D<T> const & scaleXYZ) noexcept;
+    constexpr MatrixTransform3D<T> transform3D_from_scale(Vector3D<T> const & scale) noexcept;
 
     /// create a transform matrix with the given scale as the diagonal elements
     /// @relates MatrixTransform3D
@@ -194,44 +175,17 @@ namespace ggm
 
     // =============================================================================
 
-    /// create an transform matrix with the given rotation angle
+    /// create a transform matrix from the given rotation matrix
+    /// @relates MatrixRotation2D
+    /// @relates MatrixTransform2D
     template <typename T>
-    inline MatrixTransform2D<T> transform2D_from_rotation(T const & angleRadians) noexcept;
+    constexpr MatrixTransform2D<T> transform2D_from_rotation(MatrixRotation2D<T> const & rotation) noexcept;
 
-    /// create an transform matrix corresponding to a rotation of 90 degrees
-    template <typename T>
-    constexpr MatrixTransform2D<T> transform2D_from_rotation90() noexcept;
-
-    /// create an transform matrix corresponding to a rotation of 180 degrees
-    template <typename T>
-    constexpr MatrixTransform2D<T> transform2D_from_rotation180() noexcept;
-
-    /// create an transform matrix corresponding to a rotation of 270 degrees
-    template <typename T>
-    constexpr MatrixTransform2D<T> transform2D_from_rotation270() noexcept;
-
-    // -----------------------------------------------------------------------------
-
-    /// create a transform matrix for the given rotation angle (radians) around the x-axis
+    /// create a transform matrix from the given rotation matrix
+    /// @relates MatrixRotation3D
     /// @relates MatrixTransform3D
     template <typename T>
-    inline MatrixTransform3D<T> transform3D_from_rotation_x(T const & angleRadians) noexcept;
-
-    /// create a transform matrix for the given rotation angle (radians) around the y-axis
-    /// @relates MatrixTransform3D
-    template <typename T>
-    inline MatrixTransform3D<T> transform3D_from_rotation_y(T const & angleRadians) noexcept;
-
-    /// create a transform matrix for the given rotation angle (radians) around the z-axis
-    /// @relates MatrixTransform3D
-    template <typename T>
-    inline MatrixTransform3D<T> transform3D_from_rotation_z(T const & angleRadians) noexcept;
-
-    /// create a transform matrix for the given rotation angle (radians) around the specfied axis
-    /// @relates MatrixTransform3D
-    template <typename T>
-    inline MatrixTransform3D<T> transform3D_from_rotation_axis_angle(Vector3D<T> const & axis,
-                                                                     T const &           angleRadians) noexcept;
+    constexpr MatrixTransform3D<T> transform3D_from_rotation(MatrixRotation3D<T> const & rotation) noexcept;
 
     // =============================================================================
 
@@ -244,7 +198,7 @@ namespace ggm
     /// create an transform matrix with the given translation as the col2 elements (identity as 2x2 elements)
     /// @relates MatrixTransform2D
     template <typename T>
-    constexpr MatrixTransform2D<T> transform2D_from_translation(Vector2D<T> const & translationXY) noexcept;
+    constexpr MatrixTransform2D<T> transform2D_from_translation(Vector2D<T> const & translation) noexcept;
 
     // -----------------------------------------------------------------------------
 
@@ -258,7 +212,21 @@ namespace ggm
     /// create an transform matrix with the given translation as the col3 elements (identity as 3x3 elements)
     /// @relates MatrixTransform3D
     template <typename T>
-    constexpr MatrixTransform3D<T> transform3D_from_translation(Vector3D<T> const & translationXYZ) noexcept;
+    constexpr MatrixTransform3D<T> transform3D_from_translation(Vector3D<T> const & translation) noexcept;
+
+    // =============================================================================
+
+    template <typename T>
+    constexpr MatrixTransform2D<T> transform2D_from_translation_rotation_scale(Vector2D<T> const &         translation,
+                                                                               MatrixRotation2D<T> const & rotation,
+                                                                               Vector2D<T> const &         scale) noexcept;
+
+    // -----------------------------------------------------------------------------
+
+    template <typename T>
+    constexpr MatrixTransform3D<T> transform3D_from_translation_rotation_scale(Vector3D<T> const &         translation,
+                                                                               MatrixRotation3D<T> const & rotation,
+                                                                               Vector3D<T> const &         scale) noexcept;
 
     // =============================================================================
 } // namespace ggm
@@ -536,33 +504,6 @@ inline ggm::MatrixTransform3D<T> ggm::inverse(MatrixTransform3D<T> const & value
 // =============================================================================
 
 template <typename T>
-constexpr ggm::MatrixTransform2D<T> ggm::transform2D_from_matrix(Matrix3x3<T> const & value) noexcept
-{
-    return MatrixTransform2D<T>{
-        // clang-format off
-        value.m00, value.m01, value.m02,
-        value.m10, value.m11, value.m12,
-        // clang-format on
-    };
-}
-
-// =============================================================================
-
-template <typename T>
-constexpr ggm::MatrixTransform3D<T> ggm::transform3D_from_matrix(Matrix4x4<T> const & value) noexcept
-{
-    return MatrixTransform3D<T>{
-        // clang-format off
-        value.m00, value.m01, value.m02, value.m03,
-        value.m10, value.m11, value.m12, value.m13,
-        value.m20, value.m21, value.m22, value.m23,
-        // clang-format on
-    };
-}
-
-// =============================================================================
-
-template <typename T>
 constexpr ggm::MatrixTransform2D<T> ggm::transform2D_from_scale(T const & scale) noexcept
 {
     return MatrixTransform2D<T>{
@@ -590,12 +531,12 @@ constexpr ggm::MatrixTransform2D<T> ggm::transform2D_from_scale(T const & scaleX
 // -----------------------------------------------------------------------------
 
 template <typename T>
-constexpr ggm::MatrixTransform2D<T> ggm::transform2D_from_scale(Vector2D<T> const & scaleXY) noexcept
+constexpr ggm::MatrixTransform2D<T> ggm::transform2D_from_scale(Vector2D<T> const & scale) noexcept
 {
     return MatrixTransform2D<T>{
         // clang-format off
-        scaleXY.x,      T{0}, T{0},
-          T{0},    scaleXY.y, T{0},
+        scale.x,      T{0}, T{0},
+          T{0},    scale.y, T{0},
         // clang-format on
     };
 }
@@ -617,13 +558,13 @@ constexpr ggm::MatrixTransform3D<T> ggm::transform3D_from_scale(T const & scale)
 // -----------------------------------------------------------------------------
 
 template <typename T>
-constexpr ggm::MatrixTransform3D<T> ggm::transform3D_from_scale(Vector3D<T> const & scaleXYZ) noexcept
+constexpr ggm::MatrixTransform3D<T> ggm::transform3D_from_scale(Vector3D<T> const & scale) noexcept
 {
     return MatrixTransform3D<T>{
         // clang-format off
-        scaleXYZ.x,       T{0},       T{0}, T{0},
-         T{0},      scaleXYZ.y,       T{0}, T{0},
-         T{0},       T{0},      scaleXYZ.z, T{0},
+        scale.x,       T{0},       T{0}, T{0},
+         T{0},      scale.y,       T{0}, T{0},
+         T{0},       T{0},      scale.z, T{0},
         // clang-format on
     };
 }
@@ -647,54 +588,12 @@ constexpr ggm::MatrixTransform3D<T> ggm::transform3D_from_scale(T const & scaleX
 // =============================================================================
 
 template <typename T>
-inline ggm::MatrixTransform2D<T> ggm::transform2D_from_rotation(T const & angleRadians) noexcept
-{
-    T const c = std::cos(angleRadians);
-    T const s = std::sin(angleRadians);
-
-    return MatrixTransform2D<T>{
-        // clang-format off
-         c, s, T{0},
-        -s, c, T{0},
-        // clang-format on
-    };
-}
-
-// -----------------------------------------------------------------------------
-
-template <typename T>
-constexpr ggm::MatrixTransform2D<T> ggm::transform2D_from_rotation90() noexcept
+constexpr ggm::MatrixTransform2D<T> ggm::transform2D_from_rotation(MatrixRotation2D<T> const & rotation) noexcept
 {
     return MatrixTransform2D<T>{
         // clang-format off
-        T{0}, T{-1}, T{0},
-        T{1},  T{0}, T{0},
-        // clang-format on
-    };
-}
-
-// -----------------------------------------------------------------------------
-
-template <typename T>
-constexpr ggm::MatrixTransform2D<T> ggm::transform2D_from_rotation180() noexcept
-{
-    return MatrixTransform2D<T>{
-        // clang-format off
-        T{-1},  T{0}, T{0},
-         T{0}, T{-1}, T{0},
-        // clang-format on
-    };
-}
-
-// -----------------------------------------------------------------------------
-
-template <typename T>
-constexpr ggm::MatrixTransform2D<T> ggm::transform2D_from_rotation270() noexcept
-{
-    return MatrixTransform2D<T>{
-        // clang-format off
-         T{0}, T{1}, T{0},
-        T{-1}, T{0}, T{0},
+        rotation.m00, rotation.m01, T{0},
+        rotation.m10, rotation.m11, T{0},
         // clang-format on
     };
 }
@@ -702,84 +601,13 @@ constexpr ggm::MatrixTransform2D<T> ggm::transform2D_from_rotation270() noexcept
 // =============================================================================
 
 template <typename T>
-inline ggm::MatrixTransform3D<T> ggm::transform3D_from_rotation_x(T const & angleRadians) noexcept
+constexpr ggm::MatrixTransform3D<T> ggm::transform3D_from_rotation(MatrixRotation3D<T> const & rotation) noexcept
 {
-    T const c = std::cos(angleRadians);
-    T const s = std::sin(angleRadians);
-
     return MatrixTransform3D<T>{
         // clang-format off
-        T{ 1 }, T{ 0 }, T{ 0 }, T{ 0 },
-        T{ 0 },      c,     -s, T{ 0 },
-        T{ 0 },      s,      c, T{ 0 },
-        // clang-format on
-    };
-}
-
-// -----------------------------------------------------------------------------
-
-template <typename T>
-inline ggm::MatrixTransform3D<T> ggm::transform3D_from_rotation_y(T const & angleRadians) noexcept
-{
-    T const c = std::cos(angleRadians);
-    T const s = std::sin(angleRadians);
-
-    return MatrixTransform3D<T>{
-        // clang-format off
-             c, T{ 0 },      s, T{ 0 },
-        T{ 0 }, T{ 1 }, T{ 0 }, T{ 0 },
-            -c, T{ 0 },      c, T{ 0 },
-        // clang-format on
-    };
-}
-
-// -----------------------------------------------------------------------------
-
-template <typename T>
-inline ggm::MatrixTransform3D<T> ggm::transform3D_from_rotation_z(T const & angleRadians) noexcept
-{
-    T const c = std::cos(angleRadians);
-    T const s = std::sin(angleRadians);
-
-    return MatrixTransform3D<T>{
-        // clang-format off
-             c,     -s, T{ 0 }, T{ 0 },
-             s,      c, T{ 0 }, T{ 0 },
-        T{ 0 }, T{ 0 }, T{ 1 }, T{ 0 },
-        // clang-format on
-    };
-}
-
-// -----------------------------------------------------------------------------
-
-template <typename T>
-inline ggm::MatrixTransform3D<T> ggm::transform3D_from_rotation_axis_angle(Vector3D<T> const & axis,
-                                                                           T const &           angleRadians) noexcept
-{
-    T const c   = std::cos(angleRadians);
-    T const s   = std::sin(angleRadians);
-    T const omc = T{ 1 } - c;
-
-    T const x = axis.x;
-    T const y = axis.y;
-    T const z = axis.z;
-
-    T const xx = x * x;
-    T const xy = x * y;
-    T const xz = x * z;
-    T const yy = y * y;
-    T const yz = y * z;
-    T const zz = z * z;
-
-    T const xs = x * s;
-    T const ys = y * s;
-    T const zs = z * s;
-
-    return MatrixTransform3D<T>{
-        // clang-format off
-         xx * omc +  c, xy * omc - zs, xz * omc + ys, T{ 0 },
-         xy * omc + zs, yy * omc +  c, yz * omc - xs, T{ 0 },
-         xz * omc - ys, yz * omc + xs, zz * omc +  c, T{ 0 },
+        rotation.m00, rotation.m01, rotation.m02, T{0},
+        rotation.m10, rotation.m11, rotation.m12, T{0},
+        rotation.m20, rotation.m21, rotation.m22, T{0},
         // clang-format on
     };
 }
@@ -801,12 +629,12 @@ constexpr ggm::MatrixTransform2D<T> ggm::transform2D_from_translation(T const & 
 // -----------------------------------------------------------------------------
 
 template <typename T>
-constexpr ggm::MatrixTransform2D<T> ggm::transform2D_from_translation(Vector2D<T> const & translationXY) noexcept
+constexpr ggm::MatrixTransform2D<T> ggm::transform2D_from_translation(Vector2D<T> const & translation) noexcept
 {
     return MatrixTransform2D<T>{
         // clang-format off
-        T{1}, T{0}, translationXY.x,
-        T{0}, T{1}, translationXY.y,
+        T{1}, T{0}, translation.x,
+        T{0}, T{1}, translation.y,
         // clang-format on
     };
 }
@@ -830,13 +658,44 @@ constexpr ggm::MatrixTransform3D<T> ggm::transform3D_from_translation(T const & 
 // -----------------------------------------------------------------------------
 
 template <typename T>
-constexpr ggm::MatrixTransform3D<T> ggm::transform3D_from_translation(Vector3D<T> const & translationXYZ) noexcept
+constexpr ggm::MatrixTransform3D<T> ggm::transform3D_from_translation(Vector3D<T> const & translation) noexcept
 {
     return MatrixTransform3D<T>{
         // clang-format off
-        T{1}, T{0}, T{0}, translationXYZ.x,
-        T{0}, T{1}, T{0}, translationXYZ.y,
-        T{0}, T{0}, T{1}, translationXYZ.z,
+        T{1}, T{0}, T{0}, translation.x,
+        T{0}, T{1}, T{0}, translation.y,
+        T{0}, T{0}, T{1}, translation.z,
+        // clang-format on
+    };
+}
+
+// =============================================================================
+
+template <typename T>
+constexpr ggm::MatrixTransform2D<T> ggm::transform2D_from_translation_rotation_scale(Vector2D<T> const &         translation,
+                                                                                     MatrixRotation2D<T> const & rotation,
+                                                                                     Vector2D<T> const &         scale) noexcept
+{
+    return MatrixTransform2D<T>{
+        // clang-format off
+        scale.x * rotation.m00, scale.y * rotation.m01, translation.x,
+        scale.x * rotation.m10, scale.y * rotation.m11, translation.y,
+        // clang-format on
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::MatrixTransform3D<T> ggm::transform3D_from_translation_rotation_scale(Vector3D<T> const &         translation,
+                                                                                     MatrixRotation3D<T> const & rotation,
+                                                                                     Vector3D<T> const &         scale) noexcept
+{
+    return MatrixTransform3D<T>{
+        // clang-format off
+        scale.x * rotation.m00, scale.y * rotation.m01, scale.z * rotation.m02, translation.x,
+        scale.x * rotation.m10, scale.y * rotation.m11, scale.z * rotation.m12, translation.y,
+        scale.x * rotation.m20, scale.y * rotation.m21, scale.z * rotation.m22, translation.z,
         // clang-format on
     };
 }

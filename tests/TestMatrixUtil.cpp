@@ -420,16 +420,6 @@ template ggm::Matrix4x4<float> ggm::matrix4x4_from_scale<float>(float const & sc
 
 // =============================================================================
 
-template ggm::Matrix2x2<float> ggm::matrix2x2_from_rotation<float>(float const & angleRadians) noexcept;
-
-// =============================================================================
-
-template ggm::Matrix2x2<float> ggm::matrix2x2_from_rotation90<float>() noexcept;
-template ggm::Matrix2x2<float> ggm::matrix2x2_from_rotation180<float>() noexcept;
-template ggm::Matrix2x2<float> ggm::matrix2x2_from_rotation270<float>() noexcept;
-
-// =============================================================================
-
 template ggm::Matrix1x1<float> ggm::matrix_from_cols<float>(Matrix1x1<float> const & col0) noexcept;
 template ggm::Matrix1x2<float> ggm::matrix_from_cols<float>(Matrix1x1<float> const & col0, Matrix1x1<float> const & col1) noexcept;
 template ggm::Matrix1x3<float> ggm::matrix_from_cols<float>(Matrix1x1<float> const & col0, Matrix1x1<float> const & col1, Matrix1x1<float> const & col2) noexcept;

@@ -40,11 +40,6 @@ template ggm::MatrixTransform3D<float> ggm::inverse<float>(MatrixTransform3D<flo
 
 // =============================================================================
 
-template ggm::MatrixTransform2D<float> ggm::transform2D_from_matrix(Matrix3x3<float> const & value) noexcept;
-template ggm::MatrixTransform3D<float> ggm::transform3D_from_matrix(Matrix4x4<float> const & value) noexcept;
-
-// =============================================================================
-
 template ggm::MatrixTransform2D<float> ggm::transform2D_from_scale<float>(float const & scale) noexcept;
 template ggm::MatrixTransform2D<float> ggm::transform2D_from_scale<float>(float const & scaleX, float const & scaleY) noexcept;
 template ggm::MatrixTransform2D<float> ggm::transform2D_from_scale<float>(Vector2D<float> const & scaleXY) noexcept;
@@ -54,20 +49,6 @@ template ggm::MatrixTransform2D<float> ggm::transform2D_from_scale<float>(Vector
 template ggm::MatrixTransform3D<float> ggm::transform3D_from_scale<float>(float const & scale) noexcept;
 template ggm::MatrixTransform3D<float> ggm::transform3D_from_scale<float>(Vector3D<float> const & scaleXYZ) noexcept;
 template ggm::MatrixTransform3D<float> ggm::transform3D_from_scale<float>(float const & scaleX, float const & scaleY, float const & scaleZ) noexcept;
-
-// =============================================================================
-
-template ggm::MatrixTransform2D<float> ggm::transform2D_from_rotation<float>(float const & angleRadians) noexcept;
-template ggm::MatrixTransform2D<float> ggm::transform2D_from_rotation90<float>() noexcept;
-template ggm::MatrixTransform2D<float> ggm::transform2D_from_rotation180<float>() noexcept;
-template ggm::MatrixTransform2D<float> ggm::transform2D_from_rotation270<float>() noexcept;
-
-// =============================================================================
-
-template ggm::MatrixTransform3D<float> ggm::transform3D_from_rotation_x<float>(float const & angleRadians) noexcept;
-template ggm::MatrixTransform3D<float> ggm::transform3D_from_rotation_y<float>(float const & angleRadians) noexcept;
-template ggm::MatrixTransform3D<float> ggm::transform3D_from_rotation_z<float>(float const & angleRadians) noexcept;
-template ggm::MatrixTransform3D<float> ggm::transform3D_from_rotation_axis_angle<float>(Vector3D<float> const & axis, float const & angleRadians) noexcept;
 
 // =============================================================================
 
