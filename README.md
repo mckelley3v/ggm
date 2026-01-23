@@ -49,32 +49,32 @@ C++ graphics and game 3D math library.
   | [ggm/Matrix/MatrixUtil.h](include/ggm/Matrix/MatrixUtil.h)             | Definition of matrix operators and utilities        |
   | [ggm/Matrix/MatrixVectorUtil.h](include/ggm/Matrix/MatrixVectorUtil.h) | Definition of matrix-vector operators and utilities |
 
-## RotationMatrix - specialized typedefs and utilties for 2D and 3D rotation matrices
-* | RotationMatrix        |
+## MatrixRotation - specialized typedefs and utilties for 2D and 3D rotation matrices
+* | MatrixRotation        |
   | --------------------- |
-  | RotationMatrix2D\<T\> |
-  | RotationMatrix3D\<T\> |
+  | MatrixRotation2D\<T\> |
+  | MatrixRotation3D\<T\> |
 
 * | File                                                                                   | Description                                                      |
   | -------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
   | [ggm/Matrix/MatrixRotation.h](include/ggm/Matrix/MatrixRotation.h)                     | Minimal definition of rotation matrix types                      |
   | [ggm/Matrix/MatrixRotationConstants.h](include/ggm/Matrix/MatrixRotationConstants.h)   | Definitions of common rotation matrix constants                  |
   | [ggm/Matrix/MatrixRotationFwd.h](include/ggm/Matrix/MatrixRotationFwd.h)               | Forward declaration of rotation matrix types                     |
-  | [ggm/Matrix/MatrixRotationTypedefs.h](include/ggm/Matrix/MatrixRotationTypedefs.h)     | Typedefs of common rotation matrix types, e.g. RotationMatrix3Df |
+  | [ggm/Matrix/MatrixRotationTypedefs.h](include/ggm/Matrix/MatrixRotationTypedefs.h)     | Typedefs of common rotation matrix types, e.g. MatrixRotation3Df |
   | [ggm/Matrix/MatrixRotationUtil.h](include/ggm/Matrix/MatrixRotationUtil.h)             | Definition of rotation matrix utilities                          |
 
-## TransformMatrix - specialized typedefs and utilities for 2D and 3D transform matrices
-* | TransformMatrix        |
+##  - specialized typedefs and utilities for 2D and 3D transform matrices
+* | MatrixTransform        |
   | ---------------------- |
-  | TransformMatrix2D\<T\> |
-  | TransformMatrix3D\<T\> |
+  | MatrixTransform2D\<T\> |
+  | MatrixTransform3D\<T\> |
 
 * | File                                                                                     | Description                                                        |
   | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
   | [ggm/Matrix/MatrixTransform.h](include/ggm/Matrix/MatrixTransform.h)                     | Minimal definition of transform matrix types                       |
   | [ggm/Matrix/MatrixTransformConstants.h](include/ggm/Matrix/MatrixTransformConstants.h)   | Definitions of common transform matrix constants                   |
   | [ggm/Matrix/MatrixTransformFwd.h](include/ggm/Matrix/MatrixTransformFwd.h)               | Forward declaration of transform matrix types                      |
-  | [ggm/Matrix/MatrixTransformTypedefs.h](include/ggm/Matrix/MatrixTransformTypedefs.h)     | Typedefs of common transform matrix types, e.g. TransformMatrix3Df |
+  | [ggm/Matrix/MatrixTransformTypedefs.h](include/ggm/Matrix/MatrixTransformTypedefs.h)     | Typedefs of common transform matrix types, e.g. MatrixTransform3Df |
   | [ggm/Matrix/MatrixTransformUtil.h](include/ggm/Matrix/MatrixTransformUtil.h)             | Definition of transform matrix utilities                           |
 
 ### Implementation design
