@@ -29,6 +29,8 @@ Include(FetchContent)
 if (GGM_ENABLE_UNIT_TESTS)
     enable_testing()
 
+    # ------------------------------------------------------------------------------
+
     # use Catch for testing
     FetchContent_Declare(
       Catch2
@@ -45,6 +47,23 @@ if (GGM_ENABLE_UNIT_TESTS)
 
     list(APPEND CMAKE_MODULE_PATH ${Catch2_SOURCE_DIR}/extras)
     include(Catch)
+
+    # ------------------------------------------------------------------------------
+
+    # use Eigen as reference
+
+    FetchContent_Declare(
+        Eigen3
+        GIT_REPOSITORY https://gitlab.com/libeigen/eigen.git
+        GIT_TAG        5.0.1 # 11/11/2025
+    )
+
+    FetchContent_MakeAvailable(Eigen3)
+
+    if (GGM_ALLOW_IDE_FOLDER)
+        set_target_properties(eigen PROPERTIES FOLDER "external")
+    endif()
+
 endif()
 
 # ==============================================================================
@@ -225,6 +244,7 @@ if (GGM_ENABLE_UNIT_TESTS)
         ggm_unit_tests
         PRIVATE
             Catch2::Catch2WithMain
+            Eigen3::Eigen
             ggm
     )
 

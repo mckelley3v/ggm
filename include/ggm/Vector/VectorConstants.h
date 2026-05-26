@@ -327,17 +327,17 @@ namespace ggm
 
     // =============================================================================
 
-    /// Vector constant for X-axis
+    /// Vector constant for Y-axis
     /// @relates Vector2D
     template <typename T>
     inline constexpr Vector2D<T> Vector2D_AxisY = { T{ 0 }, T{ 1 } };
 
-    /// Vector constant for X-axis
+    /// Vector constant for Y-axis
     /// @relates Vector3D
     template <typename T>
     inline constexpr Vector3D<T> Vector3D_AxisY = { T{ 0 }, T{ 1 }, T{ 0 } };
 
-    /// Vector constant for X-axis
+    /// Vector constant for Y-axis
     /// @relates Vector4D
     template <typename T>
     inline constexpr Vector4D<T> Vector4D_AxisY = { T{ 0 }, T{ 1 }, T{ 0 }, T{ 0 } };
@@ -416,12 +416,12 @@ namespace ggm
 
     // =============================================================================
 
-    /// Vector constant for X-axis
+    /// Vector constant for Z-axis
     /// @relates Vector3D
     template <typename T>
     inline constexpr Vector3D<T> Vector3D_AxisZ = { T{ 0 }, T{ 0 }, T{ 1 } };
 
-    /// Vector constant for X-axis
+    /// Vector constant for Z-axis
     /// @relates Vector4D
     template <typename T>
     inline constexpr Vector4D<T> Vector4D_AxisZ = { T{ 0 }, T{ 0 }, T{ 1 }, T{ 0 } };
@@ -476,7 +476,7 @@ namespace ggm
 
     // =============================================================================
 
-    /// Vector constant for X-axis
+    /// Vector constant for W-axis
     /// @relates Vector4D
     template <typename T>
     inline constexpr Vector4D<T> Vector4D_AxisW = { T{ 0 }, T{ 0 }, T{ 0 }, T{ 1 } };

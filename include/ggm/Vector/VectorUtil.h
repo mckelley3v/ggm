@@ -8,8 +8,6 @@
 
 #include <type_traits>
 
-#include <cmath>
-
 // =============================================================================
 /// @addtogroup Vector
 /// @{
@@ -59,7 +57,7 @@
 /// ------                      | -----------
 /// u = abs(v);                 | element-wise abs
 /// u = ceil(v);                | element-wise ceil
-/// u = clamp(v, min, max);     | element-wise clamp
+/// u = clamp(v, min, max);     | clamp, element-wise clamp
 /// u = cross(v, w);            | vector3D cross product
 /// s = distance(v, w);         | distance between v and w
 /// s = distance_squared(v, w); | square of the distance between v and w
@@ -537,6 +535,13 @@ namespace ggm
 
     // =============================================================================
 
+    /// clamp
+    /// @relates Vector2D
+    template <typename T>
+    constexpr Vector2D<T> clamp(Vector2D<T> const & value,
+                                T const &           minValue,
+                                T const &           maxValue) noexcept;
+
     /// element-wise clamp
     /// @relates Vector2D
     template <typename T>
@@ -544,12 +549,26 @@ namespace ggm
                                 Vector2D<T> const & minValue,
                                 Vector2D<T> const & maxValue) noexcept;
 
+    /// clamp
+    /// @relates Vector3D
+    template <typename T>
+    constexpr Vector3D<T> clamp(Vector3D<T> const & value,
+                                T const &           minValue,
+                                T const &           maxValue) noexcept;
+
     /// element-wise clamp
     /// @relates Vector3D
     template <typename T>
     constexpr Vector3D<T> clamp(Vector3D<T> const & value,
                                 Vector3D<T> const & minValue,
                                 Vector3D<T> const & maxValue) noexcept;
+
+    /// clamp
+    /// @relates Vector4D
+    template <typename T>
+    constexpr Vector4D<T> clamp(Vector4D<T> const & value,
+                                T const &           minValue,
+                                T const &           maxValue) noexcept;
 
     /// element-wise clamp
     /// @relates Vector4D
@@ -1504,7 +1523,7 @@ constexpr ggm::Vector2D<T> ggm::operator+(Vector2D<T> const & value) noexcept
 template <typename T>
 constexpr ggm::Vector3D<T> ggm::operator+(Vector3D<T> const & value) noexcept
 {
-    return Vector2D<T>{
+    return Vector3D<T>{
         +value.x,
         +value.y,
         +value.z,
@@ -1516,7 +1535,7 @@ constexpr ggm::Vector3D<T> ggm::operator+(Vector3D<T> const & value) noexcept
 template <typename T>
 constexpr ggm::Vector4D<T> ggm::operator+(Vector4D<T> const & value) noexcept
 {
-    return Vector2D<T>{
+    return Vector4D<T>{
         +value.x,
         +value.y,
         +value.z,
@@ -1540,7 +1559,7 @@ constexpr ggm::Vector2D<T> ggm::operator-(Vector2D<T> const & value) noexcept
 template <typename T>
 constexpr ggm::Vector3D<T> ggm::operator-(Vector3D<T> const & value) noexcept
 {
-    return Vector2D<T>{
+    return Vector3D<T>{
         -value.x,
         -value.y,
         -value.z,
@@ -1552,7 +1571,7 @@ constexpr ggm::Vector3D<T> ggm::operator-(Vector3D<T> const & value) noexcept
 template <typename T>
 constexpr ggm::Vector4D<T> ggm::operator-(Vector4D<T> const & value) noexcept
 {
-    return Vector2D<T>{
+    return Vector4D<T>{
         -value.x,
         -value.y,
         -value.z,
@@ -1578,7 +1597,7 @@ template <typename T>
 constexpr ggm::Vector3D<T> ggm::operator+(Vector3D<T> const & lhs,
                                           Vector3D<T> const & rhs) noexcept
 {
-    return Vector2D<T>{
+    return Vector3D<T>{
         lhs.x + rhs.x,
         lhs.y + rhs.y,
         lhs.z + rhs.z,
@@ -1591,7 +1610,7 @@ template <typename T>
 constexpr ggm::Vector4D<T> ggm::operator+(Vector4D<T> const & lhs,
                                           Vector4D<T> const & rhs) noexcept
 {
-    return Vector2D<T>{
+    return Vector4D<T>{
         lhs.x + rhs.x,
         lhs.y + rhs.y,
         lhs.z + rhs.z,
@@ -1617,7 +1636,7 @@ template <typename T>
 constexpr ggm::Vector3D<T> ggm::operator-(Vector3D<T> const & lhs,
                                           Vector3D<T> const & rhs) noexcept
 {
-    return Vector2D<T>{
+    return Vector3D<T>{
         lhs.x - rhs.x,
         lhs.y - rhs.y,
         lhs.z - rhs.z,
@@ -1630,7 +1649,7 @@ template <typename T>
 constexpr ggm::Vector4D<T> ggm::operator-(Vector4D<T> const & lhs,
                                           Vector4D<T> const & rhs) noexcept
 {
-    return Vector2D<T>{
+    return Vector4D<T>{
         lhs.x - rhs.x,
         lhs.y - rhs.y,
         lhs.z - rhs.z,
@@ -1680,7 +1699,7 @@ template <typename T>
 constexpr ggm::Vector3D<T> ggm::operator*(T const &           lhs,
                                           Vector3D<T> const & rhs) noexcept
 {
-    return Vector2D<T>{
+    return Vector3D<T>{
         lhs * rhs.x,
         lhs * rhs.y,
         lhs * rhs.z,
@@ -1693,7 +1712,7 @@ template <typename T>
 constexpr ggm::Vector3D<T> ggm::operator*(Vector3D<T> const & lhs,
                                           T const &           rhs) noexcept
 {
-    return Vector2D<T>{
+    return Vector3D<T>{
         lhs.x * rhs,
         lhs.y * rhs,
         lhs.z * rhs,
@@ -1706,7 +1725,7 @@ template <typename T>
 constexpr ggm::Vector3D<T> ggm::operator*(Vector3D<T> const & lhs,
                                           Vector3D<T> const & rhs) noexcept
 {
-    return Vector2D<T>{
+    return Vector3D<T>{
         lhs.x * rhs.x,
         lhs.y * rhs.y,
         lhs.z * rhs.z,
@@ -1719,7 +1738,7 @@ template <typename T>
 constexpr ggm::Vector4D<T> ggm::operator*(T const &           lhs,
                                           Vector4D<T> const & rhs) noexcept
 {
-    return Vector2D<T>{
+    return Vector4D<T>{
         lhs * rhs.x,
         lhs * rhs.y,
         lhs * rhs.z,
@@ -1733,7 +1752,7 @@ template <typename T>
 constexpr ggm::Vector4D<T> ggm::operator*(Vector4D<T> const & lhs,
                                           T const &           rhs) noexcept
 {
-    return Vector2D<T>{
+    return Vector4D<T>{
         lhs.x * rhs,
         lhs.y * rhs,
         lhs.z * rhs,
@@ -1747,7 +1766,7 @@ template <typename T>
 constexpr ggm::Vector4D<T> ggm::operator*(Vector4D<T> const & lhs,
                                           Vector4D<T> const & rhs) noexcept
 {
-    return Vector2D<T>{
+    return Vector4D<T>{
         lhs.x * rhs.x,
         lhs.y * rhs.y,
         lhs.z * rhs.z,
@@ -1785,7 +1804,7 @@ template <typename T>
 constexpr ggm::Vector3D<T> ggm::operator/(Vector3D<T> const & lhs,
                                           T const &           rhs) noexcept
 {
-    return Vector2D<T>{
+    return Vector3D<T>{
         lhs.x / rhs,
         lhs.y / rhs,
         lhs.z / rhs,
@@ -1798,7 +1817,7 @@ template <typename T>
 constexpr ggm::Vector3D<T> ggm::operator/(Vector3D<T> const & lhs,
                                           Vector3D<T> const & rhs) noexcept
 {
-    return Vector2D<T>{
+    return Vector3D<T>{
         lhs.x / rhs.x,
         lhs.y / rhs.y,
         lhs.z / rhs.z,
@@ -1811,7 +1830,7 @@ template <typename T>
 constexpr ggm::Vector4D<T> ggm::operator/(Vector4D<T> const & lhs,
                                           T const &           rhs) noexcept
 {
-    return Vector2D<T>{
+    return Vector4D<T>{
         lhs.x / rhs,
         lhs.y / rhs,
         lhs.z / rhs,
@@ -1825,7 +1844,7 @@ template <typename T>
 constexpr ggm::Vector4D<T> ggm::operator/(Vector4D<T> const & lhs,
                                           Vector4D<T> const & rhs) noexcept
 {
-    return Vector2D<T>{
+    return Vector4D<T>{
         lhs.x / rhs.x,
         lhs.y / rhs.y,
         lhs.z / rhs.z,
@@ -2281,12 +2300,39 @@ constexpr ggm::Vector4D<T> ggm::ceil(Vector4D<T> const & value) noexcept
 
 template <typename T>
 constexpr ggm::Vector2D<T> ggm::clamp(Vector2D<T> const & value,
+                                      T const &           minValue,
+                                      T const &           maxValue) noexcept
+{
+    return Vector2D<T>{
+        clamp(value.x, minValue, maxValue),
+        clamp(value.y, minValue, maxValue),
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Vector2D<T> ggm::clamp(Vector2D<T> const & value,
                                       Vector2D<T> const & minValue,
                                       Vector2D<T> const & maxValue) noexcept
 {
     return Vector2D<T>{
         clamp(value.x, minValue.x, maxValue.x),
         clamp(value.y, minValue.y, maxValue.y),
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Vector3D<T> ggm::clamp(Vector3D<T> const & value,
+                                      T const &           minValue,
+                                      T const &           maxValue) noexcept
+{
+    return Vector3D<T>{
+        clamp(value.x, minValue, maxValue),
+        clamp(value.y, minValue, maxValue),
+        clamp(value.z, minValue, maxValue),
     };
 }
 
@@ -2301,6 +2347,21 @@ constexpr ggm::Vector3D<T> ggm::clamp(Vector3D<T> const & value,
         clamp(value.x, minValue.x, maxValue.x),
         clamp(value.y, minValue.y, maxValue.y),
         clamp(value.z, minValue.z, maxValue.z),
+    };
+}
+
+// -----------------------------------------------------------------------------
+
+template <typename T>
+constexpr ggm::Vector4D<T> ggm::clamp(Vector4D<T> const & value,
+                                      T const &           minValue,
+                                      T const &           maxValue) noexcept
+{
+    return Vector4D<T>{
+        clamp(value.x, minValue, maxValue),
+        clamp(value.y, minValue, maxValue),
+        clamp(value.z, minValue, maxValue),
+        clamp(value.w, minValue, maxValue),
     };
 }
 
@@ -2338,8 +2399,6 @@ template <typename T>
 inline T ggm::distance(Vector2D<T> const & lhs,
                        Vector2D<T> const & rhs) noexcept
 {
-    using std::sqrt;
-
     return sqrt(distance_squared(lhs, rhs));
 }
 
@@ -2349,8 +2408,6 @@ template <typename T>
 inline T ggm::distance(Vector3D<T> const & lhs,
                        Vector3D<T> const & rhs) noexcept
 {
-    using std::sqrt;
-
     return sqrt(distance_squared(lhs, rhs));
 }
 
@@ -2360,8 +2417,6 @@ template <typename T>
 inline T ggm::distance(Vector4D<T> const & lhs,
                        Vector4D<T> const & rhs) noexcept
 {
-    using std::sqrt;
-
     return sqrt(distance_squared(lhs, rhs));
 }
 
@@ -2601,8 +2656,6 @@ inline bool ggm::is_normalized(Vector4D<T> const & value,
 template <typename T>
 inline T ggm::length(Vector2D<T> const & value) noexcept
 {
-    using std::sqrt;
-
     return sqrt(length_squared(value));
 }
 
@@ -2611,8 +2664,6 @@ inline T ggm::length(Vector2D<T> const & value) noexcept
 template <typename T>
 inline T ggm::length(Vector3D<T> const & value) noexcept
 {
-    using std::sqrt;
-
     return sqrt(length_squared(value));
 }
 
@@ -2621,8 +2672,6 @@ inline T ggm::length(Vector3D<T> const & value) noexcept
 template <typename T>
 inline T ggm::length(Vector4D<T> const & value) noexcept
 {
-    using std::sqrt;
-
     return sqrt(length_squared(value));
 }
 
@@ -3023,8 +3072,6 @@ inline ggm::Vector2D<T> ggm::refract(Vector2D<T> const & incident,
                                      Vector2D<T> const & surfaceNormal,
                                      T const &           eta) noexcept
 {
-    using std::sqrt;
-
     T const nDotI = dot(incident, surfaceNormal);
     T const k     = T{ 1 } - eta * eta * (T{ 1 } - nDotI * nDotI);
 
@@ -3046,8 +3093,6 @@ inline ggm::Vector3D<T> ggm::refract(Vector3D<T> const & incident,
                                      Vector3D<T> const & surfaceNormal,
                                      T const &           eta) noexcept
 {
-    using std::sqrt;
-
     T const nDotI = dot(incident, surfaceNormal);
     T const k     = T{ 1 } - eta * eta * (T{ 1 } - nDotI * nDotI);
 

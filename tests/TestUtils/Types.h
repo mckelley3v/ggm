@@ -19,59 +19,55 @@ using std::uint8_t;
 
 // =============================================================================
 
-#define GGM_TEST_TYPES()    \
-    bool,                   \
-        short,              \
-        unsigned short,     \
-        int,                \
-        unsigned int,       \
-        long,               \
-        unsigned long,      \
-        long long,          \
-        unsigned long long, \
-        float,              \
-        double,             \
-        long double,        \
-        int8_t,             \
-        uint8_t,            \
-        int16_t,            \
-        uint16_t,           \
-        int32_t,            \
-        uint32_t,           \
-        int64_t,            \
-        uint64_t,           \
-        size_t
+#define GGM_TEST_TYPES() bool,               \
+                         short,              \
+                         unsigned short,     \
+                         int,                \
+                         unsigned int,       \
+                         long,               \
+                         unsigned long,      \
+                         long long,          \
+                         unsigned long long, \
+                         float,              \
+                         double,             \
+                         long double
 
 // =============================================================================
 
-#define GGM_NUMERIC_TEST_TYPES() \
-    short,                       \
-        unsigned short,          \
-        int,                     \
-        unsigned int,            \
-        long,                    \
-        unsigned long,           \
-        long long,               \
-        unsigned long long,      \
-        float,                   \
-        double,                  \
-        long double,             \
-        int8_t,                  \
-        uint8_t,                 \
-        int16_t,                 \
-        uint16_t,                \
-        int32_t,                 \
-        uint32_t,                \
-        int64_t,                 \
-        uint64_t,                \
-        size_t
+#define GGM_NUMERIC_TEST_TYPES() short,              \
+                                 unsigned short,     \
+                                 int,                \
+                                 unsigned int,       \
+                                 long,               \
+                                 unsigned long,      \
+                                 long long,          \
+                                 unsigned long long, \
+                                 float,              \
+                                 double,             \
+                                 long double
 
 // =============================================================================
 
-#define GGM_FLOAT_TEST_TYPES() \
-    float,                     \
-        double,                \
-        long double
+#define GGM_SIGNED_NUMERIC_TEST_TYPES() short,     \
+                                        int,       \
+                                        long,      \
+                                        long long, \
+                                        float,     \
+                                        double,    \
+                                        long double
+
+// =============================================================================
+
+#define GGM_UNSIGNED_NUMERIC_TEST_TYPES() unsigned short, \
+                                          unsigned int,   \
+                                          unsigned long,  \
+                                          unsigned long long
+
+// =============================================================================
+
+#define GGM_FLOAT_TEST_TYPES() float,  \
+                               double, \
+                               long double
 
 // =============================================================================
 

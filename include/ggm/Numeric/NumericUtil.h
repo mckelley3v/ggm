@@ -451,6 +451,14 @@ namespace ggm
                                       long double const value) noexcept;
 
     // =============================================================================
+    // square root
+    // =============================================================================
+
+    float       sqrt(float const value) noexcept;
+    double      sqrt(double const value) noexcept;
+    long double sqrt(long double const value) noexcept;
+
+    // =============================================================================
     /// Compute greatest integral value s.t. abs(trunc(value)) <= abs(value), i.e. round towards zero.
     // =============================================================================
 
