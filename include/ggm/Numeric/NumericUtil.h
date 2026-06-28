@@ -158,10 +158,10 @@ namespace ggm
                   float const epsilon = DefaultTolerance<float>) noexcept;
     bool is_close(double const lhs,
                   double const rhs,
-                  double const epsilon = DefaultTolerance<float>) noexcept;
+                  double const epsilon = DefaultTolerance<double>) noexcept;
     bool is_close(long double const lhs,
                   long double const rhs,
-                  long double const epsilon = DefaultTolerance<float>) noexcept;
+                  long double const epsilon = DefaultTolerance<long double>) noexcept;
 
     // =============================================================================
     /// Linear interpolation between two values.
