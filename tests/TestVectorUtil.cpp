@@ -8,6 +8,7 @@
 
 #include "catch2/catch_template_test_macros.hpp"
 #include "catch2/catch_test_macros.hpp"
+#include "catch2/matchers/catch_matchers_floating_point.hpp"
 #include "catch2/matchers/catch_matchers_templated.hpp"
 
 #include <ostream>
@@ -139,9 +140,12 @@ TEMPLATE_TEST_CASE("ggm::Vector::VectorUtil", /*tags*/ "", GGM_SIGNED_NUMERIC_TE
             CHECK(clamp(testLhs, TestType{ -1 }, TestType{ +1 }) == RefVector3D(refLhs.cwiseMax(TestType{ -1 }).cwiseMin(TestType{ +1 })));
             CHECK(clamp(testLhs, Vector3D{ -1, -1, -1 }, Vector3D{ +1, +1, +1 }) == RefVector3D(refLhs.cwiseMax(TestType{ -1 }).cwiseMin(TestType{ +1 })));
 
+            // float only functions:
             if constexpr (std::is_floating_point_v<TestType>)
             {
                 CHECK(ceil(testLhs) == RefVector3D(refLhs.array().ceil()));
+                CHECK(floor(testLhs) == RefVector3D(refLhs.array().floor()));
+                CHECK(fract(testLhs) == RefVector3D(refLhs.array() - refLhs.array().floor()));
             }
 
             // binary tests:
@@ -181,6 +185,17 @@ TEMPLATE_TEST_CASE("ggm::Vector::VectorUtil", /*tags*/ "", GGM_SIGNED_NUMERIC_TE
                 // operator ==, !=
                 CHECK((testLhs == testRhs) == (refLhs == refRhs));
                 CHECK((testLhs != testRhs) == (refLhs != refRhs));
+
+                CHECK(cross(testLhs, testRhs) == refLhs.cross(refRhs));
+                CHECK(distance_squared(testLhs, testRhs) == (refLhs - refRhs).squaredNorm());
+                CHECK(dot(testLhs, testRhs) == refLhs.dot(refRhs));
+                CHECK(face_forward(testLhs, testRhs, testLhs) == ((refLhs.dot(refRhs) < TestType{ 0 }) ? refLhs : -refLhs));
+
+                // float only functions:
+                if constexpr (std::is_floating_point_v<TestType>)
+                {
+                    CHECK(distance(testLhs, testRhs) == (refLhs - refRhs).norm());
+                }
             }
         }
     }
