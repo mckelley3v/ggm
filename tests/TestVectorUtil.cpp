@@ -34,7 +34,7 @@ T & lvalue(T && rvalue)
     return rvalue;
 }
 
-TEMPLATE_TEST_CASE("Vector::TestVectorUtil::operator+=", /*tags*/ "", GGM_SIGNED_NUMERIC_TEST_TYPES())
+TEMPLATE_TEST_CASE("ggm::Vector::VectorUtil", /*tags*/ "", GGM_SIGNED_NUMERIC_TEST_TYPES())
 {
     using namespace ggm;
 

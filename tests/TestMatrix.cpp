@@ -8,7 +8,7 @@
 
 #include <type_traits>
 
-TEMPLATE_TEST_CASE("Matrix::TestMatrix::Matrix1x2", /*tags*/ "", GGM_TEST_TYPES())
+TEMPLATE_TEST_CASE("ggm::Matrix::Matrix1x2", /*tags*/ "", GGM_TEST_TYPES())
 {
     using namespace ggm;
 
@@ -26,7 +26,7 @@ TEMPLATE_TEST_CASE("Matrix::TestMatrix::Matrix1x2", /*tags*/ "", GGM_TEST_TYPES(
     STATIC_CHECK(offsetof(Matrix1x2<TestType>, m01) == 1 * sizeof(TestType));
 }
 
-TEMPLATE_TEST_CASE("Matrix::TestMatrix::Matrix1x3", /*tags*/ "", GGM_TEST_TYPES())
+TEMPLATE_TEST_CASE("ggm::Matrix::Matrix1x3", /*tags*/ "", GGM_TEST_TYPES())
 {
     using namespace ggm;
 
@@ -45,7 +45,7 @@ TEMPLATE_TEST_CASE("Matrix::TestMatrix::Matrix1x3", /*tags*/ "", GGM_TEST_TYPES(
     STATIC_CHECK(offsetof(Matrix1x3<TestType>, m02) == 2 * sizeof(TestType));
 }
 
-TEMPLATE_TEST_CASE("Matrix::TestMatrix::Matrix1x4", /*tags*/ "", GGM_TEST_TYPES())
+TEMPLATE_TEST_CASE("ggm::Matrix::Matrix1x4", /*tags*/ "", GGM_TEST_TYPES())
 {
     using namespace ggm;
 
@@ -65,7 +65,7 @@ TEMPLATE_TEST_CASE("Matrix::TestMatrix::Matrix1x4", /*tags*/ "", GGM_TEST_TYPES(
     STATIC_CHECK(offsetof(Matrix1x4<TestType>, m03) == 3 * sizeof(TestType));
 }
 
-TEMPLATE_TEST_CASE("Matrix::TestMatrix::Matrix2x1", /*tags*/ "", GGM_TEST_TYPES())
+TEMPLATE_TEST_CASE("ggm::Matrix::Matrix2x1", /*tags*/ "", GGM_TEST_TYPES())
 {
     using namespace ggm;
 
@@ -83,7 +83,7 @@ TEMPLATE_TEST_CASE("Matrix::TestMatrix::Matrix2x1", /*tags*/ "", GGM_TEST_TYPES(
     STATIC_CHECK(offsetof(Matrix2x1<TestType>, m10) == 1 * sizeof(TestType));
 }
 
-TEMPLATE_TEST_CASE("Matrix::TestMatrix::Matrix2x2", /*tags*/ "", GGM_TEST_TYPES())
+TEMPLATE_TEST_CASE("ggm::Matrix::Matrix2x2", /*tags*/ "", GGM_TEST_TYPES())
 {
     using namespace ggm;
 
@@ -103,7 +103,7 @@ TEMPLATE_TEST_CASE("Matrix::TestMatrix::Matrix2x2", /*tags*/ "", GGM_TEST_TYPES(
     STATIC_CHECK(offsetof(Matrix2x2<TestType>, m11) == 3 * sizeof(TestType));
 }
 
-TEMPLATE_TEST_CASE("Matrix::TestMatrix::Matrix2x3", /*tags*/ "", GGM_TEST_TYPES())
+TEMPLATE_TEST_CASE("ggm::Matrix::Matrix2x3", /*tags*/ "", GGM_TEST_TYPES())
 {
     using namespace ggm;
 
@@ -125,7 +125,7 @@ TEMPLATE_TEST_CASE("Matrix::TestMatrix::Matrix2x3", /*tags*/ "", GGM_TEST_TYPES(
     STATIC_CHECK(offsetof(Matrix2x3<TestType>, m12) == 5 * sizeof(TestType));
 }
 
-TEMPLATE_TEST_CASE("Matrix::TestMatrix::Matrix2x4", /*tags*/ "", GGM_TEST_TYPES())
+TEMPLATE_TEST_CASE("ggm::Matrix::Matrix2x4", /*tags*/ "", GGM_TEST_TYPES())
 {
     using namespace ggm;
 
@@ -149,7 +149,7 @@ TEMPLATE_TEST_CASE("Matrix::TestMatrix::Matrix2x4", /*tags*/ "", GGM_TEST_TYPES(
     STATIC_CHECK(offsetof(Matrix2x4<TestType>, m13) == 7 * sizeof(TestType));
 }
 
-TEMPLATE_TEST_CASE("Matrix::TestMatrix::Matrix3x1", /*tags*/ "", GGM_TEST_TYPES())
+TEMPLATE_TEST_CASE("ggm::Matrix::Matrix3x1", /*tags*/ "", GGM_TEST_TYPES())
 {
     using namespace ggm;
 
@@ -168,7 +168,7 @@ TEMPLATE_TEST_CASE("Matrix::TestMatrix::Matrix3x1", /*tags*/ "", GGM_TEST_TYPES(
     STATIC_CHECK(offsetof(Matrix3x1<TestType>, m20) == 2 * sizeof(TestType));
 }
 
-TEMPLATE_TEST_CASE("Matrix::TestMatrix::Matrix3x2", /*tags*/ "", GGM_TEST_TYPES())
+TEMPLATE_TEST_CASE("ggm::Matrix::Matrix3x2", /*tags*/ "", GGM_TEST_TYPES())
 {
     using namespace ggm;
 
@@ -190,7 +190,7 @@ TEMPLATE_TEST_CASE("Matrix::TestMatrix::Matrix3x2", /*tags*/ "", GGM_TEST_TYPES(
     STATIC_CHECK(offsetof(Matrix3x2<TestType>, m21) == 5 * sizeof(TestType));
 }
 
-TEMPLATE_TEST_CASE("Matrix::TestMatrix::Matrix3x3", /*tags*/ "", GGM_TEST_TYPES())
+TEMPLATE_TEST_CASE("ggm::Matrix::Matrix3x3", /*tags*/ "", GGM_TEST_TYPES())
 {
     using namespace ggm;
 
@@ -215,7 +215,7 @@ TEMPLATE_TEST_CASE("Matrix::TestMatrix::Matrix3x3", /*tags*/ "", GGM_TEST_TYPES(
     STATIC_CHECK(offsetof(Matrix3x3<TestType>, m22) == 8 * sizeof(TestType));
 }
 
-TEMPLATE_TEST_CASE("Matrix::TestMatrix::Matrix3x4", /*tags*/ "", GGM_TEST_TYPES())
+TEMPLATE_TEST_CASE("ggm::Matrix::Matrix3x4", /*tags*/ "", GGM_TEST_TYPES())
 {
     using namespace ggm;
 
@@ -243,7 +243,7 @@ TEMPLATE_TEST_CASE("Matrix::TestMatrix::Matrix3x4", /*tags*/ "", GGM_TEST_TYPES(
     STATIC_CHECK(offsetof(Matrix3x4<TestType>, m23) == 11 * sizeof(TestType));
 }
 
-TEMPLATE_TEST_CASE("Matrix::TestMatrix::Matrix4x1", /*tags*/ "", GGM_TEST_TYPES())
+TEMPLATE_TEST_CASE("ggm::Matrix::Matrix4x1", /*tags*/ "", GGM_TEST_TYPES())
 {
     using namespace ggm;
 
@@ -263,7 +263,7 @@ TEMPLATE_TEST_CASE("Matrix::TestMatrix::Matrix4x1", /*tags*/ "", GGM_TEST_TYPES(
     STATIC_CHECK(offsetof(Matrix4x1<TestType>, m30) == 3 * sizeof(TestType));
 }
 
-TEMPLATE_TEST_CASE("Matrix::TestMatrix::Matrix4x2", /*tags*/ "", GGM_TEST_TYPES())
+TEMPLATE_TEST_CASE("ggm::Matrix::Matrix4x2", /*tags*/ "", GGM_TEST_TYPES())
 {
     using namespace ggm;
 
@@ -287,7 +287,7 @@ TEMPLATE_TEST_CASE("Matrix::TestMatrix::Matrix4x2", /*tags*/ "", GGM_TEST_TYPES(
     STATIC_CHECK(offsetof(Matrix4x2<TestType>, m31) == 7 * sizeof(TestType));
 }
 
-TEMPLATE_TEST_CASE("Matrix::TestMatrix::Matrix4x3", /*tags*/ "", GGM_TEST_TYPES())
+TEMPLATE_TEST_CASE("ggm::Matrix::Matrix4x3", /*tags*/ "", GGM_TEST_TYPES())
 {
     using namespace ggm;
 
@@ -315,7 +315,7 @@ TEMPLATE_TEST_CASE("Matrix::TestMatrix::Matrix4x3", /*tags*/ "", GGM_TEST_TYPES(
     STATIC_CHECK(offsetof(Matrix4x3<TestType>, m32) == 11 * sizeof(TestType));
 }
 
-TEMPLATE_TEST_CASE("Matrix::TestMatrix::Matrix4x4", /*tags*/ "", GGM_TEST_TYPES())
+TEMPLATE_TEST_CASE("ggm::Matrix::Matrix4x4", /*tags*/ "", GGM_TEST_TYPES())
 {
     using namespace ggm;
 

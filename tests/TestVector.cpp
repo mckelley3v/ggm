@@ -8,7 +8,7 @@
 
 #include <type_traits>
 
-TEMPLATE_TEST_CASE("Vector::TestVector::Vector2D", /*tags*/ "", GGM_TEST_TYPES())
+TEMPLATE_TEST_CASE("ggm::Vector::Vector2D", /*tags*/ "", GGM_TEST_TYPES())
 {
     using namespace ggm;
 
@@ -26,7 +26,7 @@ TEMPLATE_TEST_CASE("Vector::TestVector::Vector2D", /*tags*/ "", GGM_TEST_TYPES()
     STATIC_CHECK(offsetof(Vector2D<TestType>, y) == 1 * sizeof(TestType));
 }
 
-TEMPLATE_TEST_CASE("Vector::TestVector::Vector3D", /*tags*/ "", GGM_TEST_TYPES())
+TEMPLATE_TEST_CASE("ggm::Vector::Vector3D", /*tags*/ "", GGM_TEST_TYPES())
 {
     using namespace ggm;
 
@@ -45,7 +45,7 @@ TEMPLATE_TEST_CASE("Vector::TestVector::Vector3D", /*tags*/ "", GGM_TEST_TYPES()
     STATIC_CHECK(offsetof(Vector3D<TestType>, z) == 2 * sizeof(TestType));
 }
 
-TEMPLATE_TEST_CASE("Vector::TestVector::Vector4D", /*tags*/ "", GGM_TEST_TYPES())
+TEMPLATE_TEST_CASE("ggm::Vector::Vector4D", /*tags*/ "", GGM_TEST_TYPES())
 {
     using namespace ggm;
 

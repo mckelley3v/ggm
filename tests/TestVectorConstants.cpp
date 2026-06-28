@@ -10,7 +10,7 @@
 
 // =============================================================================
 
-TEMPLATE_TEST_CASE("Vector::TestVectorConstants::Zero", /*tags*/ "", GGM_NUMERIC_TEST_TYPES())
+TEMPLATE_TEST_CASE("ggm::Vector::VectorConstants - Zero", /*tags*/ "", GGM_NUMERIC_TEST_TYPES())
 {
     using namespace ggm;
 
@@ -25,7 +25,7 @@ TEMPLATE_TEST_CASE("Vector::TestVectorConstants::Zero", /*tags*/ "", GGM_NUMERIC
 
 // =============================================================================
 
-TEMPLATE_TEST_CASE("Vector::TestVectorConstants::Ones", /*tags*/ "", GGM_NUMERIC_TEST_TYPES())
+TEMPLATE_TEST_CASE("ggm::Vector::VectorConstants - Ones", /*tags*/ "", GGM_NUMERIC_TEST_TYPES())
 {
     using namespace ggm;
 
@@ -40,7 +40,7 @@ TEMPLATE_TEST_CASE("Vector::TestVectorConstants::Ones", /*tags*/ "", GGM_NUMERIC
 
 // =============================================================================
 
-TEMPLATE_TEST_CASE("Vector::TestVectorConstants::AxisX", /*tags*/ "", GGM_NUMERIC_TEST_TYPES())
+TEMPLATE_TEST_CASE("ggm::Vector::VectorConstants - AxisX", /*tags*/ "", GGM_NUMERIC_TEST_TYPES())
 {
     using namespace ggm;
 
@@ -55,7 +55,7 @@ TEMPLATE_TEST_CASE("Vector::TestVectorConstants::AxisX", /*tags*/ "", GGM_NUMERI
 
 // =============================================================================
 
-TEMPLATE_TEST_CASE("Vector::TestVectorConstants::AxisY", /*tags*/ "", GGM_NUMERIC_TEST_TYPES())
+TEMPLATE_TEST_CASE("ggm::Vector::VectorConstants - AxisY", /*tags*/ "", GGM_NUMERIC_TEST_TYPES())
 {
     using namespace ggm;
 
@@ -70,7 +70,7 @@ TEMPLATE_TEST_CASE("Vector::TestVectorConstants::AxisY", /*tags*/ "", GGM_NUMERI
 
 // =============================================================================
 
-TEMPLATE_TEST_CASE("Vector::TestVectorConstants::AxisZ", /*tags*/ "", GGM_NUMERIC_TEST_TYPES())
+TEMPLATE_TEST_CASE("ggm::Vector::VectorConstants - AxisZ", /*tags*/ "", GGM_NUMERIC_TEST_TYPES())
 {
     using namespace ggm;
 
@@ -83,7 +83,7 @@ TEMPLATE_TEST_CASE("Vector::TestVectorConstants::AxisZ", /*tags*/ "", GGM_NUMERI
 
 // =============================================================================
 
-TEMPLATE_TEST_CASE("Vector::TestVectorConstants::AxisW", /*tags*/ "", GGM_NUMERIC_TEST_TYPES())
+TEMPLATE_TEST_CASE("ggm::Vector::VectorConstants - AxisW", /*tags*/ "", GGM_NUMERIC_TEST_TYPES())
 {
     using namespace ggm;
 

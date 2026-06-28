@@ -8,7 +8,7 @@
 
 #include <type_traits>
 
-TEMPLATE_TEST_CASE("MatrixTransform::TestMatrixTransform::MatrixTransform2D", /*tags*/ "", GGM_TEST_TYPES())
+TEMPLATE_TEST_CASE("ggm::Matrix::MatrixTransform - MatrixTransform2D", /*tags*/ "", GGM_TEST_TYPES())
 {
     using namespace ggm;
 
@@ -30,7 +30,7 @@ TEMPLATE_TEST_CASE("MatrixTransform::TestMatrixTransform::MatrixTransform2D", /*
     STATIC_CHECK(offsetof(MatrixTransform2D<TestType>, m12) == 5 * sizeof(TestType));
 }
 
-TEMPLATE_TEST_CASE("MatrixTransform::TestMatrixTransform::MatrixTransform3D", /*tags*/ "", GGM_TEST_TYPES())
+TEMPLATE_TEST_CASE("ggm::Matrix::MatrixTransform - MatrixTransform3D", /*tags*/ "", GGM_TEST_TYPES())
 {
     using namespace ggm;
 

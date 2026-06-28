@@ -10,7 +10,7 @@
 
 // =============================================================================
 
-TEMPLATE_TEST_CASE("Matrix::TestMatrixConstants::Zero", /*tags*/ "", GGM_NUMERIC_TEST_TYPES())
+TEMPLATE_TEST_CASE("ggm::Matrix::MatrixConstants - Zero", /*tags*/ "", GGM_NUMERIC_TEST_TYPES())
 {
     using namespace ggm;
 
@@ -49,7 +49,7 @@ TEMPLATE_TEST_CASE("Matrix::TestMatrixConstants::Zero", /*tags*/ "", GGM_NUMERIC
 
 // =============================================================================
 
-TEMPLATE_TEST_CASE("Matrix::TestMatrixConstants::Identity", /*tags*/ "", GGM_NUMERIC_TEST_TYPES())
+TEMPLATE_TEST_CASE("ggm::Matrix::MatrixConstants - Identity", /*tags*/ "", GGM_NUMERIC_TEST_TYPES())
 {
     using namespace ggm;
 

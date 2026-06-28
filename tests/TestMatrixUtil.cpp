@@ -696,7 +696,7 @@ template ggm::Matrix4x4<bool> ggm::is_not_equal<float>(Matrix4x4<float> const & 
 
 // =============================================================================
 
-TEMPLATE_TEST_CASE("Matrix::TestMatrixUtil::operator==", /*tags*/ "", GGM_NUMERIC_TEST_TYPES())
+TEMPLATE_TEST_CASE("ggm::Matrix::MatrixUtil", /*tags*/ "", GGM_NUMERIC_TEST_TYPES())
 {
     using namespace ggm;
 

@@ -9,7 +9,7 @@
 
 // =============================================================================
 
-TEMPLATE_TEST_CASE("Numeric::TestNumericConstants::DefaultTolerance", /*tags*/ "", GGM_FLOAT_TEST_TYPES())
+TEMPLATE_TEST_CASE("ggm::Numeric::NumericConstants", /*tags*/ "", GGM_FLOAT_TEST_TYPES())
 {
     using namespace ggm;
 
