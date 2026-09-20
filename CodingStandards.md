@@ -1,4 +1,4 @@
-## Coding Standards
+## GGM Specific Coding Standards
 
 ### ggm
 The types in this library are intended to be compatible with passing to the GPU:
@@ -18,6 +18,8 @@ This library should be very easy to read and debug:
 * Avoiding code coupling is more important than avoiding code repetition.
   * (within reason of course)
 
+## General Coding Standards
+
 ### Types
 * Avoid nesting types
   * This prevents forward declarations
@@ -28,37 +30,64 @@ This library should be very easy to read and debug:
 * Prefer single-assignment style
   * Make local variables const by default
   * Use helper functions for complex initialization
+* Non-const global variables *strongly* discouraged
+  * this includes singletons
+* Global variables should not allocate
+  * avoid any allocations before `main()`
 
 ### Struct
 * no member functions
+  * allowed for operations that *must* be member functions, e.g. `operator()`, `operator=`
+  * be sure to use `this->` when accessing member variables so they are not confused with local variables
 * no private member variables
 * no const member variables
   * prevents copy/move
+  * pointers to const is okay
 * no reference member variables
   * prevents copy/move
 * static functions okay
   * prefer non-member functions
+  * static functions cannot be forward declared
+* no inheritance
+  * prefer composition
 
 ### Class
 * always define all constructors/assignment/destructors
   * an "= default" implementation is encouraged whenever possible
+* prefer `explicit` on non default constructors
+  * prevents accidental implicit conversions
+  * allowed for dedicated constructor helper structs, e.g. MyClassCreateInfo
 * no public member variables
 * avoid protected member variables
 * no const member variables
   * prevents copy/move
+  * pointers to const is okay
 * no reference member variables
   * prevents copy/move
 * be const correct
   * be mindful of multiple const levels for pointer types
+* inheritance allowed
+  * always define virtual destructor (or prevent deletion via base class)
+  * disable move/copy for non final classes to prevent slicing
 
 ### Exceptions
 * Be exception safe
   * Use classes to own resources (e.g. std\:\:unique_ptr)
   * Try to provide as strong of an exception guarantee as is reasonable
   * See [Exception safety](https://en.cppreference.com/w/cpp/language/exceptions.html#Exception_safety)
-* Exceptions may be thrown, but only for truly exceptional scenarios
+* Exceptions strongly discouraged
 * Prefer return values that communicate failure (e.g. std\:\:optional, std\:\:expected)
 * Catch exceptions by reference to avoid slicing and unnecessary copying
+
+### Memory/Resource safety
+* Avoid dynamic memory when not necessary
+  * e.g. don't use std::vector when the number of items is known at compile time
+  * e.g. don't use container types when a view is sufficient
+* Avoid std::malloc/free
+* Avoid using naked new/delete
+  * prefer using a managing object, e.g. std\:\:unique_ptr, std\:\:shared_ptr, std\:\:string, std\:\:vector
+* Wrap handle types with RAII managing objects
+  * e.g. FILE* should use std\:\:unique_ptr with a custom deleter that calls std\:\:fclose
 
 ### APIs
 * Inline function implementations are to be implemented at bottom of file
@@ -75,6 +104,8 @@ This library should be very easy to read and debug:
 * Avoid adding const to by-value return types
   * This prevents move and return-value-optimization
   * const reference is allowed and encouraged when appropriate
+* Try to avoid exposing implementation details
+  * e.g. getters usually can return a span/view instead of a container
 
 ### Macros
 * Macros should be avoided
@@ -93,6 +124,22 @@ This library should be very easy to read and debug:
       doMyDebugFeature();
   #endif
   ```
+* Prefer constexpr/consteval variables instead when possible:
+  ```
+  #ifndef NDEBUG
+  constexpr bool kEnableMyDebugFeature = false;
+  #else
+  constexpr bool kEnableMyDebugFeature = true;
+  #endif
+  ```
+  ```
+  if constexpr (kEnableMyDebugFeature)
+  {
+      doMyDebugFeature();
+  }
+  ```
+  * however this is not always possible, e.g. defining member variables based on whether an option is enabled
+    requires the preprocessor #if ... #endif
 
 ### Formatting
 
@@ -101,6 +148,7 @@ This library should be very easy to read and debug:
 * Enums are PascalCase
 * Abstract types are IPascalCase (i.e. 'I' prefix)
 * Public member variables are camelCase
+  * if used inside member function, prefix usage with `this->`
 * Private/Protected member variables are mPascalCase (i.e. 'm' prefix)
 * Public member functions are PascalCase
 * Private/Protected member functions are camelCase
